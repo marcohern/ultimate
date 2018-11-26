@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { UltimateCoreModule } from '../ultimate-core/ultimate-core.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -24,6 +25,7 @@ import { NotFoundPage } from './pages/not-found/not-found.page';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     UltimateCoreModule,
     HttpClientModule,
     RouterModule.forChild(routes)

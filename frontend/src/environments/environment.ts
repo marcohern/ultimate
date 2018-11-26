@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   api: {
     root:'http://localhost:8000/api',
+    oauth:'http://localhost:8000/oauth',
     id:2,
     secret: 'SxCSPqKoffHEplvdr6PMTTirxO2lUpBsGLxLjP4K'
   }
