@@ -1,4 +1,14 @@
 export const environment = {
   production: true,
-  apiroot: '/api'
+  api: {
+    root:'/api',
+    id:2,
+    secret: 'SxCSPqKoffHEplvdr6PMTTirxO2lUpBsGLxLjP4K'
+    //grant_type=password
+    //username=marcohern@gmail.com
+    //password=system
+    //scope=*
+    //client_id=2
+    //client_secret=SxCSPqKoffHEplvdr6PMTTirxO2lUpBsGLxLjP4K
+  }
 };

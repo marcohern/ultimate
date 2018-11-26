@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RequestService } from '../../../ultimate-core/srvs/request.service';
+import { User } from '../../../ultimate-core/models/user';
 
 @Component({
   selector: 'ult-auth-login',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private req:RequestService) { }
 
   ngOnInit() {
   }
 
+  requestLogin() {
+    console.log("requestLogin");
+
+    this.req.post<User>('/users',{}).subscribe(result => {
+      console.log(result);
+    });
+  }
 }

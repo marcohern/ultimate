@@ -4,7 +4,11 @@
 
 export const environment = {
   production: false,
-  apiroot: 'http://localhost:8000/api'
+  api: {
+    root:'http://localhost:8000/api',
+    id:2,
+    secret: 'SxCSPqKoffHEplvdr6PMTTirxO2lUpBsGLxLjP4K'
+  }
 };
 
 /*
