@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-public',
-  templateUrl: './public.component.html',
-  styleUrls: ['./public.component.css']
+  templateUrl: './public.page.html',
+  styleUrls: ['./public.page.css']
 })
-export class PublicComponent implements OnInit {
+export class PublicPage implements OnInit {
 
   constructor() { }
 

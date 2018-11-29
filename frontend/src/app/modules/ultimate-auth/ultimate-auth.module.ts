@@ -6,20 +6,20 @@ import { UltimateCoreModule } from '../ultimate-core/ultimate-core.module';
 import { HttpClientModule } from '@angular/common/http';
 
 import { LoginComponent } from './cmps/login/login.component';
-
-import { PrivateComponent } from './pages/private/private.component';
-import { PublicComponent } from './pages/public/public.component';
-import { LoginPage } from './pages/login/login.page';
+import { RegisterComponent } from './cmps/register/register.component';
 
 import { routes } from './routes';
-import { RegisterComponent } from './cmps/register/register.component';
+
+import { LoginPage } from './pages/login/login.page';
 import { RegisterPage } from './pages/register/register.page';
 import { NotFoundPage } from './pages/not-found/not-found.page';
+import { PrivatePage } from './pages/private/private.page';
+import { PublicPage } from './pages/public/public.page';
 
 @NgModule({
   declarations: [
     LoginComponent,
-    PrivateComponent, PublicComponent, RegisterComponent,
+    PrivatePage, PublicPage, RegisterComponent,
     
     LoginPage, RegisterPage, NotFoundPage
   ],

@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PublicComponent } from './modules/ultimate-auth/pages/public/public.component';
+import { PublicPage } from './modules/ultimate-auth/pages/public/public.page';
 
 const routes: Routes = [
-  {path:'', component: PublicComponent},
+  {path:'', component: PublicPage},
   {path: '*', redirectTo: '/notfound'},
 ];
 
