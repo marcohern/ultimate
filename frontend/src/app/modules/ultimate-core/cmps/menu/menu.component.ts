@@ -20,23 +20,44 @@ export class MenuComponent implements OnInit {
   public menu:any[] = [];
 
   ngOnInit() {
+    this.createMenu(this.items);
+  }
+
+  createSubMenu(sparent:MenuItem, dparent:any) {
+    dparent.dropdown = (sparent.children.length > 0) ? true : false;
+    for (let k of sparent.children) {
+      var c = {
+        label: k.label,
+        divider: false,
+        enabled: false,
+        dropdown: false,
+        path: k.path,
+        disableClass: ''
+      };
+      c.divider = (k.label == '-') ? true : false;
+      dparent.children.push(c);
+    }
+  }
+
+  createMenu(items:MenuItem[]) {
     var j=1;
     for(let i of this.items) {
 
       var m = {
         id: j,
         label: i.label,
-        divider: false,
         enabled: false,
         dropdown: false,
-        children: i.children,
-        path: i.path,
+        children: [],
+        path: null,
         disableClass: ''
       };
+      m.path = (i.path) ? i.path : null;
       m.enabled = (typeof i.enabled === 'undefined') ? true : (i.enabled === true) ? true : false;
-      m.divider = (i.label == '-') ? true : false;
-      m.dropdown = (i.children && i.children.length > 0) ? true : false;
       m.disableClass = (m.enabled) ? '' : 'disabled';
+      if (i.children) {
+        this.createSubMenu(i, m);
+      }
       console.log(i,m.disableClass);
 
       this.menu.push(m);
