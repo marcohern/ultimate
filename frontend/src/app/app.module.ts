@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { UltimateAuthModule } from './modules/ultimate-auth/ultimate-auth.module';
 
 import { AppComponent } from './app.component';
-
+import { UltimateCoreModule } from './modules/ultimate-core/ultimate-core.module';
 
 @NgModule({
   declarations: [
@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    UltimateCoreModule,
     UltimateAuthModule
   ],
   providers: [],
