@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MenuItem } from '../../models/menu-item';
+import { MenuOptions } from '../../models/menu-options';
 
 @Component({
   selector: 'ultimate-menu',
@@ -16,6 +17,11 @@ export class MenuComponent implements OnInit {
 
   @Input()
   public items:MenuItem[] = [];
+
+  @Input()
+  public options:MenuOptions = {
+    search: false
+  };
 
   public menu:any[] = [];
 

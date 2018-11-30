@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { RequestService } from './srvs/request.service';
 import { MenuComponent } from './cmps/menu/menu.component';
 
-
 @NgModule({
   declarations: [MenuComponent],
   imports: [

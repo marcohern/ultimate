@@ -1,14 +1,17 @@
 import { MenuItem } from "./modules/ultimate-core/models/menu-item";
+import { MenuOptions } from "./modules/ultimate-core/models/menu-options";
 
 export const menu:MenuItem[] = [
-    {label:'Home',  path:['/']},
-    {label:'Login', path:['/login']},
-    {label:'Dropdown', children: [
-        {label:'Who we are',path:['who']},
-        {label:'What we do',path:['what']},
+    {label:'Home', path:['/']},
+    {label:'Auth', children: [
+        {label:'Login',path:['login']},
+        {label:'Register',path:['register']},
         {label:'-'},
-        {label:'Where we are',path:['where']},
+        {label:'Invite',path:['invite']},
     ]},
     {label:'Services',path:['services']}
-    
 ];
+
+export const menuOptions:MenuOptions = {
+    search: false
+};

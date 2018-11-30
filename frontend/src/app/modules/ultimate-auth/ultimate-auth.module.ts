@@ -15,13 +15,15 @@ import { RegisterPage } from './pages/register/register.page';
 import { NotFoundPage } from './pages/not-found/not-found.page';
 import { PrivatePage } from './pages/private/private.page';
 import { PublicPage } from './pages/public/public.page';
+import { InviteComponent } from './cmps/invite/invite.component';
+import { InvitePage } from './pages/invite/invite.page';
 
 @NgModule({
   declarations: [
-    LoginComponent,
-    PrivatePage, PublicPage, RegisterComponent,
-    
-    LoginPage, RegisterPage, NotFoundPage
+    LoginComponent, InviteComponent, RegisterComponent,
+
+    PrivatePage, PublicPage, InvitePage, 
+    LoginPage, RegisterPage, NotFoundPage, 
   ],
   imports: [
     CommonModule,
