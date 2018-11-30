@@ -33,6 +33,7 @@ export class MenuComponent implements OnInit {
   logout() {
     this.req.logout().subscribe(result => {
       console.log(result);
+      this.req.clearToken();
     });
   }
 

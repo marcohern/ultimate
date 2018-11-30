@@ -32,14 +32,14 @@ export class TokenServiceBase extends RequestServiceBase {
     /**
      * Save the state to Session Storage
      */
-    public saveToken() {
+    private saveToken() {
         window.sessionStorage.setItem(TokenServiceBase.tokenId, this.token);
     }
 
     /**
      * Remove the state to Session Storage
      */
-    public deleteToken() {
+    private deleteToken() {
         window.sessionStorage.removeItem(TokenServiceBase.tokenId);
     }
 
