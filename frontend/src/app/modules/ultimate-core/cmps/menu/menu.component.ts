@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MenuItem } from '../../models/menu-item';
 import { MenuOptions } from '../../models/menu-options';
+import { RequestService } from '../../srvs/request.service';
 
 @Component({
   selector: 'ultimate-menu',
@@ -10,7 +11,7 @@ import { MenuOptions } from '../../models/menu-options';
 export class MenuComponent implements OnInit {
 
   
-  constructor() { }
+  constructor(private req:RequestService) { }
 
   @Input()
   public title = '[Title]';
@@ -27,6 +28,12 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
     this.createMenu(this.items);
+  }
+
+  logout() {
+    this.req.logout().subscribe(result => {
+      console.log(result);
+    });
   }
 
   createSubMenu(sparent:MenuItem, dparent:any) {

@@ -1,9 +1,12 @@
 import { TokenServiceBase } from "./token-service-base";
 
 export class QueryStringBase extends TokenServiceBase {
-    
 
-  protected getQueryString(object:any) {
+    public constructor() {
+        super();
+    }
+
+    protected getQueryString(object:any) {
         var qs:string = '';
         var i = 0;
         for (let key in object) {

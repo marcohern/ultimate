@@ -23,6 +23,9 @@
           <a class="nav-link" [ngClass]="disableClass" [routerLink]="item.path">{{item.label}}</a>
         </li>
       </ng-container>
+      <li *ngIf="!req.isAuthenticated" class="nav-item">
+        <button class="btn btn-danger" (click)="logout()">Logout</button>
+      </li>
     </ul>
     <form *ngIf="options.search" class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

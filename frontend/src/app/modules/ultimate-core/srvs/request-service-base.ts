@@ -1,22 +1,59 @@
 import { Observable, throwError } from "rxjs";
 import { environment } from "src/environments/environment";
-import { HttpHeaders, HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { HttpErrorResponse } from "@angular/common/http";
 
+/**
+ * Base utility methods for the request service 
+ */
 export class RequestServiceBase {
-    public requesting:boolean = false;
 
+
+    private _requestCount:number = 0;
+
+    /**
+     * True if there is a request currently running, false otherwise.
+     */
+    public isRequesting():boolean {
+        get: {
+            return (this._requestCount > 0);
+        }
+    };
+
+    public requestCount(): number {
+        get: {
+            return this._requestCount;
+        }
+    }
+
+    protected increaseRequestCount() {
+        this._requestCount++;
+    }
+
+    protected decreaseRequestCount() {
+        this._requestCount--;
+    }
+
+    /**
+     * Generate the fully qualified URL to the API
+     * @param endpoint Local Url Endpoint
+     */
     protected url(endpoint:string):string {
         return environment.api.root + endpoint;
     }
   
+    /**
+     * Generate the fully qualified URL to the OAUTH (Passport)
+     * @param endpoint Local Url Endpoint
+     */
     protected oauth(endpoint:string):string {
         return environment.api.oauth + endpoint;
     }
-  
-    protected updateRequesting(value:boolean) {
-      this.requesting = value;
-    }
 
+    /**
+     * Executed when an error occurs during a remote call
+     * @param operation Reference to operation being executed
+     * @param result Result required
+     */
     protected handleError<T>(operation:string = 'operation', result?: T) {
         return (err:HttpErrorResponse): Observable<T> => {
             console.error(err);
@@ -27,7 +64,17 @@ export class RequestServiceBase {
         }
     }
     
+    /**
+     * Executes whenever an a request is complete, regardless of error
+     */
     protected completed() {
-        this.updateRequesting(false);
+        this.decreaseRequestCount();
+    }
+
+    /**
+     * Executes before a request is about to begin.
+     */
+    protected beforeBegin() {
+        this.increaseRequestCount();
     }
 }
