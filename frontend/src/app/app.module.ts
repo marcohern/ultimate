@@ -6,6 +6,7 @@ import { UltimateAuthModule } from './modules/ultimate-auth/ultimate-auth.module
 
 import { AppComponent } from './app.component';
 import { UltimateCoreModule } from './modules/ultimate-core/ultimate-core.module';
+import { UltimateUsersModule } from './modules/ultimate-users/ultimate-users.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { UltimateCoreModule } from './modules/ultimate-core/ultimate-core.module
     BrowserModule,
     AppRoutingModule,
     UltimateCoreModule,
-    UltimateAuthModule
+    UltimateAuthModule,
+    UltimateUsersModule
   ],
   providers: [],
   bootstrap: [AppComponent]

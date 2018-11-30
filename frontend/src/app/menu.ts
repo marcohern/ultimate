@@ -6,8 +6,9 @@ export const menu:MenuItem[] = [
     {label:'Auth', children: [
         {label:'Login',path:['login']},
         {label:'Register',path:['register']},
-        {label:'-'},
         {label:'Invite',path:['invite']},
+        {label:'-'},
+        {label:'Users',path:['users']},
     ]},
     {label:'Services',path:['services']}
 ];
