@@ -5,9 +5,10 @@ import { RouterModule } from '@angular/router';
 import { UltimateCoreModule } from '../ultimate-core/ultimate-core.module';
 
 import { routes } from './routes';
+import { UserEditComponent } from './cmps/user-edit/user-edit.component';
 
 @NgModule({
-  declarations: [UserListComponent],
+  declarations: [UserListComponent, UserEditComponent],
   imports: [
     CommonModule,
     UltimateCoreModule,

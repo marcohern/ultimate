@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { InvitePage } from './invite.page';
 
-describe('InviteComponent', () => {
+describe('InvitePage', () => {
   let component: InvitePage;
   let fixture: ComponentFixture<InvitePage>;
 

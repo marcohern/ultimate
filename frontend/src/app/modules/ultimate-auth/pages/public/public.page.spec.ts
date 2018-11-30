@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PublicPage } from './public.page';
 
-describe('PublicComponent', () => {
+describe('PublicPage', () => {
   let component: PublicPage;
   let fixture: ComponentFixture<PublicPage>;
 

@@ -9,6 +9,9 @@ export const menu:MenuItem[] = [
         {label:'Invite',path:['invite']},
         {label:'-'},
         {label:'Users',path:['users']},
+        {label:'-'},
+        {label:'Private',path:['private']},
+        {label:'Public',path:['public']},
     ]},
     {label:'Services',path:['services']}
 ];

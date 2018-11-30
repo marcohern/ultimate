@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NotFoundPage } from './not-found.page';
+import { UserEditPage } from './user-edit.page';
 
-describe('NotFoundPage', () => {
-  let component: NotFoundPage;
-  let fixture: ComponentFixture<NotFoundPage>;
+describe('UserEditPage', () => {
+  let component: UserEditPage;
+  let fixture: ComponentFixture<UserEditPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NotFoundPage ]
+      declarations: [ UserEditPage ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NotFoundPage);
+    fixture = TestBed.createComponent(UserEditPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
