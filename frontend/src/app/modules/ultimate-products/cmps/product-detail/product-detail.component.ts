@@ -28,6 +28,18 @@ export class ProductDetailComponent implements OnInit {
 
   images:GALLERY_IMAGE[] = [
     {
+      url: "/assets/htc-vive-01.jpg", 
+      altText: 'HTC Vive', 
+      title: 'HTC Vive',
+      thumbnailUrl: "/assets/htc-vive-01-t.jpg", 
+    },
+    {
+      url: "/assets/htc-vive-02.jpg", 
+      altText: 'HTC Vive', 
+      title: 'HTC Vive',
+      thumbnailUrl: "/assets/htc-vive-02-t.jpg", 
+    },
+    {
       url: "https://images.pexels.com/photos/669013/pexels-photo-669013.jpeg?w=1260", 
       altText: 'woman-in-black-blazer-holding-blue-cup', 
       title: 'woman-in-black-blazer-holding-blue-cup',
@@ -53,6 +65,7 @@ export class ProductDetailComponent implements OnInit {
     imageOffset: '0px',
     showDeleteControl: false,
     showImageTitle: false,
+    showCloseControl: false,
     inline:true,
     backdropColor:"rgba(0,0,0,0)"
   };
