@@ -1,6 +1,6 @@
 import { Routes } from "@angular/router";
-import { UserListComponent } from "./cmps/user-list/user-list.component";
+import { UserListPage } from "./pages/user-list/user-list.page";
 
 export const routes:Routes = [
-    {path:'users', component: UserListComponent }
+    {path:'users', component: UserListPage }
 ];

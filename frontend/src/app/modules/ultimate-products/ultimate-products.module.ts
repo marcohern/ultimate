@@ -9,7 +9,7 @@ import { ProductDetailComponent } from './cmps/product-detail/product-detail.com
 
 import { ProductListPage } from './pages/product-list/product-list.page';
 import { ProductDetailPage } from './pages/product-detail/product-detail.page';
-
+import { routes } from '../ultimate-products/routes';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,8 @@ import { ProductDetailPage } from './pages/product-detail/product-detail.page';
     CommonModule,
     RouterModule,
     UltimateCoreModule,
-    NgxImageGalleryModule
+    NgxImageGalleryModule,
+    RouterModule.forChild(routes)
   ]
 })
 export class UltimateProductsModule { }

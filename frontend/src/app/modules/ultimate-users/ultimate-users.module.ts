@@ -6,9 +6,13 @@ import { UltimateCoreModule } from '../ultimate-core/ultimate-core.module';
 
 import { routes } from './routes';
 import { UserEditComponent } from './cmps/user-edit/user-edit.component';
+import { UserListPage } from './pages/user-list/user-list.page';
 
 @NgModule({
-  declarations: [UserListComponent, UserEditComponent],
+  declarations: [
+    UserListComponent, UserEditComponent,
+    UserListPage
+  ],
   imports: [
     CommonModule,
     UltimateCoreModule,
