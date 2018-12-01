@@ -7,12 +7,12 @@ export const menu:MenuItem[] = [
         {label:'Login',path:['login']},
         {label:'Register',path:['register']},
         {label:'Invite',path:['invite']},
-        {label:'-'},
-        {label:'Users',path:['users']},
-        {label:'-'},
         {label:'Private',path:['private']},
         {label:'Public',path:['public']},
-        {label:'Product',path:['product']},
+        {label:'-'},
+        {label:'Users',path:['users']},
+        {label:'Product List',path:['products']},
+        {label:'Product Detail',path:['product']},
     ]},
     {label:'Services',path:['services']}
 ];
