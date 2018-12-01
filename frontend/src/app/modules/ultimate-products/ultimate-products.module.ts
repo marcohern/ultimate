@@ -6,16 +6,19 @@ import { NgxImageGalleryModule } from 'ngx-image-gallery';
 
 import { ProductItemComponent } from './cmps/product-item/product-item.component';
 import { ProductDetailComponent } from './cmps/product-detail/product-detail.component';
+import { ProductFormComponent } from './cmps/product-form/product-form.component';
 
 import { ProductListPage } from './pages/product-list/product-list.page';
 import { ProductDetailPage } from './pages/product-detail/product-detail.page';
-import { routes } from '../ultimate-products/routes';
+import { ProductEditPage } from './pages/product-edit/product-edit.page';
+
+import { routes } from './routes';
 
 @NgModule({
   declarations: [
-    ProductItemComponent, ProductDetailComponent,
+    ProductItemComponent, ProductDetailComponent, ProductFormComponent,
   
-    ProductListPage, ProductDetailPage
+    ProductListPage, ProductDetailPage, ProductEditPage
   ],
   imports: [
     CommonModule,

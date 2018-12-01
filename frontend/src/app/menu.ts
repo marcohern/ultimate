@@ -13,6 +13,7 @@ export const menu:MenuItem[] = [
         {label:'Users',path:['users']},
         {label:'Product List',path:['products']},
         {label:'Product Detail',path:['product']},
+        {label:'Product Edit',path:['product/add']},
     ]},
     {label:'Services',path:['services']}
 ];
