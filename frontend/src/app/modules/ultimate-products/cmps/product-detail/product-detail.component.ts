@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Product } from 'src/app/modules/ultimate-core/models/product';
+import { GALLERY_IMAGE, GALLERY_CONF, NgxImageGalleryComponent } from 'ngx-image-gallery';
 
 @Component({
   selector: 'ult-product-detail',
@@ -25,10 +26,92 @@ export class ProductDetailComponent implements OnInit {
       +'<p>swine tongue pork chop, boudin pork belly porchetta picanha buffalo doner ham flank meatloaf chuck. Ham hock doner flank, turkey tail chuck pastrami short loin shoulder pork chop bacon frankfurter. Cupim sausage pork leberkas alcatra corned beef turducken ball tip rump shankle chicken spare ribs tenderloin jowl prosciutto. Filet mignon cow meatloaf drumstick pork chop pancetta. Jerky chuck biltong, sausage alcatra t-bone pastrami capicola bacon beef ribeye tongue.</p>',
   };
 
+  images:GALLERY_IMAGE[] = [
+    {
+      url: "https://images.pexels.com/photos/669013/pexels-photo-669013.jpeg?w=1260", 
+      altText: 'woman-in-black-blazer-holding-blue-cup', 
+      title: 'woman-in-black-blazer-holding-blue-cup',
+      thumbnailUrl: "https://images.pexels.com/photos/669013/pexels-photo-669013.jpeg?w=60"
+    },
+    {
+      url: "https://images.pexels.com/photos/669006/pexels-photo-669006.jpeg?w=1260", 
+      altText: 'two-woman-standing-on-the-ground-and-staring-at-the-mountain', 
+      title: 'two-woman-standing-on-the-ground-and-staring-at-the-mountain', 
+      //extUrl: 'https://www.pexels.com/photo/two-woman-standing-on-the-ground-and-staring-at-the-mountain-669006/',
+      thumbnailUrl: "https://images.pexels.com/photos/669006/pexels-photo-669006.jpeg?w=60"
+    },
+    {
+      url: "https://images.pexels.com/photos/1640776/pexels-photo-1640776.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", 
+      altText: 'three-jars-of-fruits-and-veggies', 
+      title: 'three-jars-of-fruits-and-veggies', 
+      //extUrl: 'https://www.pexels.com/photo/two-woman-standing-on-the-ground-and-staring-at-the-mountain-669006/',
+      thumbnailUrl: "https://images.pexels.com/photos/1640776/pexels-photo-1640776.jpeg?w=60"
+    },
+  ];
+
+  conf:GALLERY_CONF = {
+    imageOffset: '0px',
+    showDeleteControl: false,
+    showImageTitle: false,
+    inline:true,
+    backdropColor:"rgba(0,0,0,0)"
+  };
+
+  @ViewChild(NgxImageGalleryComponent) ngxImageGallery: NgxImageGalleryComponent;
+
   constructor() { }
 
+  // open gallery
+  openGallery(index: number = 0) {
+    this.ngxImageGallery.open(index);
+  }
+	
+  // close gallery
+  closeGallery() {
+    this.ngxImageGallery.close();
+  }
+	
+  // set new active(visible) image in gallery
+  newImage(index: number = 0) {
+    this.ngxImageGallery.setActiveImage(index);
+  }
+	
+  // next image in gallery
+  nextImage(index: number = 0) {
+    this.ngxImageGallery.next();
+  }
+	
+  // prev image in gallery
+  prevImage(index: number = 0) {
+    this.ngxImageGallery.prev();
+  }
+
+  galleryOpened(index) {
+    console.info('Gallery opened at index ', index);
+  }
+
+  // callback on gallery closed
+  galleryClosed() {
+    console.info('Gallery closed.');
+  }
+
+  // callback on gallery image clicked
+  galleryImageClicked(index) {
+    console.info('Gallery image clicked with index ', index);
+  }
+  
+  // callback on gallery image changed
+  galleryImageChanged(index) {
+    console.info('Gallery image changed to index ', index);
+  }
+
+  // callback on user clicked delete button
+  deleteImage(index) {
+    console.info('Delete image at index ', index);
+  }
+
   ngOnInit() {
-    
+
   }
 
 }
