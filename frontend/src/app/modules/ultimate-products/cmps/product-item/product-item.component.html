@@ -1,7 +1,9 @@
 <div class="card">
   <div class="card-body">
+    <div class="card-header" style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;">
+        <a [routerLink]="['/product',product.slug]">{{product.name}}</a>
+    </div>
     <img class="card-img-top" src="/assets/product.png" alt="Priduct">
-    <p class="card-title"><a [routerLink]="['/product',product.slug]">{{product.name}}</a></p>
     <div>
       <span *ngIf="false" class="badge badge-pill badge-dark">New</span>
       <span *ngIf="product.dct_price" class="badge badge-pill badge-dark">Special Offer</span>
