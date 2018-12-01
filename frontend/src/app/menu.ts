@@ -12,6 +12,7 @@ export const menu:MenuItem[] = [
         {label:'-'},
         {label:'Private',path:['private']},
         {label:'Public',path:['public']},
+        {label:'Product',path:['product']},
     ]},
     {label:'Services',path:['services']}
 ];

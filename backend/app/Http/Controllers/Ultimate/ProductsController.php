@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Ultimate\Product;
+use Illuminate\Support\Facades\DB;
 
 class ProductsController extends Controller
 {
@@ -21,9 +22,14 @@ class ProductsController extends Controller
     public function index(Request $r)
     {
         $q = '';
+        $category_id = null;
         if ($r->has('q')) $q=$r->q;
+        if ($r->has('category_id')) $category_id=$r->category_id;
 
-        $query = DB::table('products');
+        $query = Product::select('id','name','slug','org_price','dct_price','active','stars');
+        if (!empty($category_id)) {
+            //$query->
+        }
         if (!empty($q)) $query->where('name','LIKE',"%$q%");
         $products = $query->paginate(50);
         return $products;

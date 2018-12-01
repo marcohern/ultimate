@@ -5,8 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { UltimateAuthModule } from './modules/ultimate-auth/ultimate-auth.module';
 
 import { AppComponent } from './app.component';
+
 import { UltimateCoreModule } from './modules/ultimate-core/ultimate-core.module';
 import { UltimateUsersModule } from './modules/ultimate-users/ultimate-users.module';
+import { UltimateProductsModule } from './modules/ultimate-products/ultimate-products.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { UltimateUsersModule } from './modules/ultimate-users/ultimate-users.mod
     AppRoutingModule,
     UltimateCoreModule,
     UltimateAuthModule,
-    UltimateUsersModule
+    UltimateUsersModule,
+    UltimateProductsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
