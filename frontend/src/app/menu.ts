@@ -10,12 +10,13 @@ export const menu:MenuItem[] = [
         {label:'Private',path:['private']},
         {label:'Public',path:['public']},
         {label:'-'},
-        {label:'Users',path:['users']},
-        {label:'Product List',path:['products']},
-        {label:'Product Detail',path:['product']},
-        {label:'Product Edit',path:['product/add']},
     ]},
-    {label:'Services',path:['services']}
+    {label:'Users', path:['users']},
+    {label:'Product', children:[
+        {label:'List',path:['products']},
+        {label:'Detail',path:['product']},
+        {label:'Edit',path:['product/add']},
+    ]}
 ];
 
 export const menuOptions:MenuOptions = {
