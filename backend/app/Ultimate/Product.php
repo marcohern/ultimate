@@ -13,4 +13,8 @@ class Product extends Model
         'dct_price' => 'double',
         'stars' => 'double',
     ];
+
+    public function productCategories() {
+        return $this->hasMany('App\Ultimate\ProductCategory');
+    }
 }

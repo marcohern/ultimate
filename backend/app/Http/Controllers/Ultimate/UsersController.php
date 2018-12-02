@@ -52,7 +52,7 @@ class UsersController extends Controller
 
         return [
             'success' => true,
-            'user_id' => $user->id,
+            'id' => $user->id,
         ];
     }
 

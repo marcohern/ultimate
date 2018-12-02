@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Ultimate\Product;
+use App\Http\Requests\Ultimate\ProductCreateRequest;
 use Illuminate\Support\Facades\DB;
 
 class ProductsController extends Controller
@@ -26,45 +27,54 @@ class ProductsController extends Controller
         if ($r->has('q')) $q=$r->q;
         if ($r->has('category_id')) $category_id=$r->category_id;
 
-        $query = Product::select('id','name','slug','org_price','dct_price','active','stars');
+        $query = DB::table('products AS p')
+            ->select('p.id','p.name','p.slug','p.org_price','p.dct_price','p.active','p.stars')
+            ->distinct()
+            ->join('product_categories AS pc', 'p.id', '=','pc.product_id')
+            ->join('categories AS c', 'pc.category_id', '=','c.id');
         if (!empty($category_id)) {
-            //$query->
+            $query->where('c.id', '=', $category_id);
         }
-        if (!empty($q)) $query->where('name','LIKE',"%$q%");
+        //if (!empty($q)) $query->where('name','LIKE',"%$q%");
         $products = $query->paginate(50);
         return $products;
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\ProductCreateRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductCreateRequest $request)
     {
         //
+        $input = (object)$request->all();
+
+        $product = new Product;
+        $product->name = $input->name;
+        $product->slug = $input->slug;
+        $product->description = $input->description;
+        $product->org_price = $input->org_price;
+        $product->dct_price = ($request->has('dct_price')) ? $input->dct_price : null;
+        $product->active = true;
+        $product->save();
+
+        return [
+            'success' => true,
+            'id' => $product->id,
+        ];
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  App\Ultimate\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Product $product)
     {
-        //
+        return $product;
     }
 
     /**
