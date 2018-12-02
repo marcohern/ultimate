@@ -15,12 +15,16 @@ import { HeaderCultureComponent } from './cmps/header-culture/header-culture.com
 import { SliderComponent } from './cmps/slider/slider.component';
 import { ProductHotComponent } from './cmps/product-hot/product-hot.component';
 import { ProductItemComponent } from './cmps/product-item/product-item.component';
-
-import { IndexPage } from './pages/index/index.page';
 import { ProductsNewComponent } from './cmps/products-new/products-new.component';
 import { FooterComponent } from './cmps/footer/footer.component';
 import { ProductsBestsellersComponent } from './cmps/products-bestsellers/products-bestsellers.component';
 import { ProductItemDivComponent } from './cmps/product-item-div/product-item-div.component';
+import { BannerMidComponent } from './cmps/banner-mid/banner-mid.component';
+
+import { IndexPage } from './pages/index/index.page';
+import { ProductsFeaturedComponent } from './cmps/products-featured/products-featured.component';
+import { HeaderNavDropdownComponent } from './cmps/header-nav-dropdown/header-nav-dropdown.component';
+import { MobileMenuComponent } from './cmps/mobile-menu/mobile-menu.component';
 
 @NgModule({
   declarations: [
@@ -35,13 +39,21 @@ import { ProductItemDivComponent } from './cmps/product-item-div/product-item-di
     HeaderLogoComponent,
     HeaderCultureComponent,
     SliderComponent,
-    IndexPage,
     ProductHotComponent,
     ProductItemComponent,
     ProductsNewComponent,
     FooterComponent,
     ProductsBestsellersComponent,
     ProductItemDivComponent,
+    BannerMidComponent,
+    
+    IndexPage,
+    
+    ProductsFeaturedComponent,
+    
+    HeaderNavDropdownComponent,
+    
+    MobileMenuComponent,
   ],
   imports: [
     BrowserModule,
