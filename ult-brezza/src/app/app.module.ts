@@ -25,6 +25,7 @@ import { IndexPage } from './pages/index/index.page';
 import { ProductsFeaturedComponent } from './cmps/products-featured/products-featured.component';
 import { HeaderNavDropdownComponent } from './cmps/header-nav-dropdown/header-nav-dropdown.component';
 import { MobileMenuComponent } from './cmps/mobile-menu/mobile-menu.component';
+import { ProductsLatestComponent } from './cmps/products-latest/products-latest.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,8 @@ import { MobileMenuComponent } from './cmps/mobile-menu/mobile-menu.component';
     HeaderNavDropdownComponent,
     
     MobileMenuComponent,
+    
+    ProductsLatestComponent,
   ],
   imports: [
     BrowserModule,
