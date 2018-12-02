@@ -18,6 +18,9 @@ import { ProductItemComponent } from './cmps/product-item/product-item.component
 
 import { IndexPage } from './pages/index/index.page';
 import { ProductsNewComponent } from './cmps/products-new/products-new.component';
+import { FooterComponent } from './cmps/footer/footer.component';
+import { ProductsBestsellersComponent } from './cmps/products-bestsellers/products-bestsellers.component';
+import { ProductItemDivComponent } from './cmps/product-item-div/product-item-div.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,9 @@ import { ProductsNewComponent } from './cmps/products-new/products-new.component
     ProductHotComponent,
     ProductItemComponent,
     ProductsNewComponent,
+    FooterComponent,
+    ProductsBestsellersComponent,
+    ProductItemDivComponent,
   ],
   imports: [
     BrowserModule,
