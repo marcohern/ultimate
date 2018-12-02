@@ -19,7 +19,8 @@ class UsersController extends Controller
 
     /**
      * Display a listing of the resource.
-     *
+     * 
+     * @param App\Http\Requests\Ultimate\UserQueryRequest $r
      * @return \Illuminate\Http\Response
      */
     public function index(UserQueryRequest $r)
@@ -37,7 +38,7 @@ class UsersController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Requests\Ultimate\UserCreateRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(UserCreateRequest $request)
@@ -88,7 +89,7 @@ class UsersController extends Controller
         
         return [
             'success' => true,
-            'user_id' => $user->id,
+            'id' => $user->id,
         ];
     }
 
@@ -104,7 +105,7 @@ class UsersController extends Controller
         $user->delete($user->id);
         return [
             'success' => true,
-            'user_id' => $id,
+            'id' => $id,
         ];
     }
 }

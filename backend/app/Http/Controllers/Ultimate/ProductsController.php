@@ -78,26 +78,27 @@ class ProductsController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\ProductCreateRequest  $request
+     * @param  Product  $oroduct
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductCreateRequest $request,Product $oroduct)
     {
-        //
+        $input = (object)$request->all();
+        if ($request->has('name'       )) $product->name        = $input->name;
+        if ($request->has('slug'       )) $product->slug        = $input->slug;
+        if ($request->has('description')) $product->description = $input->description;
+        if ($request->has('org_price'  )) $product->org_price   = $input->org_price;
+        if ($request->has('dct_price'  )) $product->dct_price   = $input->dct_price;
+        if ($request->has('active'     )) $product->active      = $input->active;
+        $product->save();
+
+        return [
+            'success' => true,
+            'id' => $product->id,
+        ];
     }
 
     /**
@@ -106,8 +107,13 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Product $oroduct)
     {
-        //
+        $id = $oroduct->id;
+        $oroduct->delete($id);
+        return [
+            'success' => true,
+            'id' => $id,
+        ];
     }
 }
