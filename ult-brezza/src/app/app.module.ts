@@ -10,6 +10,8 @@ import { HeaderToplinksComponent } from './cmps/header-toplinks/header-toplinks.
 import { HeaderSearchboxComponent } from './cmps/header-searchbox/header-searchbox.component';
 import { HeaderTopcartComponent } from './cmps/header-topcart/header-topcart.component';
 import { HeaderNavigationComponent } from './cmps/header-navigation/header-navigation.component';
+import { HeaderLogoComponent } from './cmps/header-logo/header-logo.component';
+import { HeaderCultureComponent } from './cmps/header-culture/header-culture.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { HeaderNavigationComponent } from './cmps/header-navigation/header-navig
     HeaderToplinksComponent,
     HeaderSearchboxComponent,
     HeaderTopcartComponent,
-    HeaderNavigationComponent
+    HeaderNavigationComponent,
+    HeaderLogoComponent,
+    HeaderCultureComponent
   ],
   imports: [
     BrowserModule,
