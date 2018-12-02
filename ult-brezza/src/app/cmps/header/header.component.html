@@ -1,3 +1,44 @@
-<p>
-  header works!
-</p>
+<header>
+    <div class="header-container">
+        <div class="header-top">
+            <div class="container">
+                <div class="row"> 
+                    <div class="col-xs-12 col-sm-6">
+                        <brezza-header-language></brezza-header-language>
+                        <brezza-header-currency></brezza-header-currency>
+                        <div class="welcome-msg">Default welcome msg!</div>
+                    </div>
+                    <div class="col-xs-6 hidden-xs">
+                        <brezza-header-toplinks></brezza-header-toplinks>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 logo-block"> 
+                    <!-- Header Logo -->
+                    <div class="logo"><a href="index.html"><img alt="Brezza logo" src="assets/images/logo.png"></a></div>
+                    <!-- End Header Logo --> 
+                </div>
+                <div class="col-lg-5 col-md-4 col-sm-4 col-xs-12 hidden-xs">
+                    <brezza-header-searchbox></brezza-header-searchbox>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 padding-l">
+                    <a href="compare.html" class="top-link-compare hidden-xs">
+                        <i class="compare"></i>
+                    </a>
+                    <a href="wishlist.html" class="top-link-wishlist hidden-xs">
+                        <i class="fa fa-heart"></i>
+                    </a>
+                    <div class="top-cart-contain pull-right"> 
+                        <brezza-header-topcart></brezza-header-topcart>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End header --> 
+
+    <brezza-header-navigation></brezza-header-navigation>
+</header>
