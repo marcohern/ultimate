@@ -12,6 +12,9 @@ import { HeaderTopcartComponent } from './cmps/header-topcart/header-topcart.com
 import { HeaderNavigationComponent } from './cmps/header-navigation/header-navigation.component';
 import { HeaderLogoComponent } from './cmps/header-logo/header-logo.component';
 import { HeaderCultureComponent } from './cmps/header-culture/header-culture.component';
+import { SliderComponent } from './cmps/slider/slider.component';
+
+import { IndexPage } from './pages/index/index.page';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { HeaderCultureComponent } from './cmps/header-culture/header-culture.com
     HeaderTopcartComponent,
     HeaderNavigationComponent,
     HeaderLogoComponent,
-    HeaderCultureComponent
+    HeaderCultureComponent,
+    SliderComponent,
+    IndexPage
   ],
   imports: [
     BrowserModule,
