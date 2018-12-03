@@ -29,10 +29,20 @@ import { NavMenuitemLargeComponent } from './cmps/nav-menuitem-large/nav-menuite
 import { NavMenuitemWide4Component } from './cmps/nav-menuitem-wide4/nav-menuitem-wide4.component';
 import { CompanySidemenuComponent } from './cmps/company-sidemenu/company-sidemenu.component';
 import { CompanySidemenuLinkComponent } from './cmps/company-sidemenu-link/company-sidemenu-link.component';
+import { CategoriesComponent } from './cmps/categories/categories.component';
+import { MycartComponent } from './cmps/mycart/mycart.component';
+import { ShopbyComponent } from './cmps/shopby/shopby.component';
+import { CustomSliderComponent } from './cmps/custom-slider/custom-slider.component';
+import { CompareWidgetComponent } from './cmps/compare-widget/compare-widget.component';
+import { SearchByTagsComponent } from './cmps/search-by-tags/search-by-tags.component';
+import { SidebarComponent } from './cmps/sidebar/sidebar.component';
 
 import { IndexPage } from './pages/index/index.page';
 import { AboutPage } from './pages/about/about.page';
 import { SitemapPage } from './pages/sitemap/sitemap.page';
+import { GridPage } from './pages/grid/grid.page';
+import { CatsliderComponent } from './cmps/catslider/catslider.component';
+import { BreadcrumbsComponent } from './cmps/breadcrumbs/breadcrumbs.component';
 
 @NgModule({
   declarations: [
@@ -63,10 +73,20 @@ import { SitemapPage } from './pages/sitemap/sitemap.page';
     NavMenuitemWide4Component,
     CompanySidemenuComponent,
     CompanySidemenuLinkComponent,
+    CategoriesComponent,
+    MycartComponent,
+    ShopbyComponent,
+    CustomSliderComponent,
+    CompareWidgetComponent,
+    SearchByTagsComponent,
+    SidebarComponent,
     
     IndexPage,
     AboutPage,
-    SitemapPage
+    SitemapPage,
+    GridPage,
+    CatsliderComponent,
+    BreadcrumbsComponent,
   ],
   imports: [
     BrowserModule,
