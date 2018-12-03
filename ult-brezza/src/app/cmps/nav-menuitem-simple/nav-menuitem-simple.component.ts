@@ -18,7 +18,7 @@ export class NavMenuitemSimpleComponent implements OnInit {
 
   @Input()
   item:MenuItem = {
-    label: 'Simple',
+    label: 'List',
     path: ['/'],
     children: [
       {label:'Child 1', path:['/']},

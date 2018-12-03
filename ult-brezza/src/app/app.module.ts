@@ -28,6 +28,7 @@ import { NavMenuitemSimpleComponent } from './cmps/nav-menuitem-simple/nav-menui
 import { IndexPage } from './pages/index/index.page';
 import { NavMenuitemWideComponent } from './cmps/nav-menuitem-wide/nav-menuitem-wide.component';
 import { NavMenuitemLargeComponent } from './cmps/nav-menuitem-large/nav-menuitem-large.component';
+import { NavMenuitemWide4Component } from './cmps/nav-menuitem-wide4/nav-menuitem-wide4.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,8 @@ import { NavMenuitemLargeComponent } from './cmps/nav-menuitem-large/nav-menuite
     NavMenuitemWideComponent,
     
     NavMenuitemLargeComponent,
+    
+    NavMenuitemWide4Component,
   ],
   imports: [
     BrowserModule,
