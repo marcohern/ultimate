@@ -26,6 +26,7 @@ import { ProductsLatestComponent } from './cmps/products-latest/products-latest.
 import { NavMenuitemSimpleComponent } from './cmps/nav-menuitem-simple/nav-menuitem-simple.component';
 
 import { IndexPage } from './pages/index/index.page';
+import { NavMenuitemWideComponent } from './cmps/nav-menuitem-wide/nav-menuitem-wide.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,8 @@ import { IndexPage } from './pages/index/index.page';
     NavMenuitemSimpleComponent,
     
     IndexPage,
+    
+    NavMenuitemWideComponent,
   ],
   imports: [
     BrowserModule,

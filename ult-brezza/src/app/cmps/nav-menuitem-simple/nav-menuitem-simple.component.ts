@@ -9,8 +9,7 @@ import { MenuItem } from 'src/app/models/menu-item';
 export class NavMenuitemSimpleComponent implements OnInit {
 
 
-  @HostBinding('id')
-  @Input()
+  @HostBinding('id') @Input()
   id: string;
 
   @HostBinding('class') uClass: string = 'level0 parent drop-menu';
