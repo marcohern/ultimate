@@ -1,9 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
+import { BannerMidComponent } from './cmps/banner-mid/banner-mid.component';
 import { HeaderComponent } from './cmps/header/header.component';
+import { HeaderCultureComponent } from './cmps/header-culture/header-culture.component';
 import { HeaderLanguageComponent } from './cmps/header-language/header-language.component';
 import { HeaderCurrencyComponent } from './cmps/header-currency/header-currency.component';
 import { HeaderToplinksComponent } from './cmps/header-toplinks/header-toplinks.component';
@@ -11,7 +13,6 @@ import { HeaderSearchboxComponent } from './cmps/header-searchbox/header-searchb
 import { HeaderTopcartComponent } from './cmps/header-topcart/header-topcart.component';
 import { HeaderNavigationComponent } from './cmps/header-navigation/header-navigation.component';
 import { HeaderLogoComponent } from './cmps/header-logo/header-logo.component';
-import { HeaderCultureComponent } from './cmps/header-culture/header-culture.component';
 import { SliderComponent } from './cmps/slider/slider.component';
 import { ProductHotComponent } from './cmps/product-hot/product-hot.component';
 import { ProductItemComponent } from './cmps/product-item/product-item.component';
@@ -19,13 +20,12 @@ import { ProductsNewComponent } from './cmps/products-new/products-new.component
 import { FooterComponent } from './cmps/footer/footer.component';
 import { ProductsBestsellersComponent } from './cmps/products-bestsellers/products-bestsellers.component';
 import { ProductItemDivComponent } from './cmps/product-item-div/product-item-div.component';
-import { BannerMidComponent } from './cmps/banner-mid/banner-mid.component';
-
-import { IndexPage } from './pages/index/index.page';
 import { ProductsFeaturedComponent } from './cmps/products-featured/products-featured.component';
-import { HeaderNavDropdownComponent } from './cmps/header-nav-dropdown/header-nav-dropdown.component';
 import { MobileMenuComponent } from './cmps/mobile-menu/mobile-menu.component';
 import { ProductsLatestComponent } from './cmps/products-latest/products-latest.component';
+import { NavMenuitemSimpleComponent } from './cmps/nav-menuitem-simple/nav-menuitem-simple.component';
+
+import { IndexPage } from './pages/index/index.page';
 
 @NgModule({
   declarations: [
@@ -47,16 +47,12 @@ import { ProductsLatestComponent } from './cmps/products-latest/products-latest.
     ProductsBestsellersComponent,
     ProductItemDivComponent,
     BannerMidComponent,
+    ProductsFeaturedComponent,
+    MobileMenuComponent,
+    ProductsLatestComponent,
+    NavMenuitemSimpleComponent,
     
     IndexPage,
-    
-    ProductsFeaturedComponent,
-    
-    HeaderNavDropdownComponent,
-    
-    MobileMenuComponent,
-    
-    ProductsLatestComponent,
   ],
   imports: [
     BrowserModule,

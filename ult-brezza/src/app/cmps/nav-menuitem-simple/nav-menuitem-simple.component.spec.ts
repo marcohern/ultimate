@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HeaderNavDropdownComponent } from './header-nav-dropdown.component';
+import { NavMenuitemSimpleComponent } from './nav-menuitem-simple.component';
 
-describe('HeaderNavDropdownComponent', () => {
-  let component: HeaderNavDropdownComponent;
-  let fixture: ComponentFixture<HeaderNavDropdownComponent>;
+describe('NavMenuitemSimpleComponent', () => {
+  let component: NavMenuitemSimpleComponent;
+  let fixture: ComponentFixture<NavMenuitemSimpleComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeaderNavDropdownComponent ]
+      declarations: [ NavMenuitemSimpleComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HeaderNavDropdownComponent);
+    fixture = TestBed.createComponent(NavMenuitemSimpleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
