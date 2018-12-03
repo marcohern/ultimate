@@ -13,19 +13,9 @@ export class NavMenuitemSimpleComponent implements OnInit {
   id: string;
 
   @HostBinding('class') uClass: string = 'level0 parent drop-menu';
-  
-
 
   @Input()
-  item:MenuItem = {
-    label: 'List',
-    path: ['/'],
-    children: [
-      {label:'Child 1', path:['/']},
-      {label:'Child 2', path:['/']},
-      {label:'Child 3', path:['/']},
-    ]
-  };
+  item:MenuItem;
   
   constructor() { }
 

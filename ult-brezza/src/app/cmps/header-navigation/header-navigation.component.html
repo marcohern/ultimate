@@ -5,55 +5,13 @@
     </div>
     <div class="nav-inner"> 
       <ul id="nav" class="hidden-xs">
-        <li brezza-nav-menuitem-simple></li>
-        <li brezza-nav-menuitem-wide></li>
-        <li brezza-nav-menuitem-wide4></li>
-        <li brezza-nav-menuitem-large></li>
-        <li class="mega-menu"><a class="level-top" href="grid.html"><span>Shoes</span></a>
-          <div class="level0-wrapper dropdown-6col">
-            <div class="container">
-              <div class="level0-wrapper2">
-                <div class="nav-block nav-block-center grid12-8 itemgrid itemgrid-4col">
-                  <ul class="level0">
-                    <li class="level3 nav-6-1 parent item"><a href="grid.html"><span>Boys</span></a>
-                      <ul class="level1">
-                        <li class="level2"><a href="grid.html"><span>Floaters</span></a></li>
-                        <li class="level2"><a href="grid.html"><span>Loafers</span></a></li>
-                        <li class="level2"><a href="grid.html"><span>Sneakers</span></a></li>
-                        <li class="level2"><a href="grid.html"><span>Sports Shoes</span></a></li>
-                      </ul>
-                    </li>
-                    <li class="level3 nav-6-1 parent item"><a href="grid.html"><span>Girls</span></a>
-                      <ul class="level1">
-                        <li class="level2"><a href="grid.html"><span>Bellies</span></a></li>
-                        <li class="level2"><a href="grid.html"><span>Sneakers</span></a></li>
-                        <li class="level2"><a href="grid.html"><span>Sports Shoes</span></a></li>
-                      </ul>
-                    </li>
-                    <li class="level3 nav-6-1 parent item"><a href="grid.html"><span>Adidas</span></a>
-                      <ul class="level1">
-                        <li class="level2"><a href="grid.html"><span>Brands</span></a></li>
-                        <li class="level2"><a href="grid.html"><span>Nike</span></a></li>
-                        <li class="level2"><a href="grid.html"><span>Puma</span></a></li>
-                        <li class="level2"><a href="grid.html"><span>Reebok</span></a></li>
-                      </ul>
-                    </li>
-                    <li class="level3 nav-6-1 parent item"><a href="grid.html"><span>Material</span></a>
-                      <ul class="level1">
-                        <li class="level2"><a href="grid.html"><span>Faux Leather</span></a></li>
-                        <li class="level2"><a href="grid.html"><span>RubberCanvas</span></a></li>
-                        <li class="level2"><a href="grid.html"><span>Fabric</span></a></li>
-                        <li class="level2"><a href="grid.html"><span>Synthetic</span></a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-                <div class="nav-block nav-block-right std grid12-4"><img src="assets/images/kid-shoes.png" alt="add menu banner"></div>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="mega-menu"><a class="level-top" href="grid.html"><span>Drawing</span></a></li>
+        <li brezza-nav-menuitem-simple [item]="home"></li>
+        <li brezza-nav-menuitem-simple [item]="simple"></li>
+        <li brezza-nav-menuitem-wide   [item]="wide6"></li>
+        <li brezza-nav-menuitem-wide   [item]="wide6ad" [leftAd]="wideAd1" [rightAd]="wideAd2"></li>
+        <li brezza-nav-menuitem-wide4  [item]="wide4"></li>
+        <li brezza-nav-menuitem-wide4  [item]="wide4ad" [ad]="wide4Ad"></li>
+        <li brezza-nav-menuitem-large  [item]="wide6" [ad]="largeAd"></li>
         <li class="nav-custom-link mega-menu"><a href="#" class="level-top"><span>Custom</span></a>
           <div class="level0-wrapper custom-menu">
             <div class="container">
