@@ -18,8 +18,8 @@ export class CompanySidemenuComponent implements OnInit {
     {item:this.about  , ngc:'even'},
     {item:this.sitemap, ngc:'odd' },
     {item:this.terms  , ngc:'even'},
-    {item:this.faq    , ngc:'last'},
-    {item:this.contact, ngc:'odd' },
+    {item:this.faq    , ngc:'odd' },
+    {item:this.contact, ngc:'last'},
   ];
 
   constructor() { }

@@ -32,6 +32,7 @@ import { CompanySidemenuLinkComponent } from './cmps/company-sidemenu-link/compa
 
 import { IndexPage } from './pages/index/index.page';
 import { AboutPage } from './pages/about/about.page';
+import { SitemapPage } from './pages/sitemap/sitemap.page';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { AboutPage } from './pages/about/about.page';
     
     IndexPage,
     AboutPage,
+    SitemapPage
   ],
   imports: [
     BrowserModule,
