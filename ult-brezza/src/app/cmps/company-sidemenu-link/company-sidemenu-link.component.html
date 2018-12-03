@@ -1,0 +1,6 @@
+<ng-container *ngIf="current">
+    <strong>{{item.label}}</strong>
+</ng-container>
+<ng-container *ngIf="!current">
+    <a [routerLink]="item.path">{{item.label}}</a>
+</ng-container>

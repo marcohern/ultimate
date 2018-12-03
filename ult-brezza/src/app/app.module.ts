@@ -24,11 +24,14 @@ import { ProductsFeaturedComponent } from './cmps/products-featured/products-fea
 import { MobileMenuComponent } from './cmps/mobile-menu/mobile-menu.component';
 import { ProductsLatestComponent } from './cmps/products-latest/products-latest.component';
 import { NavMenuitemSimpleComponent } from './cmps/nav-menuitem-simple/nav-menuitem-simple.component';
-
-import { IndexPage } from './pages/index/index.page';
 import { NavMenuitemWideComponent } from './cmps/nav-menuitem-wide/nav-menuitem-wide.component';
 import { NavMenuitemLargeComponent } from './cmps/nav-menuitem-large/nav-menuitem-large.component';
 import { NavMenuitemWide4Component } from './cmps/nav-menuitem-wide4/nav-menuitem-wide4.component';
+import { CompanySidemenuComponent } from './cmps/company-sidemenu/company-sidemenu.component';
+import { CompanySidemenuLinkComponent } from './cmps/company-sidemenu-link/company-sidemenu-link.component';
+
+import { IndexPage } from './pages/index/index.page';
+import { AboutPage } from './pages/about/about.page';
 
 @NgModule({
   declarations: [
@@ -54,14 +57,14 @@ import { NavMenuitemWide4Component } from './cmps/nav-menuitem-wide4/nav-menuite
     MobileMenuComponent,
     ProductsLatestComponent,
     NavMenuitemSimpleComponent,
+    NavMenuitemWideComponent,
+    NavMenuitemLargeComponent,
+    NavMenuitemWide4Component,
+    CompanySidemenuComponent,
+    CompanySidemenuLinkComponent,
     
     IndexPage,
-    
-    NavMenuitemWideComponent,
-    
-    NavMenuitemLargeComponent,
-    
-    NavMenuitemWide4Component,
+    AboutPage,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,11 @@
+
+<aside class="col-right sidebar col-sm-3 wow">
+  <div class="block block-company">
+    <div class="block-title">Company </div>
+    <div class="block-content">
+      <ol id="recently-viewed-items">
+        <li *ngFor="let item of list" brezza-company-sidemenu-link [ngClass]="item.ngc" [item]="item.item"></li>
+      </ol>
+    </div>
+  </div>
+</aside>
