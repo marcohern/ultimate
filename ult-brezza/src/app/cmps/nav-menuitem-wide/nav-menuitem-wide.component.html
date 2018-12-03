@@ -14,13 +14,21 @@
           </li>
         </ul>
       </div>
-      <div class="nav-add">
-        <div class="push_item">
-          <div class="push_img"><a href="#"><img src="assets/images/menu-banner1.png" alt="offer banner"></a></div>
+      <div *ngIf="leftAd || rightAd" class="nav-add">
+        <div *ngIf="leftAd" class="push_item">
+          <div class="push_img">
+            <a [attr.href]="leftAd.href">
+              <img [attr.src]="leftAd.src" [attr.alt]="leftAd.alt">
+            </a>
+          </div>
         </div>
-        <div class="push_item push_item_last">
-          <div class="push_img"><a href="#"><img src="assets/images/menu-banner2.png" alt="add banner"></a></div>
-        </div>
+        <div *ngIf="rightAd" class="push_item push_item_last">
+            <div class="push_img">
+              <a [attr.href]="rightAd.href">
+                <img [attr.src]="rightAd.src" [attr.alt]="rightAd.alt">
+              </a>
+            </div>
+          </div>
       </div>
     </div>
   </div>

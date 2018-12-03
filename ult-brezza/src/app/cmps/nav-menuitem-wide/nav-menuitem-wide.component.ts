@@ -1,5 +1,6 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
+import { Component, OnInit, HostBinding, Input } from '@angular/core';
 import { MenuItem } from 'src/app/models/menu-item';
+import { ImageAd } from 'src/app/models/image-ad';
 
 @Component({
   selector: '[brezza-nav-menuitem-wide]',
@@ -50,6 +51,12 @@ export class NavMenuitemWideComponent implements OnInit {
       ]},
     ]
   };
+
+  @Input()
+  leftAd:ImageAd = {src: "assets/images/menu-banner1.png",alt: "Menu Banner 1",href: "#"};
+
+  @Input()
+  rightAd:ImageAd = {src: "assets/images/menu-banner2.png",alt: "Menu Banner 2",href: "#"};
 
   constructor() { }
 
