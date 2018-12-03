@@ -43,6 +43,8 @@ import { SitemapPage } from './pages/sitemap/sitemap.page';
 import { GridPage } from './pages/grid/grid.page';
 import { CatsliderComponent } from './cmps/catslider/catslider.component';
 import { BreadcrumbsComponent } from './cmps/breadcrumbs/breadcrumbs.component';
+import { ProductsGridComponent } from './cmps/products-grid/products-grid.component';
+import { ProductGridItemComponent } from './cmps/product-grid-item/product-grid-item.component';
 
 @NgModule({
   declarations: [
@@ -87,6 +89,8 @@ import { BreadcrumbsComponent } from './cmps/breadcrumbs/breadcrumbs.component';
     GridPage,
     CatsliderComponent,
     BreadcrumbsComponent,
+    ProductsGridComponent,
+    ProductGridItemComponent,
   ],
   imports: [
     BrowserModule,
