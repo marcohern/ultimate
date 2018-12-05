@@ -1,6 +1,7 @@
 /*
  *	Cloud Zoom js
  */
+console.log("Cloud-Zoom included");
 if (typeof Object.create !== 'function') {
 	"use strict";
 	Object.create = function(obj) {
@@ -133,7 +134,7 @@ if (typeof Object.create !== 'function') {
 			if (self.options.lensShape == "round") {
 				self.lensRound = "border-top-left-radius: " + String(self.options.lensSize / 2 + self.options.borderSize) + "px;" + "border-top-right-radius: " + String(self.options.lensSize / 2 + self.options.borderSize) + "px;" + "border-bottom-left-radius: " + String(self.options.lensSize / 2 + self.options.borderSize) + "px;" + "border-bottom-right-radius: " + String(self.options.lensSize / 2 + self.options.borderSize) + "px;";
 			}
-			//create the div's                                                + ""
+			//create the div's                                             + ""
 			//self.zoomContainer = jQuery('<div/>').addClass('zoomContainer').css({"position":"relative", "height":self.nzHeight, "width":self.nzWidth});
 			self.zoomContainer = jQuery('<div class="zoomContainer" style="-webkit-transform: translateZ(0);position:absolute;left:' + self.nzOffset.left + 'px;top:' + self.nzOffset.top + 'px;height:' + self.nzHeight + 'px;width:' + self.nzWidth + 'px;"></div>');
 			jQuery('body').append(self.zoomContainer);
@@ -1460,26 +1461,3 @@ if (typeof Object.create !== 'function') {
 		onImageSwapComplete: jQuery.noop
 	};
 })(jQuery, window, document);
-/* Zoom image */
-if (jQuery('#product-zoom').length > 0) {
-	
-	jQuery('#product-zoom').elevateZoom({
-		zoomType: "inner",
-		cursor: "crosshair",
-		zoomWindowFadeIn: 500,
-		zoomWindowFadeOut: 750,
-		gallery: 'gallery_01'
-	});
-}
-jQuery("#gallery_01 .slider-items").owlCarousel({
-	autoplay: false,
-	items: 3, //10 items above 1000px browser width
-	itemsDesktop: [1024, 3], //5 items between 1024px and 901px
-	itemsDesktopSmall: [900, 2], // 3 items betweem 900px and 601px
-	itemsTablet: [600, 3], //2 items between 600 and 0;
-	itemsMobile: [320, 2],
-	navigation: true,
-	navigationText: ["<a class=\"flex-prev\"></a>", "<a class=\"flex-next\"></a>"],
-	slideSpeed: 500,
-	pagination: false
-});

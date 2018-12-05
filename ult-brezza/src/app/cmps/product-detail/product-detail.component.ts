@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import '../../../assets/js/cloud-zoom.js';
+
 declare var jQuery;
 
 @Component({
@@ -9,11 +11,14 @@ declare var jQuery;
 })
 export class ProductDetailComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    
+  }
 
   ngOnInit() {
+    
     if (jQuery('#product-zoom').length > 0) {
-	
+      
       jQuery('#product-zoom').elevateZoom({
         zoomType: "inner",
         cursor: "crosshair",
