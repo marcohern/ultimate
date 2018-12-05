@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'brezza-sent-popup',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SentPopupComponent implements OnInit {
 
+  @Output()
+  close:EventEmitter<any> = new EventEmitter<any>();
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onClose() {
+    this.close.emit();
   }
 
 }

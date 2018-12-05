@@ -13,12 +13,21 @@ export class ContactPage implements OnInit {
   lng:number;
   zoom:number=15;
   company:Company;
+  displayPopup:boolean = false;
   constructor() { }
 
   ngOnInit() {
     this.lat = company.lat;
     this.lng = company.lng;
     this.company = company;
+  }
+
+  send($event) {
+    this.displayPopup = true;
+  }
+
+  closePopup() {
+    this.displayPopup = false;
   }
 
 }
