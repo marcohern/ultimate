@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Company } from 'src/app/models/company';
+import { company } from 'src/settings/company';
 
 @Component({
   selector: 'brezza-footer',

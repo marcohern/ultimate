@@ -53,6 +53,15 @@ import { PrivacyPage } from './pages/privacy/privacy.page';
 import { ContactPage } from './pages/contact/contact.page';
 import { NavMenuitemCustomComponent } from './cmps/nav-menuitem-custom/nav-menuitem-custom.component';
 import { SentPopupComponent } from './cmps/sent-popup/sent-popup.component';
+import { FooterFeaturesComponent } from './cmps/footer-features/footer-features.component';
+import { FooterBottomComponent } from './cmps/footer-bottom/footer-bottom.component';
+import { FooterSignupComponent } from './cmps/footer-signup/footer-signup.component';
+import { FooterCompanyComponent } from './cmps/footer-company/footer-company.component';
+import { FooterPaymentAcceptComponent } from './cmps/footer-payment-accept/footer-payment-accept.component';
+import { FooterSocialComponent } from './cmps/footer-social/footer-social.component';
+import { FooterInfoComponent } from './cmps/footer-info/footer-info.component';
+import { FooterStyleadvComponent } from './cmps/footer-styleadv/footer-styleadv.component';
+import { FooterAccountComponent } from './cmps/footer-account/footer-account.component';
 
 @NgModule({
   declarations: [
@@ -105,6 +114,15 @@ import { SentPopupComponent } from './cmps/sent-popup/sent-popup.component';
     ContactPage,
     NavMenuitemCustomComponent,
     SentPopupComponent,
+    FooterFeaturesComponent,
+    FooterBottomComponent,
+    FooterSignupComponent,
+    FooterCompanyComponent,
+    FooterPaymentAcceptComponent,
+    FooterSocialComponent,
+    FooterInfoComponent,
+    FooterStyleadvComponent,
+    FooterAccountComponent,
   ],
   imports: [
     BrowserModule,
