@@ -66,6 +66,8 @@ import { FaqPage } from './pages/faq/faq.page';
 import { PrivacyPage } from './pages/privacy/privacy.page';
 import { ContactPage } from './pages/contact/contact.page';
 import { ProductDetailPage } from './pages/product-detail/product-detail.page';
+import { ProductItemImageComponent } from './cmps/product-item-image/product-item-image.component';
+import { ProductItemInfoComponent } from './cmps/product-item-info/product-item-info.component';
 
 @NgModule({
   declarations: [
@@ -130,6 +132,8 @@ import { ProductDetailPage } from './pages/product-detail/product-detail.page';
     PrivacyPage,
     ContactPage,
     ProductDetailPage,
+    ProductItemImageComponent,
+    ProductItemInfoComponent,
   ],
   imports: [
     BrowserModule,
