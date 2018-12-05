@@ -1,5 +1,5 @@
 <article class="col-main">
-  <h2 class="page-heading"><span class="page-heading-title">Tops & Tunics</span> </h2>
+  <h2 class="page-heading"><span class="page-heading-title">Categoria X</span> </h2>
   <div class="display-product-option">
     <div class="pager hidden-xs">
       <div class="pages">
@@ -14,9 +14,12 @@
         </ul>
       </div>
     </div>
-    <div class="sorter">
-      <div class="view-mode"> <span title="Grid" class="button button-active button-grid">&nbsp;</span><a href="list.html" title="List" class="button-list">&nbsp;</a> </div>
-    </div>
+    <!--div class="sorter">
+      <div class="view-mode">
+        <span title="Grid" class="button button-active button-grid">&nbsp;</span>
+        <a [routerLink]="['/']" title="List" class="button-list">&nbsp;</a>
+      </div>
+    </div-->
   </div>
   <div class="category-products">
     <ul class="products-grid">
@@ -55,13 +58,14 @@
     <div class="row">
       <div class="col-lg-3 col-md-4">
         <div id="sort-by">
-          <label class="left">Sort By: </label>
+          <label class="left">Organizar: </label>
           <ul>
-            <li><a href="#">Position<span class="right-arrow"></span></a>
+            <li>
+              <a href="#">Posición<span class="right-arrow"></span></a>
               <ul>
-                <li><a href="#">Name</a></li>
-                <li><a href="#">Price</a></li>
-                <li><a href="#">Position</a></li>
+                <li><a href="#">Nombre</a></li>
+                <li><a href="#">Precio</a></li>
+                <li><a href="#">Posición</a></li>
               </ul>
             </li>
           </ul>
@@ -70,7 +74,7 @@
       <div class="col-lg-6 col-sm-7 col-md-5">
         <div class="pager">
           <div class="pages">
-            <label>Page:</label>
+            <label>Página:</label>
             <ul class="pagination">
               <li><a href="#">&laquo;</a></li>
               <li class="active"><a href="#">1</a></li>
@@ -85,7 +89,7 @@
       </div>
       <div class="col-lg-3 col-sm-12 col-md-3">
         <div id="limiter">
-          <label>View: </label>
+          <label>Ver: </label>
           <ul>
             <li><a href="#">09<span class="right-arrow"></span></a>
               <ul>

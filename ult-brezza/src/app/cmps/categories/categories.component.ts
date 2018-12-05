@@ -9,15 +9,15 @@ import { Category } from 'src/app/models/category';
 export class CategoriesComponent implements OnInit {
 
 
-  title: string = 'Categories';
+  title: string = 'Categorias';
 
   categories:Category[] = [
-    {name:'Video Games',slug:'grid'},
-    {name:'Safety',slug:'grid'},
-    {name:'Best Sale',slug:'grid'},
-    {name:'Toys',slug:'grid'},
-    {name:'Entertainment',slug:'grid'},
-    {name:'New Sale',slug:'grid'}
+    {name:'Video Juegos',slug:'grid'},
+    {name:'Seguridas',slug:'grid'},
+    {name:'Mas Vendidos',slug:'grid'},
+    {name:'Juguetes',slug:'grid'},
+    {name:'Entretenimiento',slug:'grid'},
+    {name:'Nuevos',slug:'grid'}
   ];
 
   constructor() { }
