@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'src/app/models/menu-item';
+import { companymenu } from 'src/settings/topmenu';
 
 @Component({
   selector: 'brezza-company-sidemenu',
@@ -8,23 +9,23 @@ import { MenuItem } from 'src/app/models/menu-item';
 })
 export class CompanySidemenuComponent implements OnInit {
 
-  about  :MenuItem = {label:'About Us'        , path:['/about']};
-  sitemap:MenuItem = {label:'Site Map'        , path:['/sitemap']};
-  terms  :MenuItem = {label:'Terms of Service', path:['/terms']};
-  contact:MenuItem = {label:'Contact Us'      , path:['/contact']};
-  faq    :MenuItem = {label:'FAQ'             , path:['/faq']};
-
-  list:any[] = [
-    {item:this.about  , ngc:'even'},
-    {item:this.sitemap, ngc:'odd' },
-    {item:this.terms  , ngc:'even'},
-    {item:this.faq    , ngc:'odd' },
-    {item:this.contact, ngc:'last'},
-  ];
+  list:any[];
 
   constructor() { }
 
   ngOnInit() {
+    var i = 0;
+    var last = top.length - 1;
+    this.list = [];
+    
+    for(let item of companymenu) {
+      var li = {
+        item,
+        ngc: (i==last) ? 'last' : (i%2) ? 'even' : 'odd',  
+      };
+      this.list[i] = li;
+      i++;
+    }
   }
 
 }
