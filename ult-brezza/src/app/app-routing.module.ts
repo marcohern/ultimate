@@ -7,6 +7,7 @@ import { GridPage } from './pages/grid/grid.page';
 import { TermsPage } from './pages/terms/terms.page';
 import { FaqPage } from './pages/faq/faq.page';
 import { PrivacyPage } from './pages/privacy/privacy.page';
+import { ContactPage } from './pages/contact/contact.page';
 
 const routes: Routes = [
   {path:'', component: IndexPage},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path:'terms', component: TermsPage},
   {path:'privacy', component: PrivacyPage},
   {path:'faq', component: FaqPage},
+  {path:'contact', component: ContactPage},
   {path:'grid', component: GridPage},
 ];
 

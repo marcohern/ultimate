@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -48,6 +50,7 @@ import { GridPage } from './pages/grid/grid.page';
 import { TermsPage } from './pages/terms/terms.page';
 import { FaqPage } from './pages/faq/faq.page';
 import { PrivacyPage } from './pages/privacy/privacy.page';
+import { ContactPage } from './pages/contact/contact.page';
 
 @NgModule({
   declarations: [
@@ -97,10 +100,13 @@ import { PrivacyPage } from './pages/privacy/privacy.page';
     TermsPage,
     FaqPage,
     PrivacyPage,
+    ContactPage,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'brezza-header-searchbox',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderSearchboxComponent implements OnInit {
 
-  constructor() { }
+  query:string = '';
+
+  constructor(private router:Router) { }
 
   ngOnInit() {
   }
 
+  search($event) {
+    console.log(this.query, $event);
+    this.router.navigate(['/grid'],{queryParams: {q:this.query} });
+  }
 }
