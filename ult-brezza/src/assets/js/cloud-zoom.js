@@ -10,6 +10,7 @@ if (typeof Object.create !== 'function') {
 	};
 }
 (function(jQuery, window, document, undefined) {
+	console.log("jQuery Begin Elevated Zoom");
 	var ElevateZoom = {
 		init: function(options, elem) {
 			var self = this;
@@ -1461,6 +1462,7 @@ if (typeof Object.create !== 'function') {
 })(jQuery, window, document);
 /* Zoom image */
 if (jQuery('#product-zoom').length > 0) {
+	
 	jQuery('#product-zoom').elevateZoom({
 		zoomType: "inner",
 		cursor: "crosshair",

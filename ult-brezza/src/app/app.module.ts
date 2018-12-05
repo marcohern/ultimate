@@ -43,15 +43,6 @@ import { CatsliderComponent } from './cmps/catslider/catslider.component';
 import { BreadcrumbsComponent } from './cmps/breadcrumbs/breadcrumbs.component';
 import { ProductsGridComponent } from './cmps/products-grid/products-grid.component';
 import { ProductGridItemComponent } from './cmps/product-grid-item/product-grid-item.component';
-
-import { IndexPage } from './pages/index/index.page';
-import { AboutPage } from './pages/about/about.page';
-import { SitemapPage } from './pages/sitemap/sitemap.page';
-import { GridPage } from './pages/grid/grid.page';
-import { TermsPage } from './pages/terms/terms.page';
-import { FaqPage } from './pages/faq/faq.page';
-import { PrivacyPage } from './pages/privacy/privacy.page';
-import { ContactPage } from './pages/contact/contact.page';
 import { NavMenuitemCustomComponent } from './cmps/nav-menuitem-custom/nav-menuitem-custom.component';
 import { SentPopupComponent } from './cmps/sent-popup/sent-popup.component';
 import { FooterFeaturesComponent } from './cmps/footer-features/footer-features.component';
@@ -63,6 +54,18 @@ import { FooterSocialComponent } from './cmps/footer-social/footer-social.compon
 import { FooterInfoComponent } from './cmps/footer-info/footer-info.component';
 import { FooterStyleadvComponent } from './cmps/footer-styleadv/footer-styleadv.component';
 import { FooterAccountComponent } from './cmps/footer-account/footer-account.component';
+import { ProductDetailComponent } from './cmps/product-detail/product-detail.component';
+import { ProductsRelatedComponent } from './cmps/products-related/products-related.component';
+
+import { IndexPage } from './pages/index/index.page';
+import { AboutPage } from './pages/about/about.page';
+import { SitemapPage } from './pages/sitemap/sitemap.page';
+import { GridPage } from './pages/grid/grid.page';
+import { TermsPage } from './pages/terms/terms.page';
+import { FaqPage } from './pages/faq/faq.page';
+import { PrivacyPage } from './pages/privacy/privacy.page';
+import { ContactPage } from './pages/contact/contact.page';
+import { ProductDetailPage } from './pages/product-detail/product-detail.page';
 
 @NgModule({
   declarations: [
@@ -104,15 +107,6 @@ import { FooterAccountComponent } from './cmps/footer-account/footer-account.com
     BreadcrumbsComponent,
     ProductsGridComponent,
     ProductGridItemComponent,
-    
-    IndexPage,
-    AboutPage,
-    SitemapPage,
-    GridPage,
-    TermsPage,
-    FaqPage,
-    PrivacyPage,
-    ContactPage,
     NavMenuitemCustomComponent,
     SentPopupComponent,
     FooterFeaturesComponent,
@@ -124,6 +118,18 @@ import { FooterAccountComponent } from './cmps/footer-account/footer-account.com
     FooterInfoComponent,
     FooterStyleadvComponent,
     FooterAccountComponent,
+    ProductDetailComponent,
+    ProductsRelatedComponent,
+    
+    IndexPage,
+    AboutPage,
+    SitemapPage,
+    GridPage,
+    TermsPage,
+    FaqPage,
+    PrivacyPage,
+    ContactPage,
+    ProductDetailPage,
   ],
   imports: [
     BrowserModule,
