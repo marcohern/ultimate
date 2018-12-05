@@ -367,8 +367,9 @@ a.button:hover {
 .logo {
 	vertical-align: middle;
 	text-align: left;
-	margin-top: 26px;
+	margin-top: 0px;
 	margin-bottom: 25px;
+	max-height: 51px;
 }
 .header-top {
 	padding: 1px 0px 10px 0px;
