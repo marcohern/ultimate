@@ -1870,7 +1870,8 @@ ul.level1 {
 	right: 18.2%
 }
 header {
-	background: #ff749f;
+	background: #daf1fb;
+	background-image: url("../images/pattern-background.png");
 	height: 150px;
 }
 .header-container {
