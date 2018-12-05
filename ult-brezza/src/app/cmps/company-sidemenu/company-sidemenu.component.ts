@@ -15,7 +15,7 @@ export class CompanySidemenuComponent implements OnInit {
 
   ngOnInit() {
     var i = 0;
-    var last = top.length - 1;
+    var last = companymenu.length - 1;
     this.list = [];
     
     for(let item of companymenu) {

@@ -36,6 +36,11 @@
             </form>
           </div>
           <h3>Ubicación</h3>
+          <p>
+            Estamos ubicados en
+            <strong>{{company.address}}, {{company.city}}, {{company.state}}, {{company.country}}</strong>;
+            Codigo postal: <strong>{{company.zip}}</strong>
+          </p>
           <div id="location">
               <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
                 <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>

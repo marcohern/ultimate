@@ -50,30 +50,6 @@ jQuery(document).ready(function() {
 			jQuery(this).children('ul').fadeOut(100);
 		}
 	});
-	/* Bestsell slider */
-	jQuery("#bestsell-slider .slider-items").owlCarousel({
-		items: 5, //10 items above 1000px browser width
-		itemsDesktop: [1024, 4], //4 items between 1024px and 901px
-		itemsDesktopSmall: [980, 3], // 4 items betweem 900px and 601px
-		itemsTablet: [640, 2], //3 items between 600 and 0;
-		itemsMobile: [375, 1],
-		navigation: true,
-		navigationText: ["<a class=\"flex-prev\"></a>", "<a class=\"flex-next\"></a>"],
-		slideSpeed: 500,
-		pagination: false
-	});
-	/* Featured slider */
-	jQuery("#featured-slider .slider-items").owlCarousel({
-		items: 4, //10 items above 1000px browser width
-		itemsDesktop: [1024, 3], //5 items between 1024px and 901px
-		itemsDesktopSmall: [900, 3], // 3 items betweem 900px and 601px
-		itemsTablet: [768, 2], //2 items between 600 and 0;
-		itemsMobile: [360, 1],
-		navigation: true,
-		navigationText: ["<a class=\"flex-prev\"></a>", "<a class=\"flex-next\"></a>"],
-		slideSpeed: 500,
-		pagination: false
-	});
 	/* New arrivals slider */
 	jQuery("#new-arrivals-slider .slider-items").owlCarousel({
 		items: 4, //10 items above 1000px browser width
