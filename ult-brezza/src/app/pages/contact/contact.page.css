@@ -1,3 +1,7 @@
 agm-map {
-height: 300px;
+    height: 300px;
+}
+
+#location {
+    margin-bottom: 2rem;
 }
