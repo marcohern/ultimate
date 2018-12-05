@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { company } from 'src/settings/company';
 
 @Component({
   selector: 'contact-page',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactPage implements OnInit {
 
+  lat:number;
+  lng:number;
+  zoom:number=15;
   constructor() { }
 
   ngOnInit() {
+    this.lat = company.lat;
+    this.lng = company.lng;
   }
 
 }

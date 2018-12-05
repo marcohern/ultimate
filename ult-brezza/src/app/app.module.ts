@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
+import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
 import { BannerMidComponent } from './cmps/banner-mid/banner-mid.component';
@@ -128,7 +129,10 @@ import { FooterAccountComponent } from './cmps/footer-account/footer-account.com
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDfSjjp3bn0xlUBcZ4dGxgPchQGFfxdgjo'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,18 +7,6 @@
             <h2>Contactenos</h2>
           </div>
           <div class="static-contain">
-            <h3>Ubicación</h3>
-            <div id="location">
-                AQUI VA EL MAPA<br/>
-                AQUI VA EL MAPA<br/>
-                AQUI VA EL MAPA<br/>
-                AQUI VA EL MAPA<br/>
-                AQUI VA EL MAPA<br/>
-                AQUI VA EL MAPA<br/>
-                AQUI VA EL MAPA<br/>
-                AQUI VA EL MAPA<br/>
-                AQUI VA EL MAPA<br/>
-            </div>
             <h3>Formulario de Contácto</h3>
             <form>
               <div class="row">
@@ -46,6 +34,12 @@
                 </div>
               </div>
             </form>
+          </div>
+          <h3>Ubicación</h3>
+          <div id="location">
+              <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+                <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+              </agm-map>
           </div>
         </div>
       </section>
