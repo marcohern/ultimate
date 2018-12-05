@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { UltimateCoreModule } from '../ultimate-core/ultimate-core.module';
 import { NgxImageGalleryModule } from 'ngx-image-gallery';
+import { ImageUploadModule } from "angular2-image-upload";
 
 import { ProductItemComponent } from './cmps/product-item/product-item.component';
 import { ProductDetailComponent } from './cmps/product-detail/product-detail.component';
@@ -25,7 +26,8 @@ import { routes } from './routes';
     RouterModule,
     UltimateCoreModule,
     NgxImageGalleryModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    ImageUploadModule.forRoot(),
   ]
 })
 export class UltimateProductsModule { }
