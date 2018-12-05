@@ -7,9 +7,9 @@ export const topmenu:MenuItem[] = [
     {label:'Compañia', path:['/about'], children: [
         {label:'Acerca de...'           , path:['/about']},
         {label:'Mapa del Sitio'         , path:['/sitemap']},
-        {label:'Términos y Condiciones' , path:['/terms']},
-        {label:'Politicas de Privacidad', path:['/privacy']},
-        {label:'Preguntas Frecuentes'   , path:['/faq']},
+        {label:'Términos...' , path:['/terms']},
+        {label:'Privacidad...', path:['/privacy']},
+        {label:'Preguntas Frec.'   , path:['/faq']},
     ]},
     {label:'Contactenos', path:['/contact']},
     

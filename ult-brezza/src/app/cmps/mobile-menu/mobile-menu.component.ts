@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuItem } from 'src/app/models/menu-item';
+import { topmenu } from 'src/settings/topmenu';
 
 @Component({
   selector: 'brezza-mobile-menu',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MobileMenuComponent implements OnInit {
 
+  mobilemenu:MenuItem[];
+
   constructor() { }
 
   ngOnInit() {
+    this.mobilemenu = topmenu;
   }
 
 }
