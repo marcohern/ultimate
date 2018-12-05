@@ -2,7 +2,24 @@
   <ul class="products-grid">
     <li class="right-space two-height item">
       <div class="item-inner">
-        <brezza-product-item-image></brezza-product-item-image>
+        <div class="item-img">
+          <div class="item-img-info">
+            <a class="product-image" title="Retis lapen casen" [routerLink]="['/product']">
+              <img alt="Retis lapen casen" src="http://via.placeholder.com/700x850">
+            </a>
+            <div class="hot-label hot-top-right">Hot</div>
+            <div class="box-hover">
+              <ul class="add-to-links">
+                <li><a class="link-quickview" [routerLink]="['/']">Vista Rapida</a></li>
+                <li><a class="link-wishlist" [routerLink]="['/']">Favoritos</a></li>
+                <li><a class="link-compare" [routerLink]="['/']">Comparar</a></li>
+              </ul>
+            </div>
+            <div class="box-timer">
+              <div class="countbox_1 timer-grid"></div>
+            </div>
+          </div>
+        </div>
         <brezza-product-item-info></brezza-product-item-info>
       </div>
     </li>
