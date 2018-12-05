@@ -51,6 +51,7 @@ import { TermsPage } from './pages/terms/terms.page';
 import { FaqPage } from './pages/faq/faq.page';
 import { PrivacyPage } from './pages/privacy/privacy.page';
 import { ContactPage } from './pages/contact/contact.page';
+import { NavMenuitemCustomComponent } from './cmps/nav-menuitem-custom/nav-menuitem-custom.component';
 
 @NgModule({
   declarations: [
@@ -101,6 +102,7 @@ import { ContactPage } from './pages/contact/contact.page';
     FaqPage,
     PrivacyPage,
     ContactPage,
+    NavMenuitemCustomComponent,
   ],
   imports: [
     BrowserModule,

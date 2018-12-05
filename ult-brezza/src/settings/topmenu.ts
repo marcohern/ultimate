@@ -1,15 +1,16 @@
 import { MenuItem } from "src/app/models/menu-item";
 
 export const topmenu:MenuItem[] = [
-    {label:'Home'    , path:['/']    },
-    {label:'Category 1', path:['/grid']},
-    {label:'Category 2', path:['/grid']},
-    {label:'Company', path:['/about'], children: [
-        {label:'About'   , path:['/about']},
-        {label:'Terms'   , path:['/terms']},
-        {label:'Privacy' , path:['/privacy']},
-        {label:'FAQ'     , path:['/faq']},
+    {label:'Inicio'    , path:['/']    },
+    {label:'Categoria 1', path:['/grid']},
+    {label:'Categoria 2', path:['/grid']},
+    {label:'Compañia', path:['/about'], children: [
+        {label:'Acerca de...'           , path:['/about']},
+        {label:'Mapa del Sitio'         , path:['/sitemap']},
+        {label:'Términos y Condiciones' , path:['/terms']},
+        {label:'Politicas de Privacidad', path:['/privacy']},
+        {label:'Preguntas Frecuentes'   , path:['/faq']},
     ]},
-    {label:'Contact Us', path:['/contact']},
+    {label:'Contactenos', path:['/contact']},
     
 ]; 
