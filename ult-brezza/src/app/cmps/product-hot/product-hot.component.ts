@@ -20,8 +20,7 @@ export class ProductHotComponent implements OnInit {
       ddiff = new Date((dnow1) - (dthen1));
     else
       ddiff = new Date((dthen1) - (dnow1));
-    var gsecs1 = Math.floor(ddiff.valueOf() / 1000);	
-    var iid1 = "countbox_1";
+    var gsecs1 = Math.floor(ddiff.valueOf() / 1000);
     CountBack_slider(gsecs1, "countbox_1", 1);
   }
 
