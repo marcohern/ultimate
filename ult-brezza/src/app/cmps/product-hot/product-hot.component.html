@@ -5,12 +5,14 @@
         <div class="item-img">
           <div class="item-img-info"><a href="product_detail.html" title="Retis lapen casen" class="product-image">
             <img src="http://via.placeholder.com/700x850" alt="Retis lapen casen"></a>
-            <div class="hot-label hot-top-right">Hot</div>
+            <div class="hot-label hot-top-left">hot</div>
+            <div class="new-label new-top-right">new</div>
+            <div class="sale-label sale-top-left">sale</div>
             <div class="box-hover">
               <ul class="add-to-links">
-                <li><a class="link-quickview" href="quick_view.html">Quick View</a></li>
-                <li><a class="link-wishlist" href="wishlist.html">Wishlist</a></li>
-                <li><a class="link-compare" href="compare.html">Compare</a></li>
+                <li><a class="link-quickview" href="quick_view.html">Vista Rapida</a></li>
+                <li><a class="link-wishlist" href="wishlist.html">Favoritos</a></li>
+                <li><a class="link-compare" href="compare.html">Comparar</a></li>
               </ul>
             </div>
             <div class="box-timer">
@@ -20,14 +22,20 @@
         </div>
         <div class="item-info">
           <div class="info-inner">
-            <div class="item-title"><a href="product_detail.html" title="Retis lapen casen">Retis lapen casen</a></div>
+            <div class="item-title">
+              <a [routerLink]="['/product']" title="Retis lapen casen">Retis lapen casen</a>
+            </div>
             <div class="item-content">
               <div class="rating">
                 <div class="ratings">
                   <div class="rating-box">
                     <div class="rating width80"></div>
                   </div>
-                  <p class="rating-links"><a href="#">1 Review(s)</a><span class="separator">|</span><a href="#">Add Review</a></p>
+                  <p class="rating-links">
+                    <a href="#">1 Review(s)</a>
+                    <span class="separator">|</span>
+                    <a href="#">Add Review</a>
+                  </p>
                 </div>
               </div>
               <div class="item-price">
