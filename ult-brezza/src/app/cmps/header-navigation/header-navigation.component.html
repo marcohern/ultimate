@@ -5,13 +5,8 @@
     </div>
     <div class="nav-inner"> 
       <ul id="nav" class="hidden-xs">
-        <li brezza-nav-menuitem-simple [item]="home"></li>
-        <li brezza-nav-menuitem-simple [item]="simple"></li>
-        <li brezza-nav-menuitem-wide   [item]="wide6"></li>
-        <li brezza-nav-menuitem-wide   [item]="wide6ad" [leftAd]="wideAd1" [rightAd]="wideAd2"></li>
-        <li brezza-nav-menuitem-wide4  [item]="wide4"></li>
-        <li brezza-nav-menuitem-wide4  [item]="wide4ad" [ad]="wide4Ad"></li>
-        <li brezza-nav-menuitem-large  [item]="wide6" [ad]="largeAd"></li>
+        <li *ngFor="let item of topmenu" brezza-nav-menuitem-simple [item]="item"></li>
+        
         <li class="nav-custom-link mega-menu"><a href="#" class="level-top"><span>Custom</span></a>
           <div class="level0-wrapper custom-menu">
             <div class="container">

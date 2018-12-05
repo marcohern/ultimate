@@ -47,6 +47,7 @@ import { SitemapPage } from './pages/sitemap/sitemap.page';
 import { GridPage } from './pages/grid/grid.page';
 import { TermsPage } from './pages/terms/terms.page';
 import { FaqPage } from './pages/faq/faq.page';
+import { PrivacyPage } from './pages/privacy/privacy.page';
 
 @NgModule({
   declarations: [
@@ -95,6 +96,7 @@ import { FaqPage } from './pages/faq/faq.page';
     GridPage,
     TermsPage,
     FaqPage,
+    PrivacyPage,
   ],
   imports: [
     BrowserModule,
