@@ -36,15 +36,16 @@ import { CustomSliderComponent } from './cmps/custom-slider/custom-slider.compon
 import { CompareWidgetComponent } from './cmps/compare-widget/compare-widget.component';
 import { SearchByTagsComponent } from './cmps/search-by-tags/search-by-tags.component';
 import { SidebarComponent } from './cmps/sidebar/sidebar.component';
+import { CatsliderComponent } from './cmps/catslider/catslider.component';
+import { BreadcrumbsComponent } from './cmps/breadcrumbs/breadcrumbs.component';
+import { ProductsGridComponent } from './cmps/products-grid/products-grid.component';
+import { ProductGridItemComponent } from './cmps/product-grid-item/product-grid-item.component';
 
 import { IndexPage } from './pages/index/index.page';
 import { AboutPage } from './pages/about/about.page';
 import { SitemapPage } from './pages/sitemap/sitemap.page';
 import { GridPage } from './pages/grid/grid.page';
-import { CatsliderComponent } from './cmps/catslider/catslider.component';
-import { BreadcrumbsComponent } from './cmps/breadcrumbs/breadcrumbs.component';
-import { ProductsGridComponent } from './cmps/products-grid/products-grid.component';
-import { ProductGridItemComponent } from './cmps/product-grid-item/product-grid-item.component';
+import { TermsPage } from './pages/terms/terms.page';
 
 @NgModule({
   declarations: [
@@ -82,15 +83,16 @@ import { ProductGridItemComponent } from './cmps/product-grid-item/product-grid-
     CompareWidgetComponent,
     SearchByTagsComponent,
     SidebarComponent,
+    CatsliderComponent,
+    BreadcrumbsComponent,
+    ProductsGridComponent,
+    ProductGridItemComponent,
     
     IndexPage,
     AboutPage,
     SitemapPage,
     GridPage,
-    CatsliderComponent,
-    BreadcrumbsComponent,
-    ProductsGridComponent,
-    ProductGridItemComponent,
+    TermsPage,
   ],
   imports: [
     BrowserModule,

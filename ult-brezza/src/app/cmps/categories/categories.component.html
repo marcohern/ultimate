@@ -1,13 +1,8 @@
 <div class="side-nav-categories">
-  <div class="block-title">Categories</div>
+  <div class="block-title">{{title}}</div>
   <div class="box-content box-category">
     <ul>
-      <li><a [routerLink]="['/']">Child Seats</a></li>
-      <li><a [routerLink]="['/']">Safety</a></li>
-      <li><a [routerLink]="['/']">Best Sale</a></li>
-      <li><a [routerLink]="['/']">Toys</a></li>
-      <li><a [routerLink]="['/']">Entertainment</a></li>
-      <li><a [routerLink]="['/']">New Sale</a></li>
+      <li *ngFor="let c of categories"><a [routerLink]="['/',c.slug]">{{c.name}}</a></li>
     </ul>
   </div>
 </div>

@@ -47,10 +47,10 @@ export class HeaderNavigationComponent implements OnInit {
 
   home:MenuItem = {label:'Home', path:['/']};
 
-  simple:MenuItem = {label:'Simple', path:['/'], children: [
-    {label:'Child 1', path:['/']},
-    {label:'Child 2', path:['/']},
-    {label:'Child 3', path:['/']},
+  simple:MenuItem = {label:'Simple', path:['/grid'], children: [
+    {label:'Child 1', path:['/grid']},
+    {label:'Child 2', path:['/grid']},
+    {label:'Child 3', path:['/grid']},
   ]};
   
   wide4:MenuItem = {label:'4 Subs', path:['/'], children: this.items4 };
