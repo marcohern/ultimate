@@ -52,6 +52,7 @@ import { FaqPage } from './pages/faq/faq.page';
 import { PrivacyPage } from './pages/privacy/privacy.page';
 import { ContactPage } from './pages/contact/contact.page';
 import { NavMenuitemCustomComponent } from './cmps/nav-menuitem-custom/nav-menuitem-custom.component';
+import { SentPopupComponent } from './cmps/sent-popup/sent-popup.component';
 
 @NgModule({
   declarations: [
@@ -103,6 +104,7 @@ import { NavMenuitemCustomComponent } from './cmps/nav-menuitem-custom/nav-menui
     PrivacyPage,
     ContactPage,
     NavMenuitemCustomComponent,
+    SentPopupComponent,
   ],
   imports: [
     BrowserModule,
