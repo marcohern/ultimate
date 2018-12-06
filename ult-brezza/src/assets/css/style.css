@@ -3363,14 +3363,14 @@ margin:
 }
 .sale-label {
 	font-size: 10px;
-	color: #fff;
-	background: #ff749f;
+	color: #d1d1d2;
+	background: #636363;
 	text-transform: uppercase;
 	padding: 3px 10px;
 	text-align: center;
 	display: block;
 	position: absolute;
-	top: 0px;
+	top: 10px;
 }
 .hot-label {
 	font-size: 10px;
