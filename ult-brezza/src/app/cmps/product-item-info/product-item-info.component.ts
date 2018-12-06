@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductItemInfoComponent implements OnInit {
 
+  rating:number;
+
   constructor() { }
 
   ngOnInit() {
+    this.rating = Math.round(Math.random()*20)*5;
+    console.log(this.rating);
   }
 
 }

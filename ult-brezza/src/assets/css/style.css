@@ -3686,18 +3686,28 @@ a.button.detail-bnt span {
 	text-indent: -999em;
 	overflow: hidden;
 }
-.rating-box .rating.width100 {
-	width: 100%;
-}
-.rating-box .rating.width80 {
-	width: 80%;
-}
-.rating-box .rating.width60 {
-	width: 60%;
-}
-.rating-box .rating.width25 {
-	width: 25%;
-}
+.rating-box .rating.width100 { width: 100%; }
+.rating-box .rating.width95  { width:  95%; }
+.rating-box .rating.width90  { width:  90%; }
+.rating-box .rating.width85  { width:  85%; }
+.rating-box .rating.width80  { width:  80%; }
+.rating-box .rating.width75  { width:  75%; }
+.rating-box .rating.width70  { width:  70%; }
+.rating-box .rating.width65  { width:  65%; }
+.rating-box .rating.width60  { width:  60%; }
+.rating-box .rating.width55  { width:  55%; }
+.rating-box .rating.width50  { width:  50%; }
+.rating-box .rating.width45  { width:  45%; }
+.rating-box .rating.width40  { width:  40%; }
+.rating-box .rating.width35  { width:  35%; }
+.rating-box .rating.width30  { width:  30%; }
+.rating-box .rating.width25  { width:  25%; }
+.rating-box .rating.width20  { width:  20%; }
+.rating-box .rating.width15  { width:  15%; }
+.rating-box .rating.width10  { width:  10%; }
+.rating-box .rating.width5   { width:   5%; }
+.rating-box .rating.width0   { width:   0%; }
+
 .rating-box .rating {
 	float: left;
 	height: 9px;
