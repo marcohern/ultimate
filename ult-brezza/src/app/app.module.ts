@@ -68,6 +68,7 @@ import { FaqPage } from './pages/faq/faq.page';
 import { PrivacyPage } from './pages/privacy/privacy.page';
 import { ContactPage } from './pages/contact/contact.page';
 import { ProductDetailPage } from './pages/product-detail/product-detail.page';
+import { HowtobuyPage } from './pages/howtobuy/howtobuy.page';
 
 @NgModule({
   declarations: [
@@ -134,6 +135,7 @@ import { ProductDetailPage } from './pages/product-detail/product-detail.page';
     PrivacyPage,
     ContactPage,
     ProductDetailPage,
+    HowtobuyPage,
   ],
   imports: [
     BrowserModule,
