@@ -17,13 +17,13 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('name',128);
             $table->string('slug',128)->unique();
-            $table->boolean('active')->default(true);
-            $table->boolean('available')->default(true);
             $table->longText('description');
             $table->decimal('org_price',18,2);
             $table->decimal('dct_price',18,2)->nullable();
             $table->integer('qty')->default(0);
             $table->integer('prev_id')->nullable();
+
+            $table->boolean('visible')->default(true);
             
             $table->integer('hits')->default(0);
             $table->integer('clicks')->default(0);

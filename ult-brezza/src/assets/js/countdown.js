@@ -26,6 +26,7 @@ function calcage(secs, num1, num2) {
 	return s;
 }
 //function for slider
+var CountBack_slider_timeout = null;
 function CountBack_slider(secs,iid,j_timer) {
 	if (secs < 0) {
 		document.getElementById(iid).innerHTML = FinishMessage;
@@ -48,7 +49,7 @@ function CountBack_slider(secs,iid,j_timer) {
 	
 	$('.'+iid).innerHTML = DisplayStr;
 	  if (CountActive)
-		setTimeout(function(){CountBack_slider((secs+CountStepper),iid,j_timer)}, SetTimeOutPeriod);
+	  	CountBack_slider_timeout = setTimeout(function(){CountBack_slider((secs+CountStepper),iid,j_timer)}, SetTimeOutPeriod);
 }
 
 //function default

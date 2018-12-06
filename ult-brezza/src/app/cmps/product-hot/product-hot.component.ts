@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-declare var CountStepper, CountBack_slider;
+declare var CountStepper, CountBack_slider, CountBack_slider_timeout;
 @Component({
   selector: 'brezza-product-hot',
   templateUrl: './product-hot.component.html',
@@ -11,8 +11,9 @@ export class ProductHotComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    var dthen1:any = new Date("12/25/19 11:59:00 PM");
-    var start = "08/04/18 03:02:11 AM";
+    clearTimeout(CountBack_slider_timeout);
+    var dthen1:any = new Date("2019-12-25 11:59:00");
+    var start = "2018-12-06 10:00:00";
     var start_date:number = Date.parse(start);
     var dnow1:any = new Date(start_date);
     var ddiff;
