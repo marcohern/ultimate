@@ -18,6 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('name',128);
             $table->string('slug',128)->unique();
             $table->boolean('active')->default(true);
+            $table->boolean('available')->default(true);
             $table->longText('description');
             $table->decimal('org_price',18,2);
             $table->decimal('dct_price',18,2)->nullable();
