@@ -1,7 +1,7 @@
 import { Company } from "src/app/models/company";
 
 export const company:Company = {
-    name: 'Brezza',
+    name: 'Panditas',
     address: '123 Main Street',
     country: 'Colombia',
     city: 'Anytown',

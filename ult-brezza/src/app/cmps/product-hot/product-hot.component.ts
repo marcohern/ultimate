@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 declare var CountStepper, CountBack_slider, CountBack_slider_timeout;
 @Component({
@@ -6,12 +6,11 @@ declare var CountStepper, CountBack_slider, CountBack_slider_timeout;
   templateUrl: './product-hot.component.html',
   styleUrls: ['./product-hot.component.css']
 })
-export class ProductHotComponent implements OnInit {
+export class ProductHotComponent implements OnInit, OnDestroy {
 
   constructor() { }
 
   ngOnInit() {
-    clearTimeout(CountBack_slider_timeout);
     var dthen1:any = new Date("2019-12-25 00:00:00");
     var start = "2018-12-06 10:00:00";
     var start_date:any = Date();//Date.parse(start);
@@ -23,6 +22,10 @@ export class ProductHotComponent implements OnInit {
       ddiff = new Date((dthen1) - (dnow1));
     var gsecs1 = Math.floor(ddiff.valueOf() / 1000);
     CountBack_slider(gsecs1, "countbox_1", 1);
+  }
+
+  ngOnDestroy() {
+    clearTimeout(CountBack_slider_timeout);
   }
 
 }
