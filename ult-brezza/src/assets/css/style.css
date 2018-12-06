@@ -7753,7 +7753,7 @@ footer p {
 }
 footer .footer-column a {
 	display: inline-block;
-	color: ##717171
+	color: #717171
 }
 footer a {
 	line-height: normal;
@@ -10208,7 +10208,7 @@ ul#cart-sidebar {
 .col-xs-12.right_menu {
 	padding-left: 4px;
 }
-.product-img-box. col-xs-12 {
+.product-img-box col-xs-12 {
 width: 300px;
 }
 .product-next-prev {
