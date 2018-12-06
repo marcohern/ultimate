@@ -3363,14 +3363,14 @@ margin:
 }
 .sale-label {
 	font-size: 10px;
-	color: #fff;
-	background: #ff749f;
+	color: #d1d1d2;
+	background: #636363;
 	text-transform: uppercase;
 	padding: 3px 10px;
 	text-align: center;
 	display: block;
 	position: absolute;
-	top: 0px;
+	top: 10px;
 }
 .hot-label {
 	font-size: 10px;
@@ -7753,7 +7753,7 @@ footer p {
 }
 footer .footer-column a {
 	display: inline-block;
-	color: ##717171
+	color: #717171
 }
 footer a {
 	line-height: normal;
@@ -10208,7 +10208,7 @@ ul#cart-sidebar {
 .col-xs-12.right_menu {
 	padding-left: 4px;
 }
-.product-img-box. col-xs-12 {
+.product-img-box col-xs-12 {
 width: 300px;
 }
 .product-next-prev {
