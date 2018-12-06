@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuItem } from 'src/app/models/menu-item';
+import { topmenu } from 'src/settings/topmenu';
 
 @Component({
   selector: 'brezza-sitemap',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SitemapPage implements OnInit {
 
+  sitemap:MenuItem[];
+
   constructor() { }
 
   ngOnInit() {
+    this.sitemap = topmenu;
   }
 
 }
