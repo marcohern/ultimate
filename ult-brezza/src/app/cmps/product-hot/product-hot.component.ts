@@ -12,9 +12,9 @@ export class ProductHotComponent implements OnInit {
 
   ngOnInit() {
     clearTimeout(CountBack_slider_timeout);
-    var dthen1:any = new Date("2019-12-25 11:59:00");
+    var dthen1:any = new Date("2019-12-25 00:00:00");
     var start = "2018-12-06 10:00:00";
-    var start_date:number = Date.parse(start);
+    var start_date:any = Date();//Date.parse(start);
     var dnow1:any = new Date(start_date);
     var ddiff;
     if (CountStepper > 0)
