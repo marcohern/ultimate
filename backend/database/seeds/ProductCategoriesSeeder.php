@@ -51,6 +51,7 @@ class ProductCategoriesSeeder extends Seeder
         ];
 
         foreach($data as $k => $record) {
+            $record['created_at'] = new \Datetime;
             DB::table('product_categories')->insert($record);
         }
     }

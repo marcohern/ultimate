@@ -21,6 +21,7 @@ class CategoriesSeeder extends Seeder
         ];
 
         foreach($data as $k => $record) {
+            $record['created_at'] = new \Datetime;
             DB::table('categories')->insert($record);
         }
     }

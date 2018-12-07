@@ -65,6 +65,7 @@ class ProductsSeeder extends Seeder
         foreach($data as $k => $record) {
             $record['overview'] = self::$overview;
             $record['description'] = self::$description;
+            $record['created_at'] = new \Datetime;
             DB::table('products')->insert($record);
         }
     }

@@ -31,6 +31,13 @@ class ProductsController extends Controller
         if ($request->has('dct_price'  )) $product->dct_price   = $input->dct_price;
         if ($request->has('visible'    )) $product->visible     = $input->visible;
         if ($request->has('qty'        )) $product->qty         = $input->qty;
+        
+        if ($request->has('hits'        )) $product->hits        = $input->hits;
+        if ($request->has('clicks'      )) $product->clicks      = $input->clicks;
+        if ($request->has('sales_count' )) $product->sales_count = $input->sales_count;
+        if ($request->has('sales_value' )) $product->sales_value = $input->sales_value;
+        if ($request->has('ratings'     )) $product->rating      = $input->rating;
+        if ($request->has('rating_count')) $product->rating_cnt  = $input->rating_cnt;
 
         if ($request->has('add_categories')) $add_categories   = $input->add_categories;
         if ($request->has('del_category_ids')) $del_category_ids   = $input->del_category_ids;
@@ -60,7 +67,7 @@ class ProductsController extends Controller
         if ($r->has('category_id')) $category_id=$r->category_id;
 
         $query = DB::table('products AS p')
-            ->select('p.id','p.name','p.slug','p.org_price','p.dct_price','p.stars', 'p.qty', 'p.created_at')
+            ->select('p.id','p.name','p.slug','p.org_price','p.dct_price','p.ratings','p.rating_count', 'p.qty', 'p.created_at')
             ->distinct()
             ->join('product_categories AS pc', 'p.id', '=','pc.product_id')
             ->join('categories AS c', 'pc.category_id', '=','c.id');
@@ -104,7 +111,7 @@ class ProductsController extends Controller
         $productCategories = $product->productCategories()->get();
         $categories = [];
         foreach ($productCategories as $pc) {
-            $c = Category::find($pc->category_id);
+            $c = Category::select('id','name','slug','ord')->find($pc->category_id);
             if ($c) {
                 $c->product_category_id = $pc->id;
             }

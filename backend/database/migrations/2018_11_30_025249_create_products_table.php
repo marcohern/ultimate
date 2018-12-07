@@ -29,9 +29,9 @@ class CreateProductsTable extends Migration
             $table->integer('hits')->default(0);
             $table->integer('clicks')->default(0);
             $table->integer('sales_count')->default(0);
-            $table->decimal('sales_value',18,2)->default(0);
-            $table->decimal('stars',2,1)->default(0.0);
-            $table->integer('comments')->default(0);
+            $table->decimal('sales_value',18, 2)->default(0);
+            $table->decimal('ratings'    , 2, 1)->default(0.0);
+            $table->integer('rating_count')->default(0);
 
             $table->timestamps();
         });
