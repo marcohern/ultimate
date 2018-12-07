@@ -25,6 +25,10 @@ class ProductUpdateRequest extends FormRequest
     {
         return [
             'slug' => 'unique:products',
+            'add_click' => 'boolean',
+            'add_hit' => 'boolean',
+            'add_sale_value' => 'numeric',
+            'add_rating_value' => 'numeric'
         ];
     }
 }

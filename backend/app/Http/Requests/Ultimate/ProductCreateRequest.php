@@ -26,7 +26,8 @@ class ProductCreateRequest extends FormRequest
         return [
             'name' => 'required',
             'slug' => 'required|unique:products',
-            'org_price' => 'required|numeric'
+            'org_price' => 'required|numeric',
+            'description' => 'required',
         ];
     }
 }

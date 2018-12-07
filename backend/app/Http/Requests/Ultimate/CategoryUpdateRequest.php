@@ -25,6 +25,9 @@ class CategoryUpdateRequest extends FormRequest
     {
         return [
             'slug' => 'unique:categories',
+            'add_click' => 'boolean',
+            'add_hit' => 'boolean',
+            'add_sale_value' => 'numeric'
         ];
     }
 }

@@ -18,7 +18,7 @@ class CategoriesController extends Controller
     private function saveCategory(Request $request, Category $category) {
         $input = (object)$request->all();
         $add_products = [];
-        $del_product_ids = [];
+        $del_products = [];
 
         if ($request->has('name'       )) $category->name = $input->name;
         if ($request->has('slug'       )) $category->slug = $input->slug;
@@ -34,12 +34,17 @@ class CategoriesController extends Controller
         if ($request->has('sales_count')) $category->sales_count = $input->sales_count;
         if ($request->has('sales_value')) $category->sales_value = $input->sales_value;
 
-        if ($request->has('add_hit'       )) $category->hits++;
-        if ($request->has('add_click'     )) $category->clicks++;
-        if ($request->has('add_sale_count')) $category->sales_count++;
-        if ($request->has('add_sale_value')) $category->sales_value+=$input->add_sale_value;
+        if (isset($product->id)) { //If the record is being updated, acknowledge the following fields
+            if ($request->has('add_hit'       )) $category->hits++;
+            if ($request->has('add_click'     )) $category->clicks++;
+            if ($request->has('add_sale_value')) {
+                $category->sales_count++;
+                $category->sales_value+=$input->add_sale_value;
+            }
+        }
         
         if ($request->has('add_products' )) $add_products = $input->add_products;
+        if ($request->has('del_products' )) $del_products = $input->del_products;
 
         $category->save();
 
@@ -48,7 +53,9 @@ class CategoriesController extends Controller
             $addprods[] =  ['category_id' => $category->id, 'product_id' => $p];
         }
 
-        ProductCategory::destroy($del_product_ids);
+        ProductCategory::where('category_id',$category->id)
+            ->whereIn('product_id',$del_products)
+            ->delete();
         ProductCategory::insert($addprods);
         return $category;
     }
@@ -58,9 +65,21 @@ class CategoriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $r)
     {
-        $categories = Category::all();
+        $q = '';
+        $l = 50;
+        if ($r->has('q')) $q=trim($r->q);
+        if ($r->has('l')) $l = $r->l;
+
+        $query = Category::select('id','name','slug','ord','lvl')
+            ->orderBy('ord','asc');
+        if (!empty($q)) {
+            $rq = preg_replace('/\s+/','%',$q);
+            $query->where('p.name','LIKE',"%$rq%");
+        }
+
+        $categories = $query->paginate($l);
         return $categories;
     }
 

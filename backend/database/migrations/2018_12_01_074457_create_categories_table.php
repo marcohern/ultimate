@@ -29,6 +29,7 @@ class CreateCategoriesTable extends Migration
             $table->decimal('sales_value',18,2)->default(0);
 
             $table->index('parent_id');
+            $table->index('ord');
 
             $table->timestamps();
         });

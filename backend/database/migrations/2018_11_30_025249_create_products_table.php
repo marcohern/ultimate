@@ -22,7 +22,6 @@ class CreateProductsTable extends Migration
             $table->decimal('org_price',18,2);
             $table->decimal('dct_price',18,2)->nullable();
             $table->integer('qty')->default(0);
-            $table->integer('prev_id')->nullable();
 
             $table->boolean('visible')->default(true);
             
@@ -30,8 +29,8 @@ class CreateProductsTable extends Migration
             $table->integer('clicks')->default(0);
             $table->integer('sales_count')->default(0);
             $table->decimal('sales_value',18, 2)->default(0);
-            $table->decimal('ratings'    , 2, 1)->default(0.0);
             $table->integer('rating_count')->default(0);
+            $table->decimal('rating_value', 9, 7)->default(0.0);
 
             $table->timestamps();
         });
