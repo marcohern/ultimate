@@ -15,6 +15,44 @@ class CategoriesController extends Controller
         $this->middleware('auth:api');
     }
 
+    private function saveCategory(Request $request, Category $category) {
+        $input = (object)$request->all();
+        $add_products = [];
+        $del_product_ids = [];
+
+        if ($request->has('name'       )) $category->name = $input->name;
+        if ($request->has('slug'       )) $category->slug = $input->slug;
+        if ($request->has('type'       )) $category->type = $input->type;
+        if ($request->has('description')) $category->description = $input->description;
+        
+        if ($request->has('parent_id')) $category->parent_id = $input->parent_id;
+        if ($request->has('ord'      )) $category->ord       = $input->ord;
+        if ($request->has('lvl'      )) $category->lvl       = $input->lvl;
+
+        if ($request->has('hits'       )) $category->hits        = $input->hits;
+        if ($request->has('clicks'     )) $category->clicks      = $input->clicks;
+        if ($request->has('sales_count')) $category->sales_count = $input->sales_count;
+        if ($request->has('sales_value')) $category->sales_value = $input->sales_value;
+
+        if ($request->has('add_hit'       )) $category->hits++;
+        if ($request->has('add_click'     )) $category->clicks++;
+        if ($request->has('add_sale_count')) $category->sales_count++;
+        if ($request->has('add_sale_value')) $category->sales_value+=$input->add_sale_value;
+        
+        if ($request->has('add_products' )) $add_products = $input->add_products;
+
+        $category->save();
+
+        $addprods = [];
+        foreach ($add_products as $p) {
+            $addprods[] =  ['category_id' => $category->id, 'product_id' => $p];
+        }
+
+        ProductCategory::destroy($del_product_ids);
+        ProductCategory::insert($addprods);
+        return $category;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -34,27 +72,9 @@ class CategoriesController extends Controller
      */
     public function store(CategoryCreateRequest $r)
     {
-        $input = (object)$r->all();
-        $products = [];
 
         $category = new Category;
-        $category->name        = $input->name;
-        $category->slug        = $input->slug;
-        $category->type        = $input->type;
-        $category->description = $input->description;
-        
-        if ($r->has('parent_id')) $category->parent_id = $input->parent_id;
-        if ($r->has('ord'      )) $category->ord       = $input->ord;
-        if ($r->has('lvl'      )) $category->lvl       = $input->lvl;
-        if ($r->has('products' )) $products = $input->products;
-
-        $category->save();
-        foreach ($products as $p) {
-            $pc = new ProductCategory;
-            $pc->product_id = $p;
-            $pc->category_id = $category->id;
-            $pc->save();
-        }
+        $category = $this->saveCategory($r, $category);
 
         return [
             'success' => true,
@@ -82,27 +102,7 @@ class CategoriesController extends Controller
      */
     public function update(Request $r, Category $category)
     {
-        $input = (object)$r->all();
-        $products = [];
-
-        if ($r->has('name'       )) $category->name = $input->name;
-        if ($r->has('slug'       )) $category->slug = $input->slug;
-        if ($r->has('type'       )) $category->type = $input->type;
-        if ($r->has('description')) $category->description = $input->description;
-        
-        if ($r->has('parent_id')) $category->parent_id = $input->parent_id;
-        if ($r->has('ord'      )) $category->ord       = $input->ord;
-        if ($r->has('lvl'      )) $category->lvl       = $input->lvl;
-        
-        if ($r->has('products' )) $products = $input->products;
-
-        $category->save();
-        foreach ($products as $p) {
-            $pc = new ProductCategory;
-            $pc->product_id = $p;
-            $pc->category_id = $category->id;
-            $pc->save();
-        }
+        $category = $this->saveCategory($r, $category);
 
         return [
             'success' => true,
