@@ -20,4 +20,5 @@ Route::middleware('auth:api')->get('/me', function (Request $request) {
 Route::apiResources([
     'users' => 'Ultimate\\UsersController',
     'products' => 'Ultimate\\ProductsController',
+    'categories' => 'Ultimate\\CategoriesController',
 ]);

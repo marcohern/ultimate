@@ -8,10 +8,11 @@ class Product extends Model
 {
     //
     protected $casts = [
-        'active' => 'boolean',
+        'visible' => 'boolean',
         'org_price' => 'double',
         'dct_price' => 'double',
         'stars' => 'double',
+        'sales_value' => 'double',
     ];
 
     public function productCategories() {

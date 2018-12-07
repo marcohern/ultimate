@@ -24,18 +24,21 @@ class ProductsController extends Controller
     {
         $q = '';
         $category_id = null;
-        if ($r->has('q')) $q=$r->q;
+        if ($r->has('q')) $q=trim($r->q);
         if ($r->has('category_id')) $category_id=$r->category_id;
 
         $query = DB::table('products AS p')
-            ->select('p.id','p.name','p.slug','p.org_price','p.dct_price','p.active','p.stars')
+            ->select('p.id','p.name','p.slug','p.org_price','p.dct_price','p.stars', 'p.qty', 'p.created_at')
             ->distinct()
             ->join('product_categories AS pc', 'p.id', '=','pc.product_id')
             ->join('categories AS c', 'pc.category_id', '=','c.id');
         if (!empty($category_id)) {
-            $query->where('c.id', '=', $category_id);
+            $query->where('c.id', '=', $category_id)->where('p.visible', '=',true);
         }
-        //if (!empty($q)) $query->where('name','LIKE',"%$q%");
+        if (!empty($q)) {
+            $rq = preg_replace('/\s+/','%',$q);
+            $query->where('p.name','LIKE',"%$rq%");
+        }
         $products = $query->paginate(50);
         return $products;
     }
@@ -54,10 +57,12 @@ class ProductsController extends Controller
         $product = new Product;
         $product->name = $input->name;
         $product->slug = $input->slug;
+        $product->overview = $input->overview;
         $product->description = $input->description;
         $product->org_price = $input->org_price;
         $product->dct_price = ($request->has('dct_price')) ? $input->dct_price : null;
-        $product->active = true;
+        $product->visible = true;
+        $product->qty = $input->qty;
         $product->save();
 
         return [
@@ -80,19 +85,21 @@ class ProductsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\ProductCreateRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @param  Product  $oroduct
      * @return \Illuminate\Http\Response
      */
-    public function update(ProductCreateRequest $request,Product $oroduct)
+    public function update(Request $request,Product $oroduct)
     {
         $input = (object)$request->all();
         if ($request->has('name'       )) $product->name        = $input->name;
         if ($request->has('slug'       )) $product->slug        = $input->slug;
+        if ($request->has('overview'   )) $product->overview    = $input->overview;
         if ($request->has('description')) $product->description = $input->description;
         if ($request->has('org_price'  )) $product->org_price   = $input->org_price;
         if ($request->has('dct_price'  )) $product->dct_price   = $input->dct_price;
-        if ($request->has('active'     )) $product->active      = $input->active;
+        if ($request->has('visible'    )) $product->visible     = $input->visible;
+        if ($request->has('qty'        )) $product->qty         = $input->qty;
         $product->save();
 
         return [
