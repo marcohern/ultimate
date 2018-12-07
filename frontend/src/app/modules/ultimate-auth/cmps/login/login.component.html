@@ -1,6 +1,6 @@
 <div class="card" style="width: 100%">
   <div class="card-body">
-    <form>
+    <form (ngSubmit)="requestLogin()">
       <p class="h5 card-title">Login</p>
       <div class="form-group">
         <label>Email</label>
@@ -15,12 +15,15 @@
         <label class="form-check-label">Remember me</label>
       </div>
       <div>
-        <a class="btn btn-primary" (click)="requestLogin()">Login</a>
-        <span *ngIf="req.requesting"> ...Loading...</span>
+        <button class="btn btn-primary" type="submit" [disabled]="req.isRequesting()">Login</button>
+        <img src="/assets/loading.svg" alt="Loading" width="38px" *ngIf="req.isRequesting()" >
       </div>
       <div>
         <a href="#">Forgot password?</a>
       </div>
     </form>
+    <div class="alert alert-danger" role="alert" *ngIf="errorAlert">
+      <span>{{errorMsg}}</span>
+    </div>
   </div>
 </div>
