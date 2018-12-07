@@ -75,7 +75,7 @@ export class RequestService extends QueryStringBase {
   
   public put<T>(endpoint:string, id:number|string, data:any={}): Observable<T> {
     this.beforeBegin();
-    return this.http.post<T>(this.url(endpoint) + '/' + id, data)
+    return this.http.put<T>(this.url(endpoint) + '/' + id, data)
     .pipe(
       finalize(() => { this.completed(); }),
       tap(() => {}, error => this.handleError("RequestService.put",error)),

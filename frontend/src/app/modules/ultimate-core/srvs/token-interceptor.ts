@@ -17,6 +17,7 @@ export class TokenInterceptor implements HttpInterceptor {
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         //console.log("TokenInterceptor.intercept");
+
         if (this.req.isAuthenticated()) {
             request = request.clone({
                 setHeaders: {
@@ -24,6 +25,12 @@ export class TokenInterceptor implements HttpInterceptor {
                 }
             });
         }
+        request = request.clone({
+            setHeaders: {
+                "Content-Type":'application/json',
+                "Accept":'application/json'
+            }
+        });
         return next.handle(request);
     }
 }

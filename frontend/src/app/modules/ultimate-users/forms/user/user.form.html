@@ -1,0 +1,33 @@
+<form [formGroup]="userFormGroup" (ngSubmit)="submit()">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <h2>Formulario de Usuario</h2>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Email</label>
+        <input class="form-control" formControlName="email" placeholder="jdoe@mail.com" />
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" formControlName="name" placeholder="John Doe" />
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+          <button class="btn btn-primary" type="submit">Guardar</button>
+          <button class="btn btn-warning" type="button" (click)="cancel()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</form>

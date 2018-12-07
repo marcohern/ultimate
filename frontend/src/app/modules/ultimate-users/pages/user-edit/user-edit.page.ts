@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/modules/ultimate-core/models/user';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'user-edit-page',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserEditPage implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router, private route:ActivatedRoute) { }
 
   ngOnInit() {
+  }
+
+  saved(user:User) {
+    this.router.navigate(['/users']);
+  }
+
+  cancel() {
+    this.router.navigate(['/users']);
   }
 
 }
