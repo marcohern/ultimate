@@ -8,12 +8,37 @@ use App\Http\Controllers\Controller;
 use App\Ultimate\Product;
 use App\Ultimate\ProductCategory;
 use App\Http\Requests\Ultimate\ProductCreateRequest;
+use App\Http\Requests\Ultimate\ProductUpdateRequest;
 use Illuminate\Support\Facades\DB;
 
 class ProductsController extends Controller
 {
     public function __construct() {
         $this->middleware('auth:api');
+    }
+
+    private function saveProduct(Request $request, Product $product) {
+        $input = (object)$request->all();
+        $categories = [];
+
+        if ($request->has('name'       )) $product->name        = $input->name;
+        if ($request->has('slug'       )) $product->slug        = $input->slug;
+        if ($request->has('overview'   )) $product->overview    = $input->overview;
+        if ($request->has('description')) $product->description = $input->description;
+        if ($request->has('org_price'  )) $product->org_price   = $input->org_price;
+        if ($request->has('dct_price'  )) $product->dct_price   = $input->dct_price;
+        if ($request->has('visible'    )) $product->visible     = $input->visible;
+        if ($request->has('qty'        )) $product->qty         = $input->qty;
+        if ($request->has('categories' )) $categories           = $input->categories;
+
+        $product->save();
+        foreach ($categories as $c) {
+            $pc = new ProductCategory;
+            $pc->product_id = $product->id;
+            $pc->category_id = $c;
+            $pc->save();
+        }
+        return $product;
     }
 
     /**
@@ -52,33 +77,13 @@ class ProductsController extends Controller
      */
     public function store(ProductCreateRequest $request)
     {
-        //
-        $input = (object)$request->all();
-        $categories = [];
 
         $product = new Product;
-        $product->name = $input->name;
-        $product->slug = $input->slug;
-        $product->overview = $input->overview;
-        $product->description = $input->description;
-        $product->org_price = $input->org_price;
-        $product->dct_price = ($request->has('dct_price')) ? $input->dct_price : null;
-        $product->visible = true;
-        $product->qty = $input->qty;
-        if ($request->has('categories')) $categories = $input->categories;
-
-        $product->save();
-        foreach ($categories as $c) {
-            $pc = new ProductCategory;
-            $pc->product_id = $product->id;
-            $pc->category_id = $c;
-            $pc->save();
-        }
+        $product = $this->saveProduct($request, $product);
 
         return [
             'success' => true,
-            'id' => $product->id,
-            'categories' => $categories
+            'id' => $product->id
         ];
     }
 
@@ -96,33 +101,13 @@ class ProductsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  Product  $oroduct
+     * @param  \App\Http\Requests\Ultimate\ProductUpdateRequest  $request
+     * @param  \App\Ultimate\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,Product $oroduct)
+    public function update(ProductUpdateRequest $request,Product $product)
     {
-        $input = (object)$request->all();
-        $categories = [];
-
-        if ($request->has('name'       )) $product->name        = $input->name;
-        if ($request->has('slug'       )) $product->slug        = $input->slug;
-        if ($request->has('overview'   )) $product->overview    = $input->overview;
-        if ($request->has('description')) $product->description = $input->description;
-        if ($request->has('org_price'  )) $product->org_price   = $input->org_price;
-        if ($request->has('dct_price'  )) $product->dct_price   = $input->dct_price;
-        if ($request->has('visible'    )) $product->visible     = $input->visible;
-        if ($request->has('qty'        )) $product->qty         = $input->qty;
-        if ($request->has('categories' )) $categories           = $input->categories;
-
-        $product->save();
-        foreach ($categories as $c) {
-            $pc = new ProductCategory;
-            $pc->product_id = $product->id;
-            $pc->category_id = $c;
-            $pc->save();
-        }
-
+        $product = $this->saveProduct($request, $product);
         return [
             'success' => true,
             'id' => $product->id,
