@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\Ultimate\UserQueryRequest;
 use App\Http\Requests\Ultimate\UserCreateRequest;
@@ -50,7 +51,7 @@ class UsersController extends Controller
         $user = new User;
         $user->email = $input->email;
         $user->name = $input->name;
-        $user->password = $input->password;
+        $user->password = Hash::make($input->password);
         $user->save();
 
         return [
@@ -80,13 +81,12 @@ class UsersController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
         $input = (object)$request->all();
-
         
-        //$user->email = $input->email;
-        if ($request->has('name')) $user->name = $input->name;
-        //$user->password = $input->password;
+        if ($request->has('email'   )) $user->email    = $input->email;
+        if ($request->has('name'    )) $user->name     = $input->name;
+        if ($request->has('password')) $user->password = Hash::make($input->password);
+        
         $user->save();
         
         return [

@@ -17,6 +17,7 @@ import { PrivatePage } from './pages/private/private.page';
 import { PublicPage } from './pages/public/public.page';
 import { InviteComponent } from './cmps/invite/invite.component';
 import { InvitePage } from './pages/invite/invite.page';
+import { AuthService } from './srvs/auth.service';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { InvitePage } from './pages/invite/invite.page';
     HttpClientModule,
     RouterModule.forChild(routes)
   ],
+  providers: [AuthService],
   exports: [
     LoginPage
   ]
