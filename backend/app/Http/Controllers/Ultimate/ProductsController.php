@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Ultimate\Product;
+use App\Ultimate\ProductCategory;
 use App\Http\Requests\Ultimate\ProductCreateRequest;
 use Illuminate\Support\Facades\DB;
 
@@ -53,6 +54,7 @@ class ProductsController extends Controller
     {
         //
         $input = (object)$request->all();
+        $categories = [];
 
         $product = new Product;
         $product->name = $input->name;
@@ -63,11 +65,20 @@ class ProductsController extends Controller
         $product->dct_price = ($request->has('dct_price')) ? $input->dct_price : null;
         $product->visible = true;
         $product->qty = $input->qty;
+        if ($request->has('categories')) $categories = $input->categories;
+
         $product->save();
+        foreach ($categories as $c) {
+            $pc = new ProductCategory;
+            $pc->product_id = $product->id;
+            $pc->category_id = $c;
+            $pc->save();
+        }
 
         return [
             'success' => true,
             'id' => $product->id,
+            'categories' => $categories
         ];
     }
 
@@ -92,6 +103,8 @@ class ProductsController extends Controller
     public function update(Request $request,Product $oroduct)
     {
         $input = (object)$request->all();
+        $categories = [];
+
         if ($request->has('name'       )) $product->name        = $input->name;
         if ($request->has('slug'       )) $product->slug        = $input->slug;
         if ($request->has('overview'   )) $product->overview    = $input->overview;
@@ -100,7 +113,15 @@ class ProductsController extends Controller
         if ($request->has('dct_price'  )) $product->dct_price   = $input->dct_price;
         if ($request->has('visible'    )) $product->visible     = $input->visible;
         if ($request->has('qty'        )) $product->qty         = $input->qty;
+        if ($request->has('categories' )) $categories           = $input->categories;
+
         $product->save();
+        foreach ($categories as $c) {
+            $pc = new ProductCategory;
+            $pc->product_id = $product->id;
+            $pc->category_id = $c;
+            $pc->save();
+        }
 
         return [
             'success' => true,
@@ -114,10 +135,10 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $oroduct)
+    public function destroy(Product $product)
     {
-        $id = $oroduct->id;
-        $oroduct->delete($id);
+        $id = $product->id;
+        $product->delete();
         return [
             'success' => true,
             'id' => $id,

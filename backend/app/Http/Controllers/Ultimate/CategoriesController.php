@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Ultimate\Category;
+use App\Ultimate\ProductCategory;
 use App\Http\Requests\Ultimate\CategoryCreateRequest;
 
 class CategoriesController extends Controller
@@ -34,6 +35,8 @@ class CategoriesController extends Controller
     public function store(CategoryCreateRequest $r)
     {
         $input = (object)$r->all();
+        $products = [];
+
         $category = new Category;
         $category->name        = $input->name;
         $category->slug        = $input->slug;
@@ -43,7 +46,15 @@ class CategoriesController extends Controller
         if ($r->has('parent_id')) $category->parent_id = $input->parent_id;
         if ($r->has('ord'      )) $category->ord       = $input->ord;
         if ($r->has('lvl'      )) $category->lvl       = $input->lvl;
+        if ($r->has('products' )) $products = $input->products;
+
         $category->save();
+        foreach ($products as $p) {
+            $pc = new ProductCategory;
+            $pc->product_id = $p;
+            $pc->category_id = $category->id;
+            $pc->save();
+        }
 
         return [
             'success' => true,
@@ -72,6 +83,8 @@ class CategoriesController extends Controller
     public function update(Request $r, Category $category)
     {
         $input = (object)$r->all();
+        $products = [];
+
         if ($r->has('name'       )) $category->name = $input->name;
         if ($r->has('slug'       )) $category->slug = $input->slug;
         if ($r->has('type'       )) $category->type = $input->type;
@@ -80,7 +93,16 @@ class CategoriesController extends Controller
         if ($r->has('parent_id')) $category->parent_id = $input->parent_id;
         if ($r->has('ord'      )) $category->ord       = $input->ord;
         if ($r->has('lvl'      )) $category->lvl       = $input->lvl;
+        
+        if ($r->has('products' )) $products = $input->products;
+
         $category->save();
+        foreach ($products as $p) {
+            $pc = new ProductCategory;
+            $pc->product_id = $p;
+            $pc->category_id = $category->id;
+            $pc->save();
+        }
 
         return [
             'success' => true,
@@ -97,7 +119,7 @@ class CategoriesController extends Controller
     public function destroy(Category $category)
     {
         $id = $category->id;
-        $category->delete($id);
+        $category->delete();
         return [
             'success' => true,
             'id' => $id,
