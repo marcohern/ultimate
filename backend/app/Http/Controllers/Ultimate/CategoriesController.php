@@ -12,7 +12,9 @@ use App\Http\Requests\Ultimate\CategoryCreateRequest;
 class CategoriesController extends Controller
 {
     public function __construct() {
-        $this->middleware('auth:api');
+        $this->middleware('auth:api', [
+            'only' => 'create','store','destroy'
+        ]);
     }
 
     private function saveCategory(Request $request, Category $category) {

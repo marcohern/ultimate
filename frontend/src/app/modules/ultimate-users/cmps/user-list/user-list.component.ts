@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/modules/ultimate-core/models/user';
 import { UserService } from '../../srvs/user.service';
+import { Paged } from 'src/app/modules/ultimate-core/models/paged';
 
 @Component({
   selector: 'ult-user-list',
@@ -9,6 +10,7 @@ import { UserService } from '../../srvs/user.service';
 })
 export class UserListComponent implements OnInit {
   users:User[] = [];
+  usersPaged:Paged<User>;
   
   constructor(private us:UserService) { }
 
@@ -16,6 +18,7 @@ export class UserListComponent implements OnInit {
     this.us.browseUsers(1).subscribe(result => {
       console.log(result);
       this.users = result.data;
+      this.usersPaged = result;
     });
 
   }

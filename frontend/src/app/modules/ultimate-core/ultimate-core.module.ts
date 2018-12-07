@@ -5,10 +5,12 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { RequestService } from './srvs/request.service';
 import { MenuComponent } from './cmps/menu/menu.component';
+import { PagerComponent } from './cmps/pager/pager.component';
+
 import { TokenInterceptor } from './srvs/token-interceptor';
 
 @NgModule({
-  declarations: [MenuComponent],
+  declarations: [MenuComponent, PagerComponent],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -18,6 +20,6 @@ import { TokenInterceptor } from './srvs/token-interceptor';
     RequestService,
     {provide:HTTP_INTERCEPTORS, useClass:TokenInterceptor, multi:true }
   ],
-  exports:[MenuComponent],
+  exports:[MenuComponent, PagerComponent],
 })
 export class UltimateCoreModule { }
