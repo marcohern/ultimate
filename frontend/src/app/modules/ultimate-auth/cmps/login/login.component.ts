@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestService } from '../../../ultimate-core/srvs/request.service';
+import { Router } from '@angular/router';
+
 import { User } from '../../../ultimate-core/models/user';
 import { LoginResult } from '../../../ultimate-core/models/login-result';
-
 @Component({
   selector: 'ult-auth-login',
   templateUrl: './login.component.html',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   email:string = '';
   password:string = '';
 
-  constructor(private req:RequestService) { }
+  constructor(private req:RequestService,private router:Router) { }
 
   ngOnInit() {
     
@@ -25,6 +26,7 @@ export class LoginComponent implements OnInit {
     this.req.login(this.email,this.password).subscribe(result => {
       console.log(result, result.access_token);
       this.req.setToken(result.access_token);
+      this.router.navigate(['/private']);
     });
   }
 }

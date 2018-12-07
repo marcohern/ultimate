@@ -26,10 +26,12 @@ export class RequestService extends QueryStringBase {
       client_secret:environment.api.secret,
       username:username,
       password:password
+    }, {
+      headers: this.headers()
     })
     .pipe(
       finalize(() => { this.completed(); }),
-      catchError(this.handleError<LoginResult>('RequestService.login'))
+      tap(() => {}, error => this.handleError("RequestService.login",error)),
     );
   }
 
@@ -38,60 +40,54 @@ export class RequestService extends QueryStringBase {
     return this.http.post(this.url('/logout'), {})
     .pipe(
       finalize(() => { this.completed(); }),
-      catchError(this.handleError<LoginResult>('RequestService.logout'))
+      tap(() => {}, error => this.handleError("RequestService.logout",error)),
     );
   }
   
   public browse<T>(endpoint:string,filters:any):Observable<T> {
     this.beforeBegin();
     var qs = this.getQueryString(filters);
-    return this.http.get<T>(this.url(endpoint) + '?' + qs, { 
-      headers: this.headers()
-    }).pipe(
+    return this.http.get<T>(this.url(endpoint) + '?' + qs)
+    .pipe(
       finalize(() => { this.completed(); }),
-      catchError(this.handleError<T>('RequestService.browse'))
+      tap(() => {}, error => this.handleError("RequestService.browse",error)),
     );
   }
   
   public get<T>(endpoint:string, id:number|string):Observable<T> {
     this.beforeBegin();
-    return this.http.get<T>(this.url(endpoint) + '/' + id, { 
-      headers: this.headers()
-    }).pipe(
+    return this.http.get<T>(this.url(endpoint) + '/' + id)
+    .pipe(
       finalize(() => { this.completed(); }),
-      catchError(this.handleError<T>('RequestService.get'))
+      tap(() => {}, error => this.handleError("RequestService.get",error)),
     );
   }
   
   public post<T>(endpoint:string, data:any={}):Observable<T> {
     this.beforeBegin();
     console.log("post", this);
-    return this.http.post<T>(this.url(endpoint), data, {
-      headers: this.headers()
-    }).pipe(
+    return this.http.post<T>(this.url(endpoint), data)
+    .pipe(
       finalize(() => { this.completed(); }),
-      catchError(this.handleError<T>('RequestService.post'))
+      tap(() => {}, error => this.handleError("RequestService.post",error)),
     );
   }
   
   public put<T>(endpoint:string, id:number|string, data:any={}): Observable<T> {
     this.beforeBegin();
-    return this.http.post<T>(this.url(endpoint) + '/' + id, data, {
-      headers: this.headers()
-    }).pipe(
+    return this.http.post<T>(this.url(endpoint) + '/' + id, data)
+    .pipe(
       finalize(() => { this.completed(); }),
-      catchError(this.handleError<T>('RequestService.put'))
+      tap(() => {}, error => this.handleError("RequestService.put",error)),
     );
   }
 
   public delete<T>(endpoint:string, id:number|string):Observable<T> {
     this.beforeBegin();
     var url = this.url(endpoint) + '?' + id;
-    return this.http.get<T>(url, { 
-      headers: this.headers()
-    }).pipe(
+    return this.http.get<T>(url).pipe(
       finalize(() => { this.completed(); }),
-      catchError(this.handleError<T>('RequestService.delete'))
+      tap(() => {}, error => this.handleError("RequestService.delete",error)),
     );
   }
 }

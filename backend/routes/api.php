@@ -17,6 +17,7 @@ Route::middleware('auth:api')->get('/me', function (Request $request) {
     return $request->user();
 });
 
+Route::post('logout','Ultimate\\AccountController@logout');
 Route::apiResources([
     'users' => 'Ultimate\\UsersController',
     'products' => 'Ultimate\\ProductsController',

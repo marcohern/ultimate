@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { RequestService } from './srvs/request.service';
 import { MenuComponent } from './cmps/menu/menu.component';
+import { TokenInterceptor } from './srvs/token-interceptor';
 
 @NgModule({
   declarations: [MenuComponent],
@@ -13,7 +14,10 @@ import { MenuComponent } from './cmps/menu/menu.component';
     HttpClientModule,
     RouterModule
   ],
-  providers:[RequestService],
-  exports:[MenuComponent]
+  providers:[
+    RequestService,
+    {provide:HTTP_INTERCEPTORS, useClass:TokenInterceptor, multi:true }
+  ],
+  exports:[MenuComponent],
 })
 export class UltimateCoreModule { }

@@ -54,20 +54,15 @@ export class RequestServiceBase {
      * @param operation Reference to operation being executed
      * @param result Result required
      */
-    protected handleError<T>(operation:string = 'operation', result?: T) {
-        return (err:HttpErrorResponse): Observable<T> => {
-            console.error(err);
-            if (err.status == 401) {
-            console.warn("Unauthenticated... maybe redirect here?");
-            }
-            return throwError(err.message);
-        }
+    protected handleError(reference:string, error:any) {
+        console.error(reference,error);
     }
     
     /**
      * Executes whenever an a request is complete, regardless of error
      */
     protected completed() {
+        console.log("completed");
         this.decreaseRequestCount();
     }
 

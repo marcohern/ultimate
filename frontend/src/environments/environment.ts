@@ -8,7 +8,7 @@ export const environment = {
     root:'http://localhost:8000/api',
     oauth:'http://localhost:8000/oauth',
     id:2,
-    secret: 'SxCSPqKoffHEplvdr6PMTTirxO2lUpBsGLxLjP4K'
+    secret: 'dtH4F6RdoTtaeb9stQvxgNg6TxcWSRuZa93dlWbS'
   }
 };
 

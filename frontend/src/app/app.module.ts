@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { UltimateAuthModule } from './modules/ultimate-auth/ultimate-auth.module';
@@ -22,7 +22,8 @@ import { UltimateProductsModule } from './modules/ultimate-products/ultimate-pro
     UltimateUsersModule,
     UltimateProductsModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { MenuItem } from '../../models/menu-item';
 import { MenuOptions } from '../../models/menu-options';
 import { RequestService } from '../../srvs/request.service';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'ultimate-menu',
@@ -11,7 +13,7 @@ import { RequestService } from '../../srvs/request.service';
 export class MenuComponent implements OnInit {
 
   
-  constructor(private req:RequestService) { }
+  constructor(private req:RequestService, private http:HttpClient, private router:Router) { }
 
   @Input()
   public title = '[Title]';
@@ -31,9 +33,16 @@ export class MenuComponent implements OnInit {
   }
 
   logout() {
+    
     this.req.logout().subscribe(result => {
       console.log(result);
       this.req.clearToken();
+      this.router.navigate(['/login']);
+    }, error => {
+      if (error.status == 401) {
+        console.log("Unauthenticated 401");
+        this.router.navigate(['/login']);
+      }
     });
   }
 

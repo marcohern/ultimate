@@ -51,6 +51,7 @@ export class TokenServiceBase extends RequestServiceBase {
         if (t) {
             this.token = t;
         }
+        console.log("TokenServiceBase.retrieveToken", this.token);
     }
 
     /**
@@ -70,16 +71,22 @@ export class TokenServiceBase extends RequestServiceBase {
         this.token = null;
     }
 
+    public getToken() {
+        return this.token;
+    }
+
     /**
      * Set headers for a request
      */
     protected headers() {
-      let headers = new HttpHeaders();
-      headers.set('Content-Type','application/json');
-      headers.set('Accept','application/json');
-      if (this.token != null) {
-        headers.set('Authorization','Bearer ' + this.token);
-      }
-      return headers;
+        console.log("TokenServiceBase.headers",this.token);
+        let headers = new HttpHeaders();
+        headers.set('Content-Type','application/json');
+        headers.set('Accept','application/json');
+        if (this.token != null) {
+            console.log("Setting Auth header");
+            headers.set('Authorization','Bearer ' + this.token);
+        }
+        return headers;
     }
 }
