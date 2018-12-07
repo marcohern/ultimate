@@ -51,7 +51,7 @@ export class TokenServiceBase extends RequestServiceBase {
         if (t) {
             this.token = t;
         }
-        console.log("TokenServiceBase.retrieveToken", this.token);
+        //console.log("TokenServiceBase.retrieveToken", this.token);
     }
 
     /**
@@ -79,7 +79,7 @@ export class TokenServiceBase extends RequestServiceBase {
      * Set headers for a request
      */
     protected headers() {
-        console.log("TokenServiceBase.headers",this.token);
+        //console.log("TokenServiceBase.headers",this.token);
         let headers = new HttpHeaders();
         headers.set('Content-Type','application/json');
         headers.set('Accept','application/json');

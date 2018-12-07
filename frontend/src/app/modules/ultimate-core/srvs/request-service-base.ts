@@ -62,7 +62,7 @@ export class RequestServiceBase {
      * Executes whenever an a request is complete, regardless of error
      */
     protected completed() {
-        console.log("completed");
+        //console.log("completed");
         this.decreaseRequestCount();
     }
 

@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(menu);
+    //console.log(menu);
     this.menu = menu;
     this.options = menuOptions;
     this.req.retrieveToken();

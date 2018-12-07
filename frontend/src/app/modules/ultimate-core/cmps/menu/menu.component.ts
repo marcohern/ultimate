@@ -35,12 +35,10 @@ export class MenuComponent implements OnInit {
   logout() {
     
     this.req.logout().subscribe(result => {
-      console.log(result);
       this.req.clearToken();
       this.router.navigate(['/login']);
     }, error => {
       if (error.status == 401) {
-        console.log("Unauthenticated 401");
         this.router.navigate(['/login']);
       }
     });
@@ -81,7 +79,6 @@ export class MenuComponent implements OnInit {
       if (i.children) {
         this.createSubMenu(i, m);
       }
-      console.log(i,m.disableClass);
 
       this.menu.push(m);
       j++;
