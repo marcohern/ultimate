@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\Ultimate\Product;
 use App\Ultimate\ProductCategory;
+use App\Ultimate\Category;
 use App\Http\Requests\Ultimate\ProductCreateRequest;
 use App\Http\Requests\Ultimate\ProductUpdateRequest;
 use Illuminate\Support\Facades\DB;
@@ -19,7 +20,8 @@ class ProductsController extends Controller
 
     private function saveProduct(Request $request, Product $product) {
         $input = (object)$request->all();
-        $categories = [];
+        $add_categories = [];
+        $del_category_ids = [];
 
         if ($request->has('name'       )) $product->name        = $input->name;
         if ($request->has('slug'       )) $product->slug        = $input->slug;
@@ -29,15 +31,19 @@ class ProductsController extends Controller
         if ($request->has('dct_price'  )) $product->dct_price   = $input->dct_price;
         if ($request->has('visible'    )) $product->visible     = $input->visible;
         if ($request->has('qty'        )) $product->qty         = $input->qty;
-        if ($request->has('categories' )) $categories           = $input->categories;
 
+        if ($request->has('add_categories')) $add_categories   = $input->add_categories;
+        if ($request->has('del_category_ids')) $del_category_ids   = $input->del_category_ids;
+
+        
         $product->save();
-        foreach ($categories as $c) {
-            $pc = new ProductCategory;
-            $pc->product_id = $product->id;
-            $pc->category_id = $c;
-            $pc->save();
+        $addcats = [];
+        foreach ($add_categories as $c) {
+            $addcats[] =  ['category_id' => $c, 'product_id' => $product->id];
         }
+
+        ProductCategory::destroy($del_category_ids);
+        ProductCategory::insert($addcats);
         return $product;
     }
 
@@ -95,6 +101,17 @@ class ProductsController extends Controller
      */
     public function show(Product $product)
     {
+        $productCategories = $product->productCategories()->get();
+        $categories = [];
+        foreach ($productCategories as $pc) {
+            $c = Category::find($pc->category_id);
+            if ($c) {
+                $c->product_category_id = $pc->id;
+            }
+            $categories[] = $c;
+        }
+        
+        $product->categories = $categories;
         return $product;
     }
 
