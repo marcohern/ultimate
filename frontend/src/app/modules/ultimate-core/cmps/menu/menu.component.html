@@ -15,13 +15,13 @@
             </a>
             <div class="dropdown-menu" *ngIf="item.children" [attr.aria-labelledby]="'navDrop'+item.id">
               <ng-container *ngFor="let child of item.children">
-                <a *ngIf="!child.divider" class="dropdown-item" [routerLink]="child.path">{{child.label}}</a>
+                <a *ngIf="!child.divider" class="dropdown-item" [routerLink]="child.path" [queryParams]="child.query">{{child.label}}</a>
                 <div *ngIf="child.divider" class="dropdown-divider"></div>
               </ng-container>
             </div>
           </li>
           <li *ngIf="!item.dropdown" class="nav-item">
-            <a class="nav-link" [ngClass]="disableClass" [routerLink]="item.path">{{item.label}}</a>
+            <a class="nav-link" [ngClass]="disableClass" [routerLink]="item.path" [queryParams]="item.query">{{item.label}}</a>
           </li>
         </ng-container>
       </ng-container>

@@ -32,4 +32,8 @@ export class UserService {
     if (user.id) return this.updateUser(user);
     else return this.createUser(user);
   }
+
+  deleteUser(id:number):Observable<SaveResult> {
+    return this.req.delete<SaveResult>('/users', id);
+  }
 }

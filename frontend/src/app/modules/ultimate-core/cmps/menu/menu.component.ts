@@ -53,6 +53,7 @@ export class MenuComponent implements OnInit {
         enabled: false,
         dropdown: false,
         path: k.path,
+        query: k.query,
         disableClass: ''
       };
       c.divider = (k.label == '-') ? true : false;

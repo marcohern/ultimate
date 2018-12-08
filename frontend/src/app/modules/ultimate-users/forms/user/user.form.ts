@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/modules/ultimate-core/models/user';
 import { UserService } from '../../srvs/user.service';
 import { FormBase } from 'src/app/modules/ultimate-core/base/form-base';
+import { UserCreate } from 'src/app/modules/ultimate-core/models/user-create';
 
 @Component({
   selector: 'ultimate-user-form',
@@ -11,10 +12,14 @@ import { FormBase } from 'src/app/modules/ultimate-core/base/form-base';
 })
 export class UserForm extends FormBase implements OnInit {
 
-  user:User = {
+  user:UserCreate = {
     email: '',
-    name: ''
+    name: '',
+    password: '',
+    confirmPassword: ''
   };
+
+  acceptPassword:boolean = false;
 
   @Input() user_id:number;
 
@@ -26,10 +31,13 @@ export class UserForm extends FormBase implements OnInit {
   }
 
   ngOnInit() {
+    this.acceptPassword = false;
     console.log("user_id", this.user_id);
     this.group = this.fb.group({
       email:this.fb.control('',[Validators.required],[]),
       name:this.fb.control('',[Validators.required],[]),
+      password:this.fb.control('',[Validators.required],[]),
+      confirmPassword:this.fb.control('',[Validators.required],[]),
     });
 
     this.group.setValue(this.user);
@@ -38,16 +46,20 @@ export class UserForm extends FormBase implements OnInit {
       this.loading = true;
       console.log("loading",this.loading);
       this.us.getUser(this.user_id).subscribe(user => {
-        this.user = user;
+        
         this.group.setValue({
           email: user.email,
-          name: user.name
+          name: user.name,
+          password: '',
+          confirmPassword: ''
         });
         this.loading = false;
         console.log("loading",this.loading);
       }, error => {
         this.handleLoadError(error);
       });
+    } else {
+      this.acceptPassword = true;
     }
   }
 
@@ -56,6 +68,7 @@ export class UserForm extends FormBase implements OnInit {
 
     this.user.email = values.email;
     this.user.name = values.name;
+    this.user.password = values.password;
     
     this.us.saveUser(this.user).subscribe(result => {
       this.saved.emit(this.user);

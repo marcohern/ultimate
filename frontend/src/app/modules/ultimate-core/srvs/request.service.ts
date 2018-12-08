@@ -83,8 +83,8 @@ export class RequestService extends QueryStringBase {
 
   public delete<T>(endpoint:string, id:number|string):Observable<T> {
     this.beforeBegin();
-    var url = this.url(endpoint) + '?' + id;
-    return this.http.get<T>(url).pipe(
+    var url = this.url(endpoint) + '/' + id;
+    return this.http.delete<T>(url).pipe(
       finalize(() => { this.completed(); }),
       tap(() => {}, error => this.handleError("RequestService.delete",error)),
     );

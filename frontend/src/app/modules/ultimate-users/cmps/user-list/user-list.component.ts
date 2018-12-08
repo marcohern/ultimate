@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/modules/ultimate-core/models/user';
 import { UserService } from '../../srvs/user.service';
 import { Paged } from 'src/app/modules/ultimate-core/models/paged';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'ult-user-list',
@@ -24,13 +25,26 @@ export class UserListComponent implements OnInit {
     {id:0,email:'-------- --------',name:'-------- --------'},
     {id:0,email:'-------- --------',name:'-------- --------'},
     {id:0,email:'-------- --------',name:'-------- --------'},
+    {id:0,email:'-------- --------',name:'-------- --------'},
+    {id:0,email:'-------- --------',name:'-------- --------'},
+    {id:0,email:'-------- --------',name:'-------- --------'},
+    {id:0,email:'-------- --------',name:'-------- --------'},
+    {id:0,email:'-------- --------',name:'-------- --------'},
+    {id:0,email:'-------- --------',name:'-------- --------'},
   ];
+
   usersPaged:Paged<User>;
+  page:number;
   
-  constructor(private us:UserService) { }
+  constructor(private us:UserService, private route:ActivatedRoute) { }
 
   ngOnInit() {
-    this.us.browseUsers(1).subscribe(result => {
+    this.route.queryParams.subscribe(params => {
+      console.log("queryParams.subscribe",params);
+      this.page = (params['page']) ? params["page"] : 1;
+    });
+    console.log("before browseUsers");
+    this.us.browseUsers(this.page).subscribe(result => {
       console.log(result);
       this.users = result.data;
       this.usersPaged = result;
@@ -38,8 +52,12 @@ export class UserListComponent implements OnInit {
 
   }
 
-  delete(id:number) {
-    console.log("delete",id);
+  delete(user:User,index:number) {
+    console.log("delete",user,index);
+    this.us.deleteUser(user.id).subscribe(result => {
+      console.log(result);
+      this.users.splice(index,1);
+    });
   }
 
 }

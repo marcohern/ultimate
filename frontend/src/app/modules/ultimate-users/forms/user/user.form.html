@@ -21,6 +21,21 @@
       </div>
     </div>
   </div>
+  
+  <div class="row" *ngIf="acceptPassword">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" formControlName="password" [attr.disabled]="disable()"/>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Confirm Password</label>
+        <input  type="password" class="form-control" formControlName="confirmPassword" [attr.disabled]="disable()"/>
+      </div>
+    </div>
+  </div>
 
   <div class="row">
     <div class="col-md-12">

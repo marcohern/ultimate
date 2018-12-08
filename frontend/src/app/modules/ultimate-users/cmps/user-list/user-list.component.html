@@ -1,4 +1,8 @@
-<a class="btn btn-primary" [routerLink]="['/invite']">Invite User</a>
+<div class="row">
+  <div class="col-md-12"> 
+    <a class="btn btn-primary" [routerLink]="['/users/create']">Crear Usuario</a>
+  </div>
+</div>
 <table class="table">
   <thead>
     <tr>
@@ -8,14 +12,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let user of users">
+    <tr *ngFor="let user of users;let i=index">
       <td>{{user.name}}</td>
       <td>{{user.email}}</td>
       <td>
         <a class="btn btn-warning" [routerLink]="['/user/edit',user.id]">Edit</a>
-        <button class="btn btn-danger" (click)="delete(user.id)">Delete</button>
+        <button class="btn btn-danger" (click)="delete(user, i)">Delete</button>
       </td>
     </tr>
   </tbody>
 </table>
-<button class="btn btn-primary">Load More</button>
