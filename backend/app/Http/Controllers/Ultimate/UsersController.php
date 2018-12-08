@@ -28,13 +28,14 @@ class UsersController extends Controller
      */
     public function index(UserQueryRequest $r)
     {
-        //
         $q = '';
+        $l = 50;
         if ($r->has('q')) $q=$r->q;
+        if ($r->has('l')) $l=$r->l;
 
         $query = DB::table('users');
         if (!empty($q)) $query->where('name','LIKE',"%$q%");
-        $users = $query->paginate(3);
+        $users = $query->paginate($l);
         return $users;
     }
 
