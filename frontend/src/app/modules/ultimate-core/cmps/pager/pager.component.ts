@@ -14,19 +14,7 @@ export class PagerComponent implements OnInit, OnChanges {
   pages:number[] = [];
 
   @Input()
-  paged:Paged<any> = {
-    current_page:1,
-    from:1,
-    to:1,
-    last_page:1,
-    data:[],
-    total:0,
-    path:'',
-    first_page_url:'',
-    last_page_url:'',
-    next_page_url:'',
-    prev_page_url:''
-  };
+  paged:Paged<any> = new Paged<any>();
 
   @Input()
   path:any[] = ['/non/existent/path'];

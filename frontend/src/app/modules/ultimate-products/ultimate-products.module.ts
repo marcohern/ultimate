@@ -16,10 +16,11 @@ import { ProductEditPage } from './pages/product-edit/product-edit.page';
 import { routes } from './routes';
 import { ProductRow } from './tables/product/product.row';
 import { ProductTable } from './tables/product/product.table';
+import { ProductsQueryComponent } from './cmps/products-query/products-query.component';
 
 @NgModule({
   declarations: [
-    ProductDetailComponent,
+    ProductDetailComponent, ProductsQueryComponent,
 
     ProductForm,
 
