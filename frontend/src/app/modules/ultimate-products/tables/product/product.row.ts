@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Product } from 'src/app/modules/ultimate-core/models/product';
 
 @Component({
@@ -8,6 +8,7 @@ import { Product } from 'src/app/modules/ultimate-core/models/product';
 })
 export class ProductRow implements OnInit {
 
+  @Input()
   product:Product = {
     id:0,
     name:'',

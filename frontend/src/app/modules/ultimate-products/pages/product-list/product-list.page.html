@@ -1,6 +1,4 @@
 <div class="container">
   
-  <div class="col-lg-3 float-left" *ngFor="let product of products" style="min-height:16rem">
-    <ult-product-item [product]="product"></ult-product-item>
-  </div>
+  <product-table [products]="products"></product-table>
 </div>

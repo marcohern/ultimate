@@ -1,0 +1,14 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>O.P.</th>
+      <th>D.P.</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr product-row *ngFor="let product of products" [product]="product"></tr>
+  </tbody>
+</table>

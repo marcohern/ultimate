@@ -7,7 +7,6 @@ import { ImageUploadModule } from "angular2-image-upload";
 
 import { ProductForm } from './forms/product/product.form';
 
-import { ProductItemComponent } from './cmps/product-item/product-item.component';
 import { ProductDetailComponent } from './cmps/product-detail/product-detail.component';
 
 import { ProductListPage } from './pages/product-list/product-list.page';
@@ -16,14 +15,17 @@ import { ProductEditPage } from './pages/product-edit/product-edit.page';
 
 import { routes } from './routes';
 import { ProductRow } from './tables/product/product.row';
+import { ProductTable } from './tables/product/product.table';
 
 @NgModule({
   declarations: [
-    ProductItemComponent, ProductDetailComponent,
+    ProductDetailComponent,
 
     ProductForm,
+
+    ProductRow, ProductTable,
   
-    ProductListPage, ProductDetailPage, ProductEditPage, ProductRow
+    ProductListPage, ProductDetailPage, ProductEditPage,
   ],
   imports: [
     CommonModule,

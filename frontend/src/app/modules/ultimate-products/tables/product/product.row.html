@@ -1,6 +1,10 @@
-<td>{{product.name}}</td>
-<td>{{product.org_price}}</td>
+<td>
+  <img class="img-responsive" width="32px" src="/assets/product.png" alt="Priduct">
+</td>
+<td><a [routerLink]="['/product']">{{product.name}}</a></td>
+<td>{{product.org_price | currency}}</td>
+<td>{{product.dct_price | currency}}</td>
 <td>
   <button type="button" class="btn btn-warning">Edit</button>
-  <button type="button" class="btn btn-dander">Delete</button>
+  <button type="button" class="btn btn-danger">Delete</button>
 </td>
