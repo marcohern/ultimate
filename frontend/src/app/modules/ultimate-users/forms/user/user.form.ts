@@ -54,7 +54,6 @@ export class UserForm extends FormBase implements OnInit {
           confirmPassword: ''
         });
         this.loading = false;
-        console.log("loading",this.loading);
       }, error => {
         this.handleLoadError(error);
       });
@@ -64,7 +63,6 @@ export class UserForm extends FormBase implements OnInit {
   }
 
   saving($event, values) {
-    console.log("UserForm.saving",this,$event);
 
     this.user.email = values.email;
     this.user.name = values.name;
