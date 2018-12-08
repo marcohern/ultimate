@@ -27,10 +27,10 @@ export class PagerComponent implements OnInit, OnChanges {
     prev_page_url:''
   };
 
-  arr(from:number, to:number) {
+  arr(last_page:number) {
     var arr:number[] = [];
-    for (let i=from; i<=to; i++) {
-      arr[i-from] = i;
+    for (let i=1; i<=last_page; i++) {
+      arr[i-1] = i;
     }
     return arr;
   }
@@ -41,7 +41,7 @@ export class PagerComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     if (typeof this.paged === 'undefined') return;
-    this.pages = this.arr(this.paged.from, this.paged.to);
+    this.pages = this.arr(this.paged.last_page);
   }
 
 }

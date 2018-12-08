@@ -34,7 +34,7 @@ class UsersController extends Controller
 
         $query = DB::table('users');
         if (!empty($q)) $query->where('name','LIKE',"%$q%");
-        $users = $query->paginate(50);
+        $users = $query->paginate(3);
         return $users;
     }
 

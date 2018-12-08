@@ -40,16 +40,14 @@ export class UserListComponent implements OnInit {
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
-      console.log("queryParams.subscribe",params);
+      this.users = [];
       this.page = (params['page']) ? params["page"] : 1;
+      this.us.browseUsers(this.page).subscribe(result => {
+        console.log(result);
+        this.users = result.data;
+        this.usersPaged = result;
+      });
     });
-    console.log("before browseUsers");
-    this.us.browseUsers(this.page).subscribe(result => {
-      console.log(result);
-      this.users = result.data;
-      this.usersPaged = result;
-    });
-
   }
 
   delete(user:User,index:number) {

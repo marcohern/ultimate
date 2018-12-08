@@ -1,5 +1,6 @@
 import { FormGroup } from "@angular/forms";
 import { Output, EventEmitter } from "@angular/core";
+import { Observable } from 'rxjs';
 
 /**
  * Form Base.
@@ -19,7 +20,7 @@ export abstract class FormBase {
      * if its true, the form is in a loading state, which usually
      * means that all fields are disabled (cant edit while it loads data) 
      */
-    protected loading:boolean = false;
+    private loading:boolean = false;
   
     /**
      * Emitted when a cancel button is pressed
@@ -32,13 +33,27 @@ export abstract class FormBase {
      */
     public abstract saving($event:any, values:any[]);
 
+    public abstract filling<T>(object:T);
+
     /**
      * Called when the submit button is clicked
      */
     public submit($event) {
         if (this.group.valid) {
             this.saving($event, this.group.value);
+        } else {
+            console.error(this.group);
         }
+    }
+
+    public fill<T>(obs:Observable<T>) {
+        this.loading = true;
+        obs.subscribe(result => {
+            this.filling<T>(result);
+            this.loading = false;
+        }, error => {
+            this.handleLoadError(error);
+        });
     }
 
     /**

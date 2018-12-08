@@ -32,34 +32,31 @@ export class UserForm extends FormBase implements OnInit {
 
   ngOnInit() {
     this.acceptPassword = false;
-    console.log("user_id", this.user_id);
+    
     this.group = this.fb.group({
       email:this.fb.control('',[Validators.required],[]),
       name:this.fb.control('',[Validators.required],[]),
-      password:this.fb.control('',[Validators.required],[]),
-      confirmPassword:this.fb.control('',[Validators.required],[]),
+      password:this.fb.control('',[],[]),
+      confirmPassword:this.fb.control('',[],[]),
     });
 
     this.group.setValue(this.user);
 
     if (this.user_id) {
-      this.loading = true;
-      console.log("loading",this.loading);
-      this.us.getUser(this.user_id).subscribe(user => {
-        
-        this.group.setValue({
-          email: user.email,
-          name: user.name,
-          password: '',
-          confirmPassword: ''
-        });
-        this.loading = false;
-      }, error => {
-        this.handleLoadError(error);
-      });
+      this.fill(this.us.getUser(this.user_id));
     } else {
       this.acceptPassword = true;
     }
+  }
+
+  filling<User>(user) {
+    this.user = user;
+    this.group.setValue({
+      email: user.email,
+      name: user.name,
+      password: '',
+      confirmPassword: ''
+    });
   }
 
   saving($event, values) {

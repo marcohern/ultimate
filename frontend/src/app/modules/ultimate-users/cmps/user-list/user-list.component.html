@@ -3,6 +3,12 @@
     <a class="btn btn-primary" [routerLink]="['/users/create']">Crear Usuario</a>
   </div>
 </div>
+
+<div class="row">
+  <div class="col-md-12"> 
+    <ultimate-pager [paged]="usersPaged"></ultimate-pager>
+  </div>
+</div>
 <table class="table">
   <thead>
     <tr>

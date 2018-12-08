@@ -5,9 +5,10 @@ import { UltimateCoreModule } from '../ultimate-core/ultimate-core.module';
 import { NgxImageGalleryModule } from 'ngx-image-gallery';
 import { ImageUploadModule } from "angular2-image-upload";
 
+import { ProductForm } from './forms/product/product.form';
+
 import { ProductItemComponent } from './cmps/product-item/product-item.component';
 import { ProductDetailComponent } from './cmps/product-detail/product-detail.component';
-import { ProductFormComponent } from './cmps/product-form/product-form.component';
 
 import { ProductListPage } from './pages/product-list/product-list.page';
 import { ProductDetailPage } from './pages/product-detail/product-detail.page';
@@ -17,7 +18,9 @@ import { routes } from './routes';
 
 @NgModule({
   declarations: [
-    ProductItemComponent, ProductDetailComponent, ProductFormComponent,
+    ProductItemComponent, ProductDetailComponent,
+
+    ProductForm,
   
     ProductListPage, ProductDetailPage, ProductEditPage
   ],
