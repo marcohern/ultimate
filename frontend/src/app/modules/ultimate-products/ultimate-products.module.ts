@@ -15,6 +15,7 @@ import { ProductDetailPage } from './pages/product-detail/product-detail.page';
 import { ProductEditPage } from './pages/product-edit/product-edit.page';
 
 import { routes } from './routes';
+import { ProductRow } from './tables/product/product.row';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { routes } from './routes';
 
     ProductForm,
   
-    ProductListPage, ProductDetailPage, ProductEditPage
+    ProductListPage, ProductDetailPage, ProductEditPage, ProductRow
   ],
   imports: [
     CommonModule,
