@@ -146,4 +146,38 @@ class CategoriesController extends Controller
             'id' => $id,
         ];
     }
+
+    /**
+     * Adds a hit to a given product
+     * @param   int $id Product Id
+     * @return \Illuminate\Http\Response
+     */
+    public function hit($id) {
+        $category = Category::find($id);
+        $category->hits++;
+        $category->save();
+        
+        return [
+            'success' => true,
+            'id'      => $category->id,
+            'hits'    => $category->hits
+        ];
+    }
+
+    /**
+     * Adds a click to a given product
+     * @param   int $id Product Id
+     * @return \Illuminate\Http\Response
+     */
+    public function click($id) {
+        $category = Category::find($id);
+        $category->clicks++;
+        $category->save();
+        
+        return [
+            'success' => true,
+            'id'      => $category->id,
+            'clicks'  => $category->clicks
+        ];
+    }
 }

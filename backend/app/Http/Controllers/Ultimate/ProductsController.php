@@ -174,4 +174,38 @@ class ProductsController extends Controller
             'id' => $id,
         ];
     }
+
+    /**
+     * Adds a hit to a given product
+     * @param   int $id Product Id
+     * @return \Illuminate\Http\Response
+     */
+    public function hit($id) {
+        $product = Product::find($id);
+        $product->hits++;
+        $product->save();
+        
+        return [
+            'success' => true,
+            'id'      => $product->id,
+            'hits'    => $product->hits
+        ];
+    }
+
+    /**
+     * Adds a click to a given product
+     * @param   int $id Product Id
+     * @return \Illuminate\Http\Response
+     */
+    public function click($id) {
+        $product = Product::find($id);
+        $product->clicks++;
+        $product->save();
+        
+        return [
+            'success' => true,
+            'id'      => $product->id,
+            'clicks'  => $product->clicks
+        ];
+    }
 }

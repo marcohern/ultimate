@@ -18,6 +18,13 @@ Route::middleware('auth:api')->get('/me', function (Request $request) {
 });
 
 Route::post('logout','Ultimate\\AccountController@logout');
+
+Route::put('product/hit/{id}'  , 'Ultimate\\ProductsController@hit'  );
+Route::put('product/click/{id}', 'Ultimate\\ProductsController@click');
+
+Route::put('category/hit/{id}'  , 'Ultimate\\CategoriesController@hit'  );
+Route::put('category/click/{id}', 'Ultimate\\CategoriesController@click');
+
 Route::apiResources([
     'users' => 'Ultimate\\UsersController',
     'products' => 'Ultimate\\ProductsController',
