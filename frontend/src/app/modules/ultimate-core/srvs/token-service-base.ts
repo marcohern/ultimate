@@ -84,7 +84,7 @@ export class TokenServiceBase extends RequestServiceBase {
         headers.set('Content-Type','application/json');
         headers.set('Accept','application/json');
         if (this.token != null) {
-            console.log("Setting Auth header");
+            //console.log("Setting Auth header");
             headers.set('Authorization','Bearer ' + this.token);
         }
         return headers;

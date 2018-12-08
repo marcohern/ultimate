@@ -9,7 +9,22 @@ import { Paged } from 'src/app/modules/ultimate-core/models/paged';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-  users:User[] = [];
+  users:User[] = [
+    {id:0,email:'-------- --------',name:'-------- --------'},
+    {id:0,email:'-------- --------',name:'-------- --------'},
+    {id:0,email:'-------- --------',name:'-------- --------'},
+    {id:0,email:'-------- --------',name:'-------- --------'},
+    {id:0,email:'-------- --------',name:'-------- --------'},
+    {id:0,email:'-------- --------',name:'-------- --------'},
+    {id:0,email:'-------- --------',name:'-------- --------'},
+    {id:0,email:'-------- --------',name:'-------- --------'},
+    {id:0,email:'-------- --------',name:'-------- --------'},
+    {id:0,email:'-------- --------',name:'-------- --------'},
+    {id:0,email:'-------- --------',name:'-------- --------'},
+    {id:0,email:'-------- --------',name:'-------- --------'},
+    {id:0,email:'-------- --------',name:'-------- --------'},
+    {id:0,email:'-------- --------',name:'-------- --------'},
+  ];
   usersPaged:Paged<User>;
   
   constructor(private us:UserService) { }
@@ -21,6 +36,10 @@ export class UserListComponent implements OnInit {
       this.usersPaged = result;
     });
 
+  }
+
+  delete(id:number) {
+    console.log("delete",id);
   }
 
 }

@@ -65,7 +65,6 @@ export class RequestService extends QueryStringBase {
   
   public post<T>(endpoint:string, data:any={}):Observable<T> {
     this.beforeBegin();
-    console.log("post", this);
     return this.http.post<T>(this.url(endpoint), data)
     .pipe(
       finalize(() => { this.completed(); }),

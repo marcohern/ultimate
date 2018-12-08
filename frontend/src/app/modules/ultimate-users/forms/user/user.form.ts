@@ -2,16 +2,15 @@ import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/modules/ultimate-core/models/user';
 import { UserService } from '../../srvs/user.service';
-import { ActivatedRoute } from '@angular/router';
+import { FormBase } from 'src/app/modules/ultimate-core/base/form-base';
 
 @Component({
   selector: 'ultimate-user-form',
   templateUrl: './user.form.html',
   styleUrls: ['./user.form.css']
 })
-export class UserForm implements OnInit {
+export class UserForm extends FormBase implements OnInit {
 
-  userFormGroup:FormGroup;
   user:User = {
     email: '',
     name: ''
@@ -21,47 +20,46 @@ export class UserForm implements OnInit {
 
   @Output()
   saved:EventEmitter<User> = new EventEmitter();
-  
-  @Output()
-  canceled:EventEmitter<any> = new EventEmitter();
 
-  constructor(private fb:FormBuilder, private us:UserService) { }
+  constructor(private fb:FormBuilder, private us:UserService) { 
+    super();
+  }
 
   ngOnInit() {
     console.log("user_id", this.user_id);
-    this.userFormGroup = this.fb.group({
+    this.group = this.fb.group({
       email:this.fb.control('',[Validators.required],[]),
       name:this.fb.control('',[Validators.required],[]),
     });
 
-    this.userFormGroup.setValue(this.user);
+    this.group.setValue(this.user);
 
     if (this.user_id) {
+      this.loading = true;
+      console.log("loading",this.loading);
       this.us.getUser(this.user_id).subscribe(user => {
         this.user = user;
-        this.userFormGroup.setValue({
+        this.group.setValue({
           email: user.email,
           name: user.name
         });
+        this.loading = false;
+        console.log("loading",this.loading);
+      }, error => {
+        this.handleLoadError(error);
       });
     }
   }
 
-  submit($event) {
-    var values = this.userFormGroup.value;
-    console.log(this.userFormGroup.value, this.userFormGroup.valid);
+  saving($event, values) {
+    console.log("UserForm.saving",this,$event);
 
-    if (this.userFormGroup.valid) {
-      this.user.email = values.email;
-      this.user.name = values.name;
-      this.us.saveUser(this.user).subscribe(result => {
-        this.saved.emit(this.user);
-      });
-    }
-  }
-
-  cancel() {
-    this.canceled.emit();
+    this.user.email = values.email;
+    this.user.name = values.name;
+    
+    this.us.saveUser(this.user).subscribe(result => {
+      this.saved.emit(this.user);
+    });
   }
 
 }

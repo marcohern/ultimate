@@ -21,17 +21,14 @@ export class UserService {
   }
   
   createUser(user:User):Observable<SaveResult> {
-    console.log("createUser",user);
     return this.req.post<SaveResult>('/users',user);
   }
 
   updateUser(user:User):Observable<SaveResult> {
-    console.log("updateUser",user);
     return this.req.put<SaveResult>('/users', user.id, user);
   }
 
   saveUser(user:User):Observable<SaveResult> {
-    console.log("saveUser",user);
     if (user.id) return this.updateUser(user);
     else return this.createUser(user);
   }
