@@ -14,7 +14,7 @@ import { TokenInterceptor } from './srvs/token-interceptor';
   imports: [
     CommonModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
   ],
   providers:[
     RequestService,

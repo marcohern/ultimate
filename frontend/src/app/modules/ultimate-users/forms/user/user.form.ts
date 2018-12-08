@@ -34,7 +34,7 @@ export class UserForm extends FormBase implements OnInit {
     this.acceptPassword = false;
     
     this.group = this.fb.group({
-      email:this.fb.control('',[Validators.required],[]),
+      email:this.fb.control('',[Validators.required, Validators.email],[]),
       name:this.fb.control('',[Validators.required],[]),
       password:this.fb.control('',[],[]),
       confirmPassword:this.fb.control('',[],[]),
@@ -45,6 +45,8 @@ export class UserForm extends FormBase implements OnInit {
     if (this.user_id) {
       this.fill(this.us.getUser(this.user_id));
     } else {
+      this.group.get('password').setValidators([Validators.required]);
+      this.group.get('confirmPassword').setValidators([Validators.required]);
       this.acceptPassword = true;
     }
   }

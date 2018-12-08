@@ -78,4 +78,12 @@ export abstract class FormBase {
     public disable():any {
         return this.loading ? '' : null; 
     }
+
+    /**
+     * Disable submit button
+     * use to disable the submit button if data is invalid
+     */
+    public disabelSubmit() {
+        return (this.loading || !this.group.valid) ? '' : null;
+    }
 }
