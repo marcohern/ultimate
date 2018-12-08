@@ -5,6 +5,6 @@
 <td>{{product.org_price | currency}}</td>
 <td>{{product.dct_price | currency}}</td>
 <td>
-  <button type="button" class="btn btn-warning">Edit</button>
-  <button type="button" class="btn btn-danger">Delete</button>
+  <button type="button" class="btn btn-warning" (click)="edit()">Edit</button>
+  <button type="button" class="btn btn-danger" (click)="delete()">Delete</button>
 </td>

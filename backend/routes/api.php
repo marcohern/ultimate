@@ -25,8 +25,10 @@ Route::put('product/click/{id}', 'Ultimate\\ProductsController@click');
 Route::put('category/hit/{id}'  , 'Ultimate\\CategoriesController@hit'  );
 Route::put('category/click/{id}', 'Ultimate\\CategoriesController@click');
 
+Route::delete('uploads/bucket/{id}', 'Ultimate\\UploadsController@destroyBucket');
 Route::apiResources([
-    'users' => 'Ultimate\\UsersController',
-    'products' => 'Ultimate\\ProductsController',
+    'users'      => 'Ultimate\\UsersController',
+    'products'   => 'Ultimate\\ProductsController',
     'categories' => 'Ultimate\\CategoriesController',
+    'uploads'     => 'Ultimate\\UploadsController',
 ]);
