@@ -80,7 +80,7 @@ class ProductsController extends Controller
     public function index(Request $r)
     {
         $q = '';
-        $l = 5;
+        $l = 50;
         $category_id = null;
         if ($r->has('q')) $q=trim($r->q);
         if ($r->has('l')) $l = $r->l;
