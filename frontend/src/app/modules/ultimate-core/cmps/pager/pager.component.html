@@ -1,16 +1,16 @@
 <nav aria-label="Page navigation" *ngIf="moreThanOnePage()">
   <ul class="pagination">
     <li class="page-item" [ngClass]="disablePrev()">
-      <a class="page-link" [routerLink]="['/users']" [queryParams]="prevPage()" aria-label="Anterior">
+      <a class="page-link" [routerLink]="path" [queryParams]="prevPage()" aria-label="Anterior">
         <span aria-hidden="true">&laquo;</span>
         <span class="sr-only">Anterior</span>
       </a>
     </li>
     <li class="page-item" *ngFor="let p of pages" [ngClass]="activate(p)">
-      <a class="page-link" [routerLink]="['/users']" [queryParams]="{page:p}">{{p}}</a>
+      <a class="page-link" [routerLink]="path" [queryParams]="{page:p}">{{p}}</a>
     </li>
     <li class="page-item" [ngClass]="disableNext()">
-      <a class="page-link" [routerLink]="['/users']" [queryParams]="nextPage()" aria-label="Siguiente">
+      <a class="page-link" [routerLink]="path" [queryParams]="nextPage()" aria-label="Siguiente">
         <span aria-hidden="true">&raquo;</span>
         <span class="sr-only">Siguiente</span>
       </a>

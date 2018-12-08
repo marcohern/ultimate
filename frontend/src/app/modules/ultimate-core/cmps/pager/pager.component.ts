@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Paged } from '../../models/paged';
+import { AngularWaitBarrier } from 'blocking-proxy/built/lib/angular_wait_barrier';
 
 @Component({
   selector: 'ultimate-pager',
@@ -26,6 +27,9 @@ export class PagerComponent implements OnInit, OnChanges {
     next_page_url:'',
     prev_page_url:''
   };
+
+  @Input()
+  path:any[] = ['/non/existent/path'];
 
   arr(last_page:number) {
     var arr:number[] = [];
