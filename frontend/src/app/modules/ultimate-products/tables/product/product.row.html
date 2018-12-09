@@ -1,5 +1,5 @@
 <td>
-  <img class="img-responsive" width="32px" src="/assets/product.png" alt="Priduct">
+  <img class="img-responsive" width="32px" src="{{product.image_cover}}" alt="Priduct">
 </td>
 <td><a [routerLink]="['/product', product.id]">{{product.name}}</a></td>
 <td>{{product.org_price | currency}}</td>

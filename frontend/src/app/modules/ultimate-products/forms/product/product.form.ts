@@ -9,6 +9,7 @@ import { Product } from 'src/app/modules/ultimate-core/models/product';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Checkbox } from 'src/app/modules/ultimate-core/models/checkbox';
 import { ProductService } from '../../srvs/product.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'ultimate-product-form',
@@ -16,23 +17,6 @@ import { ProductService } from '../../srvs/product.service';
   styleUrls: ['./product.form.css']
 })
 export class ProductForm extends FormBase implements OnInit, OnDestroy {
-
-  constructor(
-    private req:RequestService,
-    private ps:ProductService,
-    private fb:FormBuilder,
-    private route:ActivatedRoute,
-    private router:Router) { 
-    super();
-    this.group = this.fb.group({
-      name: this.fb.control('',[Validators.required],[]),
-      slug: this.fb.control('',[Validators.required],[]),
-      overview: this.fb.control('',[Validators.required],[]),
-      description: this.fb.control('',[Validators.required, Validators.pattern(/\d+(\.(\d{0,2})?)?/)],[]),
-      org_price: this.fb.control('',[Validators.required, Validators.pattern(/\d+(\.(\d{0,2})?)?/)],[]),
-      dct_price: this.fb.control('',[],[]),
-    });
-  }
 
   bucket:string = '';
   imageids:string[] = [];
@@ -43,6 +27,26 @@ export class ProductForm extends FormBase implements OnInit, OnDestroy {
   product:Product = new Product();
   categories:Category[] = [];
   discounted:boolean = false;
+  apiroot:string = '';
+
+  constructor(
+    private req:RequestService,
+    private ps:ProductService,
+    private fb:FormBuilder,
+    private route:ActivatedRoute,
+    private router:Router) { 
+    super();
+    this.apiroot = environment.api.root;
+    this.group = this.fb.group({
+      name: this.fb.control('',[Validators.required],[]),
+      slug: this.fb.control('',[Validators.required],[]),
+      overview: this.fb.control('',[Validators.required],[]),
+      description: this.fb.control('',[Validators.required, Validators.pattern(/\d+(\.(\d{0,2})?)?/)],[]),
+      org_price: this.fb.control('',[Validators.required, Validators.pattern(/\d+(\.(\d{0,2})?)?/)],[]),
+      dct_price: this.fb.control('',[],[]),
+    });
+    
+  }
 
   ngOnInit() {
       this.bucket = uuid.v4();

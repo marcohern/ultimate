@@ -25,6 +25,8 @@ class ProductsController extends Controller
         $input = (object)$request->all();
         $add_categories = [];
         $del_categories = [];
+        $image_bucket = false;
+        if ($request->has('image_bucket')) $image_bucket = $input->image_bucket;
 
         if ($request->has('name'       )) $product->name        = $input->name;
         if ($request->has('slug'       )) $product->slug        = $input->slug;
@@ -69,6 +71,23 @@ class ProductsController extends Controller
             ->whereIn('category_id',$del_categories)
             ->delete();
         ProductCategory::insert($addcats);
+
+        if ($image_bucket) {
+            $source = storage_path('app/upload');
+            $dest = public_path('images/products');
+            $pattern = "$image_bucket.*";
+            $pid = $product->id;
+            $ord = 0;
+            
+            $files = glob("$source/$pattern");
+            foreach ($files as $file) {
+                $info = pathinfo($file);
+                $ext = $info['extension'];
+                $renameTo = "$dest/$pid.$ord.$ext";
+                rename($file, $renameTo);
+                $ord++;
+            }
+        }
         return $product;
     }
 
@@ -99,7 +118,19 @@ class ProductsController extends Controller
             $rq = preg_replace('/\s+/','%',$q);
             $query->where('p.name','LIKE',"%$rq%");
         }
+
         $products = $query->paginate($l);
+        $softpath = '/images/products';
+        $hardpath = public_path($softpath);
+        foreach ($products as $k => $p) {
+            $pid = $p->id;
+            $p->image_cover = "/assets/product.png";
+            $search = glob("$hardpath/$pid.0.*");
+            if ($search) {
+                $image = basename($search[0]);
+                $p->image_cover = url("$softpath/$image");
+            }
+        }
         return $products;
     }
 
@@ -147,8 +178,26 @@ class ProductsController extends Controller
             }
             $categories[] = $c;
         }
-        
         $product->categories = $categories;
+
+        
+        $softpath = '/images/products';
+        $hardpath = public_path($softpath);
+        $pid = $product->id;
+        $product->image_cover = "/assets/product.png";
+        $search = glob("$hardpath/$pid.0.*");
+        if ($search) {
+            $image = basename($search[0]);
+            $product->image_cover = url("$softpath/$image");
+        }
+
+        $search = glob("$hardpath/$pid.*.*");
+        $images = [];
+        foreach ($search as $file) {
+            $image = basename($file);
+            $images[] = url("$softpath/$image");
+        }
+        $product->images = $images;
         return $product;
     }
 
