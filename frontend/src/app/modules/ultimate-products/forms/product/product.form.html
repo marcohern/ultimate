@@ -1,18 +1,11 @@
 <form [formGroup]="group" (ngSubmit)="submit()">
-  <div class="row" *ngIf="product?.images">
-    <div class="col-md-12">
-      <span *ngFor="let image of product.images">
-        <img [attr.src]="image" alt="" width="64px">
-        &nbsp;
-      </span>
-    </div>
-  </div>
   <div class="row">
     <div class="col-md-12">
       <div class="form-group">
         <label>Upload Image</label>
         <image-upload name="file" url="{{apiroot}}/uploads?bucket={{bucket}}"
           [headers]="{Authorization: 'Bearer ' + req.getToken()}"
+          [uploadedFiles]="product.images"
           (uploadFinished)="onUploadFinished($event)"
           (removed)="onRemoved($event)"></image-upload>
       </div>

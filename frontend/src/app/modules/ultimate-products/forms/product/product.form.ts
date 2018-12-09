@@ -113,6 +113,11 @@ export class ProductForm extends FormBase implements OnInit, OnDestroy {
       this.req.delete('/uploads',$event.image_id).subscribe(result => {
         console.log(result);
       });
+    } else {
+      var url = $event.file.name;
+      var filename = url.replace(/^.*[\\\/]/, '');
+      var match = filename.match(/(?<product_id>\d+)\.(?<order>\d+)\.(?<extension>.+)/);
+      console.log("old image", match.groups);
     }
   }
 

@@ -21,6 +21,72 @@ class ProductsController extends Controller
         ]);
     }
 
+    private function appendProductCategories(Product &$product) {
+        $productCategories = $product->productCategories()->get();
+        $categories = [];
+        foreach ($productCategories as $pc) {
+            $c = Category::select('id','name','slug','ord')->find($pc->category_id);
+            if ($c) {
+                $c->product_category_id = $pc->id;
+            }
+            $categories[] = $c;
+        }
+        $product->categories = $categories;
+    }
+
+    private function appendProductImageCover(&$product) {
+        $softpath = '/images/products';
+        $hardpath = public_path($softpath);
+        $pid = $product->id;
+        $product->image_cover = "/assets/product.png";
+        $search = glob("$hardpath/$pid.0.*");
+        if ($search) {
+            $image = basename($search[0]);
+            $product->image_cover = url("$softpath/$image");
+        }
+    }
+
+    private function appendProductImages(Product &$product) {
+        $softpath = '/images/products';
+        $hardpath = public_path($softpath);
+        $pid = $product->id;
+        
+        $search = glob("$hardpath/{$product->id}.*.*");
+        $images = [];
+        foreach ($search as $file) {
+            $image = basename($file);
+            $images[] = url("$softpath/$image");
+        }
+        $product->images = $images;
+    }
+
+    private function importProductImages(Product &$product, $image_bucket) {
+        $source = storage_path('app/upload');
+        $dest = public_path('images/products');
+        $pattern = "$image_bucket.*";
+        $pid = $product->id;
+        
+        $maxord = 0;
+        $newFiles = glob("$source/$pattern");
+        $existingFiles = glob("$dest/$pid.*");
+        foreach ($existingFiles as $file) {
+            $filename = basename($file);
+            $m = [];
+            preg_match("/(\d+)\.(\d+)\.(.*)/", $filename, $m);
+            //dd($m);
+            $tord = 0 + $m[2];
+            if ($maxord < $tord) $maxord = $tord;
+        }
+        $ord = $maxord+1;
+        foreach ($newFiles as $file) {
+            $info = pathinfo($file);
+            $ext = $info['extension'];
+            $renameTo = "$dest/$pid.$ord.$ext";
+            rename($file, $renameTo);
+            $ord++;
+        }
+    }
+
     private function saveProduct(Request $request, Product $product) {
         $input = (object)$request->all();
         $add_categories = [];
@@ -73,20 +139,7 @@ class ProductsController extends Controller
         ProductCategory::insert($addcats);
 
         if ($image_bucket) {
-            $source = storage_path('app/upload');
-            $dest = public_path('images/products');
-            $pattern = "$image_bucket.*";
-            $pid = $product->id;
-            $ord = 0;
-            
-            $files = glob("$source/$pattern");
-            foreach ($files as $file) {
-                $info = pathinfo($file);
-                $ext = $info['extension'];
-                $renameTo = "$dest/$pid.$ord.$ext";
-                rename($file, $renameTo);
-                $ord++;
-            }
+            $this->importProductImages($product, $image_bucket);
         }
         return $product;
     }
@@ -118,18 +171,11 @@ class ProductsController extends Controller
             $rq = preg_replace('/\s+/','%',$q);
             $query->where('p.name','LIKE',"%$rq%");
         }
-
         $products = $query->paginate($l);
-        $softpath = '/images/products';
-        $hardpath = public_path($softpath);
-        foreach ($products as $k => $p) {
-            $pid = $p->id;
-            $p->image_cover = "/assets/product.png";
-            $search = glob("$hardpath/$pid.0.*");
-            if ($search) {
-                $image = basename($search[0]);
-                $p->image_cover = url("$softpath/$image");
-            }
+
+        foreach ($products as $product) {
+            $this->appendProductImageCover($product);
+            //$this->appendProductImages($product);
         }
         return $products;
     }
@@ -169,35 +215,9 @@ class ProductsController extends Controller
      */
     public function show(Product $product)
     {
-        $productCategories = $product->productCategories()->get();
-        $categories = [];
-        foreach ($productCategories as $pc) {
-            $c = Category::select('id','name','slug','ord')->find($pc->category_id);
-            if ($c) {
-                $c->product_category_id = $pc->id;
-            }
-            $categories[] = $c;
-        }
-        $product->categories = $categories;
-
-        
-        $softpath = '/images/products';
-        $hardpath = public_path($softpath);
-        $pid = $product->id;
-        $product->image_cover = "/assets/product.png";
-        $search = glob("$hardpath/$pid.0.*");
-        if ($search) {
-            $image = basename($search[0]);
-            $product->image_cover = url("$softpath/$image");
-        }
-
-        $search = glob("$hardpath/$pid.*.*");
-        $images = [];
-        foreach ($search as $file) {
-            $image = basename($file);
-            $images[] = url("$softpath/$image");
-        }
-        $product->images = $images;
+        $this->appendProductCategories($product);
+        $this->appendProductImageCover($product);
+        $this->appendProductImages($product);
         return $product;
     }
 
