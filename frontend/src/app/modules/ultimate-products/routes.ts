@@ -7,4 +7,5 @@ export const routes:Routes = [
     {path:'products', component: ProductListPage },
     {path:'product/add', component: ProductEditPage },
     {path:'product/:id', component: ProductEditPage },
+    {path:'product/preview/:id', component: ProductDetailPage },
 ];

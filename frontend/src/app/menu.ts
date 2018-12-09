@@ -10,7 +10,7 @@ export const menu:MenuItem[] = [
     {label:'Product', children:[
         {label:'List'  , path:['/products']},
         {label:'New'   , path:['/product/add']},
-        {label:'Detail', path:['/product']},
+        {label:'Detail', path:['/product/preview/38']},
     ]},
     {label:'Auth', children: [
         {label:'Login'   , path:['/login']},

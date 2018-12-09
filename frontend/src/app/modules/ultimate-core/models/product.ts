@@ -13,6 +13,7 @@ export class Product extends TimedEntity {
     add_categories?:number[] = [];
     del_categories?:number[] = [];
     image_bucket?:string;
+    images?:string[] = [];
 
     delete?:boolean = false;
 }
