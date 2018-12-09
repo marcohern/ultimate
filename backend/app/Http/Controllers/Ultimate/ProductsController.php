@@ -67,15 +67,26 @@ class ProductsController extends Controller
         $pid = $product->id;
         
         $maxord = 0;
+        $minord = 9999;
+        $coverImage = null;
         $newFiles = glob("$source/$pattern");
         $existingFiles = glob("$dest/$pid.*");
         foreach ($existingFiles as $file) {
             $filename = basename($file);
             $m = [];
             preg_match("/(\d+)\.(\d+)\.(.*)/", $filename, $m);
-            //dd($m);
-            $tord = 0 + $m[2];
-            if ($maxord < $tord) $maxord = $tord;
+            $tord = 0 + $m[2];//get the order number
+            if ($maxord < $tord) {
+                $maxord = $tord;
+                $coverImage = $filename;
+            }
+            if ($minord > $tord) $minord = $tord;
+        }
+        if ($minord > 0) {
+            $oldCoverImage = "$dest/$coverImage";
+            $info = (object) pathinfo($oldCoverImage);
+            $newCoverImage = "$dest/$pid.0.{$info->extension}";
+            rename($oldCoverImage, $newCoverImage);
         }
         $ord = $maxord+1;
         foreach ($newFiles as $file) {
