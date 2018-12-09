@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, TemplateRef, ViewChild } from '@angular/core';
 import { Product } from 'src/app/modules/ultimate-core/models/product';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap';
+import { ProductService } from '../../srvs/product.service';
 
 @Component({
   selector: 'product-table',
@@ -10,21 +12,30 @@ export class ProductTable implements OnInit {
 
   @Input()
   products:Product[] = [];
+  deletingProduct:Product;
 
-  constructor() { }
+  @ViewChild('dlgConfirmDeleteTemplate') 
+  dlgConfirmDeleteTemplate:TemplateRef<any>;
+
+  dlgConfirmDelete: BsModalRef;
+  constructor(private modal:BsModalService, private ps:ProductService) { }
 
   ngOnInit() {
     
   }
 
   deleting(product:Product) {
-    console.log("ProductTable.deliting",product);
-    product.delete = true;
+    product.delete = false;
+    this.deletingProduct = product;
+    this.dlgConfirmDelete = this.modal.show(this.dlgConfirmDeleteTemplate, { });
   }
 
-  deleted(product:Product) {
-    const index = this.products.indexOf(product);
-    this.products.splice(index, 1);
+  deleteConfirmed() {
+    this.ps.deleteProduct(this.deletingProduct.id).subscribe(result => {
+      
+      const index = this.products.indexOf(this.deletingProduct);
+      this.products.splice(index, 1);
+      this.dlgConfirmDelete.hide();
+    });
   }
-
 }

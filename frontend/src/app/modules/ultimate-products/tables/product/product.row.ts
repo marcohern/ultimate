@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Product } from 'src/app/modules/ultimate-core/models/product';
-import { getDefaultSettings } from 'http2';
 import { ProductService } from '../../srvs/product.service';
 import { SaveResult } from 'src/app/modules/ultimate-core/models/save-result';
 
@@ -27,6 +26,7 @@ export class ProductRow implements OnInit {
   constructor(private ps:ProductService) { }
 
   ngOnInit() {
+    
     this.deleting.subscribe(product => {
       if (product.delete) {
         this.ps.deleteProduct(product.id).subscribe(result => {
@@ -37,7 +37,7 @@ export class ProductRow implements OnInit {
   }
 
   delete($event, product) {
-    product.delete = false;
+    product.delete = true;
     this.deleting.emit(product);
   }
 
