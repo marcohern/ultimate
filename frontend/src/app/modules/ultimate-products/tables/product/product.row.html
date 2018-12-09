@@ -1,10 +1,10 @@
 <td>
   <img class="img-responsive" width="32px" src="/assets/product.png" alt="Priduct">
 </td>
-<td><a [routerLink]="['/product']">{{product.name}}</a></td>
+<td><a [routerLink]="['/product', product.id]">{{product.name}}</a></td>
 <td>{{product.org_price | currency}}</td>
 <td>{{product.dct_price | currency}}</td>
 <td>
-  <button type="button" class="btn btn-warning">Edit</button>
+  <a class="btn btn-warning" [routerLink]="['/product',product.id]">Edit</a>
   <button type="button" class="btn btn-danger" (click)="delete($event, product)">Delete</button>
 </td>

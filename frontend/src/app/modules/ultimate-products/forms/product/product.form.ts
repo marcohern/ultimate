@@ -40,7 +40,7 @@ export class ProductForm extends FormBase implements OnInit, OnDestroy {
   ckbAdded:Checkbox[] = [];
   ckbRemoved:Checkbox[] = [];
   
-  product:Product = null;
+  product:Product = new Product();
   categories:Category[] = [];
   discounted:boolean = false;
 

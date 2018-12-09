@@ -9,18 +9,45 @@ import { Observable } from 'rxjs';
  */
 export abstract class FormBase {
 
+    private _loading:boolean = false;
+    private _editing:boolean = false;
+
     /**
      * Form Group.
      * Must be built buy the base
      */
     protected group:FormGroup;
 
+
     /**
      * loading helper. the intention is that,
      * if its true, the form is in a loading state, which usually
      * means that all fields are disabled (cant edit while it loads data) 
      */
-    private loading:boolean = false;
+    public loading() {
+        get: {
+            return this._loading;
+        }
+    }
+
+    /**
+     * Editing helper. If true, the form is editing an existing record.
+     * if false, the form will be creating a new record
+     */
+    public editing() {
+        get: {
+            return this._editing;
+        }
+    }
+
+    /**
+     * 
+     */
+    public creating() {
+        get: {
+            return !this._editing;
+        }
+    }
   
     /**
      * Emitted when a cancel button is pressed
@@ -45,10 +72,11 @@ export abstract class FormBase {
     }
 
     public fill<T>(obs:Observable<T>, callback:Function) {
-        this.loading = true;
+        this._editing = true;
+        this._loading = true;
         obs.subscribe(result => {
             callback(result);
-            this.loading = false;
+            this._loading = false;
         }, error => {
             this.handleLoadError(error);
         });
@@ -66,7 +94,7 @@ export abstract class FormBase {
      * @param error 
      */
     public handleLoadError(error) {
-        this.loading = false;
+        this._loading = false;
     }
     
     /**
@@ -74,7 +102,7 @@ export abstract class FormBase {
      * use it to disable inputs while loading
      */
     public disable():any {
-        return this.loading ? '' : null; 
+        return this._loading ? '' : null; 
     }
 
     /**
@@ -82,6 +110,6 @@ export abstract class FormBase {
      * use to disable the submit button if data is invalid
      */
     public disabelSubmit() {
-        return (this.loading || !this.group.valid) ? '' : null;
+        return (this._loading || !this.group.valid) ? '' : null;
     }
 }

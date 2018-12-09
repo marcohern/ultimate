@@ -24,7 +24,7 @@ class ProductUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'slug' => 'unique:products',
+            //'slug' => 'unique:products',
             'add_click' => 'boolean',
             'add_hit' => 'boolean',
             'add_sale_value' => 'numeric',

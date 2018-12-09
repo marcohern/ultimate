@@ -6,5 +6,5 @@ import { ProductEditPage } from "./pages/product-edit/product-edit.page";
 export const routes:Routes = [
     {path:'products', component: ProductListPage },
     {path:'product/add', component: ProductEditPage },
-    {path:'product/:id', component: ProductDetailPage },
+    {path:'product/:id', component: ProductEditPage },
 ];
