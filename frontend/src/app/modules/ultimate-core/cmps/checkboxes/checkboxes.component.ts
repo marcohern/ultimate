@@ -9,7 +9,6 @@ import { CheckboxChanged } from '../../models/checkbox-changed';
 })
 export class CheckboxesComponent implements OnInit, OnChanges {
 
-  private loading:boolean = false;
   private checkboxes:Checkbox[] = [];
   private changes:CheckboxChanged = new CheckboxChanged();
 
@@ -38,6 +37,8 @@ export class CheckboxesComponent implements OnInit, OnChanges {
     this.checkboxes = this.source.map<Checkbox>((s,i) => new Checkbox(s[this.label], s[this.value], false, s));
     
     if (this.selected) {
+      if (this.selected.length > 0) this.changes.noneSelected = false;
+      else this.changes.noneSelected = true;  
       this.selected.forEach(s => {
         var checkbox = this.checkboxes.find(c => c.value === s[this.value]);
         if (checkbox) checkbox.checked = true;
@@ -46,7 +47,6 @@ export class CheckboxesComponent implements OnInit, OnChanges {
   }
 
   changed($event, target:Checkbox) {
-    if (this.loading) return;
     target.checked = (!target.checked);
     target.status = (target.status) ? null :
       (target.checked) ? 'added' : 'removed';
@@ -65,6 +65,8 @@ export class CheckboxesComponent implements OnInit, OnChanges {
         this.changes.added.splice(i,1);
       }
     }
+
+    this.changes.noneSelected = (this.checkboxes.find(c => c.checked)) ? false : true;
 
     this.checkboxChanged.emit(this.changes);
   }

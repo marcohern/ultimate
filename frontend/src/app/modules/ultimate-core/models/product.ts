@@ -10,4 +10,6 @@ export class Product extends TimedEntity {
     org_price?:number;
     dct_price?:number;
     categories?:Category[];
+    add_categories?:number[] = [];
+    del_categories?:number[] = [];
 }

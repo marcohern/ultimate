@@ -54,10 +54,10 @@ class ProductsController extends Controller
                 $product->rating_count++;
                 $product->rating_value+=$input->add_rating_value;
             }
-    
-            if ($request->has('add_categories')) $add_categories = $input->add_categories;
-            if ($request->has('del_categories')) $del_categories = $input->del_categories;       
+            if ($request->has('del_categories')) $del_categories = $input->del_categories;
         }
+    
+        if ($request->has('add_categories')) $add_categories = $input->add_categories;
 
         $product->save();
         $addcats = [];
@@ -102,6 +102,15 @@ class ProductsController extends Controller
         $products = $query->paginate($l);
         return $products;
     }
+
+    /**
+     * Return a simple list of all categories
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function categories() {
+        return Category::all();
+    } 
 
     /**
      * Store a newly created resource in storage.

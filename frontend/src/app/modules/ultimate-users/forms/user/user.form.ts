@@ -43,7 +43,10 @@ export class UserForm extends FormBase implements OnInit {
     this.group.setValue(this.user);
 
     if (this.user_id) {
-      this.fill(this.us.getUser(this.user_id));
+      this.fill<User>(
+        this.us.getUser(this.user_id),
+        user => this.fillUser(user)
+      );
     } else {
       this.group.get('password').setValidators([Validators.required]);
       this.group.get('confirmPassword').setValidators([Validators.required]);
@@ -51,7 +54,8 @@ export class UserForm extends FormBase implements OnInit {
     }
   }
 
-  filling<User>(user) {
+  fillUser(user) {
+    console.log(this);
     this.user = user;
     this.group.setValue({
       email: user.email,

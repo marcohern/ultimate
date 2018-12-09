@@ -6,7 +6,9 @@ import { Paged } from 'src/app/modules/ultimate-core/models/paged';
 import { FormBuilder, FormArray, FormGroup, FormControl, Validators } from '@angular/forms';
 import * as uuid from 'uuid';
 import { Product } from 'src/app/modules/ultimate-core/models/product';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Checkbox } from 'src/app/modules/ultimate-core/models/checkbox';
+import { ProductService } from '../../srvs/product.service';
 
 @Component({
   selector: 'ultimate-product-form',
@@ -15,44 +17,38 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductForm extends FormBase implements OnInit, OnDestroy {
 
-  constructor(private req:RequestService, private fb:FormBuilder, private route:ActivatedRoute) { 
+  constructor(
+    private req:RequestService,
+    private ps:ProductService,
+    private fb:FormBuilder,
+    private route:ActivatedRoute,
+    private router:Router) { 
     super();
     this.group = this.fb.group({
       name: this.fb.control('',[Validators.required],[]),
       slug: this.fb.control('',[Validators.required],[]),
       overview: this.fb.control('',[Validators.required],[]),
-      description: this.fb.control('',[Validators.required],[]),
-      org_price: this.fb.control('',[Validators.required, Validators.pattern(/\d+\.\d{0,2}/)],[]),
+      description: this.fb.control('',[Validators.required, Validators.pattern(/\d+(\.(\d{0,2})?)?/)],[]),
+      org_price: this.fb.control('',[Validators.required, Validators.pattern(/\d+(\.(\d{0,2})?)?/)],[]),
       dct_price: this.fb.control('',[],[]),
     });
   }
 
-  checkboxes:FormArray = null;
   bucket:string = '';
-  categories:Category[] = [];
   imageids:string[] = [];
+
+  ckbAdded:Checkbox[] = [];
+  ckbRemoved:Checkbox[] = [];
+  
   product:Product = null;
+  categories:Category[] = [];
   discounted:boolean = false;
 
   ngOnInit() {
       this.bucket = uuid.v4();
 
-      this.req.browse<Paged<Category>>('/categories', {}).subscribe(result => {
-        this.categories = result.data;
-      });
-
-      this.req.get<Product>('/products', 1).subscribe(result => {
-        this.product = result;
-        this.group.setValue({
-          name: this.product.name,
-          slug: this.product.slug,
-          overview: this.product.overview,
-          description: this.product.description,
-          org_price: this.product.org_price,
-          dct_price: this.product.dct_price,
-        });
-        console.log(result);
-      });
+      this.fill(this.ps.categories(), cats => this.fillCategories(cats));
+      this.fill(this.ps.getProduct(1), prods => this.fillProduct(prods));
   }
 
   ngOnDestroy() {
@@ -61,12 +57,40 @@ export class ProductForm extends FormBase implements OnInit, OnDestroy {
     });
   }
 
-  saving(values) {
-
+  fillCategories(categories:Category[]) {
+    this.categories = categories;
   }
 
-  filling<User>(user) {
+  fillProduct(product:Product) {
+    this.product = product;
+    this.group.setValue({
+      name: this.product.name,
+      slug: this.product.slug,
+      overview: this.product.overview,
+      description: this.product.description,
+      org_price: this.product.org_price,
+      dct_price: this.product.dct_price,
+    });
+    if (this.product.dct_price) this.discounted = true;
+  }
 
+  saving($events, values) {
+    
+    this.product.name = values.name;
+    this.product.slug = values.slug;
+    this.product.overview = values.overview;
+    this.product.description = values.description;
+    this.product.org_price = values.org_price;
+    this.product.dct_price = values.dct_price;
+    this.product.add_categories = this.ckbAdded.map(c => c.source.id);
+    this.product.del_categories = this.ckbRemoved.map(c => c.source.id);
+
+    console.log(this.product);
+
+    this.ps.saveProduct(this.product).subscribe(result => {
+      console.log(result);
+      this.router.navigate(['/products']);
+    });
   }
 
   onUploadFinished($event) {
@@ -84,10 +108,8 @@ export class ProductForm extends FormBase implements OnInit, OnDestroy {
   }
 
   checkboxChanged($event) {
-    var added:number[] = $event.added.map(s => s.source.id);
-    var removed:number[] = $event.removed.map(s => s.source.id);
-    console.log("added",added);
-    console.log("removed",removed);
+    this.ckbAdded = $event.added;
+    this.ckbRemoved = $event.removed;
   }
 
 }

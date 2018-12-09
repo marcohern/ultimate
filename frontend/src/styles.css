@@ -19,3 +19,7 @@
 .ng-touched.ng-invalid + .err-feedback {
     visibility: visible;
 }
+
+textarea.tall {
+    height:20rem;
+}

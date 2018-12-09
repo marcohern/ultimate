@@ -4,6 +4,7 @@ import { Paged } from '../../ultimate-core/models/paged';
 import { Product } from '../../ultimate-core/models/product';
 import { Observable } from 'rxjs';
 import { SaveResult } from '../../ultimate-core/models/save-result';
+import { Category } from '../../ultimate-core/models/category';
 
 @Injectable({
   providedIn: 'root'
@@ -44,5 +45,9 @@ export class ProductService {
 
   clickProduct(id:number) : Observable<SaveResult> {
     return this.req.post<SaveResult>('/product/click', id);
+  }
+
+  categories() : Observable<Category[]> {
+    return this.req.browse<Category[]>('/product/categories', {});
   }
 }

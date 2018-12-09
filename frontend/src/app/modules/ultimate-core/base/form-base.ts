@@ -33,8 +33,6 @@ export abstract class FormBase {
      */
     public abstract saving($event:any, values:any[]);
 
-    public abstract filling<T>(object:T);
-
     /**
      * Called when the submit button is clicked
      */
@@ -46,10 +44,10 @@ export abstract class FormBase {
         }
     }
 
-    public fill<T>(obs:Observable<T>) {
+    public fill<T>(obs:Observable<T>, callback:Function) {
         this.loading = true;
         obs.subscribe(result => {
-            this.filling<T>(result);
+            callback(result);
             this.loading = false;
         }, error => {
             this.handleLoadError(error);
