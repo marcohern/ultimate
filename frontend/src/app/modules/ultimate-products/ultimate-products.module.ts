@@ -17,6 +17,7 @@ import { routes } from './routes';
 import { ProductRow } from './tables/product/product.row';
 import { ProductTable } from './tables/product/product.table';
 import { ProductsQueryComponent } from './cmps/products-query/products-query.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,8 @@ import { ProductsQueryComponent } from './cmps/products-query/products-query.com
   imports: [
     CommonModule,
     RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
     UltimateCoreModule,
     NgxImageGalleryModule,
     RouterModule.forChild(routes),

@@ -8,9 +8,10 @@ import { MenuComponent } from './cmps/menu/menu.component';
 import { PagerComponent } from './cmps/pager/pager.component';
 
 import { TokenInterceptor } from './srvs/token-interceptor';
+import { CheckboxesComponent } from './cmps/checkboxes/checkboxes.component';
 
 @NgModule({
-  declarations: [MenuComponent, PagerComponent],
+  declarations: [MenuComponent, PagerComponent, CheckboxesComponent],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -20,6 +21,6 @@ import { TokenInterceptor } from './srvs/token-interceptor';
     RequestService,
     {provide:HTTP_INTERCEPTORS, useClass:TokenInterceptor, multi:true }
   ],
-  exports:[MenuComponent, PagerComponent],
+  exports:[MenuComponent, PagerComponent, CheckboxesComponent],
 })
 export class UltimateCoreModule { }

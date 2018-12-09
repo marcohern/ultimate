@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 /*FORMS*/
-.ng-valid[required], .ng-valid.required, input.ng-valid  {
+.ng-valid[required], .ng-valid.required, input.ng-valid, textarea.ng-valid  {
     border-left: 5px solid #42A948; /* green */
     border-color: #42A948;
 }
