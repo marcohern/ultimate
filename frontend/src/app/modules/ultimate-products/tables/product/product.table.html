@@ -9,6 +9,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr product-row *ngFor="let product of products" [product]="product"></tr>
+    <tr product-row *ngFor="let product of products" [product]="product"
+      (deleting)="deleting($event)" (deleted)="deleted($event)"></tr>
   </tbody>
 </table>

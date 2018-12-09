@@ -17,4 +17,14 @@ export class ProductTable implements OnInit {
     
   }
 
+  deleting(product:Product) {
+    console.log("ProductTable.deliting",product);
+    product.delete = true;
+  }
+
+  deleted(product:Product) {
+    const index = this.products.indexOf(product);
+    this.products.splice(index, 1);
+  }
+
 }

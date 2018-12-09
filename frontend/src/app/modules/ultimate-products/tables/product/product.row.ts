@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Product } from 'src/app/modules/ultimate-core/models/product';
 import { getDefaultSettings } from 'http2';
+import { ProductService } from '../../srvs/product.service';
+import { SaveResult } from 'src/app/modules/ultimate-core/models/save-result';
 
 @Component({
   selector: '[product-row]',
@@ -17,19 +19,26 @@ export class ProductRow implements OnInit {
   };
 
   @Output()
-  deleting:EventEmitter<any> = new EventEmitter<any>();
+  deleting:EventEmitter<Product> = new EventEmitter<Product>();
 
-  constructor() { }
+  @Output()
+  deleted:EventEmitter<SaveResult> = new EventEmitter<SaveResult>();
+
+  constructor(private ps:ProductService) { }
 
   ngOnInit() {
+    this.deleting.subscribe(product => {
+      if (product.delete) {
+        this.ps.deleteProduct(product.id).subscribe(result => {
+          this.deleted.emit(product);
+        });
+      }
+    });
   }
 
-  delete($event) {
-    console.log("delete",this.product);
-  }
-
-  edit($event) {
-    console.log("delete",this.product);
+  delete($event, product) {
+    product.delete = false;
+    this.deleting.emit(product);
   }
 
 }

@@ -48,7 +48,11 @@ export class ProductForm extends FormBase implements OnInit, OnDestroy {
       this.bucket = uuid.v4();
 
       this.fill(this.ps.categories(), cats => this.fillCategories(cats));
-      this.fill(this.ps.getProduct(1), prods => this.fillProduct(prods));
+
+      var product_id = this.route.snapshot.params.id;
+      if (product_id) {
+        this.fill(this.ps.getProduct(product_id), prods => this.fillProduct(prods));
+      }
   }
 
   ngOnDestroy() {
@@ -84,9 +88,10 @@ export class ProductForm extends FormBase implements OnInit, OnDestroy {
     this.product.dct_price = values.dct_price;
     this.product.add_categories = this.ckbAdded.map(c => c.source.id);
     this.product.del_categories = this.ckbRemoved.map(c => c.source.id);
+    this.product.image_bucket = this.bucket;
 
     console.log(this.product);
-
+    
     this.ps.saveProduct(this.product).subscribe(result => {
       console.log(result);
       this.router.navigate(['/products']);
