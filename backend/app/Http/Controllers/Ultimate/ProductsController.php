@@ -66,7 +66,7 @@ class ProductsController extends Controller
         $pattern = "$image_bucket.*";
         $pid = $product->id;
         
-        $maxord = 0;
+        $maxord = -1;
         $minord = 9999;
         $coverImage = null;
         $newFiles = glob("$source/$pattern");
@@ -80,12 +80,14 @@ class ProductsController extends Controller
             $tord = 0 + $m[2];//get the order number
             if ($maxord < $tord) {
                 $maxord = $tord;
+            }
+            if ($minord > $tord) {
+                $minord = $tord;
                 $coverImage = $filename;
             }
-            if ($minord > $tord) $minord = $tord;
         }
         //If the cover has been deleted, put one
-        if ($minord > 0) {
+        if ($minord > 0 && $coverImage) {
             $oldCoverImage = "$dest/$coverImage";
             $info = (object) pathinfo($oldCoverImage);
             $newCoverImage = "$dest/$pid.0.{$info->extension}";
@@ -265,9 +267,15 @@ class ProductsController extends Controller
     {
         $id = $product->id;
         $product->delete();
+
+        $images = glob(public_path("images/products/$id.*"));
+        foreach($images as $image) {
+            unlink($image);
+        }
         return [
             'success' => true,
             'id' => $id,
+            'deleted' => $images
         ];
     }
 
@@ -301,7 +309,38 @@ class ProductsController extends Controller
         return [
             'success' => true,
             'id'      => $product->id,
-            'clicks'  => $product->clicks
+            'clicks'  => $product->clicks,
+        ];
+    }
+
+    public function deleteImage(Request $r, $id) {
+        ///Delete the file
+        $filename = $r->filename;
+        $path = public_path("images/products/$filename");
+        unlink($path);
+        $filepath = null;
+
+        //If the cover image has been the image
+        //find the next suitable one
+        $search = glob(public_path("images/products/$id.0.*"));
+        if (!$search) {
+            $search = glob(public_path("images/products/$id.*.*"));
+            if ($search) {
+                $filepath = $search[0];
+            }
+        }
+
+        //If a suitable cover image was found, set is as the cover
+        if ($filepath) {
+            $info = (object)pathinfo($filepath);
+            $ext = $info->extension;
+            rename($filepath, "images/products/$id.0.$ext");
+        }
+
+        return [
+            'success' => true,
+            'id' => $id,
+            'filename' => $filename
         ];
     }
 }

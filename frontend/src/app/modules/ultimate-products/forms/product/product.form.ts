@@ -10,6 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Checkbox } from 'src/app/modules/ultimate-core/models/checkbox';
 import { ProductService } from '../../srvs/product.service';
 import { environment } from 'src/environments/environment';
+import { SaveResult } from 'src/app/modules/ultimate-core/models/save-result';
 
 @Component({
   selector: 'ultimate-product-form',
@@ -116,8 +117,9 @@ export class ProductForm extends FormBase implements OnInit, OnDestroy {
     } else {
       var url = $event.file.name;
       var filename = url.replace(/^.*[\\\/]/, '');
-      var match = filename.match(/(?<product_id>\d+)\.(?<order>\d+)\.(?<extension>.+)/);
-      console.log("old image", match.groups);
+      this.req.post<SaveResult>('/product/delete_image/' + this.product.id, {filename}).subscribe(result => {
+        console.log(result);
+      });
     }
   }
 

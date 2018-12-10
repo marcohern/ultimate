@@ -19,9 +19,10 @@ Route::middleware('auth:api')->get('/me', function (Request $request) {
 
 Route::post('logout','Ultimate\\AccountController@logout');
 
-Route::put('product/hit/{id}'  , 'Ultimate\\ProductsController@hit'       );
-Route::put('product/click/{id}', 'Ultimate\\ProductsController@click'     );
-Route::get('product/categories', 'Ultimate\\ProductsController@categories');
+Route::put ('product/hit/{id}'         , 'Ultimate\\ProductsController@hit'       );
+Route::put ('product/click/{id}'       , 'Ultimate\\ProductsController@click'     );
+Route::get ('product/categories'       , 'Ultimate\\ProductsController@categories');
+Route::post('product/delete_image/{id}', 'Ultimate\\ProductsController@deleteImage');
 
 Route::put('category/hit/{id}'  , 'Ultimate\\CategoriesController@hit'  );
 Route::put('category/click/{id}', 'Ultimate\\CategoriesController@click');
