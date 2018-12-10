@@ -38,7 +38,7 @@ class ProductsController extends Controller
         $softpath = '/images/products';
         $hardpath = public_path($softpath);
         $pid = $product->id;
-        $product->image_cover = "/assets/product.png";
+        $product->image_cover = url("/assets/product.png");
         $search = glob("$hardpath/$pid.0.*");
         if ($search) {
             $image = basename($search[0]);
@@ -71,6 +71,8 @@ class ProductsController extends Controller
         $coverImage = null;
         $newFiles = glob("$source/$pattern");
         $existingFiles = glob("$dest/$pid.*");
+
+        //Check existing files, make sure we dont step on them
         foreach ($existingFiles as $file) {
             $filename = basename($file);
             $m = [];
@@ -82,12 +84,15 @@ class ProductsController extends Controller
             }
             if ($minord > $tord) $minord = $tord;
         }
+        //If the cover has been deleted, put one
         if ($minord > 0) {
             $oldCoverImage = "$dest/$coverImage";
             $info = (object) pathinfo($oldCoverImage);
             $newCoverImage = "$dest/$pid.0.{$info->extension}";
             rename($oldCoverImage, $newCoverImage);
         }
+
+        //append the newly uploaded images
         $ord = $maxord+1;
         foreach ($newFiles as $file) {
             $info = pathinfo($file);
@@ -95,6 +100,8 @@ class ProductsController extends Controller
             $renameTo = "$dest/$pid.$ord.$ext";
             rename($file, $renameTo);
             $ord++;
+
+
         }
     }
 
