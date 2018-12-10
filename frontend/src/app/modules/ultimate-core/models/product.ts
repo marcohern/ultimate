@@ -14,6 +14,7 @@ export class Product extends TimedEntity {
     del_categories?:number[] = [];
     image_bucket?:string;
     images?:string[] = [];
+    image_cover?:string;
 
     delete?:boolean = false;
 }

@@ -22,16 +22,16 @@ export class ProductDetailComponent implements OnInit {
 
   images:GALLERY_IMAGE[] = [
     {
-      url: "/assets/htc-vive-01.jpg", 
+      url: "assets/htc-vive-01.jpg", 
       altText: 'HTC Vive', 
       title: 'HTC Vive',
-      thumbnailUrl: "/assets/htc-vive-01-t.jpg", 
+      thumbnailUrl: "assets/htc-vive-01-t.jpg", 
     },
     {
-      url: "/assets/htc-vive-02.jpg", 
+      url: "assets/htc-vive-02.jpg", 
       altText: 'HTC Vive', 
       title: 'HTC Vive',
-      thumbnailUrl: "/assets/htc-vive-02-t.jpg", 
+      thumbnailUrl: "assets/htc-vive-02-t.jpg", 
     },
     {
       url: "https://images.pexels.com/photos/669013/pexels-photo-669013.jpeg?w=1260", 

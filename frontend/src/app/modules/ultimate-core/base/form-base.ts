@@ -16,7 +16,7 @@ export abstract class FormBase {
      * Form Group.
      * Must be built buy the base
      */
-    protected group:FormGroup;
+    public group:FormGroup;
 
 
     /**

@@ -9,8 +9,9 @@ import { CheckboxChanged } from '../../models/checkbox-changed';
 })
 export class CheckboxesComponent implements OnInit, OnChanges {
 
-  private checkboxes:Checkbox[] = [];
   private changes:CheckboxChanged = new CheckboxChanged();
+  
+  checkboxes:Checkbox[] = [];
 
   @Input()
   source:any[] = [];

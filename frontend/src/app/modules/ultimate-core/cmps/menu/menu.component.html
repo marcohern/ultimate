@@ -6,7 +6,7 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <ng-container *ngIf="req.isAuthenticated()" >
+      <ng-container *ngIf="req().isAuthenticated()" >
         <ng-container *ngFor="let item of menu">
           <li *ngIf="item.dropdown" class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" [ngClass]="disableClass"
@@ -31,10 +31,10 @@
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item" *ngIf="!req.isAuthenticated()">
+      <li class="nav-item" *ngIf="!req().isAuthenticated()">
         <a class="nav-link" [ngClass]="disableClass" [routerLink]="['/login']">Login</a>
       </li>
-      <li class="nav-item" *ngIf="req.isAuthenticated()">
+      <li class="nav-item" *ngIf="req().isAuthenticated()">
         <button class="btn btn-danger" (click)="logout()">Logout</button>
       </li>
     </ul>

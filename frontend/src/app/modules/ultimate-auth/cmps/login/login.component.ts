@@ -16,7 +16,13 @@ export class LoginComponent implements OnInit {
   errorAlert:boolean;
   errorMsg:string = '';
 
-  constructor(private req:RequestService,private router:Router) { }
+  constructor(private _req:RequestService,private router:Router) { }
+
+  public req() {
+    get: {
+      return this._req;
+    }
+  }
 
   ngOnInit() {
     
@@ -27,8 +33,8 @@ export class LoginComponent implements OnInit {
     this.errorMsg = '';
     console.log("requestLogin");
 
-    this.req.login(this.email,this.password).subscribe(result => {
-      this.req.setToken(result.access_token);
+    this._req.login(this.email,this.password).subscribe(result => {
+      this._req.setToken(result.access_token);
       this.router.navigate(['/private']);
     }, error=> {
       if (error.error) {

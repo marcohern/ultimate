@@ -1,10 +1,10 @@
-<form [formGroup]="group" (ngSubmit)="submit()">
+<form [formGroup]="group" (ngSubmit)="submit($event)">
   <div class="row">
     <div class="col-md-12">
       <div class="form-group">
         <label>Upload Image</label>
         <image-upload name="file" url="{{apiroot}}/uploads?bucket={{bucket}}"
-          [headers]="{Authorization: 'Bearer ' + req.getToken()}"
+          [headers]="{Authorization: 'Bearer ' + req().getToken()}"
           [uploadedFiles]="product.images"
           (uploadFinished)="onUploadFinished($event)"
           (removed)="onRemoved($event)"></image-upload>

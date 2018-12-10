@@ -30,8 +30,14 @@ export class ProductForm extends FormBase implements OnInit, OnDestroy {
   discounted:boolean = false;
   apiroot:string = '';
 
+  public req() {
+    get: {
+      return this._req;
+    }
+  }
+
   constructor(
-    private req:RequestService,
+    private _req:RequestService,
     private ps:ProductService,
     private fb:FormBuilder,
     private route:ActivatedRoute,
@@ -61,7 +67,7 @@ export class ProductForm extends FormBase implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.req.delete('/uploads/bucket',this.bucket).subscribe(result => {
+    this._req.delete('/uploads/bucket',this.bucket).subscribe(result => {
       console.log(result);
     });
   }
@@ -111,13 +117,13 @@ export class ProductForm extends FormBase implements OnInit, OnDestroy {
 
   onRemoved($event) {
     if ($event.image_id) {
-      this.req.delete('/uploads',$event.image_id).subscribe(result => {
+      this._req.delete('/uploads',$event.image_id).subscribe(result => {
         console.log(result);
       });
     } else {
       var url = $event.file.name;
       var filename = url.replace(/^.*[\\\/]/, '');
-      this.req.post<SaveResult>('/product/delete_image/' + this.product.id, {filename}).subscribe(result => {
+      this._req.post<SaveResult>('/product/delete_image/' + this.product.id, {filename}).subscribe(result => {
         console.log(result);
       });
     }

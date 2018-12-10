@@ -14,7 +14,7 @@ export class ProductRow implements OnInit {
   product:Product = {
     id:0,
     name:'',
-    slug:'',
+    slug:''
   };
 
   @Output()

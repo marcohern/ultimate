@@ -15,8 +15,8 @@
         <label class="form-check-label">Remember me</label>
       </div>
       <div>
-        <button class="btn btn-primary" type="submit" [disabled]="req.isRequesting()">Login</button>
-        <img src="/assets/loading.svg" alt="Loading" width="38px" *ngIf="req.isRequesting()" >
+        <button class="btn btn-primary" type="submit" [disabled]="req().isRequesting()">Login</button>
+        <img src="assets/loading.svg" alt="Loading" width="38px" *ngIf="req().isRequesting()" >
       </div>
       <div>
         <a href="#">Forgot password?</a>

@@ -13,7 +13,11 @@ import { HttpClient } from '@angular/common/http';
 export class MenuComponent implements OnInit {
 
   
-  constructor(private req:RequestService, private http:HttpClient, private router:Router) { }
+  constructor(private _req:RequestService, private http:HttpClient, private router:Router) { }
+
+  public req() {
+    get: { return this._req; }
+  }
 
   @Input()
   public title = '[Title]';
@@ -34,8 +38,8 @@ export class MenuComponent implements OnInit {
 
   logout() {
     
-    this.req.logout().subscribe(result => {
-      this.req.clearToken();
+    this._req.logout().subscribe(result => {
+      this._req.clearToken();
       this.router.navigate(['/login']);
     }, error => {
       if (error.status == 401) {

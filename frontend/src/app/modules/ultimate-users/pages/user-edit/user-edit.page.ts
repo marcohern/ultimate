@@ -11,7 +11,10 @@ export class UserEditPage implements OnInit {
 
   constructor(private router:Router, private route:ActivatedRoute) { }
 
+  user_id:number;
+
   ngOnInit() {
+    this.user_id = this.route.snapshot.params.id;
   }
 
   saved(user:User) {
