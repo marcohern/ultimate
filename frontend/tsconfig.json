@@ -16,6 +16,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@marcohern/helloangular": [
+        "dist/marcohern/helloangular"
+      ],
+      "@marcohern/helloangular/*": [
+        "dist/marcohern/helloangular/*"
+      ]
+    }
   }
 }
