@@ -1,16 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormBase } from 'src/app/modules/ultimate-core/base/form-base';
-import { RequestService } from 'src/app/modules/ultimate-core/srvs/request.service';
-import { Category } from 'src/app/modules/ultimate-core/models/category';
-import { Paged } from 'src/app/modules/ultimate-core/models/paged';
-import { FormBuilder, FormArray, FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormBase, SaveResult, Category, Product, Checkbox, RequestService } from '@marcohern/ultimate-core';
+import { FormBuilder, Validators } from '@angular/forms';
 import * as uuid from 'uuid';
-import { Product } from 'src/app/modules/ultimate-core/models/product';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Checkbox } from 'src/app/modules/ultimate-core/models/checkbox';
 import { ProductService } from '../../srvs/product.service';
 import { environment } from 'src/environments/environment';
-import { SaveResult } from 'src/app/modules/ultimate-core/models/save-result';
 
 @Component({
   selector: 'ultimate-product-form',

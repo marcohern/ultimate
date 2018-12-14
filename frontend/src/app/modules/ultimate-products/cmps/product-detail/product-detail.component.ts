@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { Product } from 'src/app/modules/ultimate-core/models/product';
+import { Product } from '@marcohern/ultimate-core';
 import { GALLERY_IMAGE, GALLERY_CONF, NgxImageGalleryComponent } from 'ngx-image-gallery';
 import { ProductService } from '../../srvs/product.service';
 import { ActivatedRoute } from '@angular/router';

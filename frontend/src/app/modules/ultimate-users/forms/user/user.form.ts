@@ -1,9 +1,7 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { User } from 'src/app/modules/ultimate-core/models/user';
+import { FormBuilder, Validators } from '@angular/forms';
+import { User, FormBase, UserCreate } from '@marcohern/ultimate-core';
 import { UserService } from '../../srvs/user.service';
-import { FormBase } from 'src/app/modules/ultimate-core/base/form-base';
-import { UserCreate } from 'src/app/modules/ultimate-core/models/user-create';
 
 @Component({
   selector: 'ultimate-user-form',

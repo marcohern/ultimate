@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/modules/ultimate-core/models/user';
+import { User } from '@marcohern/ultimate-core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Paged } from 'src/app/modules/ultimate-core/models/paged';
-import { Product } from 'src/app/modules/ultimate-core/models/product';
+import { Paged, Product } from '@marcohern/ultimate-core';
 import { ProductService } from '../../srvs/product.service';
 import { ActivatedRoute } from '@angular/router';
 

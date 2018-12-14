@@ -1,10 +1,6 @@
 import { Injectable } from '@angular/core';
-import { RequestService } from '../../ultimate-core/srvs/request.service';
-import { Paged } from '../../ultimate-core/models/paged';
-import { Product } from '../../ultimate-core/models/product';
+import { RequestService, Category, Paged, Product, SaveResult } from '@marcohern/ultimate-core';
 import { Observable } from 'rxjs';
-import { SaveResult } from '../../ultimate-core/models/save-result';
-import { Category } from '../../ultimate-core/models/category';
 
 @Injectable({
   providedIn: 'root'

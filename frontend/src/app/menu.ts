@@ -1,5 +1,5 @@
-import { MenuItem } from "./modules/ultimate-core/models/menu-item";
-import { MenuOptions } from "./modules/ultimate-core/models/menu-options";
+import { MenuItem } from "@marcohern/ultimate-core/lib/models/menu-item";
+import { MenuOptions } from "@marcohern/ultimate-core/lib/models/menu-options";
 
 export const menu:MenuItem[] = [
     {label:'Home' , path:['/']},

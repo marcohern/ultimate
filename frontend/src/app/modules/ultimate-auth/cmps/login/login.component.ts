@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { RequestService } from '../../../ultimate-core/srvs/request.service';
+import { RequestService } from '@marcohern/ultimate-core';
 import { Router } from '@angular/router';
 
-import { User } from '../../../ultimate-core/models/user';
-import { LoginResult } from '../../../ultimate-core/models/login-result';
 @Component({
   selector: 'ult-auth-login',
   templateUrl: './login.component.html',

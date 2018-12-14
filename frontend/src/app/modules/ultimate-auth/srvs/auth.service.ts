@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-import { RequestService } from '../../ultimate-core/srvs/request.service';
-import { User } from '../../ultimate-core/models/user';
-import { SaveResult } from '../../ultimate-core/models/save-result';
+import { User, SaveResult, RequestService } from '@marcohern/ultimate-core';
 
 @Injectable({
   providedIn: 'root'

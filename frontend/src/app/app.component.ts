@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuItem } from './modules/ultimate-core/models/menu-item';
+import { RequestService, MenuItem, MenuOptions } from '@marcohern/ultimate-core';
 import { menu, menuOptions } from './menu';
-import { MenuOptions } from './modules/ultimate-core/models/menu-options';
-import { RequestService } from './modules/ultimate-core/srvs/request.service';
 import { HelloangularService } from '@marcohern/helloangular';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-root',
@@ -25,6 +24,9 @@ export class AppComponent implements OnInit {
     //console.log(menu);
     this.menu = menu;
     this.options = menuOptions;
+    this.req.setApiRoot(environment.api.root);
+    this.req.setApiId(environment.api.id);
+    this.req.setApiSecret(environment.api.secret);
     this.req.retrieveToken();
     this.test = this.ts.getHello();
   }

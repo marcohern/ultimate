@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, TemplateRef, ViewChild } from '@angular/core';
-import { Product } from 'src/app/modules/ultimate-core/models/product';
+import { Product } from '@marcohern/ultimate-core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 import { ProductService } from '../../srvs/product.service';
 

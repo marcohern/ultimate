@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from 'src/app/modules/ultimate-core/models/product';
+import { Product } from '@marcohern/ultimate-core';
 
 @Component({
   selector: 'product-list-page',

@@ -6,7 +6,7 @@ import { UltimateAuthModule } from './modules/ultimate-auth/ultimate-auth.module
 
 import { AppComponent } from './app.component';
 
-import { UltimateCoreModule } from './modules/ultimate-core/ultimate-core.module';
+import { UltimateCoreModule } from '@marcohern/ultimate-core';
 import { UltimateUsersModule } from './modules/ultimate-users/ultimate-users.module';
 import { UltimateProductsModule } from './modules/ultimate-products/ultimate-products.module';
 

@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Product } from 'src/app/modules/ultimate-core/models/product';
+import { Product, SaveResult } from '@marcohern/ultimate-core';
 import { ProductService } from '../../srvs/product.service';
-import { SaveResult } from 'src/app/modules/ultimate-core/models/save-result';
 
 @Component({
   selector: '[product-row]',

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/modules/ultimate-core/models/user';
+import { User, Paged } from '@marcohern/ultimate-core';
 import { UserService } from '../../srvs/user.service';
-import { Paged } from 'src/app/modules/ultimate-core/models/paged';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

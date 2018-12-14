@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { UltimateCoreModule } from '../ultimate-core/ultimate-core.module';
+import { UltimateCoreModule } from '@marcohern/ultimate-core';
 import { NgxImageGalleryModule } from 'ngx-image-gallery';
 import { ImageUploadModule } from "angular2-image-upload";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';

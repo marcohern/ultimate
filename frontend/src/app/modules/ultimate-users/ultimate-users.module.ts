@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { UltimateCoreModule } from '../ultimate-core/ultimate-core.module';
+import { UltimateCoreModule } from '@marcohern/ultimate-core';
 
 import { UserListComponent } from './cmps/user-list/user-list.component';
 

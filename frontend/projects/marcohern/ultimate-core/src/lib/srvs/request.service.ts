@@ -11,7 +11,7 @@ import { QueryStringBase } from '../base/query-string-base';
 })
 export class RequestService extends QueryStringBase {
 
-  private _apiId:string;
+  private _apiId:number;
   private _apiSecret:string;
 
   constructor(private http:HttpClient) { 
@@ -19,7 +19,7 @@ export class RequestService extends QueryStringBase {
     this.retrieveToken();
   }
 
-  public setApiId(apiId:string) {
+  public setApiId(apiId:number) {
     this._apiId = apiId;
   } 
 
