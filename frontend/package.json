@@ -7,7 +7,11 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+
+    "build_ucore": "ng build @marcohern/ultimate-core",
+    "pack_ucore": "cd dist/marcohern/ultimate-core && npm pack",
+    "bp_ucore": "npm run build_ucore && npm run pack_ucore"
   },
   "private": true,
   "dependencies": {

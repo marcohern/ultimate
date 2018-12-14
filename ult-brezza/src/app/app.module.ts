@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AgmCoreModule } from '@agm/core';
+import { UltimateCoreModule } from '@marcohern/ultimate-core';
 
 import { AppComponent } from './app.component';
 import { BannerMidComponent } from './cmps/banner-mid/banner-mid.component';
@@ -97,6 +98,7 @@ import { HowtobuyPage } from './pages/howtobuy/howtobuy.page';
   ],
   imports: [
     BrowserModule,
+    UltimateCoreModule,
     AppRoutingModule,
     FormsModule,
     RouterModule,
