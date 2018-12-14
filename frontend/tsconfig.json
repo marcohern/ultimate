@@ -23,6 +23,12 @@
       ],
       "@marcohern/helloangular/*": [
         "dist/marcohern/helloangular/*"
+      ],
+      "@marcohern/ultimate-core": [
+        "dist/marcohern/ultimate-core"
+      ],
+      "@marcohern/ultimate-core/*": [
+        "dist/marcohern/ultimate-core/*"
       ]
     }
   }
