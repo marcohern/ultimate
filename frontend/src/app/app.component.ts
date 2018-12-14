@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RequestService, MenuItem, MenuOptions } from '@marcohern/ultimate-core';
 import { menu, menuOptions } from './menu';
 import { HelloangularService } from '@marcohern/helloangular';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -25,6 +25,7 @@ export class AppComponent implements OnInit {
     this.menu = menu;
     this.options = menuOptions;
     this.req.setApiRoot(environment.api.root);
+    this.req.setOauthRoot(environment.api.oauth);
     this.req.setApiId(environment.api.id);
     this.req.setApiSecret(environment.api.secret);
     this.req.retrieveToken();
