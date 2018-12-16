@@ -11,9 +11,7 @@ export class GridPage implements OnInit {
   constructor(private req:RequestService) { }
 
   ngOnInit() {
-    this.req.browse('/products',{}).subscribe(result => {
-      
-    });
+    
   }
 
 }

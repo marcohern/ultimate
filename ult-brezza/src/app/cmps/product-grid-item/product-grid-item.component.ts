@@ -1,4 +1,5 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
+import { Component, OnInit, HostBinding, Input } from '@angular/core';
+import { Product } from '@marcohern/ultimate-core';
 
 @Component({
   selector: '[brezza-product-grid-item]',
@@ -8,6 +9,9 @@ import { Component, OnInit, HostBinding } from '@angular/core';
 export class ProductGridItemComponent implements OnInit {
 
   @HostBinding('class') uClass:string = 'item col-lg-4 col-md-4 col-sm-4 col-xs-6';
+
+  @Input()
+  product:Product;
   
   constructor() { }
 

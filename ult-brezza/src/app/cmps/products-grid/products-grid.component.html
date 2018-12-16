@@ -1,5 +1,5 @@
 <article class="col-main">
-  <h2 class="page-heading"><span class="page-heading-title">Categoria X</span> </h2>
+  <h2 class="page-heading"><span class="page-heading-title">{{category?.name}}</span> </h2>
   <div class="display-product-option">
     <div class="pager hidden-xs">
       <div class="pages">
@@ -23,35 +23,7 @@
   </div>
   <div class="category-products">
     <ul class="products-grid">
-      <li brezza-product-grid-item></li>
-      <li brezza-product-grid-item></li>
-      <li brezza-product-grid-item></li>
-      <li brezza-product-grid-item></li>
-      
-      <li brezza-product-grid-item></li>
-      <li brezza-product-grid-item></li>
-      <li brezza-product-grid-item></li>
-      <li brezza-product-grid-item></li>
-      
-      <li brezza-product-grid-item></li>
-      <li brezza-product-grid-item></li>
-      <li brezza-product-grid-item></li>
-      <li brezza-product-grid-item></li>
-      
-      <li brezza-product-grid-item></li>
-      <li brezza-product-grid-item></li>
-      <li brezza-product-grid-item></li>
-      <li brezza-product-grid-item></li>
-      
-      <li brezza-product-grid-item></li>
-      <li brezza-product-grid-item></li>
-      <li brezza-product-grid-item></li>
-      <li brezza-product-grid-item></li>
-      
-      <li brezza-product-grid-item></li>
-      <li brezza-product-grid-item></li>
-      <li brezza-product-grid-item></li>
-      <li brezza-product-grid-item></li>
+      <li *ngFor="let p of productsPaged?.data" brezza-product-grid-item [product]="p"></li>
     </ul>
   </div>
   <div class="toolbar">

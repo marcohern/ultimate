@@ -109,8 +109,13 @@ class CategoriesController extends Controller
      * @param  Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show($id)
     {
+        $category = null;
+        if (is_numeric($id)) 
+            $category = Category::find($id);
+        else
+            $category = Category::where('slug','=',$id)->first();
         return $category;
     }
 

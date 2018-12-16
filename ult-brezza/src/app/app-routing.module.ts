@@ -22,6 +22,8 @@ const routes: Routes = [
   {path:'howtobuy', component: HowtobuyPage},
   {path:'grid', component: GridPage},
   {path:'product', component: ProductDetailPage},
+
+  {path:'productos/:slug', component: GridPage},
 ];
 
 @NgModule({

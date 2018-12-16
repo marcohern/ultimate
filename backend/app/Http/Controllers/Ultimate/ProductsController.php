@@ -176,7 +176,10 @@ class ProductsController extends Controller
         $category_id = null;
         if ($r->has('q')) $q=trim($r->q);
         if ($r->has('l')) $l = $r->l;
-        if ($r->has('category_id')) $category_id=$r->category_id;
+        if ($r->has('category_id'  )) $category_id = $r->category_id;
+        if ($r->has('cid'          )) $category_id = $r->cid;
+        if ($r->has('category_slug')) $category_slug = $r->category_slug;
+        if ($r->has('csl'          )) $category_slug = $r->csl;
 
         $query = DB::table('products AS p')
             ->select('p.id','p.name','p.slug','p.org_price','p.dct_price','p.rating_value','p.rating_count',
@@ -185,12 +188,16 @@ class ProductsController extends Controller
             ->join('product_categories AS pc', 'p.id', '=','pc.product_id')
             ->join('categories AS c', 'pc.category_id', '=','c.id');
         if (!empty($category_id)) {
-            $query->where('c.id', '=', $category_id)->where('p.visible', '=',true);
+            $query->where('c.id', '=', $category_id);
+        }
+        if (!empty($category_slug)) {
+            $query->where('c.slug', '=', $category_slug);
         }
         if (!empty($q)) {
             $rq = preg_replace('/\s+/','%',$q);
             $query->where('p.name','LIKE',"%$rq%");
         }
+        $query->where('p.visible', '=',true);
         $products = $query->paginate($l);
 
         foreach ($products as $product) {

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Product, Paged, RequestService, Category } from '@marcohern/ultimate-core';
 
 @Component({
   selector: 'brezza-products-grid',
@@ -8,11 +9,22 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductsGridComponent implements OnInit {
 
-  constructor(private route:ActivatedRoute) { }
+  constructor(private req:RequestService, private route:ActivatedRoute) { }
+
+  productsPaged:Paged<Product>;
+
+  category:Category;
 
   ngOnInit() {
-    this.route.queryParams.subscribe(params => {
-      console.log(params);
-    });
+    this.route.params.subscribe(params => {
+      var category_slug = params.slug;
+      this.req.get<Category>('/categories', category_slug).subscribe(result => {
+        this.category = result;
+      });
+      this.req.browse<Paged<Product>>('/products',{category_slug}).subscribe(result => {
+        console.log(category_slug, result);
+        this.productsPaged = result;
+      });
+    })
   }
 }

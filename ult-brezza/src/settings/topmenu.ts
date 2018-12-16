@@ -3,11 +3,11 @@ import { MenuItem } from "src/app/models/menu-item";
 export const topmenu:MenuItem[] = [
     {label:'Inicio'    , path:['/']    },
     {label:'Productos' , path:['/grid'], children: [
-        {label:'Pijamas', path:['/grid']},
-        {label:'Chaquetas' , path:['/grid']},
-        {label:'Combos Maternos' , path:['/grid']},
-        {label:'Gorros' , path:['/grid']},
-        {label:'Ruanas' , path:['/grid']},
+        {label:'Pijamas', path:['/productos/pijamas']},
+        {label:'Chaquetas' , path:['/productos/chaquetas']},
+        {label:'Combos Maternos' , path:['/productos/combos-maternos']},
+        {label:'Gorros' , path:['/productos/gorros']},
+        {label:'Ruanas' , path:['/productos/ruanas']},
     ]},
     {label:'Como Comprar' , path:['/howtobuy']},
     {label:'Nosotros'  , path:['/about'], children: [

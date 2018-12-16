@@ -1,6 +1,6 @@
 <div class="item-info">
   <div class="info-inner">
-    <div class="item-title"><a title="Retis lapen casen" [routerLink]="['/product']">Retis lapen casen</a></div>
+    <div class="item-title"><a title="Retis lapen casen" [routerLink]="['/product']">{{product?.name}}</a></div>
     <div class="item-content">
       <div class="rating">
         <div class="ratings">
@@ -11,9 +11,12 @@
         </div>
       </div>
       <div class="item-price">
-        <div class="price-box">
-          <p class="special-price"><span class="price-label">Precio Especial:</span><span class="price">$156.00</span></p>
-          <p class="old-price"><span class="price-label">Precio Regular:</span><span class="price">$167.00</span></p>
+        <div class="price-box" *ngIf="product?.dct_price">
+          <p class="special-price"><span class="price-label">Precio Especial:</span><span class="price">{{product?.dct_price | currency}}</span></p>
+          <p class="old-price"><span class="price-label">Precio Regular:</span><span class="price">{{product?.org_price | currency}}</span></p>
+        </div>
+        <div class="price-box" *ngIf="!product?.dct_price">
+          <p class="special-price"><span class="price-label">Precio Regular:</span><span class="price">{{product?.org_price | currency}}</span></p>
         </div>
       </div>
       <!--div class="action">
