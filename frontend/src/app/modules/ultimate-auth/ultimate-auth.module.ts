@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { UltimateCoreModule } from '@marcohern/ultimate-core';
 import { HttpClientModule } from '@angular/common/http';
+import { UltimateCoreModule } from '@marcohern/ultimate-core';
 
 import { LoginComponent } from './cmps/login/login.component';
 import { RegisterComponent } from './cmps/register/register.component';

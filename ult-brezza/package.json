@@ -22,9 +22,10 @@
     "@angular/platform-browser-dynamic": "~7.0.0",
     "@angular/router": "~7.0.0",
     "@marcohern/helloangular": "0.0.1",
-    "@marcohern/ultimate-core": "0.0.3",
+    "@marcohern/ultimate-core": "0.0.4",
     "core-js": "^2.6.0",
     "rxjs": "~6.3.3",
+    "rxjs-compat": "^6.3.3",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

@@ -3,7 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  api: {
+    root:'http://localhost:8000/api',
+    oauth:'http://localhost:8000/oauth',
+    id:2,
+    secret: 'dtH4F6RdoTtaeb9stQvxgNg6TxcWSRuZa93dlWbS'
+  }
 };
 
 /*

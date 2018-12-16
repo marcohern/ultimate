@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RequestService } from '@marcohern/ultimate-core';
 
 @Component({
   selector: 'brezza-grid',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GridPage implements OnInit {
 
-  constructor() { }
+  constructor(private req:RequestService) { }
 
   ngOnInit() {
+    this.req.browse('/products',{}).subscribe(result => {
+      
+    });
   }
 
 }
