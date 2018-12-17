@@ -5,8 +5,8 @@
         <div id='rev_slider_4_wrapper' class='rev_slider_wrapper fullwidthbanner-container'>
           <div id='rev_slider_4' class='rev_slider fullwidthabanner'>
             <ul>
-              <li data-transition='random' data-slotamount='7' data-masterspeed='1000' data-thumb='assets/images/slide-img1.jpg'>
-                <img src='assets/images/slide-img1.jpg' alt="slide-img" data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat' />
+              <li data-transition='random' data-slotamount='7' data-masterspeed='1000' [attr.data-thumb]="assets('images/slide-img1.jpg')">
+                <img [attr.src]="assets('images/slide-img1.jpg')" alt="slide-img" data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat' />
                 <div class="info">
                   <div class='tp-caption ExtraLargeTitle sft  tp-resizeme ' data-endspeed='500' data-speed='500' data-start='80' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2;white-space:nowrap;'>
                     <span>Buenos Juguetes</span>
@@ -22,8 +22,8 @@
                   </div>
                 </div>
               </li>
-              <li data-transition='random' data-slotamount='7' data-masterspeed='1000' data-thumb='assets/images/slide-img2.jpg'>
-                <img src='assets/images/slide-img2.jpg' alt="slide-img" data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat' />
+              <li data-transition='random' data-slotamount='7' data-masterspeed='1000' [attr.data-thumb]="assets('images/slide-img2.jpg')">
+                <img [attr.src]="assets('images/slide-img2.jpg')" alt="slide-img" data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat' />
                 <div class="info">
                   <div class='tp-caption ExtraLargeTitle sft slide2  tp-resizeme ' data-endspeed='500' data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2;white-space:nowrap;padding-right:0px'>
                     <span>Aprendizaje perfecto</span>
@@ -50,7 +50,7 @@
             <div class="banner-sub-title">Traigamosles algunas sorpresas.</div>
             <div class="banner-bnt"><a [routerLink]="['/about']">Ver Mas</a></div>
           </div>
-          <img src="assets/images/rhs-banner.jpg" class="img-responsive" alt="Gifts for kids"></div>
+          <img [attr.src]="assets('images/rhs-banner.jpg')" class="img-responsive" alt="Gifts for kids"></div>
       </div>
     </div>
   </div>

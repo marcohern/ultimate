@@ -1,3 +1,3 @@
 <div class="loading" *ngIf="this.req.isRequesting()">
-  <img src="assets/images/loading-blocks-1s-200px.svg" alt="Loading" />
+  <img [attr.src]="assets('images/loading-blocks-1s-200px.svg')" alt="Loading" />
 </div>

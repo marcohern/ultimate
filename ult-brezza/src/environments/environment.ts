@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  assets: '/assets/',
   api: {
     root:'http://localhost:8000/api',
     oauth:'http://localhost:8000/oauth',

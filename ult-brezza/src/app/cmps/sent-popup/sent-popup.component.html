@@ -3,7 +3,7 @@
     
     <div class="newsletter">
       <a (click)="onClose()">
-        <img src="assets/images/f-box-close-icon.png" alt="close" class="x" id="x">
+        <img [attr.src]="assets('images/f-box-close-icon.png')" alt="close" class="x" id="x">
       </a>
       <div id="formSuccess1" style="display:none;">Thank you for your subscription.</div>
       <form method="post" id="popup-newsletter" name="popup-newsletter" class="email-form">

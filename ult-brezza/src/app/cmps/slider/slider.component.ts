@@ -1,4 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { AssetsBase } from 'src/app/base/assets-base';
 
 declare var jQuery;
 @Component({
@@ -6,9 +7,11 @@ declare var jQuery;
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.css']
 })
-export class SliderComponent implements OnInit, AfterViewInit {
+export class SliderComponent extends AssetsBase implements OnInit, AfterViewInit {
 
-  constructor() { }
+  constructor() { 
+    super();
+  }
 
   ngOnInit() {
     console.log("slider.ngOnInit");
