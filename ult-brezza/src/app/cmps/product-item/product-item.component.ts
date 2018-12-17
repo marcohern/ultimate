@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Product } from '@marcohern/ultimate-core';
 
 @Component({
   selector: 'brezza-product-item',
@@ -7,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductItemComponent implements OnInit {
 
+  @Input()
+  product:Product;
+  
   constructor() { }
 
   ngOnInit() {

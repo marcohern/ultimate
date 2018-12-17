@@ -21,6 +21,16 @@ class ProductsController extends Controller
         ]);
     }
 
+    private function browseProductQuery() {
+        return DB::table('products AS p')
+            ->select('p.id','p.name','p.slug','p.org_price','p.dct_price','p.rating_value','p.rating_count',
+                DB::raw('p.rating_value/p.rating_count AS ratings'), 'p.qty', 'p.created_at')
+            ->distinct()
+            ->join('product_categories AS pc', 'p.id', '=','pc.product_id')
+            ->join('categories AS c', 'pc.category_id', '=','c.id');
+        
+    }
+
     private function appendProductCategories(Product &$product) {
         $productCategories = $product->productCategories()->get();
         $categories = [];
@@ -181,12 +191,7 @@ class ProductsController extends Controller
         if ($r->has('category_slug')) $category_slug = $r->category_slug;
         if ($r->has('csl'          )) $category_slug = $r->csl;
 
-        $query = DB::table('products AS p')
-            ->select('p.id','p.name','p.slug','p.org_price','p.dct_price','p.rating_value','p.rating_count',
-                DB::raw('p.rating_value/p.rating_count AS ratings'), 'p.qty', 'p.created_at')
-            ->distinct()
-            ->join('product_categories AS pc', 'p.id', '=','pc.product_id')
-            ->join('categories AS c', 'pc.category_id', '=','c.id');
+        $query = $this->browseProductQuery();
         if (!empty($category_id)) {
             $query->where('c.id', '=', $category_id);
         }
@@ -353,5 +358,25 @@ class ProductsController extends Controller
             'id' => $id,
             'filename' => $filename
         ];
+    }
+
+    public function niu() {
+        $categories = ['pijamas','chaquetas','combos-maternos','gorros','ruanas'];
+        $result = [];
+        foreach ($categories as $c) {
+            $query = $this->browseProductQuery();
+            
+            $query->where('c.slug','=',$c);
+            $result[$c] = $query->latest()->limit(4)->get();
+        }
+        return $result;
+    }
+
+    public function sold_most() {
+        $query = $this->browseProductQuery();
+        
+        $query->orderBy('p.sales_count','desc');
+
+        return $query->latest()->limit(8)->get();
     }
 }

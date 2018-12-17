@@ -7,18 +7,7 @@
       <div class="bestsell-block">
         <div id="bestsell-slider" class="product-flexslider hidden-buttons">
           <div class="slider-items slider-width-col4 products-grid block-content">
-            <brezza-product-item-div></brezza-product-item-div>
-            <brezza-product-item-div></brezza-product-item-div>
-            <brezza-product-item-div></brezza-product-item-div>
-            <brezza-product-item-div></brezza-product-item-div>
-            <brezza-product-item-div></brezza-product-item-div>
-            <brezza-product-item-div></brezza-product-item-div>
-            <brezza-product-item-div></brezza-product-item-div>
-            <brezza-product-item-div></brezza-product-item-div>
-            <brezza-product-item-div></brezza-product-item-div>
-            <brezza-product-item-div></brezza-product-item-div>
-            <brezza-product-item-div></brezza-product-item-div>
-            <brezza-product-item-div></brezza-product-item-div>
+            <div brezza-product-item-div *ngFor="let p of bestSellers" [product]="p"></div>
           </div>
         </div>
       </div>

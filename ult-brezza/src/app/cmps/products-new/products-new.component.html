@@ -9,10 +9,11 @@
               <h2><strong>Nuevos</strong> Productos</h2>
             </div>
           </li>
-          <li class="active"><a data-toggle="tab" href="#tab-1">Frescos</a></li>
-          <li><a data-toggle="tab" href="#tab-2">Vegetales</a></li>
-          <li><a data-toggle="tab" href="#tab-3">Frutas</a></li>
-          <li><a data-toggle="tab" href="#tab-4">Jugos</a></li>
+          <li class="active"><a data-toggle="tab" href="#tab-1">Pijamas</a></li>
+          <li><a data-toggle="tab" href="#tab-2">Chaquetas</a></li>
+          <li><a data-toggle="tab" href="#tab-3">Combox Maternos</a></li>
+          <li><a data-toggle="tab" href="#tab-4">Gorros</a></li>
+          <li><a data-toggle="tab" href="#tab-5">Ruanas</a></li>
         </ul>
       </div>
     </div>
@@ -23,40 +24,35 @@
             <div class="tab-panel active" id="tab-1">
               <div class="category-products">
                 <ul class="products-grid">
-                  <brezza-product-item></brezza-product-item>
-                  <brezza-product-item></brezza-product-item>
-                  <brezza-product-item></brezza-product-item>
-                  <brezza-product-item></brezza-product-item>
+                  <brezza-product-item *ngFor="let p of newProducts?.pijamas" [product]="p"></brezza-product-item>
                 </ul>
               </div>
             </div>
             <div class="tab-panel" id="tab-2">
               <div class="category-products">
                 <ul class="products-grid">
-                  <brezza-product-item></brezza-product-item>
-                  <brezza-product-item></brezza-product-item>
-                  <brezza-product-item></brezza-product-item>
-                  <brezza-product-item></brezza-product-item>
+                    <brezza-product-item *ngFor="let p of newProducts?.chaquetas" [product]="p"></brezza-product-item>
                 </ul>
               </div>
             </div>
             <div class="tab-panel" id="tab-3">
               <div class="category-products">
                 <ul class="products-grid">
-                  <brezza-product-item></brezza-product-item>
-                  <brezza-product-item></brezza-product-item>
-                  <brezza-product-item></brezza-product-item>
-                  <brezza-product-item></brezza-product-item>
+                    <brezza-product-item *ngFor="let p of newProducts['combos-maternos']" [product]="p"></brezza-product-item>
                 </ul>
               </div>
             </div>
             <div class="tab-panel" id="tab-4">
               <div class="category-products">
                 <ul class="products-grid">
-                  <brezza-product-item></brezza-product-item>
-                  <brezza-product-item></brezza-product-item>
-                  <brezza-product-item></brezza-product-item>
-                  <brezza-product-item></brezza-product-item>
+                    <brezza-product-item *ngFor="let p of newProducts?.gorros" [product]="p"></brezza-product-item>
+                </ul>
+              </div>
+            </div>
+            <div class="tab-panel" id="tab-5">
+              <div class="category-products">
+                <ul class="products-grid">
+                    <brezza-product-item *ngFor="let p of newProducts?.ruanas" [product]="p"></brezza-product-item>
                 </ul>
               </div>
             </div>
