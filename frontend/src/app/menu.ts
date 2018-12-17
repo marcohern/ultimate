@@ -10,8 +10,9 @@ export const menu:MenuItem[] = [
     {label:'Product', children:[
         {label:'List'  , path:['/products']},
         {label:'New'   , path:['/product/add']},
-        {label:'Detail', path:['/product/preview/38']},
+        {label:'Detail', path:['/product/preview/1']},
     ]},
+    /*
     {label:'Auth', children: [
         {label:'Login'   , path:['/login']},
         {label:'Register', path:['/register']},
@@ -19,7 +20,7 @@ export const menu:MenuItem[] = [
         {label:'Private' , path:['/private']},
         {label:'Public'  , path:['public']},
         {label:'-'},
-    ]},
+    ]},*/
 ];
 
 export const menuOptions:MenuOptions = {
