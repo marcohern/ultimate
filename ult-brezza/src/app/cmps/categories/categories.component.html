@@ -2,7 +2,7 @@
   <div class="block-title">{{title}}</div>
   <div class="box-content box-category">
     <ul>
-      <li *ngFor="let c of categories"><a [routerLink]="['/',c.slug]">{{c.name}}</a></li>
+      <li *ngFor="let c of categories"><a [routerLink]="['/productos',c.slug]">{{c.name}}</a></li>
     </ul>
   </div>
 </div>

@@ -12,12 +12,11 @@ export class CategoriesComponent implements OnInit {
   title: string = 'Categorias';
 
   categories:Category[] = [
-    {name:'Video Juegos',slug:'grid'},
-    {name:'Seguridas',slug:'grid'},
-    {name:'Mas Vendidos',slug:'grid'},
-    {name:'Juguetes',slug:'grid'},
-    {name:'Entretenimiento',slug:'grid'},
-    {name:'Nuevos',slug:'grid'}
+    {name:'Pijamas',slug:'pijamas'},
+    {name:'Chaquetas',slug:'chaquetas'},
+    {name:'Combos Maternos',slug:'combos-maternos'},
+    {name:'Gorros',slug:'gorros'},
+    {name:'Ruanas',slug:'ruanas'}
   ];
 
   constructor() { }

@@ -112,10 +112,8 @@ class CategoriesController extends Controller
     public function show($id)
     {
         $category = null;
-        if (is_numeric($id)) 
-            $category = Category::find($id);
-        else
-            $category = Category::where('slug','=',$id)->first();
+        if (is_numeric($id)) $category = Category::find($id);
+        else $category = Category::where('slug','=',$id)->first();
         return $category;
     }
 

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import '../../../assets/js/cloud-zoom.js';
+import { RequestService, Category, Paged } from '@marcohern/ultimate-core';
+import { ActivatedRoute } from '@angular/router';
+import { Product } from 'src/app/models/product.js';
 
 declare var jQuery;
 
@@ -11,7 +14,9 @@ declare var jQuery;
 })
 export class ProductDetailComponent implements OnInit {
 
-  constructor() {
+  product:Product;
+
+  constructor(private req:RequestService, private route:ActivatedRoute) {
     
   }
 
@@ -38,6 +43,13 @@ export class ProductDetailComponent implements OnInit {
       navigationText: ["<a class=\"flex-prev\"></a>", "<a class=\"flex-next\"></a>"],
       slideSpeed: 500,
       pagination: false
+    });
+
+    this.route.params.subscribe(params => {
+      var product_slug = params.slug;
+      this.req.get<Paged<Product>>('/products',product_slug).subscribe(result => {
+        this.product = result;
+      });
     });
   }
 

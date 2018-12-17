@@ -240,8 +240,12 @@ class ProductsController extends Controller
      * @param  App\Ultimate\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($id)
     {
+        $product = null;
+        if (is_numeric($id)) $product = Product::find($id);
+        else $product = Product::where('slug','=',$id)->first();
+
         $this->appendProductCategories($product);
         $this->appendProductImageCover($product);
         $this->appendProductImages($product);
