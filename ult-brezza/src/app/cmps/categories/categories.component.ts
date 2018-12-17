@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Category } from 'src/app/models/category';
+import { Category } from '@marcohern/ultimate-core';
 
 @Component({
   selector: 'brezza-categories',

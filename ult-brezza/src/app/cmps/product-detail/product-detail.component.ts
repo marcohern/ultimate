@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { RequestService, Product } from '@marcohern/ultimate-core';
+import { ActivatedRoute } from '@angular/router';
 
 import '../../../assets/js/cloud-zoom.js';
-import { RequestService, Category, Paged } from '@marcohern/ultimate-core';
-import { ActivatedRoute } from '@angular/router';
-import { Product } from 'src/app/models/product.js';
 
 declare var jQuery;
 
@@ -47,7 +46,7 @@ export class ProductDetailComponent implements OnInit {
 
     this.route.params.subscribe(params => {
       var product_slug = params.slug;
-      this.req.get<Paged<Product>>('/products',product_slug).subscribe(result => {
+      this.req.get<Product>('/products',product_slug).subscribe(result => {
         this.product = result;
       });
     });

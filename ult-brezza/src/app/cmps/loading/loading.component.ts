@@ -8,7 +8,7 @@ import { RequestService } from '@marcohern/ultimate-core';
 })
 export class LoadingComponent implements OnInit {
 
-  constructor(private req:RequestService) { }
+  constructor(public req:RequestService) { }
 
   ngOnInit() {
     
