@@ -15,6 +15,10 @@ export class ProductItemInfoComponent implements OnInit {
 
   constructor() { }
 
+  productSlug() {
+    return (this.product) ? this.product.slug : '';
+  }
+
   ngOnInit() {
     this.rating = Math.round(Math.random()*20)*5;
   }

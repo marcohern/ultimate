@@ -1,13 +1,17 @@
 <div class="item-info">
   <div class="info-inner">
-    <div class="item-title"><a title="Retis lapen casen" [routerLink]="['/producto', product?.slug]">{{product?.name}}</a></div>
+    <div class="item-title">
+      <a [attr.title]="product?.name" [routerLink]="['/producto', productSlug()]">{{product?.name}}</a>
+    </div>
     <div class="item-content">
       <div class="rating">
         <div class="ratings">
           <div class="rating-box">
             <div class="rating width{{rating}}"></div>
           </div>
-          <p class="rating-links"><a href="#">1 Calif.</a><span class="separator">|</span><a href="#">Agregar Calif.</a></p>
+          <p class="rating-links">
+            <a href="#">1 Calif.</a><span class="separator">|</span><a href="#">Agregar Calif.</a>
+          </p>
         </div>
       </div>
       <div class="item-price">

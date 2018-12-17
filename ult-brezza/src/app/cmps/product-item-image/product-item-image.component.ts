@@ -12,6 +12,10 @@ export class ProductItemImageComponent implements OnInit {
   @Input()
   product:Product;
 
+  productSlug() {
+    return (this.product) ? this.product.slug : '';
+  }
+
   constructor() { }
 
   ngOnInit() {
