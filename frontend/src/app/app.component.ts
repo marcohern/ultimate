@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestService, MenuItem, MenuOptions } from '@marcohern/ultimate-core';
 import { menu, menuOptions } from './menu';
-import { HelloangularService } from '@marcohern/helloangular';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -16,7 +15,7 @@ export class AppComponent implements OnInit {
   menu:MenuItem[] = [];
   options:MenuOptions;
 
-  constructor(private req:RequestService, private ts:HelloangularService) {
+  constructor(private req:RequestService) {
 
   }
 
@@ -29,6 +28,5 @@ export class AppComponent implements OnInit {
     this.req.setApiId(environment.api.id);
     this.req.setApiSecret(environment.api.secret);
     this.req.retrieveToken();
-    this.test = this.ts.getHello();
   }
 }

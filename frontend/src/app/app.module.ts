@@ -10,7 +10,6 @@ import { UltimateCoreModule } from '@marcohern/ultimate-core';
 import { UltimateUsersModule } from './modules/ultimate-users/ultimate-users.module';
 import { UltimateProductsModule } from './modules/ultimate-products/ultimate-products.module';
 
-import { HelloangularModule } from '@marcohern/helloangular'
 @NgModule({
   declarations: [
     AppComponent
@@ -21,8 +20,7 @@ import { HelloangularModule } from '@marcohern/helloangular'
     UltimateCoreModule,
     UltimateAuthModule,
     UltimateUsersModule,
-    UltimateProductsModule,
-    HelloangularModule
+    UltimateProductsModule
   ],
   providers: [
   ],
