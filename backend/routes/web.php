@@ -10,11 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/*
 Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/ua/{any}', function () { return view('ua');         })->where('any', '.*');
+Route::get('/ua'      , function () { return view('ua');         });
+Route::get('/{any}'   , function () { return view('ult-brezza'); })->where('any', '.*');
+Route::get('/'        , function () { return view('ult-brezza'); });
