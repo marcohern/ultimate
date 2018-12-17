@@ -59,6 +59,7 @@ import { ProductDetailComponent } from './cmps/product-detail/product-detail.com
 import { ProductsRelatedComponent } from './cmps/products-related/products-related.component';
 import { ProductItemImageComponent } from './cmps/product-item-image/product-item-image.component';
 import { ProductItemInfoComponent } from './cmps/product-item-info/product-item-info.component';
+import { LoadingComponent } from './cmps/loading/loading.component';
 
 import { IndexPage } from './pages/index/index.page';
 import { AboutPage } from './pages/about/about.page';
@@ -83,7 +84,7 @@ import { HowtobuyPage } from './pages/howtobuy/howtobuy.page';
     BreadcrumbsComponent,         ProductsGridComponent,        ProductGridItemComponent,  NavMenuitemCustomComponent, SentPopupComponent,
     FooterFeaturesComponent,      FooterBottomComponent,        FooterSignupComponent,     FooterCompanyComponent,     FooterPaymentAcceptComponent,
     FooterSocialComponent,        FooterInfoComponent,          FooterStyleadvComponent,   FooterAccountComponent,     ProductDetailComponent,
-    ProductsRelatedComponent,     ProductItemImageComponent,    ProductItemInfoComponent,
+    ProductsRelatedComponent,     ProductItemImageComponent,    ProductItemInfoComponent,  LoadingComponent,
     
     IndexPage,
     AboutPage,
