@@ -2,7 +2,7 @@ import { MenuItem } from "src/app/models/menu-item";
 
 export const topmenu:MenuItem[] = [
     {label:'Inicio'    , path:['/']    },
-    {label:'Productos' , path:['/grid'], children: [
+    {label:'Productos' , path:['/productos/pijamas'], children: [
         {label:'Pijamas', path:['/productos/pijamas']},
         {label:'Chaquetas' , path:['/productos/chaquetas']},
         {label:'Combos Maternos' , path:['/productos/combos-maternos']},
