@@ -24,7 +24,7 @@ class ProductsController extends Controller
     private function browseProductQuery() {
         return DB::table('products AS p')
             ->select('p.id','p.name','p.slug','p.org_price','p.dct_price','p.rating_value','p.rating_count',
-                DB::raw('p.rating_value/p.rating_count AS ratings'), 'p.qty', 'p.created_at')
+                DB::raw('p.rating_value/p.rating_count AS ratings'), 'p.qty','p.featured', 'p.created_at','p.updated_at')
             ->distinct()
             ->join('product_categories AS pc', 'p.id', '=','pc.product_id')
             ->join('categories AS c', 'pc.category_id', '=','c.id');
@@ -367,7 +367,8 @@ class ProductsController extends Controller
             $query = $this->browseProductQuery();
             
             $query->where('c.slug','=',$c);
-            $result[$c] = $query->latest()->limit(4)->get();
+            $query->where('p.featured','=',1);
+            $result[$c] = $query->limit(4)->get();
         }
         return $result;
     }
