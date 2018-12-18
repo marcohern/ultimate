@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { AssetsBase } from 'src/app/base/assets-base';
+import { ComponentBase, AssetsService } from '@marcohern/ultimate-core';
 
 declare var jQuery;
 @Component({
@@ -7,10 +7,10 @@ declare var jQuery;
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.css']
 })
-export class SliderComponent extends AssetsBase implements OnInit, AfterViewInit {
+export class SliderComponent extends ComponentBase implements OnInit, AfterViewInit {
 
-  constructor() { 
-    super();
+  constructor(ass:AssetsService) { 
+    super(ass);
   }
 
   ngOnInit() {

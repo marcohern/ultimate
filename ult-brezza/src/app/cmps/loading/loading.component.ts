@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { RequestService } from '@marcohern/ultimate-core';
-import { AssetsBase } from 'src/app/base/assets-base';
+import { RequestService, ComponentBase, AssetsService } from '@marcohern/ultimate-core';
 
 @Component({
   selector: 'brezza-loading',
   templateUrl: './loading.component.html',
   styleUrls: ['./loading.component.css']
 })
-export class LoadingComponent extends AssetsBase implements OnInit {
+export class LoadingComponent extends ComponentBase implements OnInit {
 
-  constructor(public req:RequestService) { 
-    super();
+  constructor(public req:RequestService, ass:AssetsService) { 
+    super(ass);
   }
 
   ngOnInit() {
