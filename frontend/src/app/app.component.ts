@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RequestService, MenuItem, MenuOptions } from '@marcohern/ultimate-core';
+import { RequestService, MenuItem, MenuOptions, AssetsService } from '@marcohern/ultimate-core';
 import { menu, menuOptions } from './menu';
 import { environment } from 'src/environments/environment';
 
@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   menu:MenuItem[] = [];
   options:MenuOptions;
 
-  constructor(private req:RequestService) {
+  constructor(private req:RequestService, private ass:AssetsService) {
 
   }
 
@@ -23,6 +23,9 @@ export class AppComponent implements OnInit {
     //console.log(menu);
     this.menu = menu;
     this.options = menuOptions;
+
+    this.ass.setAssetsDir(environment.assets);
+
     this.req.setApiRoot(environment.api.root);
     this.req.setOauthRoot(environment.api.oauth);
     this.req.setApiId(environment.api.id);

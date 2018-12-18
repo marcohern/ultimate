@@ -1,16 +1,27 @@
 import { FormGroup } from "@angular/forms";
 import { Output, EventEmitter } from "@angular/core";
 import { Observable } from 'rxjs';
+import { AssetsBase } from "./assets-base";
+import { AssetsService } from "../srvs/assets.service";
 
 /**
  * Form Base.
  * Base behavior for form component. A form component is a component that
  * is a form (is encapsulated in <form> tags)
  */
-export abstract class FormBase {
+export abstract class FormBase extends AssetsBase {
 
     private _loading:boolean = false;
     private _editing:boolean = false;
+
+    /**
+     * Fprm Base Constructor
+     * 
+     * @param ass AssetsService
+     */
+    public constructor(ass:AssetsService) {
+        super(ass);
+    }
 
     /**
      * Form Group.

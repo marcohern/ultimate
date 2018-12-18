@@ -1,5 +1,6 @@
 export const environment = {
   production: true,
+  assets: '/ultimate/assets/',
   api: {
     root:'/api',
     oauth:'/oauth',

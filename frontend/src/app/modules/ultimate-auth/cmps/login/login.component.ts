@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RequestService } from '@marcohern/ultimate-core';
+import { RequestService, ComponentBase, AssetsService } from '@marcohern/ultimate-core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,14 +7,16 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent extends ComponentBase implements OnInit {
 
   email:string = '';
   password:string = '';
   errorAlert:boolean;
   errorMsg:string = '';
 
-  constructor(private _req:RequestService,private router:Router) { }
+  constructor(private _req:RequestService, private router:Router, ass:AssetsService) { 
+    super(ass);
+  }
 
   public req() {
     get: {

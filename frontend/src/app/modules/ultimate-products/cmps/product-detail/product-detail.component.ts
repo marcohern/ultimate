@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { Product } from '@marcohern/ultimate-core';
+import { Product, ComponentBase, AssetsService } from '@marcohern/ultimate-core';
 import { GALLERY_IMAGE, GALLERY_CONF, NgxImageGalleryComponent } from 'ngx-image-gallery';
 import { ProductService } from '../../srvs/product.service';
 import { ActivatedRoute } from '@angular/router';
@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.css']
 })
-export class ProductDetailComponent implements OnInit {
+export class ProductDetailComponent extends ComponentBase implements OnInit {
 
   @Input()
   product:Product = {
@@ -22,16 +22,16 @@ export class ProductDetailComponent implements OnInit {
 
   images:GALLERY_IMAGE[] = [
     {
-      url: "assets/htc-vive-01.jpg", 
+      url: this.assets("htc-vive-01.jpg"), 
       altText: 'HTC Vive', 
       title: 'HTC Vive',
-      thumbnailUrl: "assets/htc-vive-01-t.jpg", 
+      thumbnailUrl: this.assets("htc-vive-01-t.jpg"), 
     },
     {
-      url: "assets/htc-vive-02.jpg", 
+      url: this.assets("htc-vive-02.jpg"), 
       altText: 'HTC Vive', 
       title: 'HTC Vive',
-      thumbnailUrl: "assets/htc-vive-02-t.jpg", 
+      thumbnailUrl: this.assets("htc-vive-02-t.jpg"), 
     },
     {
       url: "https://images.pexels.com/photos/669013/pexels-photo-669013.jpeg?w=1260", 
@@ -66,7 +66,9 @@ export class ProductDetailComponent implements OnInit {
 
   @ViewChild(NgxImageGalleryComponent) ngxImageGallery: NgxImageGalleryComponent;
 
-  constructor(private ps:ProductService, private route:ActivatedRoute) { }
+  constructor(private ps:ProductService, private route:ActivatedRoute, ass:AssetsService) { 
+    super(ass);
+  }
 
   ngOnInit() {
     var id = this.route.snapshot.params.id;

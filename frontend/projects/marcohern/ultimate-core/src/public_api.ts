@@ -2,6 +2,7 @@
  * Public API Surface of ultimate-core
  */
 export * from './lib/base/form-base';
+export * from './lib/base/component-base';
 
 export * from './lib/models/category';
 export * from './lib/models/checkbox';
@@ -21,6 +22,7 @@ export * from './lib/cmps/menu/menu.component';
 export * from './lib/cmps/pager/pager.component';
 
 export * from './lib/srvs/request.service';
+export * from './lib/srvs/assets.service';
 
 export * from './lib/ultimate-core.service';
 export * from './lib/ultimate-core.component';

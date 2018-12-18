@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormBase, SaveResult, Category, Product, Checkbox, RequestService } from '@marcohern/ultimate-core';
+import { FormBase, SaveResult, Category, Product, Checkbox, RequestService, AssetsService } from '@marcohern/ultimate-core';
 import { FormBuilder, Validators } from '@angular/forms';
 import * as uuid from 'uuid';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -35,8 +35,9 @@ export class ProductForm extends FormBase implements OnInit, OnDestroy {
     private ps:ProductService,
     private fb:FormBuilder,
     private route:ActivatedRoute,
-    private router:Router) { 
-    super();
+    private router:Router,
+    ass:AssetsService) { 
+    super(ass);
     this.apiroot = environment.api.root;
     this.group = this.fb.group({
       name: this.fb.control('',[Validators.required],[]),

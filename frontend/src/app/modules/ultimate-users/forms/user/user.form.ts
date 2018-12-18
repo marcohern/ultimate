@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { User, FormBase, UserCreate } from '@marcohern/ultimate-core';
+import { User, FormBase, UserCreate, AssetsService } from '@marcohern/ultimate-core';
 import { UserService } from '../../srvs/user.service';
 
 @Component({
@@ -24,8 +24,8 @@ export class UserForm extends FormBase implements OnInit {
   @Output()
   saved:EventEmitter<User> = new EventEmitter();
 
-  constructor(private fb:FormBuilder, private us:UserService) { 
-    super();
+  constructor(private fb:FormBuilder, private us:UserService, ass:AssetsService) { 
+    super(ass);
   }
 
   ngOnInit() {
