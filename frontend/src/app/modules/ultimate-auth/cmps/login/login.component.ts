@@ -31,7 +31,6 @@ export class LoginComponent extends ComponentBase implements OnInit {
   requestLogin() {
     this.errorAlert = false;
     this.errorMsg = '';
-    console.log("requestLogin");
 
     this._req.login(this.email,this.password).subscribe(result => {
       this._req.setToken(result.access_token);
