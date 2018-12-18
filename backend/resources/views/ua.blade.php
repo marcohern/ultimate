@@ -15,7 +15,7 @@
   
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-  <script type="application/javascript"> var piioData = { appKey: 'vc4swg', encodeSrc: false, domain: 'https://brezza.marcohern.com' } </script>
+  <script type="application/javascript"> var piioData = { appKey: 'vc4swg', encodeSrc: false, domain: 'https://brezza.marcohern.com' }; </script>
   <script src="//js.piio.co/vc4swg/piio.min.js"></script>
   <script type="text/javascript" src="/ultimate/runtime.ec2944dd8b20ec099bf3.js"></script>
   <script type="text/javascript" src="/ultimate/polyfills.c6871e56cb80756a5498.js"></script>
