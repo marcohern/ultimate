@@ -314,10 +314,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
-@angular/platform-browser
+@angular/common
 MIT
 
-@angular/common
+@angular/platform-browser
 MIT
 
 angular2-image-upload
