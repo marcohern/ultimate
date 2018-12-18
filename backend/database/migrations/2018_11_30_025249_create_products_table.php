@@ -23,7 +23,9 @@ class CreateProductsTable extends Migration
             $table->decimal('dct_price',18,2)->nullable();
             $table->integer('qty')->default(0);
 
-            $table->boolean('visible')->default(true);
+            $table->boolean('visible' )->default(true );
+            $table->boolean('hot'     )->default(false);
+            $table->boolean('featured')->default(false);
             
             $table->integer('hits')->default(0);
             $table->integer('clicks')->default(0);

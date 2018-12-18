@@ -63,9 +63,23 @@ class ProductsSeeder extends Seeder
         ];
 
         foreach($data as $k => $record) {
+            $createdDays = rand(0, 100);
+            $updatedDays = rand(1,  20);
+
+            $createdInt = new \DateInterval("P{$createdDays}D");
+            $updatedInt = new \DateInterval("P{$updatedDays}D");
+
+            $created = new \DateTime();
+            $created = $created->sub($createdInt);
+            $updated = $created->add($updatedInt);
+
+            $sale_count = rand(0, 8000);
+
             $record['overview'] = self::$overview;
             $record['description'] = self::$description;
-            $record['created_at'] = new \Datetime;
+            $record['sales_count'] = $sale_count;
+            $record['created_at'] = $created;
+            $record['updated_at'] = $updated;
             DB::table('products')->insert($record);
         }
     }

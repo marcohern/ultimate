@@ -13,7 +13,7 @@ export class AuthService {
   }
 
   logout() {
-    return this.logout();
+    return this.req.logout();
   }
 
   invite(user:User) {
