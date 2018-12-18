@@ -24,7 +24,7 @@ class ProductsController extends Controller
     private function browseProductQuery() {
         return DB::table('products AS p')
             ->select('p.id','p.name','p.slug','p.org_price','p.dct_price','p.rating_value','p.rating_count',
-                DB::raw('p.rating_value/p.rating_count AS ratings'), 'p.qty','p.featured', 'p.created_at','p.updated_at')
+                DB::raw('p.rating_value/p.rating_count AS ratings'), 'p.hot', 'p.hot_until', 'p.qty','p.featured', 'p.created_at','p.updated_at')
             ->distinct()
             ->join('product_categories AS pc', 'p.id', '=','pc.product_id')
             ->join('categories AS c', 'pc.category_id', '=','c.id');
@@ -276,7 +276,7 @@ class ProductsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param   Product  $product
      * @return \Illuminate\Http\Response
      */
     public function destroy(Product $product)
@@ -379,5 +379,13 @@ class ProductsController extends Controller
         $query->orderBy('p.sales_count','desc');
 
         return $query->latest()->limit(8)->get();
+    }
+
+    public function hot() {
+        $now = new \DateTime();
+        $query = Product::where('hot','=', 1)->where('hot_until','>',$now);
+        $query->orderBy('hot_until','asc');
+        $product = $query->first();
+        return $product;
     }
 }

@@ -23,6 +23,7 @@ Route::put ('product/hit/{id}'         , 'Ultimate\\ProductsController@hit'     
 Route::put ('product/click/{id}'       , 'Ultimate\\ProductsController@click'      );
 Route::get ('product/categories'       , 'Ultimate\\ProductsController@categories' );
 Route::post('product/delete_image/{id}', 'Ultimate\\ProductsController@deleteImage');
+Route::get ('product/hot'              , 'Ultimate\\ProductsController@hot'        );
 Route::get ('products/niu'             , 'Ultimate\\ProductsController@niu'        );
 Route::get ('products/sold_most'       , 'Ultimate\\ProductsController@sold_most'  );
 

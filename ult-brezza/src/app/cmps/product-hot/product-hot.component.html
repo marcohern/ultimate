@@ -4,7 +4,7 @@
       <div class="item-inner">
         <div class="item-img">
           <div class="item-img-info">
-            <a class="product-image" title="Retis lapen casen" [routerLink]="['/product']">
+            <a class="product-image" title="Retis lapen casen" [routerLink]="['/producto',productSlug()]">
               <img alt="Retis lapen casen" src="http://via.placeholder.com/700x850">
             </a>
             <div class="hot-label hot-top-right">Hot</div>
@@ -20,7 +20,7 @@
             </div>
           </div>
         </div>
-        <brezza-product-item-info></brezza-product-item-info>
+        <brezza-product-item-info [product]="product"></brezza-product-item-info>
       </div>
     </li>
   </ul>
