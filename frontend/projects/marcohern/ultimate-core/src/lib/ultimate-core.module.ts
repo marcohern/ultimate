@@ -9,14 +9,13 @@ import { AssetsService } from './srvs/assets.service';
 import { MenuComponent } from './cmps/menu/menu.component';
 import { PagerComponent } from './cmps/pager/pager.component';
 import { CheckboxesComponent } from './cmps/checkboxes/checkboxes.component';
-import { UltimateCoreComponent } from './ultimate-core.component';
 
 import { TokenInterceptor } from './base/token-interceptor';
 
 @NgModule({
   declarations: [
-    UltimateCoreComponent,
-    MenuComponent, PagerComponent, CheckboxesComponent],
+    MenuComponent, PagerComponent, CheckboxesComponent
+  ],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -28,7 +27,6 @@ import { TokenInterceptor } from './base/token-interceptor';
     {provide:HTTP_INTERCEPTORS, useClass:TokenInterceptor, multi:true }
   ],
   exports: [
-    UltimateCoreComponent,
     MenuComponent, PagerComponent, CheckboxesComponent
   ]
 })
