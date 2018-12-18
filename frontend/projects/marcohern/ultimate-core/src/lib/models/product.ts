@@ -16,5 +16,8 @@ export class Product extends TimedEntity {
     images?:string[] = [];
     image_cover?:string;
 
+    hot?:boolean;
+    hot_until?:Date;
+
     delete?:boolean = false;
 }
