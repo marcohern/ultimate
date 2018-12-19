@@ -13,14 +13,23 @@ use App\Http\Requests\Ultimate\ProductUpdateRequest;
 use Illuminate\Support\Facades\DB;
 use \Illuminate\Validation\ValidationException;
 
+/**
+ * Products Controller. CRUD for products and other product related endeavors.
+ */
 class ProductsController extends Controller
 {
+    /**
+     * Constructor
+     */
     public function __construct() {
         $this->middleware('auth:api', [
             'only' => 'create','store','destroy'
         ]);
     }
 
+    /**
+     * Return a query for a product list
+     */
     private function browseProductQuery() {
         return DB::table('products AS p')
             ->select('p.id','p.name','p.slug','p.org_price','p.dct_price','p.rating_value','p.rating_count',
@@ -31,6 +40,11 @@ class ProductsController extends Controller
         
     }
 
+    /**
+     * Append the product category to the product itself.
+     * 
+     * @param   \App\Ultimate\Product $product    Product to append the category to.  
+     */
     private function appendProductCategories(Product &$product) {
         $productCategories = $product->productCategories()->get();
         $categories = [];
@@ -44,6 +58,11 @@ class ProductsController extends Controller
         $product->categories = $categories;
     }
 
+    /**
+     * Append image cover to the product record.
+     * 
+     * @param   mixed   $product    Product record
+     */
     private function appendProductImageCover(&$product) {
         $softpath = '/images/products';
         $hardpath = public_path($softpath);
@@ -56,6 +75,11 @@ class ProductsController extends Controller
         }
     }
 
+    /**
+     * Append all images to a product record.
+     * 
+     * @param   \App\Ultimate\Product $product    Product to append images
+     */
     private function appendProductImages(Product &$product) {
         $softpath = '/images/products';
         $hardpath = public_path($softpath);
@@ -70,6 +94,13 @@ class ProductsController extends Controller
         $product->images = $images;
     }
 
+    /**
+     * Take the images from the temporary folder to the images.
+     * 
+     * @param   \App\Ultimate\Product $product    Product
+     * @param   string  $image_bucket   Image bucket string (file prefix) 
+     * @return \Illuminate\Http\Response
+     */
     private function importProductImages(Product &$product, $image_bucket) {
         $source = storage_path('app/upload');
         $dest = public_path('images/products');
@@ -112,11 +143,16 @@ class ProductsController extends Controller
             $renameTo = "$dest/$pid.$ord.$ext";
             rename($file, $renameTo);
             $ord++;
-
-
         }
     }
 
+    /**
+     * Create new or update existing product
+     * 
+     * @param   \Illuminate\Http\Request $request    Request
+     * @param   \App\Ultimate\Product $product    Product 
+     * @return  \App\Ultimate\Product
+     */
     private function saveProduct(Request $request, Product $product) {
         $input = (object)$request->all();
         $add_categories = [];
@@ -175,8 +211,9 @@ class ProductsController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
-     *
+     * Display a listing of products.
+     * 
+     * @param \Illuminate\Http\Request  $r  Request
      * @return \Illuminate\Http\Response
      */
     public function index(Request $r)
@@ -240,9 +277,9 @@ class ProductsController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified Product.
      *
-     * @param  App\Ultimate\Product  $product
+     * @param  int  $id Product Id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -258,7 +295,7 @@ class ProductsController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified Product in storage.
      *
      * @param  \App\Http\Requests\Ultimate\ProductUpdateRequest  $request
      * @param  \App\Ultimate\Product  $product
@@ -329,6 +366,12 @@ class ProductsController extends Controller
         ];
     }
 
+    /**
+     * Delete an existing product image
+     * 
+     * @param   Request $r  Request
+     * @param   int $id Product Id
+     */
     public function deleteImage(Request $r, $id) {
         ///Delete the file
         $filename = $r->filename;
@@ -360,6 +403,9 @@ class ProductsController extends Controller
         ];
     }
 
+    /**
+     * Return featured products per category
+     */
     public function niu() {
         $categories = ['pijamas','chaquetas','combos-maternos','gorros','ruanas'];
         $result = [];
@@ -373,6 +419,9 @@ class ProductsController extends Controller
         return $result;
     }
 
+    /**
+     * Return list of most sold products
+     */
     public function sold_most() {
         $query = $this->browseProductQuery();
         
@@ -381,6 +430,10 @@ class ProductsController extends Controller
         return $query->latest()->limit(8)->get();
     }
 
+    /**
+     * Get the single hot product whose future
+     * date is nearest to the current date.
+     */
     public function hot() {
         $now = new \DateTime();
         $query = Product::where('hot','=', 1)->where('hot_until','>',$now);
