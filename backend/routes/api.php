@@ -35,5 +35,6 @@ Route::apiResources([
     'users'      => 'Ultimate\\UsersController',
     'products'   => 'Ultimate\\ProductsController',
     'categories' => 'Ultimate\\CategoriesController',
-    'uploads'     => 'Ultimate\\UploadsController',
+    'uploads'    => 'Ultimate\\UploadsController',
+    'parameters' => 'Ultimate\\ParametersController',
 ]);

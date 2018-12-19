@@ -134,7 +134,7 @@ class UploadsController extends Controller
         return [
             'success' => true,
             'id' => $id,
-            'deleted' => $deleted,
+            //'deleted' => $deleted,
             //'re' => $re,
         ];
     }
