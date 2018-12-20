@@ -13,10 +13,14 @@ import { CheckboxesComponent } from './cmps/checkboxes/checkboxes.component';
 
 import { TokenInterceptor } from './base/token-interceptor';
 import { ParamForm } from './forms/param/param.form';
+import { ParamRow } from './tables/param/param.row';
+import { ParamEditableComponent } from './cmps/param-editable/param-editable.component';
+import { ParamTable } from './tables/param/param.table';
 
 @NgModule({
   declarations: [
-    MenuComponent, PagerComponent, CheckboxesComponent, ParamForm
+    ParamForm, ParamRow,
+    MenuComponent, PagerComponent, CheckboxesComponent, ParamEditableComponent, ParamTable,
   ],
   imports: [
     CommonModule,
