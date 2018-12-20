@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Parameter } from '../../models/parameter';
+import { ParameterService } from '../../srvs/parameter.service';
 
 @Component({
   selector: 'ultimate-param-table',
@@ -8,16 +9,14 @@ import { Parameter } from '../../models/parameter';
 })
 export class ParamTable implements OnInit {
 
-  parameters:Parameter[] = [
-    {name:'name1',group:'group',value:'value1'},
-    {name:'name2',group:'group',value:'value2'},
-    {name:'name3',group:'group',value:'value3'},
-  ];
+  parameters:Parameter[] = [];
 
-  constructor() { }
+  constructor(private ps:ParameterService) { }
 
   ngOnInit() {
-    
+    this.ps.getAllParameters().subscribe(result => {
+      this.parameters = result;
+    });
   }
 
 }

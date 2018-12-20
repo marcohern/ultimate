@@ -16,6 +16,7 @@ import { ParamForm } from './forms/param/param.form';
 import { ParamRow } from './tables/param/param.row';
 import { ParamEditableComponent } from './cmps/param-editable/param-editable.component';
 import { ParamTable } from './tables/param/param.table';
+import { ParameterService } from './srvs/parameter.service';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { ParamTable } from './tables/param/param.table';
   providers:[
     RequestService,
     AssetsService,
+    ParameterService,
     {provide:HTTP_INTERCEPTORS, useClass:TokenInterceptor, multi:true }
   ],
   exports: [

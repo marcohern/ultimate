@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Parameter } from '../../models/parameter';
+import { ParameterService } from '../../srvs/parameter.service';
 
 @Component({
   selector: 'ultimate-param-editable',
@@ -13,19 +14,24 @@ export class ParamEditableComponent implements OnInit {
   @Input()
   parameter:Parameter;
 
-  constructor() { }
+  constructor(private ps:ParameterService) { }
 
   ngOnInit() {
+    
   }
 
   editing($event) {
     this.isEditing = true;
+      
     console.log("ParamEditableComponent.editing",this.parameter);
   }
 
   save($event) {
     console.log("ParamEditableComponent.save",this.parameter);
-    this.isEditing = false;
+    this.ps.saveParameter(this.parameter).subscribe(result => {
+      console.log("ParamEditableComponent.save","ps.saveParameter",this.parameter, result);
+      this.isEditing = false;
+    });
   }
 
 }

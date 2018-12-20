@@ -48,6 +48,7 @@ export class ParamForm extends FormBase implements OnInit, OnChanges {
   }
 
   public saving() {
+    this.parameter.value = this.group.value.value;
     this.save.emit(this.parameter);
   }
 
