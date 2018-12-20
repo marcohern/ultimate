@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { FormBase } from '../../base/form-base';
 import { AssetsService } from '../../srvs/assets.service';
@@ -9,10 +9,13 @@ import { Parameter } from '../../models/parameter';
   templateUrl: './param.form.html',
   styleUrls: ['./param.form.css']
 })
-export class ParamForm extends FormBase implements OnInit {
+export class ParamForm extends FormBase implements OnInit, OnChanges {
 
   @Input()
   parameter:Parameter;
+
+  @Output()
+  save:EventEmitter<Parameter> = new EventEmitter;
   
   constructor(ass:AssetsService, private fb:FormBuilder) { 
     super(ass);
@@ -24,11 +27,28 @@ export class ParamForm extends FormBase implements OnInit {
   }
 
   ngOnInit() {
-    
+    /*console.log("ParamForm.ngOnInit", this.parameter);
+    if (this.parameter) {
+      this.group.setValue({
+        name: this.parameter.name,
+        group: this.parameter.group,
+        value: this.parameter.value,
+      });
+    }*/
+  }
+
+  ngOnChanges() {
+    if (this.parameter) {
+      this.group.setValue({
+        name: this.parameter.name,
+        group: this.parameter.group,
+        value: this.parameter.value,
+      });
+    }
   }
 
   public saving() {
-    console.log(this.group.value);
+    this.save.emit(this.parameter);
   }
 
 }

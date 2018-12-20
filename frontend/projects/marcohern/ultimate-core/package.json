@@ -1,6 +1,6 @@
 {
   "name": "@marcohern/ultimate-core",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "keywords": ["ultimate","ultimate-core","marcohern"],
   "peerDependencies": {
     "@angular/common": "^7.1.0",

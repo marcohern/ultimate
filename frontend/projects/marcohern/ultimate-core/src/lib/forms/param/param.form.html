@@ -1,26 +1,26 @@
-<form [formGroup]="group">
+<form [formGroup]="group" (ngSubmit)="submit($event)">
   <div class="row">
-    <div class="col-xs-3">
+    <div class="col-sm-3">
       <div class="form-group">
         <label>Nombre</label>
-        <input name="name" formGroupName="name" />
+        <input type="text" name="name" formControlName="name" class="form-control" />
       </div>
     </div>
-    <div class="col-xs-3">
+    <div class="col-sm-3">
       <div class="form-group">
         <label>Grupo</label>
-        <input name="group" formGroupName="group" />
+        <input type="text" name="group" formControlName="group" class="form-control" />
       </div>
     </div>
-    <div class="col-xs-3">
+    <div class="col-sm-3">
       <div class="form-group">
         <label>Valor</label>
-        <input name="value" formGroupName="value" />
+        <input type="text" name="value" formControlName="value" class="form-control" />
       </div>
     </div>
-    <div class="col-xs-3">
+    <div class="col-sm-3">
       <div class="form-group">
-        <button class="btn btn-primary">Guardar</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
       </div>
     </div>
   </div>

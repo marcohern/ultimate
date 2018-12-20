@@ -35,7 +35,7 @@ import { ParamTable } from './tables/param/param.table';
     {provide:HTTP_INTERCEPTORS, useClass:TokenInterceptor, multi:true }
   ],
   exports: [
-    MenuComponent, PagerComponent, CheckboxesComponent
+    MenuComponent, PagerComponent, CheckboxesComponent, ParamTable
   ]
 })
 export class UltimateCoreModule { }

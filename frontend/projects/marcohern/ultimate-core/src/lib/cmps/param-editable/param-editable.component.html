@@ -1,2 +1,2 @@
-<ultimate-param-row *ngIf="!isEditing" [parameter]="parameter"></ultimate-param-row>
-<ultimate-param-form *ngIf="isEditing" [parameter]="parameter"></ultimate-param-form>
+<ultimate-param-row *ngIf="!isEditing" [parameter]="parameter" (editing)="editing($event)"></ultimate-param-row>
+<ultimate-param-form *ngIf="isEditing" [parameter]="parameter" (save)="save($event)"></ultimate-param-form>

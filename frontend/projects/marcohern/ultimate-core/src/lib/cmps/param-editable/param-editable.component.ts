@@ -18,4 +18,14 @@ export class ParamEditableComponent implements OnInit {
   ngOnInit() {
   }
 
+  editing($event) {
+    this.isEditing = true;
+    console.log("ParamEditableComponent.editing",this.parameter);
+  }
+
+  save($event) {
+    console.log("ParamEditableComponent.save",this.parameter);
+    this.isEditing = false;
+  }
+
 }
