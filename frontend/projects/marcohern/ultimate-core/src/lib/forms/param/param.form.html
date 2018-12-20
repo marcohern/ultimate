@@ -1,0 +1,27 @@
+<form [formGroup]="group">
+  <div class="row">
+    <div class="col-xs-3">
+      <div class="form-group">
+        <label>Nombre</label>
+        <input name="name" formGroupName="name" />
+      </div>
+    </div>
+    <div class="col-xs-3">
+      <div class="form-group">
+        <label>Grupo</label>
+        <input name="group" formGroupName="group" />
+      </div>
+    </div>
+    <div class="col-xs-3">
+      <div class="form-group">
+        <label>Valor</label>
+        <input name="value" formGroupName="value" />
+      </div>
+    </div>
+    <div class="col-xs-3">
+      <div class="form-group">
+        <button class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </div>
+</form>
