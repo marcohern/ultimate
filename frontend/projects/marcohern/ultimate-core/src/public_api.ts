@@ -16,12 +16,10 @@ export * from './lib/models/product';
 export * from './lib/models/save-result';
 export * from './lib/models/user';
 export * from './lib/models/user-create';
-
-export * from './lib/cmps/checkboxes/checkboxes.component';
-export * from './lib/cmps/menu/menu.component';
-export * from './lib/cmps/pager/pager.component';
+export * from './lib/models/parameter';
 
 export * from './lib/srvs/request.service';
 export * from './lib/srvs/assets.service';
+export * from './lib/srvs/parameter.service';
 
 export * from './lib/ultimate-core.module';

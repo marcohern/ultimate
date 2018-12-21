@@ -6,13 +6,20 @@ use App\Ultimate\Parameter;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+/**
+ * Manage parameter records
+ */
 class ParametersController extends Controller
 {
+    /**
+     * Constructor
+     */
     public function __construct() {
         $this->middleware('auth:api', [
             'only' => 'store','update','destroy'
         ]);
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -74,7 +81,7 @@ class ParametersController extends Controller
         else $parameter = Parameter::where('name', '=', $id)->first();
         
         if ($request->has('value')) $parameter->value = $request->value;
-        if ($request->has('group')) $parameter->group = $request->group;
+        //if ($request->has('group')) $parameter->group = $request->group;
         $parameter->save();
 
         return [

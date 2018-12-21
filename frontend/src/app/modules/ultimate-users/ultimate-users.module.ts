@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { UltimateCoreModule } from '@marcohern/ultimate-core';
+import { UltimateCoreUiModule } from '@marcohern/ultimate-core-ui';
 
 import { UserListComponent } from './cmps/user-list/user-list.component';
 
@@ -21,6 +22,7 @@ import { UserEditPage } from './pages/user-edit/user-edit.page';
   imports: [
     CommonModule,
     UltimateCoreModule,
+    UltimateCoreUiModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes)

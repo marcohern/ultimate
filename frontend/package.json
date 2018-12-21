@@ -8,10 +8,16 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-
+    
     "build_ucore": "ng build @marcohern/ultimate-core",
     "pack_ucore": "cd dist/marcohern/ultimate-core && npm pack",
-    "bp_ucore": "npm run build_ucore && npm run pack_ucore"
+    "bp_ucore": "npm run build_ucore && npm run pack_ucore",
+    
+    "build_ucoreui": "ng build @marcohern/ultimate-core-ui",
+    "pack_ucoreui": "cd dist/marcohern/ultimate-core-ui && npm pack",
+    "bp_ucoreui": "npm run build_ucoreui && npm run pack_ucoreui",
+
+    "bp": "npm run bp_ucore && npm run bp_ucoreui"
   },
   "private": true,
   "dependencies": {

@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { UltimateCoreModule } from '@marcohern/ultimate-core';
+import { UltimateCoreUiModule } from '@marcohern/ultimate-core-ui';
 
 import { LoginComponent } from './cmps/login/login.component';
 import { RegisterComponent } from './cmps/register/register.component';
@@ -30,6 +31,7 @@ import { AuthService } from './srvs/auth.service';
     CommonModule,
     FormsModule,
     UltimateCoreModule,
+    UltimateCoreUiModule,
     HttpClientModule,
     RouterModule.forChild(routes)
   ],

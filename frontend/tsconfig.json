@@ -29,6 +29,18 @@
       ],
       "@marcohern/ultimate-core/*": [
         "dist/marcohern/ultimate-core/*"
+      ],
+      "ultimate-core-ui": [
+        "dist/ultimate-core-ui"
+      ],
+      "ultimate-core-ui/*": [
+        "dist/ultimate-core-ui/*"
+      ],
+      "@marcohern/ultimate-core-ui": [
+        "dist/marcohern/ultimate-core-ui"
+      ],
+      "@marcohern/ultimate-core-ui/*": [
+        "dist/marcohern/ultimate-core-ui/*"
       ]
     }
   }
