@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../srvs/auth.service';
 import { ActivatedRoute } from '@angular/router';
 import { User } from '@marcohern/ultimate-core';
+import { AuthService } from '../../srvs/auth.service';
 
 @Component({
   selector: 'ult-auth-invite',

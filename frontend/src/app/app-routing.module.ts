@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PublicPage } from './modules/ultimate-auth/pages/public/public.page';
+import { PublicPage } from '@marcohern/ultimate-core-ui';
 
 const routes: Routes = [
   {path:'', component: PublicPage},

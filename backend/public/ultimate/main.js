@@ -1,5 +1,1132 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["main"],{
 
+/***/ "./dist/marcohern/ultimate-core-ui/fesm5/marcohern-ultimate-core-ui.js":
+/*!*****************************************************************************!*\
+  !*** ./dist/marcohern/ultimate-core-ui/fesm5/marcohern-ultimate-core-ui.js ***!
+  \*****************************************************************************/
+/*! exports provided: CheckboxesComponent, InviteComponent, LoginComponent, MenuComponent, PagerComponent, ParamEditableComponent, RegisterComponent, ParamForm, InvitePage, LoginPage, NotFoundPage, PrivatePage, PublicPage, RegisterPage, ParamRow, ParamTable, UltimateCoreUiModule, ɵb, ɵa */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CheckboxesComponent", function() { return CheckboxesComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InviteComponent", function() { return InviteComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MenuComponent", function() { return MenuComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PagerComponent", function() { return PagerComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ParamEditableComponent", function() { return ParamEditableComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterComponent", function() { return RegisterComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ParamForm", function() { return ParamForm; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InvitePage", function() { return InvitePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPage", function() { return LoginPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NotFoundPage", function() { return NotFoundPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PrivatePage", function() { return PrivatePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PublicPage", function() { return PublicPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterPage", function() { return RegisterPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ParamRow", function() { return ParamRow; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ParamTable", function() { return ParamTable; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UltimateCoreUiModule", function() { return UltimateCoreUiModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵb", function() { return routes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵa", function() { return AuthService; });
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @marcohern/ultimate-core */ "./dist/marcohern/ultimate-core/fesm5/marcohern-ultimate-core.js");
+
+
+
+
+
+
+
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var CheckboxesComponent = /** @class */ (function () {
+    function CheckboxesComponent() {
+        this.changes = new _marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_6__["CheckboxChanged"]();
+        this.checkboxes = [];
+        this.source = [];
+        this.label = 'label';
+        this.value = 'value';
+        this.selected = [];
+        this.checkboxChanged = new _angular_core__WEBPACK_IMPORTED_MODULE_2__["EventEmitter"]();
+    }
+    /**
+     * @return {?}
+     */
+    CheckboxesComponent.prototype.ngOnInit = /**
+     * @return {?}
+     */
+    function () {
+    };
+    /**
+     * @return {?}
+     */
+    CheckboxesComponent.prototype.ngOnChanges = /**
+     * @return {?}
+     */
+    function () {
+        var _this = this;
+        this.checkboxes = this.source.map(function (s, i) { return new _marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_6__["Checkbox"](s[_this.label], s[_this.value], false, s); });
+        if (this.selected) {
+            if (this.selected.length > 0)
+                this.changes.noneSelected = false;
+            else
+                this.changes.noneSelected = true;
+            this.selected.forEach(function (s) {
+                /** @type {?} */
+                var checkbox = _this.checkboxes.find(function (c) { return c.value === s[_this.value]; });
+                if (checkbox)
+                    checkbox.checked = true;
+            });
+        }
+    };
+    /**
+     * @param {?} $event
+     * @param {?} target
+     * @return {?}
+     */
+    CheckboxesComponent.prototype.changed = /**
+     * @param {?} $event
+     * @param {?} target
+     * @return {?}
+     */
+    function ($event, target) {
+        target.checked = (!target.checked);
+        target.status = (target.status) ? null :
+            (target.checked) ? 'added' : 'removed';
+        if (target.checked) {
+            if (target.status === 'added')
+                this.changes.added.push(target);
+            else {
+                /** @type {?} */
+                var i = this.changes.removed.indexOf(target);
+                this.changes.removed.splice(i, 1);
+            }
+        }
+        if (!target.checked) {
+            if (target.status === 'removed')
+                this.changes.removed.push(target);
+            else {
+                /** @type {?} */
+                var i = this.changes.added.indexOf(target);
+                this.changes.added.splice(i, 1);
+            }
+        }
+        this.changes.noneSelected = (this.checkboxes.find(function (c) { return c.checked; })) ? false : true;
+        this.checkboxChanged.emit(this.changes);
+    };
+    CheckboxesComponent.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"], args: [{
+                    selector: 'ult-checkboxes',
+                    template: "<div class=\"form-check\" *ngFor=\"let c of checkboxes\">\n  <input class=\"form-check-input\" type=\"checkbox\" [value]=\"c.value\" (click)=\"changed($event, c)\" [checked]=\"c.checked\">\n  <label class=\"form-check-label\" >{{c.label}}</label>\n</div>",
+                    styles: [""]
+                }] }
+    ];
+    /** @nocollapse */
+    CheckboxesComponent.ctorParameters = function () { return []; };
+    CheckboxesComponent.propDecorators = {
+        source: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Input"] }],
+        label: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Input"] }],
+        value: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Input"] }],
+        selected: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Input"] }],
+        checkboxChanged: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Output"] }]
+    };
+    return CheckboxesComponent;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var AuthService = /** @class */ (function () {
+    function AuthService(req) {
+        this.req = req;
+    }
+    /**
+     * @param {?} username
+     * @param {?} password
+     * @return {?}
+     */
+    AuthService.prototype.login = /**
+     * @param {?} username
+     * @param {?} password
+     * @return {?}
+     */
+    function (username, password) {
+        return this.req.login(username, password);
+    };
+    /**
+     * @return {?}
+     */
+    AuthService.prototype.logout = /**
+     * @return {?}
+     */
+    function () {
+        return this.req.logout();
+    };
+    /**
+     * @param {?} user
+     * @return {?}
+     */
+    AuthService.prototype.invite = /**
+     * @param {?} user
+     * @return {?}
+     */
+    function (user) {
+        return this.req.post('/users', user);
+    };
+    /**
+     * @param {?} id
+     * @return {?}
+     */
+    AuthService.prototype.getUser = /**
+     * @param {?} id
+     * @return {?}
+     */
+    function (id) {
+        return this.req.get('/users', id);
+    };
+    AuthService.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"], args: [{
+                    providedIn: 'root'
+                },] }
+    ];
+    /** @nocollapse */
+    AuthService.ctorParameters = function () { return [
+        { type: _marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_6__["RequestService"] }
+    ]; };
+    /** @nocollapse */ AuthService.ngInjectableDef = Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["defineInjectable"])({ factory: function AuthService_Factory() { return new AuthService(Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["inject"])(_marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_6__["RequestService"])); }, token: AuthService, providedIn: "root" });
+    return AuthService;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var InviteComponent = /** @class */ (function () {
+    function InviteComponent(as, route) {
+        this.as = as;
+        this.route = route;
+        this.user = { email: '', name: '' };
+    }
+    /**
+     * @return {?}
+     */
+    InviteComponent.prototype.ngOnInit = /**
+     * @return {?}
+     */
+    function () {
+        var _this = this;
+        /** @type {?} */
+        var user_id = this.route.snapshot.params.id;
+        this.as.getUser(user_id).subscribe(function (result) {
+            console.log(result);
+            _this.user = result;
+        });
+        /*
+        this.as.invite({email:'jcusack@mail.com',name:'John Cusack'}).subscribe(result => {
+          console.log(result);
+        });*/
+    };
+    /**
+     * @param {?} $event
+     * @return {?}
+     */
+    InviteComponent.prototype.invite = /**
+     * @param {?} $event
+     * @return {?}
+     */
+    function ($event) {
+        //console.log("invite",$event, this.user);
+        /** @type {?} */
+        var user = {
+            id: this.user.id,
+            email: this.user.email,
+            name: this.user.name
+        };
+        this.as.invite(user).subscribe(function (result) {
+            console.log(result);
+        });
+    };
+    InviteComponent.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"], args: [{
+                    selector: 'ult-auth-invite',
+                    template: "<div class=\"card\" style=\"width: 100%\">\r\n  <div class=\"card-body\">\r\n    <form id=\"registerForm\">\r\n      <p class=\"h5 card-title\">Invite a User</p>\r\n      <div class=\"row\">\r\n        <div class=\"col-md-6\">\r\n          <div class=\"form-group\">\r\n            <label>Email</label>\r\n            <input type=\"email\" class=\"form-control\" placeholder=\"johndoe@mail.com\" [(ngModel)]=\"user.email\" name=\"email\">\r\n          </div>\r\n        </div>\r\n        <div class=\"col-md-6\">\r\n          <div class=\"form-group\">\r\n            <label>Name</label>\r\n            <input type=\"text\" class=\"form-control\" placeholder=\"John Doe\" [(ngModel)]=\"user.name\" name=\"name\">\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <button class=\"btn btn-primary\" (click)=\"invite($event)\">Invite</button>\r\n    </form>\r\n  </div>\r\n</div>",
+                    styles: [""]
+                }] }
+    ];
+    /** @nocollapse */
+    InviteComponent.ctorParameters = function () { return [
+        { type: AuthService },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"] }
+    ]; };
+    return InviteComponent;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var LoginComponent = /** @class */ (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__extends"])(LoginComponent, _super);
+    function LoginComponent(_req, router, ass) {
+        var _this = _super.call(this, ass) || this;
+        _this._req = _req;
+        _this.router = router;
+        _this.email = '';
+        _this.password = '';
+        _this.errorMsg = '';
+        return _this;
+    }
+    /**
+     * @return {?}
+     */
+    LoginComponent.prototype.req = /**
+     * @return {?}
+     */
+    function () {
+        get: {
+            return this._req;
+        }
+    };
+    /**
+     * @return {?}
+     */
+    LoginComponent.prototype.ngOnInit = /**
+     * @return {?}
+     */
+    function () {
+    };
+    /**
+     * @return {?}
+     */
+    LoginComponent.prototype.requestLogin = /**
+     * @return {?}
+     */
+    function () {
+        var _this = this;
+        this.errorAlert = false;
+        this.errorMsg = '';
+        this._req.login(this.email, this.password).subscribe(function (result) {
+            _this._req.setToken(result.access_token);
+            _this.router.navigate(['/private']);
+        }, function (error) {
+            if (error.error) {
+                if (error.error.message) {
+                    _this.errorMsg = error.error.message;
+                }
+            }
+            else {
+                if (error.message) {
+                    _this.errorMsg = error.message;
+                }
+            }
+            _this.errorAlert = true;
+        });
+    };
+    LoginComponent.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"], args: [{
+                    selector: 'ult-auth-login',
+                    template: "<div class=\"card\" style=\"width: 100%\">\r\n  <div class=\"card-body\">\r\n    <form (ngSubmit)=\"requestLogin()\">\r\n      <p class=\"h5 card-title\">Login</p>\r\n      <div class=\"form-group\">\r\n        <label>Email</label>\r\n        <input type=\"email\" class=\"form-control\" placeholder=\"johndoe@mail.com\" name=\"email\" [(ngModel)]=\"email\" required>\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label>Password</label>\r\n        <input type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"password\" required>\r\n      </div>\r\n      <div class=\"form-group form-check\">\r\n        <input type=\"checkbox\" class=\"form-check-input\">\r\n        <label class=\"form-check-label\">Remember me</label>\r\n      </div>\r\n      <div>\r\n        <button class=\"btn btn-primary\" type=\"submit\" [disabled]=\"req().isRequesting()\">Login</button>\r\n        <img [attr.src]=\"assets('loading.svg')\" alt=\"Loading\" width=\"38px\" *ngIf=\"req().isRequesting()\" >\r\n      </div>\r\n      <div>\r\n        <a href=\"#\">Forgot password?</a>\r\n      </div>\r\n    </form>\r\n    <div class=\"alert alert-danger\" role=\"alert\" *ngIf=\"errorAlert\">\r\n      <span>{{errorMsg}}</span>\r\n    </div>\r\n  </div>\r\n</div>",
+                    styles: [""]
+                }] }
+    ];
+    /** @nocollapse */
+    LoginComponent.ctorParameters = function () { return [
+        { type: _marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_6__["RequestService"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
+        { type: _marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_6__["AssetsService"] }
+    ]; };
+    return LoginComponent;
+}(_marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_6__["ComponentBase"]));
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var MenuComponent = /** @class */ (function () {
+    function MenuComponent(_req, http, router) {
+        this._req = _req;
+        this.http = http;
+        this.router = router;
+        this.title = '[Title]';
+        this.items = [];
+        this.options = {
+            search: false
+        };
+        this.menu = [];
+    }
+    /**
+     * @return {?}
+     */
+    MenuComponent.prototype.req = /**
+     * @return {?}
+     */
+    function () {
+        get: {
+            return this._req;
+        }
+    };
+    /**
+     * @return {?}
+     */
+    MenuComponent.prototype.ngOnInit = /**
+     * @return {?}
+     */
+    function () {
+        this.createMenu(this.items);
+    };
+    /**
+     * @return {?}
+     */
+    MenuComponent.prototype.logout = /**
+     * @return {?}
+     */
+    function () {
+        var _this = this;
+        this._req.logout().subscribe(function (result) {
+            _this._req.clearToken();
+            _this.router.navigate(['/login']);
+        }, function (error) {
+            if (error.status == 401) {
+                _this.router.navigate(['/login']);
+            }
+        });
+    };
+    /**
+     * @param {?} sparent
+     * @param {?} dparent
+     * @return {?}
+     */
+    MenuComponent.prototype.createSubMenu = /**
+     * @param {?} sparent
+     * @param {?} dparent
+     * @return {?}
+     */
+    function (sparent, dparent) {
+        var e_1, _a;
+        dparent.dropdown = (sparent.children.length > 0) ? true : false;
+        try {
+            for (var _b = Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__values"])(sparent.children), _c = _b.next(); !_c.done; _c = _b.next()) {
+                var k = _c.value;
+                /** @type {?} */
+                var c = {
+                    label: k.label,
+                    divider: false,
+                    enabled: false,
+                    dropdown: false,
+                    path: k.path,
+                    query: k.query,
+                    disableClass: ''
+                };
+                c.divider = (k.label == '-') ? true : false;
+                dparent.children.push(c);
+            }
+        }
+        catch (e_1_1) { e_1 = { error: e_1_1 }; }
+        finally {
+            try {
+                if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+            }
+            finally { if (e_1) throw e_1.error; }
+        }
+    };
+    /**
+     * @param {?} items
+     * @return {?}
+     */
+    MenuComponent.prototype.createMenu = /**
+     * @param {?} items
+     * @return {?}
+     */
+    function (items) {
+        var e_2, _a;
+        /** @type {?} */
+        var j = 1;
+        try {
+            for (var _b = Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__values"])(this.items), _c = _b.next(); !_c.done; _c = _b.next()) {
+                var i = _c.value;
+                /** @type {?} */
+                var m = {
+                    id: j,
+                    label: i.label,
+                    enabled: false,
+                    dropdown: false,
+                    children: [],
+                    path: null,
+                    disableClass: ''
+                };
+                m.path = (i.path) ? i.path : null;
+                m.enabled = (typeof i.enabled === 'undefined') ? true : (i.enabled === true) ? true : false;
+                m.disableClass = (m.enabled) ? '' : 'disabled';
+                if (i.children) {
+                    this.createSubMenu(i, m);
+                }
+                this.menu.push(m);
+                j++;
+            }
+        }
+        catch (e_2_1) { e_2 = { error: e_2_1 }; }
+        finally {
+            try {
+                if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+            }
+            finally { if (e_2) throw e_2.error; }
+        }
+    };
+    MenuComponent.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"], args: [{
+                    selector: 'ultimate-menu',
+                    template: "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\r\n  <div class=\"container\">\r\n    <a class=\"navbar-brand\" [routerLink]=\"['/']\">{{title}}</a>\r\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n      <span class=\"navbar-toggler-icon\"></span>\r\n    </button>\r\n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\r\n      <ul class=\"navbar-nav mr-auto\">\r\n        <ng-container *ngIf=\"req().isAuthenticated()\" >\r\n          <ng-container *ngFor=\"let item of menu\">\r\n            <li *ngIf=\"item.dropdown\" class=\"nav-item dropdown\">\r\n              <a class=\"nav-link dropdown-toggle\" href=\"#\" [ngClass]=\"item.disableClass\"\r\n                [id]=\"'navDrop'+item.id\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                {{item.label}}\r\n              </a>\r\n              <div class=\"dropdown-menu\" *ngIf=\"item.children\" [attr.aria-labelledby]=\"'navDrop'+item.id\">\r\n                <ng-container *ngFor=\"let child of item.children\">\r\n                  <a *ngIf=\"!child.divider\" class=\"dropdown-item\" [routerLink]=\"child.path\" [queryParams]=\"child.query\">{{child.label}}</a>\r\n                  <div *ngIf=\"child.divider\" class=\"dropdown-divider\"></div>\r\n                </ng-container>\r\n              </div>\r\n            </li>\r\n            <li *ngIf=\"!item.dropdown\" class=\"nav-item\">\r\n              <a class=\"nav-link\" [ngClass]=\"item.disableClass\" [routerLink]=\"item.path\" [queryParams]=\"item.query\">{{item.label}}</a>\r\n            </li>\r\n          </ng-container>\r\n        </ng-container>\r\n      </ul>\r\n      <form *ngIf=\"options.search\" class=\"form-inline my-2 my-lg-0\">\r\n        <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\">\r\n        <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\">Search</button>\r\n      </form>\r\n      <ul class=\"navbar-nav ml-auto\">\r\n        <li class=\"nav-item\" *ngIf=\"!req().isAuthenticated()\">\r\n          <a class=\"nav-link\" [routerLink]=\"['/login']\">Login</a>\r\n        </li>\r\n        <li class=\"nav-item\" *ngIf=\"req().isAuthenticated()\">\r\n          <button class=\"btn btn-danger\" (click)=\"logout()\">Logout</button>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n  </div>\r\n</nav>",
+                    styles: [""]
+                }] }
+    ];
+    /** @nocollapse */
+    MenuComponent.ctorParameters = function () { return [
+        { type: _marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_6__["RequestService"] },
+        { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpClient"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] }
+    ]; };
+    MenuComponent.propDecorators = {
+        title: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Input"] }],
+        items: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Input"] }],
+        options: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Input"] }]
+    };
+    return MenuComponent;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var PagerComponent = /** @class */ (function () {
+    function PagerComponent() {
+        this.pages = [];
+        this.paged = new _marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_6__["Paged"]();
+        this.path = ['/non/existent/path'];
+    }
+    /**
+     * @param {?} last_page
+     * @return {?}
+     */
+    PagerComponent.prototype.arr = /**
+     * @param {?} last_page
+     * @return {?}
+     */
+    function (last_page) {
+        /** @type {?} */
+        var arr = [];
+        for (var i = 1; i <= last_page; i++) {
+            arr[i - 1] = i;
+        }
+        return arr;
+    };
+    /**
+     * @return {?}
+     */
+    PagerComponent.prototype.ngOnInit = /**
+     * @return {?}
+     */
+    function () {
+        this.pages = [];
+    };
+    /**
+     * @return {?}
+     */
+    PagerComponent.prototype.isDataAvailabla = /**
+     * @return {?}
+     */
+    function () {
+        if (typeof this.paged === 'undefined')
+            return false;
+        return true;
+    };
+    /**
+     * @return {?}
+     */
+    PagerComponent.prototype.ngOnChanges = /**
+     * @return {?}
+     */
+    function () {
+        if (!this.isDataAvailabla())
+            return;
+        this.pages = this.arr(this.paged.last_page);
+    };
+    /**
+     * @param {?} page
+     * @return {?}
+     */
+    PagerComponent.prototype.activate = /**
+     * @param {?} page
+     * @return {?}
+     */
+    function (page) {
+        if (!this.isDataAvailabla())
+            ;
+        return (page == this.paged.current_page) ? 'active' : '';
+    };
+    /**
+     * @param {?} page
+     * @return {?}
+     */
+    PagerComponent.prototype.disable = /**
+     * @param {?} page
+     * @return {?}
+     */
+    function (page) {
+        if (!this.isDataAvailabla())
+            return 'disabled';
+        return (page < 1 || page > this.paged.last_page) ? 'disabled' : '';
+    };
+    /**
+     * @return {?}
+     */
+    PagerComponent.prototype.disablePrev = /**
+     * @return {?}
+     */
+    function () {
+        if (!this.isDataAvailabla())
+            return 'disabled';
+        return this.disable(this.paged.current_page - 1);
+    };
+    /**
+     * @return {?}
+     */
+    PagerComponent.prototype.disableNext = /**
+     * @return {?}
+     */
+    function () {
+        if (!this.isDataAvailabla())
+            return 'disabled';
+        return this.disable(this.paged.current_page + 1);
+    };
+    /**
+     * @return {?}
+     */
+    PagerComponent.prototype.moreThanOnePage = /**
+     * @return {?}
+     */
+    function () {
+        if (!this.isDataAvailabla())
+            return false;
+        if (this.paged.last_page <= 1)
+            return false;
+        return true;
+    };
+    /**
+     * @return {?}
+     */
+    PagerComponent.prototype.prevPage = /**
+     * @return {?}
+     */
+    function () {
+        if (!this.isDataAvailabla())
+            return {};
+        return { page: this.paged.current_page - 1 };
+    };
+    /**
+     * @return {?}
+     */
+    PagerComponent.prototype.nextPage = /**
+     * @return {?}
+     */
+    function () {
+        if (!this.isDataAvailabla())
+            return {};
+        return { page: this.paged.current_page + 1 };
+    };
+    PagerComponent.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"], args: [{
+                    selector: 'ultimate-pager',
+                    template: "<nav aria-label=\"Page navigation\" *ngIf=\"moreThanOnePage()\">\n  <ul class=\"pagination\">\n    <li class=\"page-item\" [ngClass]=\"disablePrev()\">\n      <a class=\"page-link\" [routerLink]=\"path\" [queryParams]=\"prevPage()\" aria-label=\"Anterior\">\n        <span aria-hidden=\"true\">&laquo;</span>\n        <span class=\"sr-only\">Anterior</span>\n      </a>\n    </li>\n    <li class=\"page-item\" *ngFor=\"let p of pages\" [ngClass]=\"activate(p)\">\n      <a class=\"page-link\" [routerLink]=\"path\" [queryParams]=\"{page:p}\">{{p}}</a>\n    </li>\n    <li class=\"page-item\" [ngClass]=\"disableNext()\">\n      <a class=\"page-link\" [routerLink]=\"path\" [queryParams]=\"nextPage()\" aria-label=\"Siguiente\">\n        <span aria-hidden=\"true\">&raquo;</span>\n        <span class=\"sr-only\">Siguiente</span>\n      </a>\n    </li>\n  </ul>\n</nav>",
+                    styles: [""]
+                }] }
+    ];
+    /** @nocollapse */
+    PagerComponent.ctorParameters = function () { return []; };
+    PagerComponent.propDecorators = {
+        paged: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Input"] }],
+        path: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Input"] }]
+    };
+    return PagerComponent;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var ParamEditableComponent = /** @class */ (function () {
+    function ParamEditableComponent(ps) {
+        this.ps = ps;
+        this.isEditing = false;
+    }
+    /**
+     * @return {?}
+     */
+    ParamEditableComponent.prototype.ngOnInit = /**
+     * @return {?}
+     */
+    function () {
+    };
+    /**
+     * @param {?} $event
+     * @return {?}
+     */
+    ParamEditableComponent.prototype.editing = /**
+     * @param {?} $event
+     * @return {?}
+     */
+    function ($event) {
+        this.isEditing = true;
+        console.log("ParamEditableComponent.editing", this.parameter);
+    };
+    /**
+     * @param {?} $event
+     * @return {?}
+     */
+    ParamEditableComponent.prototype.save = /**
+     * @param {?} $event
+     * @return {?}
+     */
+    function ($event) {
+        var _this = this;
+        console.log("ParamEditableComponent.save", this.parameter);
+        this.ps.saveParameter(this.parameter).subscribe(function (result) {
+            console.log("ParamEditableComponent.save", "ps.saveParameter", _this.parameter, result);
+            _this.isEditing = false;
+        });
+    };
+    ParamEditableComponent.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"], args: [{
+                    selector: 'ultimate-param-editable',
+                    template: "<ultimate-param-row *ngIf=\"!isEditing\" [parameter]=\"parameter\" (editing)=\"editing($event)\"></ultimate-param-row>\n<ultimate-param-form *ngIf=\"isEditing\" [parameter]=\"parameter\" (save)=\"save($event)\"></ultimate-param-form>",
+                    styles: [""]
+                }] }
+    ];
+    /** @nocollapse */
+    ParamEditableComponent.ctorParameters = function () { return [
+        { type: _marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_6__["ParameterService"] }
+    ]; };
+    ParamEditableComponent.propDecorators = {
+        parameter: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Input"] }]
+    };
+    return ParamEditableComponent;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var RegisterComponent = /** @class */ (function () {
+    function RegisterComponent() {
+    }
+    /**
+     * @return {?}
+     */
+    RegisterComponent.prototype.ngOnInit = /**
+     * @return {?}
+     */
+    function () {
+    };
+    RegisterComponent.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"], args: [{
+                    selector: 'ult-auth-register',
+                    template: "<div class=\"card\" style=\"width: 100%\">\r\n  <div class=\"card-body\">\r\n    <form id=\"registerForm\">\r\n      <p class=\"h5 card-title\">Register</p>\r\n      <div class=\"form-group\">\r\n        <label>Email</label>\r\n        <input type=\"email\" class=\"form-control\" placeholder=\"johndoe@mail.com\">\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label>Name</label>\r\n        <input type=\"text\" class=\"form-control\" placeholder=\"John Doe\">\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label>Password</label>\r\n        <input type=\"password\" class=\"form-control\">\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label>Confirm Password</label>\r\n        <input type=\"password\" class=\"form-control\">\r\n      </div>\r\n    </form>\r\n  </div>\r\n</div>",
+                    styles: [""]
+                }] }
+    ];
+    /** @nocollapse */
+    RegisterComponent.ctorParameters = function () { return []; };
+    return RegisterComponent;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var ParamForm = /** @class */ (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__extends"])(ParamForm, _super);
+    function ParamForm(ass, fb) {
+        var _this = _super.call(this, ass) || this;
+        _this.fb = fb;
+        _this.save = new _angular_core__WEBPACK_IMPORTED_MODULE_2__["EventEmitter"];
+        _this.group = _this.fb.group({
+            name: _this.fb.control(''),
+            group: _this.fb.control(''),
+            value: _this.fb.control(''),
+        });
+        return _this;
+    }
+    /**
+     * @return {?}
+     */
+    ParamForm.prototype.ngOnInit = /**
+     * @return {?}
+     */
+    function () {
+        /*console.log("ParamForm.ngOnInit", this.parameter);
+        if (this.parameter) {
+          this.group.setValue({
+            name: this.parameter.name,
+            group: this.parameter.group,
+            value: this.parameter.value,
+          });
+        }*/
+    };
+    /**
+     * @return {?}
+     */
+    ParamForm.prototype.ngOnChanges = /**
+     * @return {?}
+     */
+    function () {
+        if (this.parameter) {
+            this.group.setValue({
+                name: this.parameter.name,
+                group: this.parameter.group,
+                value: this.parameter.value,
+            });
+        }
+    };
+    /**
+     * @return {?}
+     */
+    ParamForm.prototype.saving = /**
+     * @return {?}
+     */
+    function () {
+        this.parameter.value = this.group.value.value;
+        this.save.emit(this.parameter);
+    };
+    ParamForm.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"], args: [{
+                    selector: 'ultimate-param-form',
+                    template: "<form [formGroup]=\"group\" (ngSubmit)=\"submit($event)\">\n  <div class=\"row\">\n    <div class=\"col-sm-3\">\n      <div class=\"form-group\">\n        <input type=\"text\" name=\"name\" formControlName=\"name\" class=\"form-control\" readonly />\n      </div>\n    </div>\n    <div class=\"col-sm-2\">\n      <div class=\"form-group\">\n        <input type=\"text\" name=\"group\" formControlName=\"group\" class=\"form-control\" readonly />\n      </div>\n    </div>\n    <div class=\"col-sm-5\">\n      <div class=\"form-group\">\n        <input type=\"text\" name=\"value\" formControlName=\"value\" class=\"form-control\" />\n      </div>\n    </div>\n    <div class=\"col-sm-2\">\n      <div class=\"form-group\">\n        <button type=\"submit\" class=\"btn btn-primary form-control\">Guardar</button>\n      </div>\n    </div>\n  </div>\n</form>",
+                    styles: [""]
+                }] }
+    ];
+    /** @nocollapse */
+    ParamForm.ctorParameters = function () { return [
+        { type: _marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_6__["AssetsService"] },
+        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"] }
+    ]; };
+    ParamForm.propDecorators = {
+        parameter: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Input"] }],
+        save: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Output"] }]
+    };
+    return ParamForm;
+}(_marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_6__["FormBase"]));
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var InvitePage = /** @class */ (function () {
+    function InvitePage() {
+    }
+    /**
+     * @return {?}
+     */
+    InvitePage.prototype.ngOnInit = /**
+     * @return {?}
+     */
+    function () {
+    };
+    InvitePage.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"], args: [{
+                    selector: 'app-invite',
+                    template: "<div class=\"container\">\r\n    <ult-auth-invite></ult-auth-invite>\r\n</div>",
+                    styles: [""]
+                }] }
+    ];
+    /** @nocollapse */
+    InvitePage.ctorParameters = function () { return []; };
+    return InvitePage;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var LoginPage = /** @class */ (function () {
+    function LoginPage() {
+    }
+    /**
+     * @return {?}
+     */
+    LoginPage.prototype.ngOnInit = /**
+     * @return {?}
+     */
+    function () {
+    };
+    LoginPage.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"], args: [{
+                    selector: 'login-page',
+                    template: "<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-4\"></div>\r\n    <div class=\"col-md-4\">\r\n        <ult-auth-login></ult-auth-login>\r\n    </div>\r\n    <div class=\"col-md-4\"></div>\r\n  </div>\r\n</div>",
+                    styles: [""]
+                }] }
+    ];
+    /** @nocollapse */
+    LoginPage.ctorParameters = function () { return []; };
+    return LoginPage;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var NotFoundPage = /** @class */ (function () {
+    function NotFoundPage() {
+    }
+    /**
+     * @return {?}
+     */
+    NotFoundPage.prototype.ngOnInit = /**
+     * @return {?}
+     */
+    function () {
+    };
+    NotFoundPage.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"], args: [{
+                    selector: 'not-found-page',
+                    template: "<div class=\"container\">\r\n<p class=\"text-center\">La ruta especificada no existe.</p>\r\n</div>",
+                    styles: [""]
+                }] }
+    ];
+    /** @nocollapse */
+    NotFoundPage.ctorParameters = function () { return []; };
+    return NotFoundPage;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var PrivatePage = /** @class */ (function () {
+    function PrivatePage() {
+    }
+    /**
+     * @return {?}
+     */
+    PrivatePage.prototype.ngOnInit = /**
+     * @return {?}
+     */
+    function () {
+    };
+    PrivatePage.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"], args: [{
+                    selector: 'app-private',
+                    template: "<div class=\"container\">\r\n  <p>\r\n    private works!\r\n  </p>\r\n</div>",
+                    styles: [""]
+                }] }
+    ];
+    /** @nocollapse */
+    PrivatePage.ctorParameters = function () { return []; };
+    return PrivatePage;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var PublicPage = /** @class */ (function () {
+    function PublicPage() {
+    }
+    /**
+     * @return {?}
+     */
+    PublicPage.prototype.ngOnInit = /**
+     * @return {?}
+     */
+    function () {
+    };
+    PublicPage.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"], args: [{
+                    selector: 'app-public',
+                    template: "<div class=\"container\">\r\n  <p>\r\n    public works!\r\n  </p>\r\n\r\n  <ultimate-param-table></ultimate-param-table>\r\n</div>",
+                    styles: [""]
+                }] }
+    ];
+    /** @nocollapse */
+    PublicPage.ctorParameters = function () { return []; };
+    return PublicPage;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var RegisterPage = /** @class */ (function () {
+    function RegisterPage() {
+    }
+    /**
+     * @return {?}
+     */
+    RegisterPage.prototype.ngOnInit = /**
+     * @return {?}
+     */
+    function () {
+    };
+    RegisterPage.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"], args: [{
+                    selector: 'register-page',
+                    template: "<div class=\"row\">\r\n  <div class=\"col-md-3\"></div>\r\n  <div class=\"col-md-6\">\r\n    <ult-auth-register></ult-auth-register>\r\n  </div>\r\n  <div class=\"col-md-3\"></div>\r\n</div>",
+                    styles: [""]
+                }] }
+    ];
+    /** @nocollapse */
+    RegisterPage.ctorParameters = function () { return []; };
+    return RegisterPage;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var ParamRow = /** @class */ (function () {
+    function ParamRow() {
+        this.editing = new _angular_core__WEBPACK_IMPORTED_MODULE_2__["EventEmitter"]();
+    }
+    /**
+     * @return {?}
+     */
+    ParamRow.prototype.ngOnInit = /**
+     * @return {?}
+     */
+    function () {
+    };
+    /**
+     * @return {?}
+     */
+    ParamRow.prototype.edit = /**
+     * @return {?}
+     */
+    function () {
+        this.editing.emit(this.parameter);
+    };
+    ParamRow.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"], args: [{
+                    selector: 'ultimate-param-row',
+                    template: "<div class=\"row\">\n  <div class=\"col-sm-3\">{{parameter?.name}}</div>\n  <div class=\"col-sm-2\">{{parameter?.group}}</div>\n  <div class=\"col-sm-5\">{{parameter?.value}}</div>\n  <div class=\"col-sm-2\">\n    <button class=\"btn btn-warning form-control\" (click)=\"edit()\">Editar</button>\n  </div>\n</div>",
+                    styles: [""]
+                }] }
+    ];
+    /** @nocollapse */
+    ParamRow.ctorParameters = function () { return []; };
+    ParamRow.propDecorators = {
+        parameter: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Input"] }],
+        editing: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Output"] }]
+    };
+    return ParamRow;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var ParamTable = /** @class */ (function () {
+    function ParamTable(ps) {
+        this.ps = ps;
+        this.parameters = [];
+    }
+    /**
+     * @return {?}
+     */
+    ParamTable.prototype.ngOnInit = /**
+     * @return {?}
+     */
+    function () {
+        var _this = this;
+        this.ps.getAllParameters().subscribe(function (result) {
+            _this.parameters = result;
+        });
+    };
+    ParamTable.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"], args: [{
+                    selector: 'ultimate-param-table',
+                    template: "<ng-container *ngFor=\"let p of parameters\">\n  <ultimate-param-editable [parameter]=\"p\"></ultimate-param-editable>\n</ng-container>",
+                    styles: [""]
+                }] }
+    ];
+    /** @nocollapse */
+    ParamTable.ctorParameters = function () { return [
+        { type: _marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_6__["ParameterService"] }
+    ]; };
+    return ParamTable;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @type {?} */
+var routes = [
+    { path: 'notfound', component: NotFoundPage },
+    { path: 'private', component: PrivatePage },
+    { path: 'public', component: PublicPage },
+    { path: 'login', component: LoginPage },
+    { path: 'register', component: RegisterPage },
+    { path: 'invite', component: InvitePage }
+];
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var UltimateCoreUiModule = /** @class */ (function () {
+    function UltimateCoreUiModule() {
+    }
+    UltimateCoreUiModule.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"], args: [{
+                    declarations: [
+                        CheckboxesComponent, MenuComponent, PagerComponent, ParamEditableComponent,
+                        InviteComponent, LoginComponent, RegisterComponent,
+                        ParamForm,
+                        ParamRow, ParamTable,
+                        InvitePage, LoginPage, NotFoundPage, PrivatePage, PublicPage, RegisterPage
+                    ],
+                    imports: [
+                        _marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_6__["UltimateCoreModule"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["CommonModule"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["ReactiveFormsModule"],
+                        _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(routes)
+                    ],
+                    exports: [
+                        CheckboxesComponent, MenuComponent, PagerComponent, ParamEditableComponent,
+                        InviteComponent, LoginComponent, RegisterComponent,
+                        ParamForm,
+                        ParamRow, ParamTable,
+                        InvitePage, LoginPage, NotFoundPage, PrivatePage, PublicPage, RegisterPage
+                    ],
+                    providers: [
+                        AuthService
+                    ]
+                },] }
+    ];
+    return UltimateCoreUiModule;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+
+
+//# sourceMappingURL=marcohern-ultimate-core-ui.js.map
+
+/***/ }),
+
 /***/ "./dist/marcohern/ultimate-core/fesm5/marcohern-ultimate-core.js":
 /*!***********************************************************************!*\
   !*** ./dist/marcohern/ultimate-core/fesm5/marcohern-ultimate-core.js ***!
@@ -1355,7 +2482,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppRoutingModule", function() { return AppRoutingModule; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _modules_ultimate_auth_pages_public_public_page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/ultimate-auth/pages/public/public.page */ "./src/app/modules/ultimate-auth/pages/public/public.page.ts");
+/* harmony import */ var _marcohern_ultimate_core_ui__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @marcohern/ultimate-core-ui */ "./dist/marcohern/ultimate-core-ui/fesm5/marcohern-ultimate-core-ui.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1366,7 +2493,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 var routes = [
-    { path: '', component: _modules_ultimate_auth_pages_public_public_page__WEBPACK_IMPORTED_MODULE_2__["PublicPage"] },
+    { path: '', component: _marcohern_ultimate_core_ui__WEBPACK_IMPORTED_MODULE_2__["PublicPage"] },
     { path: '*', redirectTo: '/notfound' },
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -1481,9 +2608,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _modules_ultimate_auth_ultimate_auth_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/ultimate-auth/ultimate-auth.module */ "./src/app/modules/ultimate-auth/ultimate-auth.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @marcohern/ultimate-core */ "./dist/marcohern/ultimate-core/fesm5/marcohern-ultimate-core.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @marcohern/ultimate-core */ "./dist/marcohern/ultimate-core/fesm5/marcohern-ultimate-core.js");
+/* harmony import */ var _marcohern_ultimate_core_ui__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @marcohern/ultimate-core-ui */ "./dist/marcohern/ultimate-core-ui/fesm5/marcohern-ultimate-core-ui.js");
 /* harmony import */ var _modules_ultimate_users_ultimate_users_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/ultimate-users/ultimate-users.module */ "./src/app/modules/ultimate-users/ultimate-users.module.ts");
 /* harmony import */ var _modules_ultimate_products_ultimate_products_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/ultimate-products/ultimate-products.module */ "./src/app/modules/ultimate-products/ultimate-products.module.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
@@ -1506,18 +2633,18 @@ var AppModule = /** @class */ (function () {
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]
+                _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"],
-                _marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_5__["UltimateCoreModule"],
-                _modules_ultimate_auth_ultimate_auth_module__WEBPACK_IMPORTED_MODULE_3__["UltimateAuthModule"],
+                _marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_4__["UltimateCoreModule"],
+                _marcohern_ultimate_core_ui__WEBPACK_IMPORTED_MODULE_5__["UltimateCoreUiModule"],
                 _modules_ultimate_users_ultimate_users_module__WEBPACK_IMPORTED_MODULE_6__["UltimateUsersModule"],
                 _modules_ultimate_products_ultimate_products_module__WEBPACK_IMPORTED_MODULE_7__["UltimateProductsModule"]
             ],
             providers: [],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -1552,818 +2679,6 @@ var menu = [
 var menuOptions = {
     search: false
 };
-
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-auth/cmps/invite/invite.component.css":
-/*!************************************************************************!*\
-  !*** ./src/app/modules/ultimate-auth/cmps/invite/invite.component.css ***!
-  \************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvdWx0aW1hdGUtYXV0aC9jbXBzL2ludml0ZS9pbnZpdGUuY29tcG9uZW50LmNzcyJ9 */"
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-auth/cmps/invite/invite.component.html":
-/*!*************************************************************************!*\
-  !*** ./src/app/modules/ultimate-auth/cmps/invite/invite.component.html ***!
-  \*************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"card\" style=\"width: 100%\">\r\n  <div class=\"card-body\">\r\n    <form id=\"registerForm\">\r\n      <p class=\"h5 card-title\">Invite a User</p>\r\n      <div class=\"row\">\r\n        <div class=\"col-md-6\">\r\n          <div class=\"form-group\">\r\n            <label>Email</label>\r\n            <input type=\"email\" class=\"form-control\" placeholder=\"johndoe@mail.com\" [(ngModel)]=\"user.email\" name=\"email\">\r\n          </div>\r\n        </div>\r\n        <div class=\"col-md-6\">\r\n          <div class=\"form-group\">\r\n            <label>Name</label>\r\n            <input type=\"text\" class=\"form-control\" placeholder=\"John Doe\" [(ngModel)]=\"user.name\" name=\"name\">\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <button class=\"btn btn-primary\" (click)=\"invite($event)\">Invite</button>\r\n    </form>\r\n  </div>\r\n</div>"
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-auth/cmps/invite/invite.component.ts":
-/*!***********************************************************************!*\
-  !*** ./src/app/modules/ultimate-auth/cmps/invite/invite.component.ts ***!
-  \***********************************************************************/
-/*! exports provided: InviteComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InviteComponent", function() { return InviteComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _srvs_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../srvs/auth.service */ "./src/app/modules/ultimate-auth/srvs/auth.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var InviteComponent = /** @class */ (function () {
-    function InviteComponent(as, route) {
-        this.as = as;
-        this.route = route;
-        this.user = { email: '', name: '' };
-    }
-    InviteComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        var user_id = this.route.snapshot.params.id;
-        this.as.getUser(user_id).subscribe(function (result) {
-            console.log(result);
-            _this.user = result;
-        });
-        /*
-        this.as.invite({email:'jcusack@mail.com',name:'John Cusack'}).subscribe(result => {
-          console.log(result);
-        });*/
-    };
-    InviteComponent.prototype.invite = function ($event) {
-        //console.log("invite",$event, this.user);
-        var user = {
-            id: this.user.id,
-            email: this.user.email,
-            name: this.user.name
-        };
-        this.as.invite(user).subscribe(function (result) {
-            console.log(result);
-        });
-    };
-    InviteComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'ult-auth-invite',
-            template: __webpack_require__(/*! ./invite.component.html */ "./src/app/modules/ultimate-auth/cmps/invite/invite.component.html"),
-            styles: [__webpack_require__(/*! ./invite.component.css */ "./src/app/modules/ultimate-auth/cmps/invite/invite.component.css")]
-        }),
-        __metadata("design:paramtypes", [_srvs_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
-    ], InviteComponent);
-    return InviteComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-auth/cmps/login/login.component.css":
-/*!**********************************************************************!*\
-  !*** ./src/app/modules/ultimate-auth/cmps/login/login.component.css ***!
-  \**********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvdWx0aW1hdGUtYXV0aC9jbXBzL2xvZ2luL2xvZ2luLmNvbXBvbmVudC5jc3MifQ== */"
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-auth/cmps/login/login.component.html":
-/*!***********************************************************************!*\
-  !*** ./src/app/modules/ultimate-auth/cmps/login/login.component.html ***!
-  \***********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"card\" style=\"width: 100%\">\r\n  <div class=\"card-body\">\r\n    <form (ngSubmit)=\"requestLogin()\">\r\n      <p class=\"h5 card-title\">Login</p>\r\n      <div class=\"form-group\">\r\n        <label>Email</label>\r\n        <input type=\"email\" class=\"form-control\" placeholder=\"johndoe@mail.com\" name=\"email\" [(ngModel)]=\"email\" required>\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label>Password</label>\r\n        <input type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"password\" required>\r\n      </div>\r\n      <div class=\"form-group form-check\">\r\n        <input type=\"checkbox\" class=\"form-check-input\">\r\n        <label class=\"form-check-label\">Remember me</label>\r\n      </div>\r\n      <div>\r\n        <button class=\"btn btn-primary\" type=\"submit\" [disabled]=\"req().isRequesting()\">Login</button>\r\n        <img [attr.src]=\"assets('loading.svg')\" alt=\"Loading\" width=\"38px\" *ngIf=\"req().isRequesting()\" >\r\n      </div>\r\n      <div>\r\n        <a href=\"#\">Forgot password?</a>\r\n      </div>\r\n    </form>\r\n    <div class=\"alert alert-danger\" role=\"alert\" *ngIf=\"errorAlert\">\r\n      <span>{{errorMsg}}</span>\r\n    </div>\r\n  </div>\r\n</div>"
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-auth/cmps/login/login.component.ts":
-/*!*********************************************************************!*\
-  !*** ./src/app/modules/ultimate-auth/cmps/login/login.component.ts ***!
-  \*********************************************************************/
-/*! exports provided: LoginComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @marcohern/ultimate-core */ "./dist/marcohern/ultimate-core/fesm5/marcohern-ultimate-core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-var __extends = (undefined && undefined.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    }
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var LoginComponent = /** @class */ (function (_super) {
-    __extends(LoginComponent, _super);
-    function LoginComponent(_req, router, ass) {
-        var _this = _super.call(this, ass) || this;
-        _this._req = _req;
-        _this.router = router;
-        _this.email = '';
-        _this.password = '';
-        _this.errorMsg = '';
-        return _this;
-    }
-    LoginComponent.prototype.req = function () {
-        get: {
-            return this._req;
-        }
-    };
-    LoginComponent.prototype.ngOnInit = function () {
-    };
-    LoginComponent.prototype.requestLogin = function () {
-        var _this = this;
-        this.errorAlert = false;
-        this.errorMsg = '';
-        this._req.login(this.email, this.password).subscribe(function (result) {
-            _this._req.setToken(result.access_token);
-            _this.router.navigate(['/private']);
-        }, function (error) {
-            if (error.error) {
-                if (error.error.message) {
-                    _this.errorMsg = error.error.message;
-                }
-            }
-            else {
-                if (error.message) {
-                    _this.errorMsg = error.message;
-                }
-            }
-            _this.errorAlert = true;
-        });
-    };
-    LoginComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'ult-auth-login',
-            template: __webpack_require__(/*! ./login.component.html */ "./src/app/modules/ultimate-auth/cmps/login/login.component.html"),
-            styles: [__webpack_require__(/*! ./login.component.css */ "./src/app/modules/ultimate-auth/cmps/login/login.component.css")]
-        }),
-        __metadata("design:paramtypes", [_marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_1__["RequestService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_1__["AssetsService"]])
-    ], LoginComponent);
-    return LoginComponent;
-}(_marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_1__["ComponentBase"]));
-
-
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-auth/cmps/register/register.component.css":
-/*!****************************************************************************!*\
-  !*** ./src/app/modules/ultimate-auth/cmps/register/register.component.css ***!
-  \****************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvdWx0aW1hdGUtYXV0aC9jbXBzL3JlZ2lzdGVyL3JlZ2lzdGVyLmNvbXBvbmVudC5jc3MifQ== */"
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-auth/cmps/register/register.component.html":
-/*!*****************************************************************************!*\
-  !*** ./src/app/modules/ultimate-auth/cmps/register/register.component.html ***!
-  \*****************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"card\" style=\"width: 100%\">\r\n  <div class=\"card-body\">\r\n    <form id=\"registerForm\">\r\n      <p class=\"h5 card-title\">Register</p>\r\n      <div class=\"form-group\">\r\n        <label>Email</label>\r\n        <input type=\"email\" class=\"form-control\" placeholder=\"johndoe@mail.com\">\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label>Name</label>\r\n        <input type=\"text\" class=\"form-control\" placeholder=\"John Doe\">\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label>Password</label>\r\n        <input type=\"password\" class=\"form-control\">\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label>Confirm Password</label>\r\n        <input type=\"password\" class=\"form-control\">\r\n      </div>\r\n    </form>\r\n  </div>\r\n</div>"
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-auth/cmps/register/register.component.ts":
-/*!***************************************************************************!*\
-  !*** ./src/app/modules/ultimate-auth/cmps/register/register.component.ts ***!
-  \***************************************************************************/
-/*! exports provided: RegisterComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterComponent", function() { return RegisterComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var RegisterComponent = /** @class */ (function () {
-    function RegisterComponent() {
-    }
-    RegisterComponent.prototype.ngOnInit = function () {
-    };
-    RegisterComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'ult-auth-register',
-            template: __webpack_require__(/*! ./register.component.html */ "./src/app/modules/ultimate-auth/cmps/register/register.component.html"),
-            styles: [__webpack_require__(/*! ./register.component.css */ "./src/app/modules/ultimate-auth/cmps/register/register.component.css")]
-        }),
-        __metadata("design:paramtypes", [])
-    ], RegisterComponent);
-    return RegisterComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-auth/pages/invite/invite.page.css":
-/*!********************************************************************!*\
-  !*** ./src/app/modules/ultimate-auth/pages/invite/invite.page.css ***!
-  \********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvdWx0aW1hdGUtYXV0aC9wYWdlcy9pbnZpdGUvaW52aXRlLnBhZ2UuY3NzIn0= */"
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-auth/pages/invite/invite.page.html":
-/*!*********************************************************************!*\
-  !*** ./src/app/modules/ultimate-auth/pages/invite/invite.page.html ***!
-  \*********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"container\">\r\n    <ult-auth-invite></ult-auth-invite>\r\n</div>"
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-auth/pages/invite/invite.page.ts":
-/*!*******************************************************************!*\
-  !*** ./src/app/modules/ultimate-auth/pages/invite/invite.page.ts ***!
-  \*******************************************************************/
-/*! exports provided: InvitePage */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InvitePage", function() { return InvitePage; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var InvitePage = /** @class */ (function () {
-    function InvitePage() {
-    }
-    InvitePage.prototype.ngOnInit = function () {
-    };
-    InvitePage = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-invite',
-            template: __webpack_require__(/*! ./invite.page.html */ "./src/app/modules/ultimate-auth/pages/invite/invite.page.html"),
-            styles: [__webpack_require__(/*! ./invite.page.css */ "./src/app/modules/ultimate-auth/pages/invite/invite.page.css")]
-        }),
-        __metadata("design:paramtypes", [])
-    ], InvitePage);
-    return InvitePage;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-auth/pages/login/login.page.css":
-/*!******************************************************************!*\
-  !*** ./src/app/modules/ultimate-auth/pages/login/login.page.css ***!
-  \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvdWx0aW1hdGUtYXV0aC9wYWdlcy9sb2dpbi9sb2dpbi5wYWdlLmNzcyJ9 */"
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-auth/pages/login/login.page.html":
-/*!*******************************************************************!*\
-  !*** ./src/app/modules/ultimate-auth/pages/login/login.page.html ***!
-  \*******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-4\"></div>\r\n    <div class=\"col-md-4\">\r\n        <ult-auth-login></ult-auth-login>\r\n    </div>\r\n    <div class=\"col-md-4\"></div>\r\n  </div>\r\n</div>"
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-auth/pages/login/login.page.ts":
-/*!*****************************************************************!*\
-  !*** ./src/app/modules/ultimate-auth/pages/login/login.page.ts ***!
-  \*****************************************************************/
-/*! exports provided: LoginPage */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPage", function() { return LoginPage; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var LoginPage = /** @class */ (function () {
-    function LoginPage() {
-    }
-    LoginPage.prototype.ngOnInit = function () {
-    };
-    LoginPage = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'login-page',
-            template: __webpack_require__(/*! ./login.page.html */ "./src/app/modules/ultimate-auth/pages/login/login.page.html"),
-            styles: [__webpack_require__(/*! ./login.page.css */ "./src/app/modules/ultimate-auth/pages/login/login.page.css")]
-        }),
-        __metadata("design:paramtypes", [])
-    ], LoginPage);
-    return LoginPage;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-auth/pages/not-found/not-found.page.css":
-/*!**************************************************************************!*\
-  !*** ./src/app/modules/ultimate-auth/pages/not-found/not-found.page.css ***!
-  \**************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvdWx0aW1hdGUtYXV0aC9wYWdlcy9ub3QtZm91bmQvbm90LWZvdW5kLnBhZ2UuY3NzIn0= */"
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-auth/pages/not-found/not-found.page.html":
-/*!***************************************************************************!*\
-  !*** ./src/app/modules/ultimate-auth/pages/not-found/not-found.page.html ***!
-  \***************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"container\">\r\n<p class=\"text-center\">La ruta especificada no existe.</p>\r\n</div>"
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-auth/pages/not-found/not-found.page.ts":
-/*!*************************************************************************!*\
-  !*** ./src/app/modules/ultimate-auth/pages/not-found/not-found.page.ts ***!
-  \*************************************************************************/
-/*! exports provided: NotFoundPage */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NotFoundPage", function() { return NotFoundPage; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var NotFoundPage = /** @class */ (function () {
-    function NotFoundPage() {
-    }
-    NotFoundPage.prototype.ngOnInit = function () {
-    };
-    NotFoundPage = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'not-found-page',
-            template: __webpack_require__(/*! ./not-found.page.html */ "./src/app/modules/ultimate-auth/pages/not-found/not-found.page.html"),
-            styles: [__webpack_require__(/*! ./not-found.page.css */ "./src/app/modules/ultimate-auth/pages/not-found/not-found.page.css")]
-        }),
-        __metadata("design:paramtypes", [])
-    ], NotFoundPage);
-    return NotFoundPage;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-auth/pages/private/private.page.css":
-/*!**********************************************************************!*\
-  !*** ./src/app/modules/ultimate-auth/pages/private/private.page.css ***!
-  \**********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvdWx0aW1hdGUtYXV0aC9wYWdlcy9wcml2YXRlL3ByaXZhdGUucGFnZS5jc3MifQ== */"
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-auth/pages/private/private.page.html":
-/*!***********************************************************************!*\
-  !*** ./src/app/modules/ultimate-auth/pages/private/private.page.html ***!
-  \***********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"container\">\r\n  <p>\r\n    private works!\r\n  </p>\r\n</div>"
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-auth/pages/private/private.page.ts":
-/*!*********************************************************************!*\
-  !*** ./src/app/modules/ultimate-auth/pages/private/private.page.ts ***!
-  \*********************************************************************/
-/*! exports provided: PrivatePage */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PrivatePage", function() { return PrivatePage; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var PrivatePage = /** @class */ (function () {
-    function PrivatePage() {
-    }
-    PrivatePage.prototype.ngOnInit = function () {
-    };
-    PrivatePage = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-private',
-            template: __webpack_require__(/*! ./private.page.html */ "./src/app/modules/ultimate-auth/pages/private/private.page.html"),
-            styles: [__webpack_require__(/*! ./private.page.css */ "./src/app/modules/ultimate-auth/pages/private/private.page.css")]
-        }),
-        __metadata("design:paramtypes", [])
-    ], PrivatePage);
-    return PrivatePage;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-auth/pages/public/public.page.css":
-/*!********************************************************************!*\
-  !*** ./src/app/modules/ultimate-auth/pages/public/public.page.css ***!
-  \********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvdWx0aW1hdGUtYXV0aC9wYWdlcy9wdWJsaWMvcHVibGljLnBhZ2UuY3NzIn0= */"
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-auth/pages/public/public.page.html":
-/*!*********************************************************************!*\
-  !*** ./src/app/modules/ultimate-auth/pages/public/public.page.html ***!
-  \*********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"container\">\r\n  <p>\r\n    public works!\r\n  </p>\r\n\r\n  <ultimate-param-table></ultimate-param-table>\r\n</div>"
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-auth/pages/public/public.page.ts":
-/*!*******************************************************************!*\
-  !*** ./src/app/modules/ultimate-auth/pages/public/public.page.ts ***!
-  \*******************************************************************/
-/*! exports provided: PublicPage */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PublicPage", function() { return PublicPage; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var PublicPage = /** @class */ (function () {
-    function PublicPage() {
-    }
-    PublicPage.prototype.ngOnInit = function () {
-    };
-    PublicPage = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-public',
-            template: __webpack_require__(/*! ./public.page.html */ "./src/app/modules/ultimate-auth/pages/public/public.page.html"),
-            styles: [__webpack_require__(/*! ./public.page.css */ "./src/app/modules/ultimate-auth/pages/public/public.page.css")]
-        }),
-        __metadata("design:paramtypes", [])
-    ], PublicPage);
-    return PublicPage;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-auth/pages/register/register.page.css":
-/*!************************************************************************!*\
-  !*** ./src/app/modules/ultimate-auth/pages/register/register.page.css ***!
-  \************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvdWx0aW1hdGUtYXV0aC9wYWdlcy9yZWdpc3Rlci9yZWdpc3Rlci5wYWdlLmNzcyJ9 */"
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-auth/pages/register/register.page.html":
-/*!*************************************************************************!*\
-  !*** ./src/app/modules/ultimate-auth/pages/register/register.page.html ***!
-  \*************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-3\"></div>\r\n  <div class=\"col-md-6\">\r\n    <ult-auth-register></ult-auth-register>\r\n  </div>\r\n  <div class=\"col-md-3\"></div>\r\n</div>"
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-auth/pages/register/register.page.ts":
-/*!***********************************************************************!*\
-  !*** ./src/app/modules/ultimate-auth/pages/register/register.page.ts ***!
-  \***********************************************************************/
-/*! exports provided: RegisterPage */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterPage", function() { return RegisterPage; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var RegisterPage = /** @class */ (function () {
-    function RegisterPage() {
-    }
-    RegisterPage.prototype.ngOnInit = function () {
-    };
-    RegisterPage = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'register-page',
-            template: __webpack_require__(/*! ./register.page.html */ "./src/app/modules/ultimate-auth/pages/register/register.page.html"),
-            styles: [__webpack_require__(/*! ./register.page.css */ "./src/app/modules/ultimate-auth/pages/register/register.page.css")]
-        }),
-        __metadata("design:paramtypes", [])
-    ], RegisterPage);
-    return RegisterPage;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-auth/routes.ts":
-/*!*************************************************!*\
-  !*** ./src/app/modules/ultimate-auth/routes.ts ***!
-  \*************************************************/
-/*! exports provided: routes */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "routes", function() { return routes; });
-/* harmony import */ var _pages_public_public_page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pages/public/public.page */ "./src/app/modules/ultimate-auth/pages/public/public.page.ts");
-/* harmony import */ var _pages_private_private_page__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/private/private.page */ "./src/app/modules/ultimate-auth/pages/private/private.page.ts");
-/* harmony import */ var _pages_login_login_page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/login/login.page */ "./src/app/modules/ultimate-auth/pages/login/login.page.ts");
-/* harmony import */ var _pages_register_register_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/register/register.page */ "./src/app/modules/ultimate-auth/pages/register/register.page.ts");
-/* harmony import */ var _pages_not_found_not_found_page__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/not-found/not-found.page */ "./src/app/modules/ultimate-auth/pages/not-found/not-found.page.ts");
-/* harmony import */ var _pages_invite_invite_page__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/invite/invite.page */ "./src/app/modules/ultimate-auth/pages/invite/invite.page.ts");
-
-
-
-
-
-
-var routes = [
-    { path: 'notfound', component: _pages_not_found_not_found_page__WEBPACK_IMPORTED_MODULE_4__["NotFoundPage"] },
-    { path: 'private', component: _pages_private_private_page__WEBPACK_IMPORTED_MODULE_1__["PrivatePage"] },
-    { path: 'public', component: _pages_public_public_page__WEBPACK_IMPORTED_MODULE_0__["PublicPage"] },
-    { path: 'login', component: _pages_login_login_page__WEBPACK_IMPORTED_MODULE_2__["LoginPage"] },
-    { path: 'register', component: _pages_register_register_page__WEBPACK_IMPORTED_MODULE_3__["RegisterPage"] },
-    { path: 'invite', component: _pages_invite_invite_page__WEBPACK_IMPORTED_MODULE_5__["InvitePage"] }
-];
-
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-auth/srvs/auth.service.ts":
-/*!************************************************************!*\
-  !*** ./src/app/modules/ultimate-auth/srvs/auth.service.ts ***!
-  \************************************************************/
-/*! exports provided: AuthService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthService", function() { return AuthService; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @marcohern/ultimate-core */ "./dist/marcohern/ultimate-core/fesm5/marcohern-ultimate-core.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var AuthService = /** @class */ (function () {
-    function AuthService(req) {
-        this.req = req;
-    }
-    AuthService.prototype.login = function (username, password) {
-        return this.req.login(username, password);
-    };
-    AuthService.prototype.logout = function () {
-        return this.req.logout();
-    };
-    AuthService.prototype.invite = function (user) {
-        return this.req.post('/users', user);
-    };
-    AuthService.prototype.getUser = function (id) {
-        return this.req.get('/users', id);
-    };
-    AuthService = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
-            providedIn: 'root'
-        }),
-        __metadata("design:paramtypes", [_marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_1__["RequestService"]])
-    ], AuthService);
-    return AuthService;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-auth/ultimate-auth.module.ts":
-/*!***************************************************************!*\
-  !*** ./src/app/modules/ultimate-auth/ultimate-auth.module.ts ***!
-  \***************************************************************/
-/*! exports provided: UltimateAuthModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UltimateAuthModule", function() { return UltimateAuthModule; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @marcohern/ultimate-core */ "./dist/marcohern/ultimate-core/fesm5/marcohern-ultimate-core.js");
-/* harmony import */ var _cmps_login_login_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./cmps/login/login.component */ "./src/app/modules/ultimate-auth/cmps/login/login.component.ts");
-/* harmony import */ var _cmps_register_register_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./cmps/register/register.component */ "./src/app/modules/ultimate-auth/cmps/register/register.component.ts");
-/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./routes */ "./src/app/modules/ultimate-auth/routes.ts");
-/* harmony import */ var _pages_login_login_page__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./pages/login/login.page */ "./src/app/modules/ultimate-auth/pages/login/login.page.ts");
-/* harmony import */ var _pages_register_register_page__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./pages/register/register.page */ "./src/app/modules/ultimate-auth/pages/register/register.page.ts");
-/* harmony import */ var _pages_not_found_not_found_page__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./pages/not-found/not-found.page */ "./src/app/modules/ultimate-auth/pages/not-found/not-found.page.ts");
-/* harmony import */ var _pages_private_private_page__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./pages/private/private.page */ "./src/app/modules/ultimate-auth/pages/private/private.page.ts");
-/* harmony import */ var _pages_public_public_page__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./pages/public/public.page */ "./src/app/modules/ultimate-auth/pages/public/public.page.ts");
-/* harmony import */ var _cmps_invite_invite_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./cmps/invite/invite.component */ "./src/app/modules/ultimate-auth/cmps/invite/invite.component.ts");
-/* harmony import */ var _pages_invite_invite_page__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./pages/invite/invite.page */ "./src/app/modules/ultimate-auth/pages/invite/invite.page.ts");
-/* harmony import */ var _srvs_auth_service__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./srvs/auth.service */ "./src/app/modules/ultimate-auth/srvs/auth.service.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var UltimateAuthModule = /** @class */ (function () {
-    function UltimateAuthModule() {
-    }
-    UltimateAuthModule = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
-            declarations: [
-                _cmps_login_login_component__WEBPACK_IMPORTED_MODULE_6__["LoginComponent"], _cmps_invite_invite_component__WEBPACK_IMPORTED_MODULE_14__["InviteComponent"], _cmps_register_register_component__WEBPACK_IMPORTED_MODULE_7__["RegisterComponent"],
-                _pages_private_private_page__WEBPACK_IMPORTED_MODULE_12__["PrivatePage"], _pages_public_public_page__WEBPACK_IMPORTED_MODULE_13__["PublicPage"], _pages_invite_invite_page__WEBPACK_IMPORTED_MODULE_15__["InvitePage"],
-                _pages_login_login_page__WEBPACK_IMPORTED_MODULE_9__["LoginPage"], _pages_register_register_page__WEBPACK_IMPORTED_MODULE_10__["RegisterPage"], _pages_not_found_not_found_page__WEBPACK_IMPORTED_MODULE_11__["NotFoundPage"],
-            ],
-            imports: [
-                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
-                _marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_5__["UltimateCoreModule"],
-                _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
-                _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forChild(_routes__WEBPACK_IMPORTED_MODULE_8__["routes"])
-            ],
-            providers: [_srvs_auth_service__WEBPACK_IMPORTED_MODULE_16__["AuthService"]],
-            exports: [
-                _pages_login_login_page__WEBPACK_IMPORTED_MODULE_9__["LoginPage"]
-            ]
-        })
-    ], UltimateAuthModule);
-    return UltimateAuthModule;
-}());
-
 
 
 /***/ }),
@@ -3382,20 +3697,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @marcohern/ultimate-core */ "./dist/marcohern/ultimate-core/fesm5/marcohern-ultimate-core.js");
-/* harmony import */ var ngx_image_gallery__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-image-gallery */ "./node_modules/ngx-image-gallery/ngx-image-gallery.umd.js");
-/* harmony import */ var ngx_image_gallery__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(ngx_image_gallery__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var angular2_image_upload__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! angular2-image-upload */ "./node_modules/angular2-image-upload/index.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var ngx_bootstrap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-bootstrap */ "./node_modules/ngx-bootstrap/esm5/ngx-bootstrap.js");
-/* harmony import */ var _forms_product_product_form__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./forms/product/product.form */ "./src/app/modules/ultimate-products/forms/product/product.form.ts");
-/* harmony import */ var _tables_product_product_row__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./tables/product/product.row */ "./src/app/modules/ultimate-products/tables/product/product.row.ts");
-/* harmony import */ var _tables_product_product_table__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./tables/product/product.table */ "./src/app/modules/ultimate-products/tables/product/product.table.ts");
-/* harmony import */ var _cmps_products_query_products_query_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./cmps/products-query/products-query.component */ "./src/app/modules/ultimate-products/cmps/products-query/products-query.component.ts");
-/* harmony import */ var _cmps_product_detail_product_detail_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./cmps/product-detail/product-detail.component */ "./src/app/modules/ultimate-products/cmps/product-detail/product-detail.component.ts");
-/* harmony import */ var _pages_product_list_product_list_page__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./pages/product-list/product-list.page */ "./src/app/modules/ultimate-products/pages/product-list/product-list.page.ts");
-/* harmony import */ var _pages_product_detail_product_detail_page__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./pages/product-detail/product-detail.page */ "./src/app/modules/ultimate-products/pages/product-detail/product-detail.page.ts");
-/* harmony import */ var _pages_product_edit_product_edit_page__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./pages/product-edit/product-edit.page */ "./src/app/modules/ultimate-products/pages/product-edit/product-edit.page.ts");
-/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./routes */ "./src/app/modules/ultimate-products/routes.ts");
+/* harmony import */ var _marcohern_ultimate_core_ui__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @marcohern/ultimate-core-ui */ "./dist/marcohern/ultimate-core-ui/fesm5/marcohern-ultimate-core-ui.js");
+/* harmony import */ var ngx_image_gallery__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-image-gallery */ "./node_modules/ngx-image-gallery/ngx-image-gallery.umd.js");
+/* harmony import */ var ngx_image_gallery__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(ngx_image_gallery__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var angular2_image_upload__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! angular2-image-upload */ "./node_modules/angular2-image-upload/index.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var ngx_bootstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ngx-bootstrap */ "./node_modules/ngx-bootstrap/esm5/ngx-bootstrap.js");
+/* harmony import */ var _forms_product_product_form__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./forms/product/product.form */ "./src/app/modules/ultimate-products/forms/product/product.form.ts");
+/* harmony import */ var _tables_product_product_row__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./tables/product/product.row */ "./src/app/modules/ultimate-products/tables/product/product.row.ts");
+/* harmony import */ var _tables_product_product_table__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./tables/product/product.table */ "./src/app/modules/ultimate-products/tables/product/product.table.ts");
+/* harmony import */ var _cmps_products_query_products_query_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./cmps/products-query/products-query.component */ "./src/app/modules/ultimate-products/cmps/products-query/products-query.component.ts");
+/* harmony import */ var _cmps_product_detail_product_detail_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./cmps/product-detail/product-detail.component */ "./src/app/modules/ultimate-products/cmps/product-detail/product-detail.component.ts");
+/* harmony import */ var _pages_product_list_product_list_page__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./pages/product-list/product-list.page */ "./src/app/modules/ultimate-products/pages/product-list/product-list.page.ts");
+/* harmony import */ var _pages_product_detail_product_detail_page__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./pages/product-detail/product-detail.page */ "./src/app/modules/ultimate-products/pages/product-detail/product-detail.page.ts");
+/* harmony import */ var _pages_product_edit_product_edit_page__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./pages/product-edit/product-edit.page */ "./src/app/modules/ultimate-products/pages/product-edit/product-edit.page.ts");
+/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./routes */ "./src/app/modules/ultimate-products/routes.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3419,27 +3735,29 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var UltimateProductsModule = /** @class */ (function () {
     function UltimateProductsModule() {
     }
     UltimateProductsModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
             declarations: [
-                _cmps_product_detail_product_detail_component__WEBPACK_IMPORTED_MODULE_12__["ProductDetailComponent"], _cmps_products_query_products_query_component__WEBPACK_IMPORTED_MODULE_11__["ProductsQueryComponent"],
-                _forms_product_product_form__WEBPACK_IMPORTED_MODULE_8__["ProductForm"],
-                _tables_product_product_row__WEBPACK_IMPORTED_MODULE_9__["ProductRow"], _tables_product_product_table__WEBPACK_IMPORTED_MODULE_10__["ProductTable"],
-                _pages_product_list_product_list_page__WEBPACK_IMPORTED_MODULE_13__["ProductListPage"], _pages_product_detail_product_detail_page__WEBPACK_IMPORTED_MODULE_14__["ProductDetailPage"], _pages_product_edit_product_edit_page__WEBPACK_IMPORTED_MODULE_15__["ProductEditPage"],
+                _cmps_product_detail_product_detail_component__WEBPACK_IMPORTED_MODULE_13__["ProductDetailComponent"], _cmps_products_query_products_query_component__WEBPACK_IMPORTED_MODULE_12__["ProductsQueryComponent"],
+                _forms_product_product_form__WEBPACK_IMPORTED_MODULE_9__["ProductForm"],
+                _tables_product_product_row__WEBPACK_IMPORTED_MODULE_10__["ProductRow"], _tables_product_product_table__WEBPACK_IMPORTED_MODULE_11__["ProductTable"],
+                _pages_product_list_product_list_page__WEBPACK_IMPORTED_MODULE_14__["ProductListPage"], _pages_product_detail_product_detail_page__WEBPACK_IMPORTED_MODULE_15__["ProductDetailPage"], _pages_product_edit_product_edit_page__WEBPACK_IMPORTED_MODULE_16__["ProductEditPage"],
             ],
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormsModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ReactiveFormsModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_7__["ReactiveFormsModule"],
                 _marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_3__["UltimateCoreModule"],
-                ngx_image_gallery__WEBPACK_IMPORTED_MODULE_4__["NgxImageGalleryModule"],
-                ngx_bootstrap__WEBPACK_IMPORTED_MODULE_7__["ModalModule"].forRoot(),
-                _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(_routes__WEBPACK_IMPORTED_MODULE_16__["routes"]),
-                angular2_image_upload__WEBPACK_IMPORTED_MODULE_5__["ImageUploadModule"].forRoot(),
+                _marcohern_ultimate_core_ui__WEBPACK_IMPORTED_MODULE_4__["UltimateCoreUiModule"],
+                ngx_image_gallery__WEBPACK_IMPORTED_MODULE_5__["NgxImageGalleryModule"],
+                ngx_bootstrap__WEBPACK_IMPORTED_MODULE_8__["ModalModule"].forRoot(),
+                _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(_routes__WEBPACK_IMPORTED_MODULE_17__["routes"]),
+                angular2_image_upload__WEBPACK_IMPORTED_MODULE_6__["ImageUploadModule"].forRoot(),
             ]
         })
     ], UltimateProductsModule);
@@ -3934,12 +4252,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @marcohern/ultimate-core */ "./dist/marcohern/ultimate-core/fesm5/marcohern-ultimate-core.js");
-/* harmony import */ var _cmps_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./cmps/user-list/user-list.component */ "./src/app/modules/ultimate-users/cmps/user-list/user-list.component.ts");
-/* harmony import */ var _pages_user_list_user_list_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/user-list/user-list.page */ "./src/app/modules/ultimate-users/pages/user-list/user-list.page.ts");
-/* harmony import */ var _srvs_user_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./srvs/user.service */ "./src/app/modules/ultimate-users/srvs/user.service.ts");
-/* harmony import */ var _forms_user_user_form__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./forms/user/user.form */ "./src/app/modules/ultimate-users/forms/user/user.form.ts");
-/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./routes */ "./src/app/modules/ultimate-users/routes.ts");
-/* harmony import */ var _pages_user_edit_user_edit_page__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./pages/user-edit/user-edit.page */ "./src/app/modules/ultimate-users/pages/user-edit/user-edit.page.ts");
+/* harmony import */ var _marcohern_ultimate_core_ui__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @marcohern/ultimate-core-ui */ "./dist/marcohern/ultimate-core-ui/fesm5/marcohern-ultimate-core-ui.js");
+/* harmony import */ var _cmps_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./cmps/user-list/user-list.component */ "./src/app/modules/ultimate-users/cmps/user-list/user-list.component.ts");
+/* harmony import */ var _pages_user_list_user_list_page__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pages/user-list/user-list.page */ "./src/app/modules/ultimate-users/pages/user-list/user-list.page.ts");
+/* harmony import */ var _srvs_user_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./srvs/user.service */ "./src/app/modules/ultimate-users/srvs/user.service.ts");
+/* harmony import */ var _forms_user_user_form__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./forms/user/user.form */ "./src/app/modules/ultimate-users/forms/user/user.form.ts");
+/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./routes */ "./src/app/modules/ultimate-users/routes.ts");
+/* harmony import */ var _pages_user_edit_user_edit_page__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./pages/user-edit/user-edit.page */ "./src/app/modules/ultimate-users/pages/user-edit/user-edit.page.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3957,24 +4276,26 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var UltimateUsersModule = /** @class */ (function () {
     function UltimateUsersModule() {
     }
     UltimateUsersModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
             declarations: [
-                _cmps_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_5__["UserListComponent"], _forms_user_user_form__WEBPACK_IMPORTED_MODULE_8__["UserForm"],
-                _pages_user_list_user_list_page__WEBPACK_IMPORTED_MODULE_6__["UserListPage"], _pages_user_edit_user_edit_page__WEBPACK_IMPORTED_MODULE_10__["UserEditPage"]
+                _cmps_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_6__["UserListComponent"], _forms_user_user_form__WEBPACK_IMPORTED_MODULE_9__["UserForm"],
+                _pages_user_list_user_list_page__WEBPACK_IMPORTED_MODULE_7__["UserListPage"], _pages_user_edit_user_edit_page__WEBPACK_IMPORTED_MODULE_11__["UserEditPage"]
             ],
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
                 _marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_4__["UltimateCoreModule"],
+                _marcohern_ultimate_core_ui__WEBPACK_IMPORTED_MODULE_5__["UltimateCoreUiModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
-                _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(_routes__WEBPACK_IMPORTED_MODULE_9__["routes"])
+                _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(_routes__WEBPACK_IMPORTED_MODULE_10__["routes"])
             ],
             providers: [
-                _srvs_user_service__WEBPACK_IMPORTED_MODULE_7__["UserService"]
+                _srvs_user_service__WEBPACK_IMPORTED_MODULE_8__["UserService"]
             ]
         })
     ], UltimateUsersModule);
