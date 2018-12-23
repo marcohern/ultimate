@@ -16,8 +16,12 @@
     "build_ucoreui": "ng build @marcohern/ultimate-core-ui",
     "pack_ucoreui": "cd dist/marcohern/ultimate-core-ui && npm pack",
     "bp_ucoreui": "npm run build_ucoreui && npm run pack_ucoreui",
+    
+    "build_uusers": "ng build @marcohern/ultimate-users",
+    "pack_uusers": "cd dist/marcohern/ultimate-users && npm pack",
+    "bp_uusers": "npm run build_uusers && npm run pack_uusers",
 
-    "bp": "npm run bp_ucore && npm run bp_ucoreui"
+    "bp": "npm run bp_ucore && npm run bp_ucoreui && npm run bp_uusers"
   },
   "private": true,
   "dependencies": {

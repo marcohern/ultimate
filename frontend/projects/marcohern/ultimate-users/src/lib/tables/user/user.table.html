@@ -1,0 +1,12 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ultimate-user-row *ngFor="let user of users;let i=index;" [user]="user" [index]="i"></tr>
+  </tbody>
+</table>

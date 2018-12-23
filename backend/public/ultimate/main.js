@@ -2447,6 +2447,462 @@ var UltimateCoreModule = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./dist/marcohern/ultimate-users/fesm5/marcohern-ultimate-users.js":
+/*!*************************************************************************!*\
+  !*** ./dist/marcohern/ultimate-users/fesm5/marcohern-ultimate-users.js ***!
+  \*************************************************************************/
+/*! exports provided: UserForm, UserQuery, UserRow, UserTable, UltimateUsersModule, ɵb, ɵc, ɵa, ɵd */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserForm", function() { return UserForm; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserQuery", function() { return UserQuery; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserRow", function() { return UserRow; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserTable", function() { return UserTable; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UltimateUsersModule", function() { return UltimateUsersModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵb", function() { return UserEditPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵc", function() { return UserListPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵa", function() { return UserService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵd", function() { return routes; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @marcohern/ultimate-core */ "./dist/marcohern/ultimate-core/fesm5/marcohern-ultimate-core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+
+
+
+
+
+
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var UserService = /** @class */ (function () {
+    function UserService(req) {
+        this.req = req;
+    }
+    /**
+     * @param {?} page
+     * @return {?}
+     */
+    UserService.prototype.browseUsers = /**
+     * @param {?} page
+     * @return {?}
+     */
+    function (page) {
+        return this.req.browse('/users', { page: page });
+    };
+    /**
+     * @param {?} id
+     * @return {?}
+     */
+    UserService.prototype.getUser = /**
+     * @param {?} id
+     * @return {?}
+     */
+    function (id) {
+        return this.req.get('/users', id);
+    };
+    /**
+     * @param {?} user
+     * @return {?}
+     */
+    UserService.prototype.createUser = /**
+     * @param {?} user
+     * @return {?}
+     */
+    function (user) {
+        return this.req.post('/users', user);
+    };
+    /**
+     * @param {?} user
+     * @return {?}
+     */
+    UserService.prototype.updateUser = /**
+     * @param {?} user
+     * @return {?}
+     */
+    function (user) {
+        return this.req.put('/users', user.id, user);
+    };
+    /**
+     * @param {?} user
+     * @return {?}
+     */
+    UserService.prototype.saveUser = /**
+     * @param {?} user
+     * @return {?}
+     */
+    function (user) {
+        if (user.id)
+            return this.updateUser(user);
+        else
+            return this.createUser(user);
+    };
+    /**
+     * @param {?} id
+     * @return {?}
+     */
+    UserService.prototype.deleteUser = /**
+     * @param {?} id
+     * @return {?}
+     */
+    function (id) {
+        return this.req.delete('/users', id);
+    };
+    UserService.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_4__["Injectable"], args: [{
+                    providedIn: 'root'
+                },] }
+    ];
+    /** @nocollapse */
+    UserService.ctorParameters = function () { return [
+        { type: _marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_1__["RequestService"] }
+    ]; };
+    /** @nocollapse */ UserService.ngInjectableDef = Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["defineInjectable"])({ factory: function UserService_Factory() { return new UserService(Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["inject"])(_marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_1__["RequestService"])); }, token: UserService, providedIn: "root" });
+    return UserService;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var UserForm = /** @class */ (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(UserForm, _super);
+    function UserForm(fb, us, ass) {
+        var _this = _super.call(this, ass) || this;
+        _this.fb = fb;
+        _this.us = us;
+        _this.user = {
+            email: '',
+            name: '',
+            password: '',
+            confirmPassword: ''
+        };
+        _this.acceptPassword = false;
+        _this.saved = new _angular_core__WEBPACK_IMPORTED_MODULE_4__["EventEmitter"]();
+        return _this;
+    }
+    /**
+     * @return {?}
+     */
+    UserForm.prototype.ngOnInit = /**
+     * @return {?}
+     */
+    function () {
+        var _this = this;
+        this.acceptPassword = false;
+        this.group = this.fb.group({
+            email: this.fb.control('', [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].email], []),
+            name: this.fb.control('', [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required], []),
+            password: this.fb.control('', [], []),
+            confirmPassword: this.fb.control('', [], []),
+        });
+        this.group.setValue(this.user);
+        if (this.user_id) {
+            this.fill(this.us.getUser(this.user_id), function (user) { return _this.fillUser(user); });
+        }
+        else {
+            this.group.get('password').setValidators([_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required]);
+            this.group.get('confirmPassword').setValidators([_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required]);
+            this.acceptPassword = true;
+        }
+    };
+    /**
+     * @param {?} user
+     * @return {?}
+     */
+    UserForm.prototype.fillUser = /**
+     * @param {?} user
+     * @return {?}
+     */
+    function (user) {
+        console.log(this);
+        this.user = user;
+        this.group.setValue({
+            email: user.email,
+            name: user.name,
+            password: '',
+            confirmPassword: ''
+        });
+    };
+    /**
+     * @param {?} $event
+     * @param {?} values
+     * @return {?}
+     */
+    UserForm.prototype.saving = /**
+     * @param {?} $event
+     * @param {?} values
+     * @return {?}
+     */
+    function ($event, values) {
+        var _this = this;
+        this.user.email = values.email;
+        this.user.name = values.name;
+        this.user.password = values.password;
+        this.us.saveUser(this.user).subscribe(function (result) {
+            _this.saved.emit(_this.user);
+        });
+    };
+    UserForm.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_4__["Component"], args: [{
+                    selector: 'ultimate-user-form',
+                    template: "<form [formGroup]=\"group\" (ngSubmit)=\"submit($event)\" class=\"needs-validation\" novalidate>\n  <div class=\"row\">\n    <div class=\"col-md-12\">\n      <div class=\"form-group\">\n        <h2>Formulario de Usuario</h2>\n      </div>\n    </div>\n  </div>\n  \n  <div class=\"row\">\n    <div class=\"col-md-6\">\n      <div class=\"form-group\">\n        <label>Email</label>\n        <input class=\"form-control\" formControlName=\"email\" [attr.disabled]=\"disable()\"/>\n        <small class=\"err-feedback\">Email obligatorio, formato: <b>xxxxxx@yyyyy.zzz</b>.</small>\n      </div>\n    </div>\n    <div class=\"col-md-6\">\n      <div class=\"form-group\">\n        <label>Nombre</label>\n        <input class=\"form-control\" formControlName=\"name\" [attr.disabled]=\"disable()\"/>\n        <small class=\"err-feedback\">Nombre obligatorio.</small>\n      </div>\n    </div>\n  </div>\n  \n  <div class=\"row\" *ngIf=\"acceptPassword\">\n    <div class=\"col-md-6\">\n      <div class=\"form-group\">\n        <label>Contrase\u00F1a</label>\n        <input type=\"password\" class=\"form-control\" formControlName=\"password\" [attr.disabled]=\"disable()\"/>\n        <small class=\"err-feedback\">Contrase\u00F1a obligatoria.</small>\n      </div>\n    </div>\n    <div class=\"col-md-6\">\n      <div class=\"form-group\">\n        <label>Confirmar Contrase\u00F1a</label>\n        <input  type=\"password\" class=\"form-control\" formControlName=\"confirmPassword\" [attr.disabled]=\"disable()\"/>\n        <small class=\"err-feedback\">Debe ser igual a la contrase\u00F1a.</small>\n      </div>\n    </div>\n  </div>\n\n  <div class=\"row\">\n    <div class=\"col-md-12\">\n      <div class=\"form-group\">\n          <button class=\"btn btn-primary\" type=\"submit\" [attr.disabled]=\"disabelSubmit()\">Guardar</button>\n          &nbsp;\n          <button class=\"btn btn-warning\" type=\"button\" (click)=\"cancel()\" [attr.disabled]=\"disable()\">Cancelar</button>\n      </div>\n    </div>\n  </div>\n</form>",
+                    styles: [""]
+                }] }
+    ];
+    /** @nocollapse */
+    UserForm.ctorParameters = function () { return [
+        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"] },
+        { type: UserService },
+        { type: _marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_1__["AssetsService"] }
+    ]; };
+    UserForm.propDecorators = {
+        user_id: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_4__["Input"] }],
+        saved: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_4__["Output"] }]
+    };
+    return UserForm;
+}(_marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_1__["FormBase"]));
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var UserQuery = /** @class */ (function () {
+    function UserQuery(us) {
+        this.us = us;
+    }
+    /**
+     * @return {?}
+     */
+    UserQuery.prototype.ngOnInit = /**
+     * @return {?}
+     */
+    function () {
+        var _this = this;
+        this.us.browseUsers(1).subscribe(function (result) {
+            _this.usersPaged = result;
+        });
+    };
+    UserQuery.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_4__["Component"], args: [{
+                    selector: 'ultimate-user-query',
+                    template: "<ultimate-user-table [users]=\"usersPaged\"></ultimate-user-table>",
+                    styles: [""]
+                }] }
+    ];
+    /** @nocollapse */
+    UserQuery.ctorParameters = function () { return [
+        { type: UserService }
+    ]; };
+    return UserQuery;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var UserRow = /** @class */ (function () {
+    function UserRow() {
+        this.editRoute = [];
+        this.editing = new _angular_core__WEBPACK_IMPORTED_MODULE_4__["EventEmitter"]();
+    }
+    /**
+     * @return {?}
+     */
+    UserRow.prototype.ngOnInit = /**
+     * @return {?}
+     */
+    function () {
+        if (this.user) ;
+    };
+    /**
+     * @return {?}
+     */
+    UserRow.prototype.ngOnChanges = /**
+     * @return {?}
+     */
+    function () {
+        if (this.user) ;
+    };
+    /**
+     * @param {?} user
+     * @param {?} index
+     * @return {?}
+     */
+    UserRow.prototype.delete = /**
+     * @param {?} user
+     * @param {?} index
+     * @return {?}
+     */
+    function (user, index) {
+        console.log("UserRow.delete", user, index);
+    };
+    UserRow.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_4__["Component"], args: [{
+                    selector: 'ultimate-user-row',
+                    template: "<tr>\n  <td>{{user.name}}</td>\n  <td>{{user.email}}</td>\n  <td>\n    <a class=\"btn btn-warning\" [routerLink]=\"['/user/edit',user.id]\">Edit</a>\n    <button class=\"btn btn-danger\" (click)=\"delete(user, index)\">Delete</button>\n  </td>\n</tr>",
+                    styles: [""]
+                }] }
+    ];
+    /** @nocollapse */
+    UserRow.ctorParameters = function () { return []; };
+    UserRow.propDecorators = {
+        user: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_4__["Input"] }],
+        index: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_4__["Input"] }],
+        editRoute: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_4__["Input"] }],
+        editing: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_4__["Output"] }]
+    };
+    return UserRow;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var UserTable = /** @class */ (function () {
+    function UserTable() {
+        this.users = [];
+    }
+    /**
+     * @return {?}
+     */
+    UserTable.prototype.ngOnInit = /**
+     * @return {?}
+     */
+    function () {
+    };
+    UserTable.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_4__["Component"], args: [{
+                    selector: 'ultimate-user-table',
+                    template: "<table class=\"table\">\n  <thead>\n    <tr>\n      <th>Name</th>\n      <th>Email</th>\n      <th>&nbsp;</th>\n    </tr>\n  </thead>\n  <tbody>\n    <ultimate-user-row *ngFor=\"let user of users;let i=index;\" [user]=\"user\" [index]=\"i\"></ultimate-user-row>\n  </tbody>\n</table>",
+                    styles: [""]
+                }] }
+    ];
+    /** @nocollapse */
+    UserTable.ctorParameters = function () { return []; };
+    UserTable.propDecorators = {
+        users: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_4__["Input"] }]
+    };
+    return UserTable;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var UserEditPage = /** @class */ (function () {
+    function UserEditPage() {
+    }
+    /**
+     * @return {?}
+     */
+    UserEditPage.prototype.ngOnInit = /**
+     * @return {?}
+     */
+    function () {
+    };
+    UserEditPage.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_4__["Component"], args: [{
+                    selector: 'user-edit-page',
+                    template: "<div class=\"container\">\n  <ultimate-user-query></ultimate-user-query>\n</div>",
+                    styles: [""]
+                }] }
+    ];
+    /** @nocollapse */
+    UserEditPage.ctorParameters = function () { return []; };
+    return UserEditPage;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var UserListPage = /** @class */ (function () {
+    function UserListPage() {
+    }
+    /**
+     * @return {?}
+     */
+    UserListPage.prototype.ngOnInit = /**
+     * @return {?}
+     */
+    function () {
+    };
+    UserListPage.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_4__["Component"], args: [{
+                    selector: 'user-list-page',
+                    template: "<div class=\"container\">\n    <ultimate-user-query></ultimate-user-query>\n</div>",
+                    styles: [""]
+                }] }
+    ];
+    /** @nocollapse */
+    UserListPage.ctorParameters = function () { return []; };
+    return UserListPage;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @type {?} */
+var routes = [
+    { path: 'user/edit/:id', component: UserEditPage },
+    { path: 'users/create', component: UserEditPage },
+    { path: 'users', component: UserListPage }
+];
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var UltimateUsersModule = /** @class */ (function () {
+    function UltimateUsersModule() {
+    }
+    UltimateUsersModule.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_4__["NgModule"], args: [{
+                    declarations: [
+                        UserQuery, UserTable, UserRow, UserForm, UserEditPage, UserListPage
+                    ],
+                    imports: [
+                        _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+                        _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormsModule"],
+                        _angular_forms__WEBPACK_IMPORTED_MODULE_5__["ReactiveFormsModule"],
+                        _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forChild(routes)
+                    ],
+                    exports: [
+                        UserQuery, UserForm, UserEditPage, UserListPage
+                    ],
+                    providers: [
+                        UserService
+                    ]
+                },] }
+    ];
+    return UltimateUsersModule;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+
+
+//# sourceMappingURL=marcohern-ultimate-users.js.map
+
+/***/ }),
+
 /***/ "./src/$$_lazy_route_resource lazy recursive":
 /*!**********************************************************!*\
   !*** ./src/$$_lazy_route_resource lazy namespace object ***!
@@ -2611,8 +3067,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @marcohern/ultimate-core */ "./dist/marcohern/ultimate-core/fesm5/marcohern-ultimate-core.js");
 /* harmony import */ var _marcohern_ultimate_core_ui__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @marcohern/ultimate-core-ui */ "./dist/marcohern/ultimate-core-ui/fesm5/marcohern-ultimate-core-ui.js");
-/* harmony import */ var _modules_ultimate_users_ultimate_users_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/ultimate-users/ultimate-users.module */ "./src/app/modules/ultimate-users/ultimate-users.module.ts");
-/* harmony import */ var _modules_ultimate_products_ultimate_products_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/ultimate-products/ultimate-products.module */ "./src/app/modules/ultimate-products/ultimate-products.module.ts");
+/* harmony import */ var _modules_ultimate_products_ultimate_products_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/ultimate-products/ultimate-products.module */ "./src/app/modules/ultimate-products/ultimate-products.module.ts");
+/* harmony import */ var _marcohern_ultimate_users__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @marcohern/ultimate-users */ "./dist/marcohern/ultimate-users/fesm5/marcohern-ultimate-users.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2625,6 +3081,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+//import { UltimateUsersModule } from './modules/ultimate-users/ultimate-users.module';
 
 
 var AppModule = /** @class */ (function () {
@@ -2640,8 +3097,8 @@ var AppModule = /** @class */ (function () {
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"],
                 _marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_4__["UltimateCoreModule"],
                 _marcohern_ultimate_core_ui__WEBPACK_IMPORTED_MODULE_5__["UltimateCoreUiModule"],
-                _modules_ultimate_users_ultimate_users_module__WEBPACK_IMPORTED_MODULE_6__["UltimateUsersModule"],
-                _modules_ultimate_products_ultimate_products_module__WEBPACK_IMPORTED_MODULE_7__["UltimateProductsModule"]
+                _marcohern_ultimate_users__WEBPACK_IMPORTED_MODULE_7__["UltimateUsersModule"],
+                _modules_ultimate_products_ultimate_products_module__WEBPACK_IMPORTED_MODULE_6__["UltimateProductsModule"]
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
@@ -3762,544 +4219,6 @@ var UltimateProductsModule = /** @class */ (function () {
         })
     ], UltimateProductsModule);
     return UltimateProductsModule;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-users/cmps/user-list/user-list.component.css":
-/*!*******************************************************************************!*\
-  !*** ./src/app/modules/ultimate-users/cmps/user-list/user-list.component.css ***!
-  \*******************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvdWx0aW1hdGUtdXNlcnMvY21wcy91c2VyLWxpc3QvdXNlci1saXN0LmNvbXBvbmVudC5jc3MifQ== */"
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-users/cmps/user-list/user-list.component.html":
-/*!********************************************************************************!*\
-  !*** ./src/app/modules/ultimate-users/cmps/user-list/user-list.component.html ***!
-  \********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-6\"> \r\n    <div class=\"form-group\">\r\n      <a class=\"btn btn-primary\" [routerLink]=\"['/users/create']\">Crear Usuario</a>\r\n    </div>\r\n  </div>\r\n  <div class=\"col-md-6\"> \r\n    <div class=\"form-group\">\r\n      <ultimate-pager [paged]=\"usersPaged\" [path]=\"['/users']\"></ultimate-pager>\r\n    </div>\r\n  </div>\r\n</div>\r\n<table class=\"table\">\r\n  <thead>\r\n    <tr>\r\n      <th>Name</th>\r\n      <th>Email</th>\r\n      <th>&nbsp;</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr *ngFor=\"let user of users;let i=index\">\r\n      <td>{{user.name}}</td>\r\n      <td>{{user.email}}</td>\r\n      <td>\r\n        <a class=\"btn btn-warning\" [routerLink]=\"['/user/edit',user.id]\">Edit</a>\r\n        <button class=\"btn btn-danger\" (click)=\"delete(user, i)\">Delete</button>\r\n      </td>\r\n    </tr>\r\n  </tbody>\r\n</table>\r\n<div class=\"row\">\r\n  <div class=\"col-md-6\"> \r\n    <div class=\"form-group\">\r\n      <ultimate-pager [paged]=\"usersPaged\" [path]=\"['/users']\"></ultimate-pager>\r\n    </div>\r\n  </div>\r\n</div>"
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-users/cmps/user-list/user-list.component.ts":
-/*!******************************************************************************!*\
-  !*** ./src/app/modules/ultimate-users/cmps/user-list/user-list.component.ts ***!
-  \******************************************************************************/
-/*! exports provided: UserListComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserListComponent", function() { return UserListComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _srvs_user_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../srvs/user.service */ "./src/app/modules/ultimate-users/srvs/user.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var UserListComponent = /** @class */ (function () {
-    function UserListComponent(us, route) {
-        this.us = us;
-        this.route = route;
-        this.users = [
-            { id: 0, email: '-------- --------', name: '-------- --------' },
-            { id: 0, email: '-------- --------', name: '-------- --------' },
-            { id: 0, email: '-------- --------', name: '-------- --------' },
-            { id: 0, email: '-------- --------', name: '-------- --------' },
-            { id: 0, email: '-------- --------', name: '-------- --------' },
-            { id: 0, email: '-------- --------', name: '-------- --------' },
-            { id: 0, email: '-------- --------', name: '-------- --------' },
-            { id: 0, email: '-------- --------', name: '-------- --------' },
-            { id: 0, email: '-------- --------', name: '-------- --------' },
-            { id: 0, email: '-------- --------', name: '-------- --------' },
-            { id: 0, email: '-------- --------', name: '-------- --------' },
-            { id: 0, email: '-------- --------', name: '-------- --------' },
-            { id: 0, email: '-------- --------', name: '-------- --------' },
-            { id: 0, email: '-------- --------', name: '-------- --------' },
-            { id: 0, email: '-------- --------', name: '-------- --------' },
-            { id: 0, email: '-------- --------', name: '-------- --------' },
-            { id: 0, email: '-------- --------', name: '-------- --------' },
-            { id: 0, email: '-------- --------', name: '-------- --------' },
-            { id: 0, email: '-------- --------', name: '-------- --------' },
-            { id: 0, email: '-------- --------', name: '-------- --------' },
-        ];
-    }
-    UserListComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.route.queryParams.subscribe(function (params) {
-            //this.users = [];
-            _this.page = (params['page']) ? params["page"] : 1;
-            _this.us.browseUsers(_this.page).subscribe(function (result) {
-                console.log(result);
-                _this.users = result.data;
-                _this.usersPaged = result;
-            });
-        });
-    };
-    UserListComponent.prototype.delete = function (user, index) {
-        var _this = this;
-        console.log("delete", user, index);
-        this.us.deleteUser(user.id).subscribe(function (result) {
-            console.log(result);
-            _this.users.splice(index, 1);
-        });
-    };
-    UserListComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'ult-user-list',
-            template: __webpack_require__(/*! ./user-list.component.html */ "./src/app/modules/ultimate-users/cmps/user-list/user-list.component.html"),
-            styles: [__webpack_require__(/*! ./user-list.component.css */ "./src/app/modules/ultimate-users/cmps/user-list/user-list.component.css")]
-        }),
-        __metadata("design:paramtypes", [_srvs_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
-    ], UserListComponent);
-    return UserListComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-users/forms/user/user.form.css":
-/*!*****************************************************************!*\
-  !*** ./src/app/modules/ultimate-users/forms/user/user.form.css ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvdWx0aW1hdGUtdXNlcnMvZm9ybXMvdXNlci91c2VyLmZvcm0uY3NzIn0= */"
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-users/forms/user/user.form.html":
-/*!******************************************************************!*\
-  !*** ./src/app/modules/ultimate-users/forms/user/user.form.html ***!
-  \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<form [formGroup]=\"group\" (ngSubmit)=\"submit($event)\" class=\"needs-validation\" novalidate>\n  <div class=\"row\">\n    <div class=\"col-md-12\">\n      <div class=\"form-group\">\n        <h2>Formulario de Usuario</h2>\n      </div>\n    </div>\n  </div>\n  \n  <div class=\"row\">\n    <div class=\"col-md-6\">\n      <div class=\"form-group\">\n        <label>Email</label>\n        <input class=\"form-control\" formControlName=\"email\" [attr.disabled]=\"disable()\"/>\n        <small class=\"err-feedback\">Email obligatorio, formato: <b>xxxxxx@yyyyy.zzz</b>.</small>\n      </div>\n    </div>\n    <div class=\"col-md-6\">\n      <div class=\"form-group\">\n        <label>Nombre</label>\n        <input class=\"form-control\" formControlName=\"name\" [attr.disabled]=\"disable()\"/>\n        <small class=\"err-feedback\">Nombre obligatorio.</small>\n      </div>\n    </div>\n  </div>\n  \n  <div class=\"row\" *ngIf=\"acceptPassword\">\n    <div class=\"col-md-6\">\n      <div class=\"form-group\">\n        <label>Contraseña</label>\n        <input type=\"password\" class=\"form-control\" formControlName=\"password\" [attr.disabled]=\"disable()\"/>\n        <small class=\"err-feedback\">Contraseña obligatoria.</small>\n      </div>\n    </div>\n    <div class=\"col-md-6\">\n      <div class=\"form-group\">\n        <label>Confirmar Contraseña</label>\n        <input  type=\"password\" class=\"form-control\" formControlName=\"confirmPassword\" [attr.disabled]=\"disable()\"/>\n        <small class=\"err-feedback\">Debe ser igual a la contraseña.</small>\n      </div>\n    </div>\n  </div>\n\n  <div class=\"row\">\n    <div class=\"col-md-12\">\n      <div class=\"form-group\">\n          <button class=\"btn btn-primary\" type=\"submit\" [attr.disabled]=\"disabelSubmit()\">Guardar</button>\n          &nbsp;\n          <button class=\"btn btn-warning\" type=\"button\" (click)=\"cancel()\" [attr.disabled]=\"disable()\">Cancelar</button>\n      </div>\n    </div>\n  </div>\n</form>"
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-users/forms/user/user.form.ts":
-/*!****************************************************************!*\
-  !*** ./src/app/modules/ultimate-users/forms/user/user.form.ts ***!
-  \****************************************************************/
-/*! exports provided: UserForm */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserForm", function() { return UserForm; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @marcohern/ultimate-core */ "./dist/marcohern/ultimate-core/fesm5/marcohern-ultimate-core.js");
-/* harmony import */ var _srvs_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../srvs/user.service */ "./src/app/modules/ultimate-users/srvs/user.service.ts");
-var __extends = (undefined && undefined.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    }
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var UserForm = /** @class */ (function (_super) {
-    __extends(UserForm, _super);
-    function UserForm(fb, us, ass) {
-        var _this = _super.call(this, ass) || this;
-        _this.fb = fb;
-        _this.us = us;
-        _this.user = {
-            email: '',
-            name: '',
-            password: '',
-            confirmPassword: ''
-        };
-        _this.acceptPassword = false;
-        _this.saved = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        return _this;
-    }
-    UserForm.prototype.ngOnInit = function () {
-        var _this = this;
-        this.acceptPassword = false;
-        this.group = this.fb.group({
-            email: this.fb.control('', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].email], []),
-            name: this.fb.control('', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required], []),
-            password: this.fb.control('', [], []),
-            confirmPassword: this.fb.control('', [], []),
-        });
-        this.group.setValue(this.user);
-        if (this.user_id) {
-            this.fill(this.us.getUser(this.user_id), function (user) { return _this.fillUser(user); });
-        }
-        else {
-            this.group.get('password').setValidators([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]);
-            this.group.get('confirmPassword').setValidators([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]);
-            this.acceptPassword = true;
-        }
-    };
-    UserForm.prototype.fillUser = function (user) {
-        console.log(this);
-        this.user = user;
-        this.group.setValue({
-            email: user.email,
-            name: user.name,
-            password: '',
-            confirmPassword: ''
-        });
-    };
-    UserForm.prototype.saving = function ($event, values) {
-        var _this = this;
-        this.user.email = values.email;
-        this.user.name = values.name;
-        this.user.password = values.password;
-        this.us.saveUser(this.user).subscribe(function (result) {
-            _this.saved.emit(_this.user);
-        });
-    };
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
-        __metadata("design:type", Number)
-    ], UserForm.prototype, "user_id", void 0);
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
-        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
-    ], UserForm.prototype, "saved", void 0);
-    UserForm = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'ultimate-user-form',
-            template: __webpack_require__(/*! ./user.form.html */ "./src/app/modules/ultimate-users/forms/user/user.form.html"),
-            styles: [__webpack_require__(/*! ./user.form.css */ "./src/app/modules/ultimate-users/forms/user/user.form.css")]
-        }),
-        __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"], _srvs_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_2__["AssetsService"]])
-    ], UserForm);
-    return UserForm;
-}(_marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_2__["FormBase"]));
-
-
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-users/pages/user-edit/user-edit.page.css":
-/*!***************************************************************************!*\
-  !*** ./src/app/modules/ultimate-users/pages/user-edit/user-edit.page.css ***!
-  \***************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvdWx0aW1hdGUtdXNlcnMvcGFnZXMvdXNlci1lZGl0L3VzZXItZWRpdC5wYWdlLmNzcyJ9 */"
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-users/pages/user-edit/user-edit.page.html":
-/*!****************************************************************************!*\
-  !*** ./src/app/modules/ultimate-users/pages/user-edit/user-edit.page.html ***!
-  \****************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"container\">\r\n  <ultimate-user-form [user_id]=\"user_id\" (saved)=\"saved($event)\" (canceled)=\"cancel()\"></ultimate-user-form>\r\n</div>"
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-users/pages/user-edit/user-edit.page.ts":
-/*!**************************************************************************!*\
-  !*** ./src/app/modules/ultimate-users/pages/user-edit/user-edit.page.ts ***!
-  \**************************************************************************/
-/*! exports provided: UserEditPage */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserEditPage", function() { return UserEditPage; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var UserEditPage = /** @class */ (function () {
-    function UserEditPage(router, route) {
-        this.router = router;
-        this.route = route;
-    }
-    UserEditPage.prototype.ngOnInit = function () {
-        this.user_id = this.route.snapshot.params.id;
-    };
-    UserEditPage.prototype.saved = function (user) {
-        this.router.navigate(['/users']);
-    };
-    UserEditPage.prototype.cancel = function () {
-        this.router.navigate(['/users']);
-    };
-    UserEditPage = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'user-edit-page',
-            template: __webpack_require__(/*! ./user-edit.page.html */ "./src/app/modules/ultimate-users/pages/user-edit/user-edit.page.html"),
-            styles: [__webpack_require__(/*! ./user-edit.page.css */ "./src/app/modules/ultimate-users/pages/user-edit/user-edit.page.css")]
-        }),
-        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"]])
-    ], UserEditPage);
-    return UserEditPage;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-users/pages/user-list/user-list.page.css":
-/*!***************************************************************************!*\
-  !*** ./src/app/modules/ultimate-users/pages/user-list/user-list.page.css ***!
-  \***************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvdWx0aW1hdGUtdXNlcnMvcGFnZXMvdXNlci1saXN0L3VzZXItbGlzdC5wYWdlLmNzcyJ9 */"
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-users/pages/user-list/user-list.page.html":
-/*!****************************************************************************!*\
-  !*** ./src/app/modules/ultimate-users/pages/user-list/user-list.page.html ***!
-  \****************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"container\">\r\n    <ult-user-list></ult-user-list>\r\n</div>"
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-users/pages/user-list/user-list.page.ts":
-/*!**************************************************************************!*\
-  !*** ./src/app/modules/ultimate-users/pages/user-list/user-list.page.ts ***!
-  \**************************************************************************/
-/*! exports provided: UserListPage */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserListPage", function() { return UserListPage; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var UserListPage = /** @class */ (function () {
-    function UserListPage() {
-    }
-    UserListPage.prototype.ngOnInit = function () {
-    };
-    UserListPage = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'user-list-page',
-            template: __webpack_require__(/*! ./user-list.page.html */ "./src/app/modules/ultimate-users/pages/user-list/user-list.page.html"),
-            styles: [__webpack_require__(/*! ./user-list.page.css */ "./src/app/modules/ultimate-users/pages/user-list/user-list.page.css")]
-        }),
-        __metadata("design:paramtypes", [])
-    ], UserListPage);
-    return UserListPage;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-users/routes.ts":
-/*!**************************************************!*\
-  !*** ./src/app/modules/ultimate-users/routes.ts ***!
-  \**************************************************/
-/*! exports provided: routes */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "routes", function() { return routes; });
-/* harmony import */ var _pages_user_list_user_list_page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pages/user-list/user-list.page */ "./src/app/modules/ultimate-users/pages/user-list/user-list.page.ts");
-/* harmony import */ var _pages_user_edit_user_edit_page__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/user-edit/user-edit.page */ "./src/app/modules/ultimate-users/pages/user-edit/user-edit.page.ts");
-
-
-var routes = [
-    { path: 'user/edit/:id', component: _pages_user_edit_user_edit_page__WEBPACK_IMPORTED_MODULE_1__["UserEditPage"] },
-    { path: 'users/create', component: _pages_user_edit_user_edit_page__WEBPACK_IMPORTED_MODULE_1__["UserEditPage"] },
-    { path: 'users', component: _pages_user_list_user_list_page__WEBPACK_IMPORTED_MODULE_0__["UserListPage"] }
-];
-
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-users/srvs/user.service.ts":
-/*!*************************************************************!*\
-  !*** ./src/app/modules/ultimate-users/srvs/user.service.ts ***!
-  \*************************************************************/
-/*! exports provided: UserService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserService", function() { return UserService; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @marcohern/ultimate-core */ "./dist/marcohern/ultimate-core/fesm5/marcohern-ultimate-core.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var UserService = /** @class */ (function () {
-    function UserService(req) {
-        this.req = req;
-    }
-    UserService.prototype.browseUsers = function (page) {
-        return this.req.browse('/users', { page: page });
-    };
-    UserService.prototype.getUser = function (id) {
-        return this.req.get('/users', id);
-    };
-    UserService.prototype.createUser = function (user) {
-        return this.req.post('/users', user);
-    };
-    UserService.prototype.updateUser = function (user) {
-        return this.req.put('/users', user.id, user);
-    };
-    UserService.prototype.saveUser = function (user) {
-        if (user.id)
-            return this.updateUser(user);
-        else
-            return this.createUser(user);
-    };
-    UserService.prototype.deleteUser = function (id) {
-        return this.req.delete('/users', id);
-    };
-    UserService = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
-            providedIn: 'root'
-        }),
-        __metadata("design:paramtypes", [_marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_1__["RequestService"]])
-    ], UserService);
-    return UserService;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/modules/ultimate-users/ultimate-users.module.ts":
-/*!*****************************************************************!*\
-  !*** ./src/app/modules/ultimate-users/ultimate-users.module.ts ***!
-  \*****************************************************************/
-/*! exports provided: UltimateUsersModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UltimateUsersModule", function() { return UltimateUsersModule; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @marcohern/ultimate-core */ "./dist/marcohern/ultimate-core/fesm5/marcohern-ultimate-core.js");
-/* harmony import */ var _marcohern_ultimate_core_ui__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @marcohern/ultimate-core-ui */ "./dist/marcohern/ultimate-core-ui/fesm5/marcohern-ultimate-core-ui.js");
-/* harmony import */ var _cmps_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./cmps/user-list/user-list.component */ "./src/app/modules/ultimate-users/cmps/user-list/user-list.component.ts");
-/* harmony import */ var _pages_user_list_user_list_page__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pages/user-list/user-list.page */ "./src/app/modules/ultimate-users/pages/user-list/user-list.page.ts");
-/* harmony import */ var _srvs_user_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./srvs/user.service */ "./src/app/modules/ultimate-users/srvs/user.service.ts");
-/* harmony import */ var _forms_user_user_form__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./forms/user/user.form */ "./src/app/modules/ultimate-users/forms/user/user.form.ts");
-/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./routes */ "./src/app/modules/ultimate-users/routes.ts");
-/* harmony import */ var _pages_user_edit_user_edit_page__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./pages/user-edit/user-edit.page */ "./src/app/modules/ultimate-users/pages/user-edit/user-edit.page.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-
-
-
-
-
-
-
-
-
-var UltimateUsersModule = /** @class */ (function () {
-    function UltimateUsersModule() {
-    }
-    UltimateUsersModule = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
-            declarations: [
-                _cmps_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_6__["UserListComponent"], _forms_user_user_form__WEBPACK_IMPORTED_MODULE_9__["UserForm"],
-                _pages_user_list_user_list_page__WEBPACK_IMPORTED_MODULE_7__["UserListPage"], _pages_user_edit_user_edit_page__WEBPACK_IMPORTED_MODULE_11__["UserEditPage"]
-            ],
-            imports: [
-                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
-                _marcohern_ultimate_core__WEBPACK_IMPORTED_MODULE_4__["UltimateCoreModule"],
-                _marcohern_ultimate_core_ui__WEBPACK_IMPORTED_MODULE_5__["UltimateCoreUiModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
-                _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(_routes__WEBPACK_IMPORTED_MODULE_10__["routes"])
-            ],
-            providers: [
-                _srvs_user_service__WEBPACK_IMPORTED_MODULE_8__["UserService"]
-            ]
-        })
-    ], UltimateUsersModule);
-    return UltimateUsersModule;
 }());
 
 

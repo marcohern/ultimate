@@ -1,0 +1,6 @@
+<td>{{user.name}}</td>
+<td>{{user.email}}</td>
+<td>
+  <a class="btn btn-warning" [routerLink]="['/user/edit',user.id]">Edit</a>
+  <button class="btn btn-danger" (click)="delete(user, index)">Delete</button>
+</td>

@@ -270,6 +270,76 @@
           }
         }
       }
+    },
+    "ultimate-users": {
+      "root": "projects/ultimate-users",
+      "sourceRoot": "projects/ultimate-users/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ultimate-users/tsconfig.lib.json",
+            "project": "projects/ultimate-users/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ultimate-users/src/test.ts",
+            "tsConfig": "projects/ultimate-users/tsconfig.spec.json",
+            "karmaConfig": "projects/ultimate-users/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ultimate-users/tsconfig.lib.json",
+              "projects/ultimate-users/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@marcohern/ultimate-users": {
+      "root": "projects/marcohern/ultimate-users",
+      "sourceRoot": "projects/marcohern/ultimate-users/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/marcohern/ultimate-users/tsconfig.lib.json",
+            "project": "projects/marcohern/ultimate-users/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/marcohern/ultimate-users/src/test.ts",
+            "tsConfig": "projects/marcohern/ultimate-users/tsconfig.spec.json",
+            "karmaConfig": "projects/marcohern/ultimate-users/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/marcohern/ultimate-users/tsconfig.lib.json",
+              "projects/marcohern/ultimate-users/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ultimate"

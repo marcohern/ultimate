@@ -41,6 +41,18 @@
       ],
       "@marcohern/ultimate-core-ui/*": [
         "dist/marcohern/ultimate-core-ui/*"
+      ],
+      "ultimate-users": [
+        "dist/ultimate-users"
+      ],
+      "ultimate-users/*": [
+        "dist/ultimate-users/*"
+      ],
+      "@marcohern/ultimate-users": [
+        "dist/marcohern/ultimate-users"
+      ],
+      "@marcohern/ultimate-users/*": [
+        "dist/marcohern/ultimate-users/*"
       ]
     }
   }
