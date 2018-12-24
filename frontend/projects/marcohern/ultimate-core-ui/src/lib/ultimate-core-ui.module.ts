@@ -25,6 +25,7 @@ import { RegisterPage } from './pages/register/register.page';
 
 import { AuthService } from './srvs/auth.service';
 import { routes } from './routes';
+import { ParamsPage } from './pages/params/params.page';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { routes } from './routes';
 
     ParamRow, ParamTable,
 
-    InvitePage, LoginPage, NotFoundPage, PrivatePage, PublicPage, RegisterPage
+    InvitePage, LoginPage, NotFoundPage, PrivatePage,
+    PublicPage, RegisterPage, ParamsPage
   ],
   imports: [
     UltimateCoreModule, CommonModule, RouterModule, FormsModule, ReactiveFormsModule,
@@ -49,7 +51,8 @@ import { routes } from './routes';
 
     ParamRow, ParamTable,
 
-    InvitePage, LoginPage, NotFoundPage, PrivatePage, PublicPage, RegisterPage
+    InvitePage, LoginPage, NotFoundPage, PrivatePage,
+    PublicPage, RegisterPage, ParamsPage
   ],
   providers: [
     AuthService

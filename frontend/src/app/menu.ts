@@ -11,6 +11,8 @@ export const menu:MenuItem[] = [
         {label:'List'  , path:['/products']},
         {label:'New'   , path:['/product/add']},
     ]},
+    
+    {label:'Parameters' , path:['/params']},
     /*
     {label:'Auth', children: [
         {label:'Login'   , path:['/login']},

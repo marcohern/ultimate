@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-public',
+  selector: 'public-page',
   templateUrl: './public.page.html',
   styleUrls: ['./public.page.css']
 })

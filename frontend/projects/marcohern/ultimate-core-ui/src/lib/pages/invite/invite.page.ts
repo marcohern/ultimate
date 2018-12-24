@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-invite',
+  selector: 'invite-page',
   templateUrl: './invite.page.html',
   styleUrls: ['./invite.page.css']
 })
