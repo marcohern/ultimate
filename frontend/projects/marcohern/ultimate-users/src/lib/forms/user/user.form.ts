@@ -2,6 +2,7 @@ import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { User, FormBase, UserCreate, AssetsService } from '@marcohern/ultimate-core';
 import { UserService } from '../../srvs/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ultimate-user-form',
@@ -19,12 +20,24 @@ export class UserForm extends FormBase implements OnInit {
 
   acceptPassword:boolean = false;
 
-  @Input() user_id:number;
+  @Input()
+  user_id:number;
+
+  @Input()
+  completeRoute:any[] = [];
 
   @Output()
   saved:EventEmitter<User> = new EventEmitter();
 
-  constructor(private fb:FormBuilder, private us:UserService, ass:AssetsService) { 
+  @Output()
+  cancelling:EventEmitter<any> = new EventEmitter();
+
+  constructor(
+      private fb:FormBuilder,
+      private us:UserService,
+      private router:Router,
+      ass:AssetsService
+    ) { 
     super(ass);
   }
 
@@ -71,7 +84,17 @@ export class UserForm extends FormBase implements OnInit {
     
     this.us.saveUser(this.user).subscribe(result => {
       this.saved.emit(this.user);
+      if (this.completeRoute.length > 0) {
+        this.router.navigate(this.completeRoute);
+      }
     });
+  }
+
+  cancel() {
+    this.cancelling.emit();
+    if (this.completeRoute.length > 0) {
+      this.router.navigate(this.completeRoute);
+    }
   }
 
 }

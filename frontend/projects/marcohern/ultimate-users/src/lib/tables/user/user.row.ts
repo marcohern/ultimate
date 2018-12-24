@@ -20,6 +20,9 @@ export class UserRow implements OnInit, OnChanges {
   @Output()
   editing:EventEmitter<User> = new EventEmitter();
 
+  @Output()
+  deleting:EventEmitter<User> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
@@ -35,6 +38,6 @@ export class UserRow implements OnInit, OnChanges {
   }
 
   delete(user:User, index:number) {
-    console.log("UserRow.delete",user,index);
+    this.deleting.emit(user);
   }
 }

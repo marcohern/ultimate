@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'user-edit-page',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserEditPage implements OnInit {
 
-  constructor() { }
+  user_id:number;
+
+  constructor(private route:ActivatedRoute) { }
 
   ngOnInit() {
+    this.user_id = this.route.snapshot.params.id;
   }
-
 }
