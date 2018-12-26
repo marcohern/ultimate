@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RequestService, MenuItem, MenuOptions, AssetsService } from '@marcohern/ultimate-core';
 import { menu, menuOptions } from './menu';
 import { environment } from 'src/environments/environment';
+import { ProductService } from '@marcohern/ultimate-products';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,7 @@ export class AppComponent implements OnInit {
   menu:MenuItem[] = [];
   options:MenuOptions;
 
-  constructor(private req:RequestService, private ass:AssetsService) {
+  constructor(private req:RequestService, private ass:AssetsService, private prs:ProductService) {
 
   }
 

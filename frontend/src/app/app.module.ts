@@ -7,9 +7,8 @@ import { AppComponent } from './app.component';
 
 import { UltimateCoreModule } from '@marcohern/ultimate-core';
 import { UltimateCoreUiModule } from '@marcohern/ultimate-core-ui';
-//import { UltimateUsersModule } from './modules/ultimate-users/ultimate-users.module';
-import { UltimateProductsModule } from './modules/ultimate-products/ultimate-products.module';
 import { UltimateUsersModule } from '@marcohern/ultimate-users';
+import { UltimateProductsModule } from '@marcohern/ultimate-products';
 
 @NgModule({
   declarations: [

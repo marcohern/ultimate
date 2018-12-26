@@ -40,7 +40,7 @@ import { ParamsPage } from './pages/params/params.page';
     PublicPage, RegisterPage, ParamsPage
   ],
   imports: [
-    UltimateCoreModule, CommonModule, RouterModule, FormsModule, ReactiveFormsModule,
+    UltimateCoreModule, CommonModule, FormsModule, ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
   exports: [

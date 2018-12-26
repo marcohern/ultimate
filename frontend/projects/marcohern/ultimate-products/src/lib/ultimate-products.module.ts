@@ -1,10 +1,53 @@
 import { NgModule } from '@angular/core';
-import { UltimateProductsComponent } from './ultimate-products.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { UltimateCoreModule } from '@marcohern/ultimate-core';
+import { UltimateCoreUiModule } from '@marcohern/ultimate-core-ui';
+import { NgxImageGalleryModule } from 'ngx-image-gallery';
+import { ImageUploadModule } from 'angular2-image-upload';
+import { ModalModule } from 'ngx-bootstrap';
+
+import { ProductDetailComponent } from './cmps/product-detail/product-detail.component';
+import { ProductsQueryComponent } from './cmps/products-query/products-query.component';
+
+import { ProductForm } from './forms/product/product.form';
+import { ProductDetailPage } from './pages/product-detail/product-detail.page';
+import { ProductEditPage } from './pages/product-edit/product-edit.page';
+import { ProductListPage } from './pages/product-list/product-list.page';
+import { ProductRow } from './tables/product/product.row';
+import { ProductTable } from './tables/product/product.table';
+
+import { ProductService } from './srvs/product.service';
+
+import { routes } from './product.routes';
 
 @NgModule({
-  declarations: [UltimateProductsComponent],
-  imports: [
+  declarations: [
+    ProductDetailComponent, ProductsQueryComponent,
+    ProductForm,
+    ProductDetailPage, ProductEditPage, ProductListPage,
+    ProductRow, ProductTable
   ],
-  exports: [UltimateProductsComponent]
+  imports: [
+    CommonModule,
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
+    UltimateCoreModule,
+    UltimateCoreUiModule,
+    NgxImageGalleryModule,
+    ModalModule.forRoot(),
+    RouterModule.forChild(routes),
+    ImageUploadModule.forRoot(),
+  ],
+  exports: [
+    ProductDetailComponent, ProductsQueryComponent,
+    ProductForm,
+    ProductDetailPage, ProductEditPage, ProductListPage,
+    ProductRow, ProductTable
+  ], providers: [
+    ProductService
+  ]
 })
 export class UltimateProductsModule { }

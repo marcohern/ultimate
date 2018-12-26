@@ -15,6 +15,10 @@ export class RequestServiceBase {
         this._apiRoot = apiRoot;
     }
 
+    public getApiRoot() {
+        return this._apiRoot;
+    }
+
     public setOauthRoot(oauthRoot:string) {
         this._oauthRoot = oauthRoot;
     }
