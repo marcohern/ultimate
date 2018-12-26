@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UltimateCoreModule } from '@marcohern/ultimate-core';
 
 import { UserTable } from './tables/user/user.table';
 import { UserRow } from './tables/user/user.row';
@@ -23,6 +24,7 @@ import { routes } from './user.routes';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    UltimateCoreModule,
     RouterModule.forChild(routes)
   ],
   exports: [

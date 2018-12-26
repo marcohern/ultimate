@@ -340,6 +340,41 @@
           }
         }
       }
+    },
+    "@marcohern/ultimate-products": {
+      "root": "projects/marcohern/ultimate-products",
+      "sourceRoot": "projects/marcohern/ultimate-products/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/marcohern/ultimate-products/tsconfig.lib.json",
+            "project": "projects/marcohern/ultimate-products/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/marcohern/ultimate-products/src/test.ts",
+            "tsConfig": "projects/marcohern/ultimate-products/tsconfig.spec.json",
+            "karmaConfig": "projects/marcohern/ultimate-products/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/marcohern/ultimate-products/tsconfig.lib.json",
+              "projects/marcohern/ultimate-products/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ultimate"

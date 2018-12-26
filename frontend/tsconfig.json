@@ -53,6 +53,12 @@
       ],
       "@marcohern/ultimate-users/*": [
         "dist/marcohern/ultimate-users/*"
+      ],
+      "@marcohern/ultimate-products": [
+        "dist/marcohern/ultimate-products"
+      ],
+      "@marcohern/ultimate-products/*": [
+        "dist/marcohern/ultimate-products/*"
       ]
     }
   }
