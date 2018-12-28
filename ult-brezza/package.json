@@ -22,8 +22,12 @@
     "@angular/platform-browser-dynamic": "~7.0.0",
     "@angular/router": "~7.0.0",
     "@marcohern/ultimate-core": "0.0.15",
-    "@marcohern/ultimate-products": "0.0.2",
+    "@marcohern/ultimate-core-ui": "0.0.7",
+    "@marcohern/ultimate-products": "0.0.6",
+    "angular2-image-upload": "^1.0.0-rc.1",
     "core-js": "^2.6.0",
+    "ngx-bootstrap": "^3.1.3",
+    "ngx-image-gallery": "^1.3.1",
     "rxjs": "~6.3.3",
     "rxjs-compat": "^6.3.3",
     "zone.js": "~0.8.26"

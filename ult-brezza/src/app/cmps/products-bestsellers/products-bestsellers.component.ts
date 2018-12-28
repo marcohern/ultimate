@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Product, RequestService } from '@marcohern/ultimate-core';
+import { Product } from '@marcohern/ultimate-core';
+import { ProductService } from '@marcohern/ultimate-products';
 
 declare var jQuery;
 
@@ -10,13 +11,12 @@ declare var jQuery;
 })
 export class ProductsBestsellersComponent implements OnInit {
 
-  constructor(private req:RequestService) { }
+  constructor(private prs:ProductService) { }
 
   bestSellers:Product[];
 
   ngOnInit() {
-
-    this.req.browse<Product[]>('/products/sold_most',{}).subscribe(result => {
+    this.prs.getProductsMostSold().subscribe(result => {
       this.bestSellers = result;
 
       jQuery("#bestsell-slider .slider-items").owlCarousel({

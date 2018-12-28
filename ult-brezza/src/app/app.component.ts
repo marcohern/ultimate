@@ -14,7 +14,10 @@ declare var jQuery;
 export class AppComponent implements OnInit {
   title = 'ult-brezza';
 
-  constructor(private router:Router, private req:RequestService, private ass:AssetsService) {}
+  constructor(
+    private router:Router, 
+    private req:RequestService, 
+    private ass:AssetsService) {}
 
   ngOnInit() {
     this.router.events.subscribe((evt) => {

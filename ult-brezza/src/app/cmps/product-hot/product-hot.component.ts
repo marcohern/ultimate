@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { RequestService, Product } from '@marcohern/ultimate-core';
+import { Product } from '@marcohern/ultimate-core';
+import { ProductService } from '@marcohern/ultimate-products';
 
 declare var CountStepper, CountBack_slider, CountBack_slider_timeout;
 @Component({
@@ -9,7 +10,7 @@ declare var CountStepper, CountBack_slider, CountBack_slider_timeout;
 })
 export class ProductHotComponent implements OnInit, OnDestroy {
 
-  constructor(private req:RequestService) { }
+  constructor(private prs:ProductService) { }
 
   product:Product;
 
@@ -19,7 +20,7 @@ export class ProductHotComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    this.req.browse<any>('/product/hot',{}).subscribe(result => {
+    this.prs.getHotProducts().subscribe(result => {
       if (result) {
         this.product = result;
         var dthen1:any = new Date(result.hot_until);

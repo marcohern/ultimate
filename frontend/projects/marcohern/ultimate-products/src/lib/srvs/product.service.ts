@@ -9,8 +9,8 @@ export class ProductService {
 
   constructor(private req:RequestService) { }
 
-  browseProducts(page:number) : Observable<Paged<Product>> {
-    return this.req.browse<Paged<Product>>('/products', {page});
+  browseProducts(params:any) : Observable<Paged<Product>> {
+    return this.req.browse<Paged<Product>>('/products', params);
   }
 
   getProduct(id:number) : Observable<Product> {
@@ -45,5 +45,17 @@ export class ProductService {
 
   categories() : Observable<Category[]> {
     return this.req.browse<Category[]>('/product/categories', {});
+  }
+
+  getHotProducts() : Observable<Product> {
+    return this.req.browse<Product>('/product/hot', {});
+  }
+
+  getFfeaturedProductsPerCategory() : Observable<any> {
+    return this.req.browse<any>('/products/niu', {});
+  }
+
+  getProductsMostSold() : Observable<Product[]> {
+    return this.req.browse<Product[]>('/products/sold_most', {});
   }
 }

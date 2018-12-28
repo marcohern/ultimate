@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Product, RequestService } from '@marcohern/ultimate-core';
+import { Product } from '@marcohern/ultimate-core';
 import { ProductsByCategory } from 'src/app/models/products-by-category';
+import { ProductService } from '@marcohern/ultimate-products';
 
 @Component({
   selector: 'brezza-products-new',
@@ -13,10 +14,11 @@ export class ProductsNewComponent implements OnInit {
     pijamas:[], chaquetas:[], "combos-maternos":[],gorros:[],ruanas:[]
   };
 
-  constructor(private req:RequestService) { }
+  constructor(private prs:ProductService) { }
 
   ngOnInit() {
-    this.req.browse<ProductsByCategory>('/products/niu',{}).subscribe(result => {
+
+    this.prs.getFfeaturedProductsPerCategory().subscribe(result => {
       this.newProducts = result;
     });
   }
