@@ -15,8 +15,11 @@ import { ProductForm } from './forms/product/product.form';
 import { ProductDetailPage } from './pages/product-detail/product-detail.page';
 import { ProductEditPage } from './pages/product-edit/product-edit.page';
 import { ProductListPage } from './pages/product-list/product-list.page';
+import { CategoryListPage } from './pages/category-list/category-list.page';
 import { ProductRow } from './tables/product/product.row';
+import { CategoryRow } from './tables/category/category.row';
 import { ProductTable } from './tables/product/product.table';
+import { CategoryTable } from './tables/category/category.table';
 
 import { ProductService } from './srvs/product.service';
 
@@ -27,7 +30,9 @@ import { routes } from './product.routes';
     ProductDetailComponent, ProductsQueryComponent,
     ProductForm,
     ProductDetailPage, ProductEditPage, ProductListPage,
-    ProductRow, ProductTable
+    CategoryListPage,
+    ProductRow, CategoryRow,
+    ProductTable, CategoryTable, 
   ],
   imports: [
     CommonModule,
@@ -45,7 +50,9 @@ import { routes } from './product.routes';
     ProductDetailComponent, ProductsQueryComponent,
     ProductForm,
     ProductDetailPage, ProductEditPage, ProductListPage,
-    ProductRow, ProductTable
+    CategoryListPage,
+    ProductRow, CategoryRow,
+    ProductTable, CategoryTable, 
   ], providers: [
     ProductService
   ]
