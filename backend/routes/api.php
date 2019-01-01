@@ -37,4 +37,5 @@ Route::apiResources([
     'categories' => 'Ultimate\\CategoriesController',
     'uploads'    => 'Ultimate\\UploadsController',
     'parameters' => 'Ultimate\\ParametersController',
+    'contents'   => 'Ultimate\\ContentsController',
 ]);
