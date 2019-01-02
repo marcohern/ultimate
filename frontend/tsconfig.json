@@ -59,6 +59,30 @@
       ],
       "@marcohern/ultimate-products/*": [
         "dist/marcohern/ultimate-products/*"
+      ],
+      "@marcohern/ultimate-contents": [
+        "dist/marcohern/ultimate-contents"
+      ],
+      "@marcohern/ultimate-contents/*": [
+        "dist/marcohern/ultimate-contents/*"
+      ],
+      "@marcohern/contents-ui": [
+        "dist/marcohern/contents-ui"
+      ],
+      "@marcohern/contents-ui/*": [
+        "dist/marcohern/contents-ui/*"
+      ],
+      "@marcohern/ultimate-contents-ui": [
+        "dist/marcohern/ultimate-contents-ui"
+      ],
+      "@marcohern/ultimate-contents-ui/*": [
+        "dist/marcohern/ultimate-contents-ui/*"
+      ],
+      "@marcohern/ultimate-products-ui": [
+        "dist/marcohern/ultimate-products-ui"
+      ],
+      "@marcohern/ultimate-products-ui/*": [
+        "dist/marcohern/ultimate-products-ui/*"
       ]
     }
   }

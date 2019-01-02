@@ -1,18 +1,9 @@
 {
   "name": "@marcohern/ultimate-products",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "peerDependencies": {
     "@angular/common": "^7.1.0",
     "@angular/core": "^7.1.0",
-    "uuid": "^3.3.2",
-    "core-js": "^2.6.0",
-    "zone.js": "~0.8.26",
-    "hammerjs": "^2.0.8",
-    "bootstrap": "^4.1.3",
-    "ngx-bootstrap": "^3.1.2",
-    "ngx-image-gallery": "^1.3.1",
-    "angular2-image-upload": "^1.0.0-rc.1",
-    "@marcohern/ultimate-core": "*",
-    "@marcohern/ultimate-core-ui": "*"
+    "@marcohern/ultimate-core": "*"
   }
 }

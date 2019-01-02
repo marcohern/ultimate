@@ -21,10 +21,10 @@ class CreateContentsTable extends Migration
             $table->string('group',64);
             $table->integer('ord');
             $table->longText('content');
-            $table->longText('draft');
-            $table->boolean('enabled')->default(true);
-            $table->integer('hits')->default(0);
-            $table->integer('clicks')->default(0);
+            $table->longText('draft'  );
+            $table->boolean('enabled' )->default(true);
+            $table->integer('hits'    )->default(0);
+            $table->integer('clicks'  )->default(0);
             $table->timestamps();
 
             $table->unique(['lang','reference']);
