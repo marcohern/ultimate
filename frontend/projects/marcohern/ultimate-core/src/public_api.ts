@@ -5,6 +5,7 @@ export * from './lib/base/form-base';
 export * from './lib/base/component-base';
 
 export * from './lib/models/category';
+export * from './lib/models/content';
 export * from './lib/models/checkbox';
 export * from './lib/models/checkbox-changed';;
 export * from './lib/models/login-request';

@@ -1,10 +1,18 @@
 import { NgModule } from '@angular/core';
-import { UltimateContentsComponent } from './ultimate-contents.component';
+import { CommonModule } from '@angular/common';
+
+import { PagesService } from './srvs/pages.service';
 
 @NgModule({
-  declarations: [UltimateContentsComponent],
+  declarations: [
+    CommonModule,
+    
+  ],
   imports: [
   ],
-  exports: [UltimateContentsComponent]
+  exports: [
+    CommonModule
+  ],
+  providers:[PagesService]
 })
 export class UltimateContentsModule { }
