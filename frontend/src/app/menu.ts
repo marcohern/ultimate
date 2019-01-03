@@ -12,6 +12,7 @@ export const menu:MenuItem[] = [
         {label:'Nuevos', path:['/product/add']},
     ]},
     {label:'Parametros' , path:['/params']},
+    {label:'Contenido' , path:['/pages']},
 ];
 
 export const menuOptions:MenuOptions = {

@@ -10,6 +10,8 @@ import { UltimateCoreUiModule } from '@marcohern/ultimate-core-ui';
 import { UltimateUsersModule } from '@marcohern/ultimate-users';
 import { UltimateProductsModule } from '@marcohern/ultimate-products';
 import { UltimateProductsUiModule } from '@marcohern/ultimate-products-ui';
+import { UltimateContentsModule } from '@marcohern/ultimate-contents';
+import { UltimateContentsUiModule } from '@marcohern/ultimate-contents-ui';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { UltimateProductsUiModule } from '@marcohern/ultimate-products-ui';
     UltimateUsersModule,
     UltimateProductsModule,
     UltimateProductsUiModule,
+    UltimateContentsModule,
+    UltimateContentsUiModule
   ],
   providers: [
   ],

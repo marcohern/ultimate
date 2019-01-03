@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UltimateContentsUiComponent } from './ultimate-contents-ui.component';
+import { PageRow } from './page.row';
 
-describe('UltimateContentsUiComponent', () => {
-  let component: UltimateContentsUiComponent;
-  let fixture: ComponentFixture<UltimateContentsUiComponent>;
+describe('PageRow', () => {
+  let component: PageRow;
+  let fixture: ComponentFixture<PageRow>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UltimateContentsUiComponent ]
+      declarations: [ PageRow ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UltimateContentsUiComponent);
+    fixture = TestBed.createComponent(PageRow);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

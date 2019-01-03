@@ -35,7 +35,6 @@ import { routes } from './product-ui.routes';
   ],
   imports: [
     CommonModule,
-    RouterModule,
     FormsModule,
     ReactiveFormsModule,
     UltimateCoreModule,

@@ -5,14 +5,11 @@ import { PagesService } from './srvs/pages.service';
 
 @NgModule({
   declarations: [
-    CommonModule,
-    
   ],
   imports: [
-  ],
-  exports: [
     CommonModule
   ],
+  exports: [],
   providers:[PagesService]
 })
 export class UltimateContentsModule { }

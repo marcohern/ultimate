@@ -22,10 +22,10 @@ import { NotFoundPage } from './pages/not-found/not-found.page';
 import { PrivatePage } from './pages/private/private.page';
 import { PublicPage } from './pages/public/public.page';
 import { RegisterPage } from './pages/register/register.page';
+import { ParamsPage } from './pages/params/params.page';
 
 import { AuthService } from './srvs/auth.service';
 import { routes } from './routes';
-import { ParamsPage } from './pages/params/params.page';
 
 @NgModule({
   declarations: [

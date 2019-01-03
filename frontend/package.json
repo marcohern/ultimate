@@ -29,6 +29,14 @@
         "pack_uprodsui": "cd dist/marcohern/ultimate-products-ui && npm pack",
         "bp_uprodsui": "npm run build_uprodsui && npm run pack_uprodsui",
 
+        "build_ucnt": "ng build @marcohern/ultimate-contents",
+        "pack_ucnt": "cd dist/marcohern/ultimate-contents && npm pack",
+        "bp_ucnt": "npm run build_ucnt && npm run pack_ucnt",
+
+        "build_ucntui": "ng build @marcohern/ultimate-contents-ui",
+        "pack_ucntui": "cd dist/marcohern/ultimate-contents-ui && npm pack",
+        "bp_ucntui": "npm run build_ucntui && npm run pack_ucntui",
+
         "bp": "npm run bp_ucore && npm run bp_ucoreui && npm run bp_uusers && npm run bp_uprods && npm run bp_uprodsui"
     },
     "private": true,
