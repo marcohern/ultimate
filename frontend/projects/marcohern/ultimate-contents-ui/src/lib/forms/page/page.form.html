@@ -1,0 +1,25 @@
+<form [formGroup]="group" (ngSubmit)="submit($event)">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label>Page URL</label>
+        <input type="text" class="form-control" formControlName="reference">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label>Content</label>
+        <textarea class="form-control" rows="5" formControlName="content"></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <button class="btn btn-primary">Guardar</button>
+        </div>
+      </div>
+    </div>
+</form>

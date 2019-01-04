@@ -1,6 +1,6 @@
 {
     "name": "ultimate",
-    "version": "0.0.0",
+    "version": "0.0.10",
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
@@ -37,7 +37,7 @@
         "pack_ucntui": "cd dist/marcohern/ultimate-contents-ui && npm pack",
         "bp_ucntui": "npm run build_ucntui && npm run pack_ucntui",
 
-        "bp": "npm run bp_ucore && npm run bp_ucoreui && npm run bp_uusers && npm run bp_uprods && npm run bp_uprodsui"
+        "bp": "npm run bp_ucore && npm run bp_ucoreui && npm run bp_uusers && npm run bp_uprods && npm run bp_uprodsui && npm run bp_ucnt && npm run bp_ucntui"
     },
     "private": true,
     "dependencies": {
