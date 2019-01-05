@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditorModule } from '@tinymce/tinymce-angular';
 import { UltimateContentsModule } from '@marcohern/ultimate-contents';
 
 import { PageListPage } from './pages/page-list/page-list.page';
@@ -19,6 +20,7 @@ import { routes } from './content.routes';
   imports: [
     CommonModule,
     FormsModule,
+    EditorModule,
     ReactiveFormsModule,
     UltimateContentsModule,
     RouterModule.forChild(routes),

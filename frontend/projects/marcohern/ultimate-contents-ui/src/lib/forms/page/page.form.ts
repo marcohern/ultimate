@@ -23,7 +23,7 @@ export class PageForm extends FormBase implements OnInit {
   }
 
   saving($event) {
-    console.log($event);
+    console.log(this.group.value);
   }
 
 }
