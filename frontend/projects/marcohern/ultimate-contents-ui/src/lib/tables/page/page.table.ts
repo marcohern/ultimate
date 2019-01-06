@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Content } from '@marcohern/ultimate-core';
+import { PagesService } from '@marcohern/ultimate-contents';
 
 @Component({
   selector: 'ultimate-page-table',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageTable implements OnInit {
 
-  constructor() { }
+  pages:Content[];
+
+  constructor(private pgs:PagesService) { }
 
   ngOnInit() {
+    this.pgs.browsePages().subscribe(result => {
+      this.pages = result.data;
+    });
   }
 
 }

@@ -8,10 +8,6 @@
     </tr>
   </thead>
   <tbody>
-    <tr ultimate-page-row></tr>
-    <tr ultimate-page-row></tr>
-    <tr ultimate-page-row></tr>
-    <tr ultimate-page-row></tr>
-    <tr ultimate-page-row></tr>
+    <tr ultimate-page-row *ngFor="let page of pages" [page]="page"></tr>
   </tbody>
 </table>
