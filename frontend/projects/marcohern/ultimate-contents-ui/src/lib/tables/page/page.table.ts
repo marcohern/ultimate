@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { Content } from '@marcohern/ultimate-core';
 import { PagesService } from '@marcohern/ultimate-contents';
 
@@ -7,7 +7,7 @@ import { PagesService } from '@marcohern/ultimate-contents';
   templateUrl: './page.table.html',
   styleUrls: ['./page.table.css']
 })
-export class PageTable implements OnInit {
+export class PageTable implements OnInit, OnChanges {
 
   pages:Content[];
 
@@ -17,6 +17,10 @@ export class PageTable implements OnInit {
     this.pgs.browsePages().subscribe(result => {
       this.pages = result.data;
     });
+  }
+
+  ngOnChanges() {
+    console.log("PageTable.ngOnChanges", this.pages);
   }
 
 }

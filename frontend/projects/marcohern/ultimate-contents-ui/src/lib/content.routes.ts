@@ -5,4 +5,5 @@ import { PageEditPage } from "./pages/page-edit/page-edit.page";
 export const routes:Routes = [
     {path:'pages', component:PageListPage},
     {path:'page/add', component:PageEditPage},
+    {path:'page/:page_id', component:PageEditPage},
 ];
