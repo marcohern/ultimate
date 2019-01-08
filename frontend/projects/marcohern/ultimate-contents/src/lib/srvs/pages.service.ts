@@ -10,8 +10,8 @@ export class PagesService {
 
   constructor(private req:RequestService) { }
 
-  public browsePages():Observable<Paged<Content>> {
-    return this.req.browse<Paged<Content>>('/contents', {});
+  public browsePages(query:any = {}):Observable<Paged<Content>> {
+    return this.req.browse<Paged<Content>>('/contents', query);
   }
 
   public getPage(id:string|number): Observable<Content> {
