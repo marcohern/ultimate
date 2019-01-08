@@ -45,7 +45,6 @@ export class PageForm extends FormBase implements OnInit {
       lang:'',
       type: 'page',
       content: this.group.value.content,
-      draft: '',
       hits:0,
       clicks:0
     };
