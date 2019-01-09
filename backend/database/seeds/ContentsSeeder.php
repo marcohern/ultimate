@@ -25,7 +25,7 @@ class ContentsSeeder extends Seeder
             $p['type'] = 'page';
             $p['group'] = 'none';
             $p['ord'] = 0;
-            $p['draft'] = '';
+            $p['draft'] = $p['content'];
             DB::table('contents')->insert($p);
         }
     }
