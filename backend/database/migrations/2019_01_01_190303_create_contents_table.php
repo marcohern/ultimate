@@ -20,6 +20,7 @@ class CreateContentsTable extends Migration
             $table->string('type', 64)->index();
             $table->string('group',64);
             $table->integer('ord');
+            $table->integer('parent_id')->nullable()->index();
             $table->longText('content');
             $table->longText('draft'  );
             $table->boolean('enabled' )->default(true);

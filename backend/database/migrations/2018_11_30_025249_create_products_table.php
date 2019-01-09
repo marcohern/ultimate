@@ -27,6 +27,7 @@ class CreateProductsTable extends Migration
             $table->boolean('hot'     )->default(false);
             $table->datetime('hot_until')->nullable();
             $table->boolean('featured')->default(false);
+            $table->integer('parent_id')->nullable()->index();
             
             $table->integer('hits')->default(0);
             $table->integer('clicks')->default(0);

@@ -14,7 +14,7 @@ export class PageTable implements OnInit, OnChanges {
   constructor(private pgs:PagesService) { }
 
   ngOnInit() {
-    this.pgs.browsePages().subscribe(result => {
+    this.pgs.browsePages({type:'page'}).subscribe(result => {
       this.pages = result.data;
     });
   }
