@@ -24,6 +24,7 @@ export class PageForm extends FormBase implements OnInit {
     super(ass);
     this.group = this.fb.group({
       reference: this.fb.control('',[],[]),
+      title: this.fb.control('',[],[]),
       content  : this.fb.control('',[],[])
     });
   }
@@ -32,6 +33,7 @@ export class PageForm extends FormBase implements OnInit {
     this.pgs.getPage(this.page_id).subscribe(page => {
       this.group.setValue({
         reference: page.reference,
+        title: page.title,
         content: page.draft
       });
     })
@@ -46,6 +48,7 @@ export class PageForm extends FormBase implements OnInit {
       ord: 0,
       lang:'',
       type: 'page',
+      title: this.group.value.title,
       content: this.group.value.content,
       hits:0,
       clicks:0

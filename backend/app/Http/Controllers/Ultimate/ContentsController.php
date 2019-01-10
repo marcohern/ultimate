@@ -21,7 +21,7 @@ class ContentsController extends Controller
      */
     public function index(Request $r)
     {
-        $query = Content::select('id','reference','lang','type','group','ord','enabled','hits','clicks');
+        $query = Content::select('id','reference','title','lang','type','group','ord','enabled','hits','clicks');
         if ($r->has('type' )) $query->where('type','=',$r->type);
         if ($r->has('lang' )) $query->where('lang','=',$r->lang);
         if ($r->has('group')) $query->where('group','=',$r->group);
@@ -42,6 +42,7 @@ class ContentsController extends Controller
         $content->type = $r->type;
         $content->group = $r->group;
         $content->ord = $r->ord;
+        $content->title = $r->title;
         $content->draft = $r->content;
         $content->enabled = $r->enabled;
         $content->save();
@@ -83,6 +84,7 @@ class ContentsController extends Controller
         if ($r->has('type'     )) $content->type    = $r->type;
         if ($r->has('group'    )) $content->group   = $r->group;
         if ($r->has('ord'      )) $content->ord     = $r->ord;
+        if ($r->has('content'  )) $content->title   = $r->title;
         if ($r->has('content'  )) $content->draft   = $r->content;
         if ($r->has('enabled'  )) $content->enabled = $r->enabled;
         $content->save();
