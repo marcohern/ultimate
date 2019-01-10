@@ -23,7 +23,10 @@ export class PageForm extends FormBase implements OnInit {
     private fb:FormBuilder) {
     super(ass);
     this.group = this.fb.group({
-      reference: this.fb.control('',[Validators.required],[]),
+      reference: this.fb.control('',
+        [Validators.required, Validators.pattern(/^[a-z\-_]+$/)],
+        []
+      ),
       title: this.fb.control('',[Validators.required],[]),
       content  : this.fb.control('',[],[])
     });
