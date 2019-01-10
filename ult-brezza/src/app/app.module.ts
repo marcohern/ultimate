@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AgmCoreModule } from '@agm/core';
 import { UltimateCoreModule } from '@marcohern/ultimate-core';
 import { UltimateProductsModule } from '@marcohern/ultimate-products';
+import { UltimateContentsModule } from '@marcohern/ultimate-contents';
 
 import { AppComponent } from './app.component';
 import { BannerMidComponent } from './cmps/banner-mid/banner-mid.component';
@@ -61,6 +62,7 @@ import { ProductsRelatedComponent } from './cmps/products-related/products-relat
 import { ProductItemImageComponent } from './cmps/product-item-image/product-item-image.component';
 import { ProductItemInfoComponent } from './cmps/product-item-info/product-item-info.component';
 import { LoadingComponent } from './cmps/loading/loading.component';
+import { ContentComponent } from './cmps/content/content.component';
 
 import { IndexPage } from './pages/index/index.page';
 import { AboutPage } from './pages/about/about.page';
@@ -97,11 +99,13 @@ import { HowtobuyPage } from './pages/howtobuy/howtobuy.page';
     ContactPage,
     ProductDetailPage,
     HowtobuyPage,
+    ContentComponent,
   ],
   imports: [
     BrowserModule,
     UltimateCoreModule,
     UltimateProductsModule,
+    UltimateContentsModule,
     AppRoutingModule,
     FormsModule,
     RouterModule,
