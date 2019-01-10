@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBase, AssetsService, Content } from '@marcohern/ultimate-core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PagesService } from '@marcohern/ultimate-contents';
 
@@ -23,8 +23,8 @@ export class PageForm extends FormBase implements OnInit {
     private fb:FormBuilder) {
     super(ass);
     this.group = this.fb.group({
-      reference: this.fb.control('',[],[]),
-      title: this.fb.control('',[],[]),
+      reference: this.fb.control('',[Validators.required],[]),
+      title: this.fb.control('',[Validators.required],[]),
       content  : this.fb.control('',[],[])
     });
   }
