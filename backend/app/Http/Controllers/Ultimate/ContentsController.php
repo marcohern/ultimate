@@ -78,15 +78,15 @@ class ContentsController extends Controller
     {
         $content = null;
         if (is_numeric($id)) $content = Content::find($id);
-        else $content = Content::where('reference','=',$id)->first();
+        else $content = Content::where('reference', '=', $id)->first();
         if ($r->has('reference')) $content->reference = $r->reference;
-        if ($r->has('lang'     )) $content->lang    = $r->lang;
-        if ($r->has('type'     )) $content->type    = $r->type;
-        if ($r->has('group'    )) $content->group   = $r->group;
-        if ($r->has('ord'      )) $content->ord     = $r->ord;
-        if ($r->has('content'  )) $content->title   = $r->title;
-        if ($r->has('content'  )) $content->draft   = $r->content;
-        if ($r->has('enabled'  )) $content->enabled = $r->enabled;
+        if ($r->has('lang'     )) $content->lang      = $r->lang;
+        if ($r->has('type'     )) $content->type      = $r->type;
+        if ($r->has('group'    )) $content->group     = $r->group;
+        if ($r->has('ord'      )) $content->ord       = $r->ord;
+        if ($r->has('title'    )) $content->title     = $r->title;
+        if ($r->has('content'  )) $content->draft     = $r->content;
+        if ($r->has('enabled'  )) $content->enabled   = $r->enabled;
         $content->save();
 
         return [
