@@ -6,6 +6,7 @@ export class Content extends TimedEntity {
     type:string;
     group:string;
     ord:number;
+    title:string;
     content?:string;
     draft?:string;
     hits:number;

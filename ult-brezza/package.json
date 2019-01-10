@@ -22,7 +22,7 @@
     "@angular/platform-browser-dynamic": "~7.0.0",
     "@angular/router": "~7.0.0",
     "@marcohern/ultimate-contents": "0.0.3",
-    "@marcohern/ultimate-core": "0.0.17",
+    "@marcohern/ultimate-core": "0.0.18",
     "@marcohern/ultimate-products": "0.0.11",
     "angular2-image-upload": "^1.0.0-rc.1",
     "core-js": "^2.6.0",
