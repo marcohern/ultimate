@@ -9,8 +9,8 @@ export class UserService {
 
   constructor(private req:RequestService) { }
 
-  browseUsers(page:number):Observable<Paged<User>> {
-    return this.req.browse<Paged<User>>('/users',{page});
+  browseUsers(query:any = {}):Observable<Paged<User>> {
+    return this.req.browse<Paged<User>>('/users',query);
   }
 
   getUser(id:number):Observable<User> {

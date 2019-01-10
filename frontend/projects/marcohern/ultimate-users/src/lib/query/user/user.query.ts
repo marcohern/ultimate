@@ -14,7 +14,7 @@ export class UserQuery implements OnInit {
   constructor(private us:UserService) { }
 
   ngOnInit() {
-    this.us.browseUsers(1).subscribe(result => {
+    this.us.browseUsers({page:1}).subscribe(result => {
       this.usersPaged = result;
     });
   }
