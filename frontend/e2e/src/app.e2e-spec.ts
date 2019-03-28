@@ -9,6 +9,11 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to ultimate!');
+    expect(page.getTitleText()).toEqual('Bienvenido a Ultimate');
+  });
+
+  it('Should display login card title', () => {
+    page.navigate('login');
+    expect(page.getLoginTitle()).toEqual('Login');
   });
 });
